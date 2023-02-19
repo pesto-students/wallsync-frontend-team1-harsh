@@ -1,0 +1,23 @@
+.footer{
+    position:fixed;
+    width: 100%;
+    bottom:0;
+    display: flex;
+    color: white;
+    /* justify-content: space-around; */
+}
+.footernav{
+    display: flex;
+    justify-content: center;
+}
+.footernav span{
+    display: flex;
+    justify-content: center;
+}
+.footericons {
+    display: flex;
+    gap: 1%;
+    margin-right:2%;
+    justify-content: flex-end;
+    
+}
