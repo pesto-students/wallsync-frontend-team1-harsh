@@ -1,0 +1,31 @@
+.header{
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    /* align-items: flex-start; */
+    /* border: solid 2px black; */
+}
+.header .default{
+    display: flex;
+    flex-direction: row;
+    padding: 10px auto;
+    /* justify-content: center; */
+    align-items: center;
+}
+.header img{
+    width: 100px;
+    height: 100px;
+    /* border: solid 2px black; */
+}
+.header h1{
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .header .default{
+        width: 100%;
+    }
+    .header .components{
+        display: none;
+    }
+  }
