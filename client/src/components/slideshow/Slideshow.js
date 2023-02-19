@@ -12,30 +12,39 @@ const Slideshow = () => {
 	const [currentText, setCurrentText] = useState(0);
 	const [text] = useState([
 		<p>
-			YOUR ONE STOP APP FOR ALL
-			<span style={{ color: "#FF0000" }}>FINANCES</span>
+			YOUR ONE STOP
+			<br />
+			APP FOR ALL
+			<br />
+			<span className="highlight">FINANCES</span>
 		</p>,
-		// <p>
-		// 	YOUR ONE STOP APP FOR ALL
-		// 	<span style={{ color: "#FF0000" }}>FINANCES</span>
-		// </p>,
-		// <p>
-		// 	YOUR ONE STOP APP FOR ALL
-		// 	<span style={{ color: "#FF0000" }}>FINANCES</span>
-		// </p>,
-		// <p>
-		// 	YOUR ONE STOP APP FOR ALL
-		// 	<span style={{ color: "#FF0000" }}>FINANCES</span>
-		// </p>,
-		// <p>
-		// 	YOUR ONE STOP APP FOR ALL
-		// 	<span style={{ color: "#FF0000" }}>FINANCES</span>
-		// </p>,
-
-		"MANAGE YOUR EXPENSES & CREATE A BUDGET",
-		"CREATE ACTIVITIES & SPLIT BILLS",
-		"PRIORITIZE REPAYMENTS & SET REMINDERS",
-		"GET LIVE MARKET DATA",
+		<p>
+			MANAGE YOUR EXPENSES
+			<br />
+			& CREATE A
+			<br />
+			<span className="highlight">BUDGET</span>
+		</p>,
+		<p>
+			CREATE ACTIVITIES &
+			<br />
+			<span className="highlight">SPLIT BILLS</span>
+		</p>,
+		<p>
+			PRIORITIZE
+			<br />
+			<span className="highlight">REPAYMENTS</span>
+			<br />
+			& SET
+			<br />
+			<span className="highlight"> REMINDERS</span>
+		</p>,
+		<p>
+			GET
+			<span className="highlight">LIVE MARKET</span>
+			<br />
+			DATA
+		</p>,
 	]);
 	useEffect(() => {
 		const interval = setInterval(() => {
