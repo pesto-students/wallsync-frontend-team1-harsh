@@ -1,5 +1,9 @@
+
 button{
     width: 150px;
     height: 50px;
     border-radius: 25px;
+    color:white;
+    background: rgb(226,110,45);
+background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
 }

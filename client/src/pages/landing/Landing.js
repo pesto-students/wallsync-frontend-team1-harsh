@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../components/button/Button";
 import Header from "../../components/header/Header";
 import Slideshow from "../../components/slideshow/Slideshow";
-import Footer from '../../components/footer/Footer';
+import Footer from "../../components/footer/Footer";
 
 import "./landing.css";
 const Landing = () => {
@@ -18,7 +18,7 @@ const Landing = () => {
 				/>
 			</div>
 			<Slideshow />
-			<Footer/>
+			<Footer />
 		</div>
 	);
 };

@@ -4,20 +4,18 @@
     bottom:0;
     display: flex;
     color: white;
-    /* justify-content: space-around; */
+    /* justify-content: center;   */
 }
-.footernav{
+.footer_links{
+    flex:4;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
-.footernav span{
-    display: flex;
-    justify-content: center;
+
+.footer_icons{
+   margin: 1%;
 }
-.footericons {
-    display: flex;
-    gap: 1%;
-    margin-right:2%;
-    justify-content: flex-end;
-    
+.MuiSvgIcon-root{
+   margin-right: 5px
 }
