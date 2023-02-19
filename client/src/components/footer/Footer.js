@@ -3,6 +3,7 @@ import "./footer.css";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import {IconButton} from '@mui/material';
 
 const Footer = () => {
 	return (
@@ -17,6 +18,7 @@ const Footer = () => {
 				<InstagramIcon />
 				<FacebookIcon />
 				<TwitterIcon />
+
 			</div>
 		</div>
 	);

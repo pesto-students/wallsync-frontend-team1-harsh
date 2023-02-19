@@ -5,7 +5,7 @@ button{
     justify-content: center;
     align-items: center;
 }
-.components{
+.landingButtons{
     display: flex;
     gap: 15px;
     align-items: center;

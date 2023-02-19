@@ -10,7 +10,7 @@ const Landing = () => {
 		<div className="landing">
 			<div className="landingHeader">
 				<Header
-					className="components"
+					className="landingButtons"
 					children={[
 						<Button buttonName={"Login"} />,
 						<Button buttonName={"Sign up"} />,
