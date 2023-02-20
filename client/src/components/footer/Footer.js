@@ -13,7 +13,6 @@ const Footer = () => {
 				<span>Account |</span>
 				<span>Terms & Conditions</span>
 			</div>
-
 			<div className="footer_icons">
 				<InstagramIcon />
 				<FacebookIcon />
