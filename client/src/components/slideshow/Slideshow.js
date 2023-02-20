@@ -41,7 +41,7 @@ const Slideshow = () => {
 		</p>,
 		<p>
 			GET
-			<br/>
+			<br />
 			<span className="highlight">LIVE MARKET</span>
 			<br />
 			DATA

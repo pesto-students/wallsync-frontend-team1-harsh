@@ -9,8 +9,8 @@
     align-items: center;
 }
 .header img{
-    width: 130px;
-    height: 100px;
+    width: 150px;
+    height: 120px;
 }
 .header h1{
     color: white;
@@ -28,5 +28,15 @@
     .landingButtons{
         display: flex;
         justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .landing {
+      height: auto;
+      overflow: hidden;
+    }
+    .landingButtons {
+      gap: 0px;
     }
   }

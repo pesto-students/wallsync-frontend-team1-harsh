@@ -37,15 +37,18 @@
     width: 20px;
     height: 20px;
 }
-.signup{
-    display: flex;
-    align-items: center;
-    margin-right: 2%;
-}
+/* .signupButton{
+   
+} */
 .loginform span{
     display: flex;
     justify-content: center;
     margin: 4%;
+}
+.loginHeader{
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
 }
 /* .line{
     margin-top:10vh;

@@ -1,0 +1,37 @@
+.signupForm{
+    background-color: black;
+    box-shadow: 3px 3px 3px white;
+    display: inline-block;
+    padding: 3%;
+    border-radius: 5%;
+    color:white;
+
+}
+.mainform{
+    display:inline-block;
+}
+.mainform input{
+    margin: 2%;
+}
+.info{
+    display: flex;
+    margin: 2%;
+}
+.infoLabel{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+}
+.signupBody{
+    display:flex;
+    justify-content: space-around;
+}
+.signupHeader{
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+}
+.signupImages img {
+    width:30vw;
+    height:40vh;
+}
