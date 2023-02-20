@@ -5,6 +5,7 @@ import Slideshow from "../../components/slideshow/Slideshow";
 import Footer from "../../components/footer/Footer";
 
 import "./landing.css";
+import Nav from "../../components/nav/Nav";
 const Landing = () => {
 	return (
 		<div className="landing">
@@ -17,6 +18,7 @@ const Landing = () => {
 					]}
 				/>
 			</div>
+			<Nav/>
 			<Slideshow />
 			<Footer />
 		</div>
