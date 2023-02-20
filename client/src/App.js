@@ -4,14 +4,15 @@ import Landing from "./pages/landing/Landing";
 import "./app.css";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signUp/SignUp";
-import SigninWithGoogle from "./components/googleButton/GoogleButton";
+import Home from "./pages/home/Home";
 
 function App() {
 	return (
 		<div className="App">
 			{/* <Landing/> */}
-			<Login />
+			{/* <Login /> */}
 			{/* <Signup /> */}
+			<Home />
 		</div>
 	);
 }
