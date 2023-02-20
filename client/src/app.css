@@ -12,5 +12,10 @@ body{
 }
 .topLine{
     margin-left:2%;
-    margin-right: 2%;
+    margin-right:2%;
+}
+@media screen and (max-width: 600px) {
+    .App{
+        padding-bottom:-100px ;
+    }
 }

@@ -18,7 +18,6 @@ const Footer = () => {
 				<InstagramIcon />
 				<FacebookIcon />
 				<TwitterIcon />
-
 			</div>
 		</div>
 	);

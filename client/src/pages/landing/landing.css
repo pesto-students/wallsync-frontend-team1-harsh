@@ -5,9 +5,17 @@ button{
     justify-content: center;
     align-items: center;
 }
+.landing{
+    height: 100vh;
+}
 .landingButtons{
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
+@media screen and (max-width: 600px) {
+    button{
+        display: hidden;
+    }
+  }
