@@ -67,7 +67,7 @@ const Signup = () => {
 							</label>
 						</div>
 
-						<div>
+						<div className="formSignupButton">
 							<Button buttonName="SignUp" />
 						</div>
 

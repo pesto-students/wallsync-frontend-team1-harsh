@@ -42,7 +42,7 @@ const Login = () => {
 							</label>
 							<h5>Forgot Password?</h5>
 						</div>
-						{/* <br /> */}
+
 						<div>
 							<Button
 								buttonName={"Login"}

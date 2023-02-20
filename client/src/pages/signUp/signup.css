@@ -2,10 +2,9 @@
     background-color: black;
     box-shadow: 3px 3px 3px white;
     display: inline-block;
-    padding: 3%;
+    padding: 2%;
     border-radius: 5%;
     color:white;
-
 }
 .mainform{
     display:inline-block;
@@ -15,12 +14,15 @@
 }
 .info{
     display: flex;
-    margin: 2%;
+    margin: 4%;
 }
 .infoLabel{
-    display: flex;
+    display:flex;
     flex-direction: column;
-    margin-bottom: 10%;
+    gap:2%
+}
+.infoLabel label{
+    margin:5%
 }
 .signupBody{
     display:flex;
@@ -34,4 +36,7 @@
 .signupImages img {
     width:30vw;
     height:40vh;
+}
+.formSignupButton{
+    margin-top:5%
 }
