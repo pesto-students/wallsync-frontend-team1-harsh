@@ -3,6 +3,7 @@
     height:100px;
 }
 .MuiAccordion-root{
-    background-color: aqua;
-    color: red;
+    background: rgb(226,110,45);
+    background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
+    border-radius: 25px
 }
