@@ -14,7 +14,9 @@
     justify-content:space-between; 
     /* margin: auto 2%; */
 }
-
+.MuiSvgIcon-root{
+    color: white;
+}
 .homeFooter{
     margin-top: 4%;
 }

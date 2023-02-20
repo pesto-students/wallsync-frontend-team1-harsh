@@ -8,10 +8,12 @@ import pic2 from "../../assets/expenseManager.png";
 import pic3 from "../../assets/repayments.png";
 import pic4 from "../../assets/stockCheck.png";
 import Nav from "../../components/nav/Nav";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const Home = () => {
 	return (
 		<div>
-			<Header />
+    
+			<Header className="landingButtons" children={<AccountCircleIcon/>}/>
 			<div className="homeBody">
 				<div className="navigation">
 					<Nav />

@@ -14,7 +14,7 @@ const Panel = ({ panelName,panelClass, panelLogo, panelData }) => {
 	};
 	return (
 		<div className='abc'>
-			<Accordion 
+			<Accordion sx={{borderRadius:"25px"}}
 				expanded={expanded === "panel1"}
 				onChange={handleChange("panel1")}
 			>
