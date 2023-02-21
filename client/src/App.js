@@ -6,15 +6,17 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signUp/SignUp";
 import Home from "./pages/home/Home";
 import GoogleB from "./components/GB/Google";
+import Profile from "./pages/profile/Profile";
 
 function App() {
 	return (
 		<div className="App">
 			{/* <Landing/> */}
-			<Login />
+			{/* <Login /> */}
 			{/* <GoogleB/> */}
 			{/* <Signup /> */}
 			{/* <Home /> */}
+			<Profile />
 		</div>
 	);
 }

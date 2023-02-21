@@ -14,6 +14,9 @@ body{
     margin-left:2%;
     margin-right:2%;
 }
+.MuiSvgIcon-root:hover{
+    cursor:pointer;
+}
 @media screen and (max-width: 600px) {
     .App{
         padding-bottom:-100px ;
