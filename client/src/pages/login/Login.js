@@ -59,8 +59,10 @@ const Login = () => {
 					</form>
 				</div>
 			</div>
-			<Footer />
-			<hr className="line" />
+			<div className="homeFooter">
+				<hr />
+				<Footer />
+			</div>
 		</>
 	);
 };

@@ -1,9 +1,11 @@
 import React from "react";
 import "./footer.css";
+// import "./foot.css";
+
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import {IconButton} from '@mui/material';
+import { IconButton } from "@mui/material";
 
 const Footer = () => {
 	return (

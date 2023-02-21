@@ -18,7 +18,7 @@ const Landing = () => {
 					]}
 				/>
 			</div>
-			<Nav/>
+			{/* <Nav /> */}
 			<Slideshow />
 			<Footer />
 		</div>
