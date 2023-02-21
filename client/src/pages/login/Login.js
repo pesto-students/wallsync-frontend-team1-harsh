@@ -4,7 +4,7 @@ import "./login.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import pic1 from "../../assets/login.png";
-import GoogleButton from "../../components/googleButton/GoogleButton";
+import Google from "../../components/GB/Google";
 
 const Login = () => {
 	function submit() {
@@ -53,7 +53,7 @@ const Login = () => {
 						</div>
 						<span>Or</span>
 						<div className="google">
-							<GoogleButton />
+							<Google />
 						</div>
 						<span>Need an account? SingUp</span>
 					</form>

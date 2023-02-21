@@ -24,11 +24,8 @@ const Home = () => {
 						panelName="Add an activiy"
 						panelData="goaTrip"
 					/>
-
 					<Panel panelLogo={pic2} />
-
 					<Panel panelLogo={pic3} />
-
 					<Panel panelLogo={pic4} />
 				</div>
 			</div>
