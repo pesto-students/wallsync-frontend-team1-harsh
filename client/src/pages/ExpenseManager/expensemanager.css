@@ -1,0 +1,67 @@
+.ExpenseBody {
+  display: flex;
+  justify-content: space-between;
+}
+.mainDashBoard {
+  background-color: #1e1e1e;
+  width: 84%;
+  height: auto;
+  padding: 2%;
+  border-radius: 25px 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  justify-content: space-between;
+}
+.board{
+    background-color: orange;
+    padding: 3%;
+    width: auto;
+    /* height: 80vh; */
+    height: auto;
+    border-radius: 25px;
+}
+.topButtons{
+    display: flex;
+    justify-content: space-between;
+}
+.mainChart{
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+.mainChart .spendingsTable{
+    width: 60%;
+    height: 45vh;
+    background-color: azure;
+}
+.mainChart .spendingsDoughnut{
+    width: 30%;
+    height: 45vh;
+    background-color: azure;
+    color: black;
+}
+.middleLayer{
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+.middleLayer input{
+    width: 60%;
+}
+.LowerCharts{
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+.spendings{
+    width: 30%;
+    height: 45vh;
+    background-color: azure;
+    color: black;
+}
+.BigChart{
+    width: 60%;
+    height: 45vh;
+    background-color: azure;
+}
