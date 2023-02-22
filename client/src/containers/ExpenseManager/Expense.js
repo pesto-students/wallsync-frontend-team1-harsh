@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Panel from "../../components/panel/Panel";
@@ -8,8 +8,25 @@ import Button from "../../components/button/Button";
 import pic1 from "../../assets/group.png";
 import GridTable from "../../components/Table/GridTable";
 import Avatar from "../../components/avatar/Avatar";
+import axios from "axios";
 
 const Expense = () => {
+	const [content, setContent] = useState([]);
+	useEffect(() => {
+		const getGroup = () => {
+			axios
+				.get("http://localhost:8000/api/GoaTrip")
+				.then((data) => {
+					console.log(data.data);
+					setContent(data.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		};
+		getGroup();
+	}, []);
+
 	return (
 		<div>
 			<Header className="landingButtons" children={<Avatar />} />
@@ -38,7 +55,7 @@ const Expense = () => {
 							<Button buttonName="income" />
 						</div>
 						<div className="LowerCharts">
-							<div className="spendings">August spendings</div>
+							<div className="spendings">{content.groupTotal}</div>
 							<div className="BigChart"></div>
 						</div>
 					</div>

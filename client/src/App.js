@@ -21,10 +21,10 @@ function App() {
 
 			{/* <Signup /> */}
 			{/* <Home /> */}
-			{/* <Expense /> */}
+			<Expense />
 			{/* <Profile /> */}
 			{/* <Settings /> */}
-			<SplitBills />
+			{/* <SplitBills /> */}
 		</div>
 	);
 }
