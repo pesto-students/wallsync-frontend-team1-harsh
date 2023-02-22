@@ -15,10 +15,10 @@ const Expense = () => {
 	useEffect(() => {
 		const getGroup = () => {
 			axios
-				.get("http://localhost:8000/api/GoaTrip")
+				.get("http://localhost:8000/api/63f361935a6870f14f57389d/getSummary")
 				.then((data) => {
 					console.log(data.data);
-					setContent(data.data);
+					setContent(data.data.expensesArray);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -26,7 +26,29 @@ const Expense = () => {
 		};
 		getGroup();
 	}, []);
-
+	const columns = [
+		{ field: "id", headerName: "ID", width: 70 },
+		{ field: "Description", headerName: "Description", width: 100 },
+		{ field: "Amount", headerName: "Amount", width: 100, sortable: true },
+		{
+			field: "Date",
+			headerName: "Date",
+			type: "number",
+			width: 100,
+			sortable: true,
+		},
+	];
+	const rows = [];
+	{
+		content.map((item, i) => {
+			rows.push({
+				id: i + 1,
+				Description: item.description,
+				Amount: item.amount,
+				Date: item.date.substr(0, 10),
+			});
+		});
+	}
 	return (
 		<div>
 			<Header className="landingButtons" children={<Avatar />} />
@@ -42,7 +64,7 @@ const Expense = () => {
 						</div>
 						<div className="mainChart">
 							<div className="spendingsTable">
-								<GridTable />
+								<GridTable rowData={rows} columnData={columns} />
 							</div>
 							<div className="spendingsDoughnut">
 								<img src={pic1} alt="" />

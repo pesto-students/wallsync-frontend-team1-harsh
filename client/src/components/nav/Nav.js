@@ -42,6 +42,14 @@ const Nav = () => {
 					</li>
 				</ul>
 			</div>
+			<div className="mobilenav">
+				<ul className="mobilenavbottom">
+					<img src={home} />
+					<img src={menu} />
+					<img src={wallet} />
+					<img src={settings} />
+				</ul>
+			</div>
 		</div>
 	);
 };

@@ -54,14 +54,23 @@ ul li p{
 .sidenav:hover ul li{
     justify-content: center;
 }
-
-/* @media screen and (max-width: 700px) {
+.mobilenav{
+    display: none;
+}
+@media only screen and (max-width:700px) {
     .sidenav {
-      float: bottom;
-      transform: translate(90deg);  
-      width: 100%;
-      height: 10%;
-      height: auto;
-      position: relative;
+        display: none;
     }
-  } */
+    .mobilenav{
+        display:block;
+        color:#8d8989; 
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+    .mobilenavbottom img{
+        margin: 20px;
+        width: 5%;
+        height:5%;
+    }
+}
