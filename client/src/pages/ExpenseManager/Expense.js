@@ -3,16 +3,16 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Panel from "../../components/panel/Panel";
 import Nav from "../../components/nav/Nav";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import "./expensemanager.css";
 import Button from "../../components/button/Button";
 import pic1 from "../../assets/group.png";
 import GridTable from "../../components/Table/GridTable";
+import Avatar from "../../components/avatar/Avatar";
 
 const Expense = () => {
 	return (
 		<div>
-			<Header className="landingButtons" children={<AccountCircleIcon />} />
+			<Header className="landingButtons" children={<Avatar />} />
 			<div className="ExpenseBody">
 				<div className="navigation">
 					<Nav />

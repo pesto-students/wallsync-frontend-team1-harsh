@@ -9,37 +9,8 @@
     margin:5%;
     padding: 5%;
 }
-.headerAvatar{
+/* .headerAvatar{
     display: flex;
     align-items: center;
     margin-right: 3%;
-}
-.profileInfo input{
-    margin: 5%;
-}
-.dropicon {
-    position: relative;
-    width: max-content;
-    color: white;
-    font-size: small;
-  }
-  
-  .dropicon .options {
-    
-    display: none;
-    background-color: gray;
-    border-radius: 5px;
-  }
-  
-  .dropicon span {
-    padding: 10px;
-    cursor: pointer;
-    color: rgb(20, 20, 20);
-    font-size: small;
-  }
-  
-  .dropicon:hover .options {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-  }
+} */

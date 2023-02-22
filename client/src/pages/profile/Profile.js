@@ -1,26 +1,14 @@
 import React from "react";
 import "./profile.css";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Header from "../../components/header/Header";
 import Nav from "../../components/nav/Nav";
 import Button from "../../components/button/Button";
 import { Icon, IconButton } from "@mui/material";
+import Avatar from "../../components/avatar/Avatar";
 const Profile = () => {
 	return (
 		<div>
-			<Header
-				className="headerAvatar"
-				children={
-					<div className="dropicon">
-						<AccountCircleIcon />
-						<div className="options">
-							<span type="link">Account</span>
-							<span>Settings</span>
-							<span>Logout</span>
-						</div>
-					</div>
-				}
-			/>
+			<Header className="headerAvatar" children={<Avatar />} />
 			<div className="profileBody">
 				<div className="navigation">
 					<Nav />

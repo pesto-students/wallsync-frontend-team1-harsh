@@ -22,8 +22,7 @@ function App() {
 			{/* <Home /> */}
 			<Expense />
 			{/* <Profile /> */}
-			{/* <Settings/> */}
-			{/* <Toggle /> */}
+			{/* <Settings /> */}
 		</div>
 	);
 }
