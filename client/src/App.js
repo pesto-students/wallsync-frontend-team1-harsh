@@ -1,17 +1,17 @@
 import Button from "./components/button/Button";
 import Header from "./components/header/Header";
-import Landing from "./pages/landing/Landing";
+import Landing from "./containers/landing/Landing";
 import "./app.css";
-import Login from "./pages/login/Login";
-import Signup from "./pages/signUp/SignUp";
-import Home from "./pages/home/Home";
+import Login from "./containers/login/Login";
+import Signup from "./containers/signUp/SignUp";
+import Home from "./containers/home/Home";
 import GoogleB from "./components/GB/Google";
-import Profile from "./pages/profile/Profile";
+import Profile from "./containers/profile/Profile";
 import Toggle from "./components/nav/toggle/Toggle";
-import Settings from "./pages/settings/Settings";
-import Expense from "./pages/ExpenseManager/Expense";
+import Settings from "./containers/settings/Settings";
+import Expense from "./containers/ExpenseManager/Expense";
 import { IconButton } from "@mui/material";
-import SplitBills from "./pages/Splitbills/SplitBills";
+import SplitBills from "./containers/Splitbills/SplitBills";
 
 function App() {
 	return (
