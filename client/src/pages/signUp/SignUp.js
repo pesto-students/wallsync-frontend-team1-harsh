@@ -9,7 +9,7 @@ const Signup = () => {
 		<>
 			<Header
 				className="signupHeader"
-				children={<Button buttonName={"Login"} className={"loginButton"} />}
+				children={<Button buttonName={"Login"} className={"loginB"} />}
 			/>
 			<div className="signupBody">
 				<div className="signupForm">
@@ -68,7 +68,7 @@ const Signup = () => {
 						</div>
 
 						<div className="formSignupButton">
-							<Button buttonName="SignUp" />
+							<Button buttonName="SignUp" className="signUpB" />
 						</div>
 
 						<br />

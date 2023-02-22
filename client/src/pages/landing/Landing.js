@@ -13,8 +13,8 @@ const Landing = () => {
 				<Header
 					className="landingButtons"
 					children={[
-						<Button buttonName={"Login"} />,
-						<Button buttonName={"Sign up"} />,
+						<Button buttonName="Login" className="loginB" />,
+						<Button buttonName="Sign up" className="signUpB" />,
 					]}
 				/>
 			</div>

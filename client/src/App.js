@@ -8,7 +8,7 @@ import Home from "./pages/home/Home";
 import GoogleB from "./components/GB/Google";
 import Profile from "./pages/profile/Profile";
 import Toggle from "./components/nav/toggle/Toggle";
-import Settings from './pages/settings/Settings'
+import Settings from "./pages/settings/Settings";
 import Expense from "./pages/ExpenseManager/Expense";
 import { IconButton } from "@mui/material";
 
@@ -17,10 +17,10 @@ function App() {
 		<div className="App">
 			{/* <Landing /> */}
 			{/* <Login /> */}
-			{/* <GoogleB/> */}
+
 			{/* <Signup /> */}
 			{/* <Home /> */}
-			<Expense/>
+			<Expense />
 			{/* <Profile /> */}
 			{/* <Settings/> */}
 			{/* <Toggle /> */}

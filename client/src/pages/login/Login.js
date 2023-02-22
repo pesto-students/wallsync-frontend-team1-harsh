@@ -14,7 +14,7 @@ const Login = () => {
 		<>
 			<Header
 				className="loginHeader"
-				children={<Button buttonName={"Sign up"} className={"signupButton"} />}
+				children={<Button buttonName={"Sign up"} className={"signUpB"} />}
 			/>
 
 			<hr className="topLine" />
@@ -47,7 +47,7 @@ const Login = () => {
 						<div>
 							<Button
 								buttonName={"Login"}
-								className={"login"}
+								className={"loginB"}
 								type={"Submit"}
 							/>
 						</div>
@@ -59,10 +59,8 @@ const Login = () => {
 					</form>
 				</div>
 			</div>
-			<div className="homeFooter">
-				<hr />
-				<Footer />
-			</div>
+
+			<Footer />
 		</>
 	);
 };
