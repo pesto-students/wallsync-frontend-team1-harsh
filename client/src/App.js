@@ -11,6 +11,7 @@ import Toggle from "./components/nav/toggle/Toggle";
 import Settings from "./pages/settings/Settings";
 import Expense from "./pages/ExpenseManager/Expense";
 import { IconButton } from "@mui/material";
+import SplitBills from "./pages/Splitbills/SplitBills";
 
 function App() {
 	return (
@@ -20,9 +21,10 @@ function App() {
 
 			{/* <Signup /> */}
 			{/* <Home /> */}
-			<Expense />
+			{/* <Expense /> */}
 			{/* <Profile /> */}
 			{/* <Settings /> */}
+			<SplitBills />
 		</div>
 	);
 }
