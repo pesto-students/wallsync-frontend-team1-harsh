@@ -8,18 +8,19 @@ import Home from "./pages/home/Home";
 import GoogleB from "./components/GB/Google";
 import Profile from "./pages/profile/Profile";
 import Toggle from "./components/nav/toggle/Toggle";
+import Settings from './pages/settings/Settings'
 import { IconButton } from "@mui/material";
 
 function App() {
 	return (
 		<div className="App">
-			<Landing />
+			{/* <Landing /> */}
 			{/* <Login /> */}
 			{/* <GoogleB/> */}
 			{/* <Signup /> */}
-			{/* <Home /> */}
+			<Home />
 			{/* <Profile /> */}
-
+			{/* <Settings/> */}
 			{/* <Toggle /> */}
 		</div>
 	);

@@ -4,6 +4,7 @@ import "./lightmode.css";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
 import toggle from "../../../assets/icons8-toggle-on-50.png";
 import Button from "../../button/Button";
+import MaterialUISwitch from "./MuiSwitch";
 const Toggle = () => {
 	const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 	const toggleTheme = () => {
@@ -18,11 +19,17 @@ const Toggle = () => {
 		document.body.className = theme;
 	}, [theme]);
 	return (
-		<img
-			className={`toggleSwitch ${theme}`}
-			onClick={toggleTheme}
-			src={toggle}
-		></img>
+		// <img
+		// 	className={`toggleSwitch ${theme}`}
+		// 	onClick={toggleTheme}
+		// 	src={toggle}
+		// ></img>
+		<MaterialUISwitch
+			// checked={theme}
+			onChange={toggleTheme}
+			sx={{ m: 1 }}
+			defaultChecked
+		/>
 	);
 };
 
