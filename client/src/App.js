@@ -12,13 +12,14 @@ import Settings from "./containers/settings/Settings";
 import Expense from "./containers/ExpenseManager/Expense";
 import { IconButton } from "@mui/material";
 import SplitBills from "./containers/Splitbills/SplitBills";
+import Repayments from "./containers/Repayments/Repayments";
 
 function App() {
 	return (
 		<div className="App">
-			<Landing />
+			{/* <Landing /> */}
 			{/* <Login /> */}
-
+			<Repayments />
 			{/* <Signup /> */}
 			{/* <Home /> */}
 			{/* <Expense /> */}
