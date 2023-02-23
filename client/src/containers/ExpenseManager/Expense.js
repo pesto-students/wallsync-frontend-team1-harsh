@@ -6,7 +6,7 @@ import Nav from "../../components/nav/Nav";
 import "./expensemanager.css";
 import Button from "../../components/button/Button";
 import pic1 from "../../assets/group.png";
-import GridTable from "../../components/Table/GridTable";
+import Table from "./components/Table";
 import Avatar from "../../components/avatar/Avatar";
 import axios from "axios";
 
@@ -64,7 +64,7 @@ const Expense = () => {
 						</div>
 						<div className="mainChart">
 							<div className="spendingsTable">
-								<GridTable rowData={rows} columnData={columns} />
+								<Table rowData={rows} columnData={columns} />
 							</div>
 							<div className="spendingsDoughnut">
 								<img src={pic1} alt="" />
