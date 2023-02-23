@@ -10,15 +10,19 @@ import Table from "./components/Table";
 import Avatar from "../../components/avatar/Avatar";
 import axios from "axios";
 import ExpenseChart from "./components/Chart";
+import { useNavigate } from "react-router-dom";
 const Expense = () => {
 	const [content, setContent] = useState([]);
 	const [chartData, setChartData] = useState([]);
+	const [description, setDescription] = useState("");
+	const [amount, setAmount] = useState("");
+
 	useEffect(() => {
 		const getGroup = () => {
 			axios
 				.get("http://localhost:8000/api/63f361935a6870f14f57389d/getSummary")
 				.then((data) => {
-					console.log(data.data);
+					// console.log(data.data);
 					setContent(data.data.expensesArray);
 					setChartData(data.data);
 				})
@@ -27,7 +31,7 @@ const Expense = () => {
 				});
 		};
 		getGroup();
-	}, []);
+	}, [description, amount]);
 	//table data
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },
@@ -68,6 +72,21 @@ const Expense = () => {
 			},
 		],
 	};
+
+	const submit = async (e) => {
+		e.preventDefault();
+
+		const res = await axios.post(
+			"http://localhost:8000/api/63f361935a6870f14f57389d/addExpense",
+			{
+				description,
+				amount,
+			}
+		);
+		setDescription(" ");
+		setAmount(" ");
+	};
+
 	return (
 		<div>
 			<Header className="landingButtons" children={<Avatar />} />
@@ -91,10 +110,27 @@ const Expense = () => {
 							</div>
 						</div>
 						<div className="middleLayer">
-							<input type="text" placeholder="add exp" />
-							<Button buttonName="limit" />
+							<div>
+								<form onSubmit={submit}>
+									<input
+										type="text"
+										placeholder="description"
+										onChange={(e) => setDescription(e.target.value)}
+									/>
+									<input
+										type="number"
+										placeholder="amount"
+										onChange={(e) => setAmount(e.target.value)}
+									/>
+									<Button type="submit" buttonName={"add"} />
+								</form>
+							</div>
 
-							<Button buttonName="income" />
+							<div>
+								<Button buttonName="limit" />
+
+								<Button buttonName="income" />
+							</div>
 						</div>
 						<div className="LowerCharts">
 							<div className="spendings">
