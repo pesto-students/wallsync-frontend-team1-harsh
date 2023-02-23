@@ -54,6 +54,15 @@
     display: flex;
     justify-content: space-between;
 }
+.LowerCharts .spendings{
+    /* padding: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+.LowerCharts .spendings p{
+    font-size: 2.5rem;
+}
 .spendings{
     width: 30%;
     height: 45vh;
