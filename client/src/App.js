@@ -22,6 +22,7 @@ function App() {
 			{/* <Signup /> */}
 			{/* <Home /> */}
 			<Expense />
+
 			{/* <Profile /> */}
 			{/* <Settings /> */}
 			{/* <SplitBills /> */}

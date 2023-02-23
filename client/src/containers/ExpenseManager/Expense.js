@@ -9,9 +9,10 @@ import pic1 from "../../assets/group.png";
 import Table from "./components/Table";
 import Avatar from "../../components/avatar/Avatar";
 import axios from "axios";
-
+import ExpenseChart from "./components/Chart";
 const Expense = () => {
 	const [content, setContent] = useState([]);
+	const [chartData, setChartData] = useState([]);
 	useEffect(() => {
 		const getGroup = () => {
 			axios
@@ -19,6 +20,7 @@ const Expense = () => {
 				.then((data) => {
 					console.log(data.data);
 					setContent(data.data.expensesArray);
+					setChartData(data.data);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -26,6 +28,7 @@ const Expense = () => {
 		};
 		getGroup();
 	}, []);
+	//table data
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },
 		{ field: "Description", headerName: "Description", width: 100 },
@@ -49,6 +52,22 @@ const Expense = () => {
 			});
 		});
 	}
+	//doughnut data
+	const data = {
+		labels: ["Income", "Savings", "Total"],
+		datasets: [
+			{
+				label: "My First Dataset",
+				data: [chartData.income, chartData.savings, chartData.total],
+				backgroundColor: [
+					"rgb(255, 99, 132)",
+					"rgb(54, 162, 235)",
+					"rgb(255, 205, 86)",
+				],
+				hoverOffset: 4,
+			},
+		],
+	};
 	return (
 		<div>
 			<Header className="landingButtons" children={<Avatar />} />
@@ -67,17 +86,20 @@ const Expense = () => {
 								<Table rowData={rows} columnData={columns} />
 							</div>
 							<div className="spendingsDoughnut">
-								<img src={pic1} alt="" />
+								{/* <img src={pic1} alt="" /> */}
+								<ExpenseChart pieData={data} />
 							</div>
 						</div>
 						<div className="middleLayer">
 							<input type="text" placeholder="add exp" />
 							<Button buttonName="limit" />
-							{/* <Button className={"Input"}/> */}
+
 							<Button buttonName="income" />
 						</div>
 						<div className="LowerCharts">
-							<div className="spendings">{content.groupTotal}</div>
+							<div className="spendings">
+								<p>February spendings: {chartData.total}</p>
+							</div>
 							<div className="BigChart"></div>
 						</div>
 					</div>
