@@ -7,8 +7,8 @@ export default function DataTable({ rowData, columnData }) {
 			<DataGrid
 				rows={rowData}
 				columns={columnData}
-				pageSize={5}
-				rowsPerPageOptions={[5]}
+				pageSize={10}
+				rowsPerPageOptions={[10]}
 				checkboxSelection
 			/>
 		</div>
