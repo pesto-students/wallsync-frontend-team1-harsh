@@ -1,5 +1,5 @@
 .signupForm{
-    background-color: black;
+    background-color: #1f1f1f;
     box-shadow: 3px 3px 3px white;
     display: inline-block;
     padding: 2%;
@@ -34,8 +34,8 @@
     margin-right: 2%;
 }
 .signupImages img {
-    width:30vw;
-    height:40vh;
+    width:15vw;
+    height:70vh;
 }
 .formSignupButton{
     margin-top:5%

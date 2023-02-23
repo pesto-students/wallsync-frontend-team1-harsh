@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./slideshow.css";
-import pic1 from "../../assets/wallet.png";
+import pic1 from "../../assets/start.png";
 import pic2 from "../../assets/budget.png";
 import pic3 from "../../assets/group.png";
 import pic4 from "../../assets/calculation.png";

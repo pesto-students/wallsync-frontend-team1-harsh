@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Button from "../../components/button/Button";
-import pic1 from "../../assets/budget.png";
+import pic1 from "../../assets/signup.png";
 import "./signup.css";
 const Signup = () => {
 	return (

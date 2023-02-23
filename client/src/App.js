@@ -16,12 +16,12 @@ import SplitBills from "./containers/Splitbills/SplitBills";
 function App() {
 	return (
 		<div className="App">
-			{/* <Landing /> */}
+			<Landing />
 			{/* <Login /> */}
 
 			{/* <Signup /> */}
 			{/* <Home /> */}
-			<Expense />
+			{/* <Expense /> */}
 
 			{/* <Profile /> */}
 			{/* <Settings /> */}
