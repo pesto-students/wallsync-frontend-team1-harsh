@@ -19,14 +19,14 @@ function App() {
 		<div className="App">
 			{/* <Landing /> */}
 			{/* <Login /> */}
-			<Repayments />
+			{/* <Repayments /> */}
 			{/* <Signup /> */}
 			{/* <Home /> */}
 			{/* <Expense /> */}
 
 			{/* <Profile /> */}
 			{/* <Settings /> */}
-			{/* <SplitBills /> */}
+			<SplitBills />
 		</div>
 	);
 }

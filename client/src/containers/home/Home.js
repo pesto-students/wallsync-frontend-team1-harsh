@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import Panel from "../../components/panel/Panel";
+import Panel from './components/panel/Panel';
 import "./home.css";
 import pic1 from "../../assets/group.png";
 import pic2 from "../../assets/expenseManager.png";
