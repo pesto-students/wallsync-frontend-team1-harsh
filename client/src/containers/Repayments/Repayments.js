@@ -5,10 +5,14 @@ import Nav from "../../components/nav/Nav";
 import Footer from "../../components/footer/Footer";
 import axios from "axios";
 import Table from "./components/Table";
+import Button from "../../components/button/Button";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+
 const Repayments = () => {
 	const [repayments, setRepayments] = useState([]);
-	// const [data, setData] = useState(repayments);
+	const [description, setDescription] = useState("");
+	const [amount, setAmount] = useState("");
+	const [dueDate, setDueDate] = useState("");
 
 	useEffect(() => {
 		const getRepayments = () => {
@@ -23,10 +27,19 @@ const Repayments = () => {
 				});
 		};
 		getRepayments();
-	}, []);
+	}, [description, amount, dueDate]);
 	// const handleDelete = (id) => {
 	// 	setData(data.filter((item) => item.id !== id));
 	// };
+
+	const submit = async (e) => {
+		e.preventDefault();
+
+		await axios.post(
+			"http://localhost:8000/api/63f361935a6870f14f57389d/addRepayment",
+			{ description, amount, dueDate }
+		);
+	};
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },
 		{ field: "Description", headerName: "Description", width: 100 },
@@ -77,6 +90,22 @@ const Repayments = () => {
 						rowData={rows}
 						columnData={columns}
 					/>
+					<div>
+						<form onSubmit={submit}>
+							<input
+								type="text"
+								placeholder="description"
+								onChange={(e) => setDescription(e.target.value)}
+							/>
+							<input
+								type="number"
+								placeholder="amount"
+								onChange={(e) => setAmount(e.target.value)}
+							/>
+							<input type="date" onChange={(e) => setDueDate(e.target.value)} />
+							<Button type="submit" buttonName="Add Repayment" />
+						</form>
+					</div>
 				</div>
 			</div>
 			<Footer />
