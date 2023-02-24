@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 
 export default function DataTable({ rowData, columnData }) {
 	return (
-		<div style={{ height: 372, width: "100%" }}>
+		<div style={{ height: 372, width: "50%" }}>
 			<DataGrid
 				rows={rowData}
 				columns={columnData}

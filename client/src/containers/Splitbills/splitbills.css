@@ -13,3 +13,11 @@
     gap: 4vh;
     justify-content: space-between;
   }
+  .splitPanelData{
+    display: flex
+
+  }
+  .summaryTable{
+    background-color: pink;
+    width: 40%;
+  }
