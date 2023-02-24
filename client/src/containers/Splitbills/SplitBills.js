@@ -10,7 +10,7 @@ import axios from "axios";
 const SplitBills = () => {
 	const [content, setContent] = useState([]);
 	const [group, setGroup] = useState([]);
-	const [groupContributions, setGroupContributions] = useState([]);
+	const [contributions, setContributions] = useState([]);
 	const [finalContributions, setFinalContributions] = useState([]);
 	const [balance, setBalance] = useState([]);
 
@@ -21,6 +21,7 @@ const SplitBills = () => {
 			);
 
 			setContent(result.data);
+
 			// setGroup(result.data);
 			// setGroupContributions(result.data.contributions);
 			// setFinalContributions(result.data.finalContributions);
@@ -31,18 +32,15 @@ const SplitBills = () => {
 	}, []);
 
 	const columns = [
-		{ field: "id", headerName: "ID", width: 70 },
-		{ field: "Name", headerName: "Name", width: 100 },
+		{ field: "_id", headerName: "ID", width: 70 },
+		{ field: "name", headerName: "Name", width: 100 },
 
-		{ field: "Description", headerName: "Description", width: 100 },
-		{ field: "Amount", headerName: "Amount", width: 100, sortable: true },
+		{ field: "desc", headerName: "Description", width: 100 },
+		{ field: "share", headerName: "Amount", width: 100, sortable: true },
 	];
+
 	const rows = [];
 
-	content.map((i) => {
-		setGroupContributions(groupContributions.push(i.contributions));
-	});
-	console.log(groupContributions);
 	const data = {
 		labels: content.map((i) => {
 			i.finalContributions.map((j) => j.name);
@@ -71,36 +69,21 @@ const SplitBills = () => {
 			<div className="splitBody">
 				<Nav />
 				<div className="splitDashboard">
-					{/* <Panel
-						panelName={group.groupName}
-						panelData={
-							<div className="splitPanelData">
-								<Table columnData={columns} rowData={rows} />
-								<ExpenseChart pieData={data} />
-								<div className="summaryTable">
-									<ul>
-										{balance.map((i) => {
-											return (
-												<p>
-													{i.name}{" "}
-													{i.toSettle
-														? `settle: ${i.toSettle} `
-														: ` owed: ${i.owed}`}
-												</p>
-											);
-										})}
-									</ul>
-								</div>
-							</div>
-						}
-					/> */}
+					{/* {
+						<p>
+							{i.name}{" "}
+							{i.toSettle ? `settle: ${i.toSettle} ` : ` owed: ${i.owed}`}
+						</p>
+					} */}
+
 					{content.map((i) => {
 						return (
 							<Panel
 								panelName={i.groupName}
 								panelData={
 									<div className="splitPanelData">
-										<Table columnData={columns} rowData={rows} />;
+										<Table columnData={columns} rowData={i.contributions} />
+
 										<ExpenseChart pieData={data} />
 									</div>
 								}
