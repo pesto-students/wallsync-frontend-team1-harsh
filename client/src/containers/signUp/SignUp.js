@@ -1,10 +1,69 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Button from "../../components/button/Button";
 import pic1 from "../../assets/signup.png";
+import axios from "axios";
 import "./signup.css";
+import GoogleB from "../../components/GB/Google";
 const Signup = () => {
+	const [userInfo, setUserInfo] = useState({
+		firstName: "",
+		lastName: "",
+		phone: "",
+		email: "",
+		zip: "",
+		password: "",
+		confirmPassword: "",
+	});
+
+	const handleChange = (e) => {
+		setUserInfo({
+			...userInfo,
+			[e.target.name]: e.target.value,
+		});
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const {
+			firstName,
+			lastName,
+			phone,
+			email,
+			zip,
+			password,
+			confirmPassword,
+		} = userInfo;
+		if (userInfo.password !== userInfo.confirmPassword) {
+			alert("re-enter correct password");
+		} else {
+			axios
+				.post("http://localhost:8000/api/register", {
+					firstName,
+					lastName,
+					phone,
+					email,
+					zip,
+					password,
+				})
+				.then((res) => {
+					console.log(res);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
+		setUserInfo({
+			firstName: "",
+			lastName: "",
+			phone: "",
+			email: "",
+			zip: "",
+			password: "",
+			confirmPassword: "",
+		});
+	};
 	return (
 		<>
 			<Header
@@ -13,17 +72,23 @@ const Signup = () => {
 			/>
 			<div className="signupBody">
 				<div className="signupForm">
-					<form className="mainform">
+					<form onSubmit={(e) => handleSubmit(e)} className="mainform">
 						<div className="info">
 							<input
 								type="text"
 								className="first name"
-								placeholder="First Name"
+								value={userInfo.firstName}
+								placeholder="firstName"
+								name="firstName"
+								onChange={(e) => handleChange(e)}
 							></input>
 							<input
 								type="text"
 								className="last name"
-								placeholder="Last Name"
+								placeholder="lastName"
+								name="lastName"
+								value={userInfo.lastName}
+								onChange={(e) => handleChange(e)}
 							></input>
 						</div>
 
@@ -31,17 +96,36 @@ const Signup = () => {
 							<input
 								type="text"
 								className="phone"
-								placeholder="Phone Number"
+								placeholder="phone"
+								name="phone"
+								value={userInfo.phone}
+								onChange={(e) => handleChange(e)}
 							></input>
-							<input type="text" className="email" placeholder="Email"></input>
+							<input
+								type="text"
+								className="email"
+								value={userInfo.email}
+								placeholder="email"
+								name="email"
+								onChange={(e) => handleChange(e)}
+							></input>
 						</div>
 						<div className="info">
-							<input
+							{/* <input
 								type="text"
 								className="country"
 								placeholder="Country"
+								value={userInfo.country}
+								onChange={(e) => handleChange(e)}
+							></input> */}
+							<input
+								type="text"
+								className="zip"
+								placeholder="Zip"
+								name="zip"
+								value={userInfo.zip}
+								onChange={(e) => handleChange(e)}
 							></input>
-							<input type="text" className="zip" placeholder="Zip"></input>
 							<br />
 						</div>
 						<div className="info">
@@ -49,12 +133,18 @@ const Signup = () => {
 								type="password"
 								className="password"
 								placeholder="enter password"
+								name="password"
+								value={userInfo.password}
+								onChange={(e) => handleChange(e)}
 							></input>
 							<br />
 							<input
 								type="password"
 								className="confirmPassword"
 								placeholder="Confirm password"
+								name="confirmPassword"
+								value={userInfo.confirmPassword}
+								onChange={(e) => handleChange(e)}
 							></input>
 						</div>
 						<div className="infoLabel">
@@ -63,15 +153,16 @@ const Signup = () => {
 								WallSync
 							</label>
 							<label>
-								<input type="checkbox" /> I agree to all Terms & Privacy Policy
+								<input type="checkbox" required="true" /> I agree to all Terms &
+								Privacy Policy
 							</label>
 						</div>
 
 						<div className="formSignupButton">
-							<Button buttonName="SignUp" className="signUpB" />
+							<Button type="submit" buttonName="SignUp" className="signUpB" />
+							or
+							<GoogleB />
 						</div>
-
-						<br />
 					</form>
 				</div>
 				<div className="signupImages">
