@@ -13,6 +13,7 @@ import Expense from "./containers/ExpenseManager/Expense";
 import { IconButton } from "@mui/material";
 import SplitBills from "./containers/Splitbills/SplitBills";
 import Repayments from "./containers/Repayments/Repayments";
+import LiveMarket from "./containers/LiveMarket/LiveMarket";
 
 function App() {
 	return (
@@ -23,7 +24,7 @@ function App() {
 			{/* <Signup /> */}
 			{/* <Home /> */}
 			{/* <Expense /> */}
-
+			{/* <LiveMarket /> */}
 			{/* <Profile /> */}
 			{/* <Settings /> */}
 			<SplitBills />

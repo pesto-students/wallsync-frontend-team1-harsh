@@ -12,6 +12,7 @@
     flex-direction: column;
     gap: 4vh;
     justify-content: space-between;
+    overflow: scroll;
   }
   .splitPanelData{
     display: flex

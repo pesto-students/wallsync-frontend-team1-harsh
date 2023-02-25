@@ -7,12 +7,10 @@ import Table from "./components/Table";
 import ExpenseChart from "./components/Chart";
 import "./splitbills.css";
 import axios from "axios";
+import Button from "../../components/button/Button";
+
 const SplitBills = () => {
 	const [content, setContent] = useState([]);
-	const [group, setGroup] = useState([]);
-	const [contributions, setContributions] = useState([]);
-	const [finalContributions, setFinalContributions] = useState([]);
-	const [balance, setBalance] = useState([]);
 
 	useEffect(() => {
 		const getData = async () => {
@@ -21,18 +19,13 @@ const SplitBills = () => {
 			);
 
 			setContent(result.data);
-
-			// setGroup(result.data);
-			// setGroupContributions(result.data.contributions);
-			// setFinalContributions(result.data.finalContributions);
-			// setBalance(result.data.memberBalances);
 		};
 
 		getData();
 	}, []);
-
+	console.log(content);
 	const columns = [
-		{ field: "_id", headerName: "ID", width: 70 },
+		{ field: "id", headerName: "ID", width: 70 },
 		{ field: "name", headerName: "Name", width: 100 },
 
 		{ field: "desc", headerName: "Description", width: 100 },
@@ -41,41 +34,13 @@ const SplitBills = () => {
 
 	const rows = [];
 
-	const data = {
-		labels: content.map((i) => {
-			i.finalContributions.map((j) => j.name);
-		}),
-		datasets: [
-			{
-				label: "My First Dataset",
-				data: content.map((i) => {
-					i.finalContributions.map((j) => j.share);
-				}),
-				backgroundColor: [
-					"rgb(255, 99, 132)",
-					"rgb(54, 162, 235)",
-					"rgb(255, 205, 86)",
-					"#1f1f1f",
-					"#ffffff",
-				],
-				hoverOffset: 4,
-			},
-		],
-	};
-
 	return (
 		<div>
 			<Header />
 			<div className="splitBody">
 				<Nav />
-				<div className="splitDashboard">
-					{/* {
-						<p>
-							{i.name}{" "}
-							{i.toSettle ? `settle: ${i.toSettle} ` : ` owed: ${i.owed}`}
-						</p>
-					} */}
 
+				<div className="splitDashboard">
 					{content.map((i) => {
 						return (
 							<Panel
@@ -84,7 +49,41 @@ const SplitBills = () => {
 									<div className="splitPanelData">
 										<Table columnData={columns} rowData={i.contributions} />
 
-										<ExpenseChart pieData={data} />
+										<ExpenseChart
+											pieData={{
+												labels: i.finalContributions.map((item) => item.name),
+												datasets: [
+													{
+														label: "My First Dataset",
+														data: i.finalContributions.map(
+															(item) => item.share
+														),
+														backgroundColor: [
+															"rgb(255, 99, 132)",
+															"rgb(54, 162, 235)",
+															"rgb(255, 205, 86)",
+															"#000000",
+															"#ffffff",
+														],
+														hoverOffset: 4,
+													},
+												],
+											}}
+										/>
+										<div className="summaryTable">
+											<ul>
+												{i.memberBalances.map((item) => {
+													return (
+														<p>
+															{item.name}{" "}
+															{item.toSettle
+																? `settle: ${item.toSettle} `
+																: ` owed: ${item.owed}`}
+														</p>
+													);
+												})}
+											</ul>
+										</div>
 									</div>
 								}
 							/>
