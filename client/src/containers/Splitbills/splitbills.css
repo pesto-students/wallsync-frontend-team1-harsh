@@ -12,10 +12,11 @@
     flex-direction: column;
     gap: 4vh;
     justify-content: space-between;
-    overflow: scroll;
+    overflow-y: scroll;
   }
   .splitPanelData{
-    display: flex
+    
+    display: flex;
 
   }
   .summaryTable{

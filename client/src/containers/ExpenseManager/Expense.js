@@ -18,11 +18,11 @@ const Expense = () => {
 	useEffect(() => {
 		const getGroup = () => {
 			axios
-				.get("http://localhost:8000/api/63f361935a6870f14f57389d/getSummary")
+				.get("http://localhost:8000/api/63f361935a6870f14f57389d/budget")
 				.then((data) => {
-					// console.log(data.data);
-					setContent(data.data.expensesArray);
-					setChartData(data.data);
+					// console.log(data.data[0]);
+					setContent(data.data[0].expensesArray);
+					setChartData(data.data[0]);
 				})
 				.catch((err) => {
 					console.log(err);

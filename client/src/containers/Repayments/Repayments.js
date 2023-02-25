@@ -20,7 +20,7 @@ const Repayments = () => {
 				.get("http://localhost:8000/api/63f361935a6870f14f57389d/repayments")
 				.then((res) => {
 					console.log(res.data);
-					setRepayments(res.data.repayments);
+					setRepayments(res.data);
 				})
 				.catch((err) => {
 					console.log("error");
@@ -28,6 +28,7 @@ const Repayments = () => {
 		};
 		getRepayments();
 	}, [description, amount, dueDate]);
+
 	// const handleDelete = (id) => {
 	// 	setData(data.filter((item) => item.id !== id));
 	// };
@@ -39,6 +40,9 @@ const Repayments = () => {
 			"http://localhost:8000/api/63f361935a6870f14f57389d/addRepayment",
 			{ description, amount, dueDate }
 		);
+		setDescription(" ");
+		setAmount(" ");
+		setDueDate(" ");
 	};
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },

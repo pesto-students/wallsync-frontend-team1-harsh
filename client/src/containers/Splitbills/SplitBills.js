@@ -7,6 +7,7 @@ import Table from "./components/Table";
 import ExpenseChart from "./components/Chart";
 import "./splitbills.css";
 import axios from "axios";
+import Avatar from "../../components/avatar/Avatar";
 import Button from "../../components/button/Button";
 
 const SplitBills = () => {
@@ -32,11 +33,9 @@ const SplitBills = () => {
 		{ field: "share", headerName: "Amount", width: 100, sortable: true },
 	];
 
-	const rows = [];
-
 	return (
 		<div>
-			<Header />
+			<Header children={<Avatar />} />
 			<div className="splitBody">
 				<Nav />
 
@@ -48,7 +47,7 @@ const SplitBills = () => {
 								panelData={
 									<div className="splitPanelData">
 										<Table columnData={columns} rowData={i.contributions} />
-
+										<Button buttonName="add member" />
 										<ExpenseChart
 											pieData={{
 												labels: i.finalContributions.map((item) => item.name),
@@ -83,6 +82,10 @@ const SplitBills = () => {
 													);
 												})}
 											</ul>
+										</div>
+										<div>
+											<Button buttonName="Settle" />
+											<Button buttonName="Simplify" />
 										</div>
 									</div>
 								}
