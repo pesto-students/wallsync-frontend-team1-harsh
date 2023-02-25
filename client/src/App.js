@@ -19,7 +19,7 @@ function App() {
 	return (
 		<div className="App">
 			{/* <Landing /> */}
-			{/* <Login /> */}
+			<Login />
 			{/* <Repayments /> */}
 			{/* <Signup /> */}
 			{/* <Home /> */}
@@ -27,7 +27,7 @@ function App() {
 			{/* <LiveMarket /> */}
 			{/* <Profile /> */}
 			{/* <Settings /> */}
-			<SplitBills />
+			{/* <SplitBills /> */}
 		</div>
 	);
 }

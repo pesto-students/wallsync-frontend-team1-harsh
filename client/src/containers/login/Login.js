@@ -1,15 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../components/button/Button";
 import "./login.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import pic1 from "../../assets/login.png";
 import Google from "../../components/GB/Google";
-
+import axios from "axios";
 const Login = () => {
-	function submit() {
-		alert("submitted");
-	}
+	const [userInfo, setUserInfo] = useState({
+		email: "",
+		password: "",
+	});
+	const [loggedUser, setLoggedUser] = useState([]);
+	const handleChange = (e) => {
+		setUserInfo({
+			...userInfo,
+			[e.target.name]: e.target.value,
+		});
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		axios
+			.post("http://localhost:8000/api/login", userInfo)
+			.then((res) => {
+				console.log(res.data);
+				if (res.data.accessToken) {
+					window.localStorage.setItem("user", res.data);
+					setLoggedUser(res.data);
+				}
+
+				return res.data;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+	console.log(loggedUser);
+	console.log(
+		"iiiiiiiiiiiiiiiiiiiiiiiiiiiii" + window.localStorage.getItem("user")
+	);
 	return (
 		<>
 			<Header
@@ -24,17 +54,23 @@ const Login = () => {
 					<img src={pic1} alt="" />
 				</div>
 				<div className="loginform">
-					<form onSubmit={submit}>
+					<form onSubmit={(e) => handleSubmit(e)}>
 						<div className="input">
 							<input
 								type="text"
 								className="email"
 								placeholder="enter username or email"
+								name="email"
+								value={userInfo.email}
+								onChange={(e) => handleChange(e)}
 							></input>
 							<input
 								type="password"
 								className="password"
 								placeholder="enter password"
+								name="password"
+								value={userInfo.password}
+								onChange={(e) => handleChange(e)}
 							></input>
 						</div>
 						<div className="check">
