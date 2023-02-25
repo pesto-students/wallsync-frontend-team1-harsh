@@ -1,0 +1,15 @@
+.LiveBody{
+    display: flex;
+    justify-content: space-between;
+}
+.LiveDashboard{
+    background-color: #1e1e1e;
+    width: 84%;
+    height: 80vh;
+    padding: 2%;
+    border-radius: 25px 0 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    justify-content: space-between;
+}
