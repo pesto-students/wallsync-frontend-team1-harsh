@@ -14,22 +14,49 @@ import { IconButton } from "@mui/material";
 import SplitBills from "./containers/Splitbills/SplitBills";
 import Repayments from "./containers/Repayments/Repayments";
 import LiveMarket from "./containers/LiveMarket/LiveMarket";
+import {
+	createBrowserRouter,
+	createRoutesFromElements,
+	Route,
+	Link,
+	RouterProvider,
+	Navigate,
+} from "react-router-dom";
 
-function App() {
+const App = () => {
+	// const user = true;
+	const router = createBrowserRouter([
+		{
+			path: "/",
+			element: <Landing />,
+		},
+		{
+			path: "/home",
+			element: <Home />,
+		},
+		{
+			path: "/signup",
+			element: <Signup />,
+		},
+		{
+			path: "/splitbills",
+			element: <SplitBills />,
+		},
+	]);
 	return (
-		<div className="App">
-			{/* <Landing /> */}
-			<Login />
-			{/* <Repayments /> */}
-			{/* <Signup /> */}
-			{/* <Home /> */}
-			{/* <Expense /> */}
-			{/* <LiveMarket /> */}
-			{/* <Profile /> */}
-			{/* <Settings /> */}
-			{/* <SplitBills /> */}
-		</div>
+		// <div className="App">
+		// 	{/* <Landing /> */}
+		// 	<Login />
+		// 	{/* <Repayments /> */}
+		// 	{/* <Signup /> */}
+		// 	{/* <Home /> */}
+		// 	{/* <Expense /> */}
+		// 	{/* <LiveMarket /> */}
+		// 	{/* <Profile /> */}
+		// 	{/* <Settings /> */}
+		// 	{/* <SplitBills /> */}
+		// </div>
+		<RouterProvider router={router} />
 	);
-}
-
+};
 export default App;

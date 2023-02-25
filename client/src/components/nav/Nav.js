@@ -6,15 +6,18 @@ import wallet from "../../assets/icons8-wallet-64.png";
 // import toggle from "../../assets/icons8-toggle-on-50.png";
 import settings from "../../assets/icons8-settings-64.png";
 import Toggle from "./toggle/Toggle";
-
+import { Link } from "react-router-dom";
 const Nav = () => {
 	return (
 		<div className="navbar">
 			<div className="sidenav">
 				<ul>
 					<li>
-						<img src={home} />
-						<p>Home</p>
+						<Link to="/home">
+							<img src={home} alt="home icon" />
+
+							<p>Home</p>
+						</Link>
 					</li>
 					<li>
 						<img src={menu} />
