@@ -42,18 +42,18 @@ const SplitBills = () => {
 				<div className="splitDashboard">
 					{content.map((i) => {
 						return (
-							<Panel
+							<Panel className='Panel'
 								panelName={i.groupName}
 								panelData={
 									<div className="splitPanelData">
 										<Table columnData={columns} rowData={i.contributions} />
-										<Button buttonName="add member" />
+										{/* <Button buttonName="add member" /> */}
 										<ExpenseChart
 											pieData={{
 												labels: i.finalContributions.map((item) => item.name),
 												datasets: [
 													{
-														label: "My First Dataset",
+														label: "",
 														data: i.finalContributions.map(
 															(item) => item.share
 														),
@@ -83,8 +83,28 @@ const SplitBills = () => {
 												})}
 											</ul>
 										</div>
-										<div>
-											<Button buttonName="Settle" />
+										<div className="addContro">
+										<form action="">
+											<select name="Members">
+												{
+                          i.groupMembers.map((member)=>{
+                            return <option className="options" value={member}>{member}</option>
+                          })
+                        }
+											</select>
+											<input type="text" name="Description" />
+											<input type="number" name="Amount"/>
+                      <button type="Submit">Submit</button>
+										</form>
+										</div>
+										<div className="Split">
+                        <form action="">
+                          <select name="SplitType" id="">
+                                <option value="Equal">Equal</option>
+                                <option value="UnEqual">UnEqual By %</option>
+                          </select>
+                        </form>
+											{/* <Button buttonName="Settle" /> */}
 											<Button buttonName="Simplify" />
 										</div>
 									</div>
