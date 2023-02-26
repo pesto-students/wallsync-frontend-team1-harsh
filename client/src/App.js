@@ -39,8 +39,16 @@ const App = () => {
 			element: <Signup />,
 		},
 		{
+			path: "/login",
+			element: <Login />,
+		},
+		{
 			path: "/splitbills",
 			element: <SplitBills />,
+		},
+		{
+			path: "/settings",
+			element: <Settings />,
 		},
 	]);
 	return (

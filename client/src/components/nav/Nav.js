@@ -12,13 +12,12 @@ const Nav = () => {
 		<div className="navbar">
 			<div className="sidenav">
 				<ul>
-					<li>
-						<Link to="/home">
+					<Link to="/home">
+						<li>
 							<img src={home} alt="home icon" />
-
 							<p>Home</p>
-						</Link>
-					</li>
+						</li>
+					</Link>
 					<li>
 						<img src={menu} />
 						<p>Menu</p>
@@ -32,11 +31,12 @@ const Nav = () => {
 						<Toggle />
 						<p>switch</p>
 					</li>
-
-					<li>
-						<img src={settings} />
-						<p>settings</p>
-					</li>
+					<Link to="/settings">
+						<li>
+							<img src={settings} />
+							<p>settings</p>
+						</li>
+					</Link>
 				</ul>
 				<ul>
 					<li>
