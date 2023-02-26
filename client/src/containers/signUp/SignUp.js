@@ -5,6 +5,7 @@ import Button from "../../components/button/Button";
 import pic1 from "../../assets/signup.png";
 import axios from "axios";
 import "./signup.css";
+import { Link } from "react-router-dom";
 import GoogleB from "../../components/GB/Google";
 const Signup = () => {
 	const [userInfo, setUserInfo] = useState({
@@ -68,7 +69,11 @@ const Signup = () => {
 		<>
 			<Header
 				className="signupHeader"
-				children={<Button buttonName={"Login"} className={"loginB"} />}
+				children={
+					<Link to="/login">
+						<Button buttonName={"Login"} className={"loginB"} />
+					</Link>
+				}
 			/>
 			<div className="signupBody">
 				<div className="signupForm">

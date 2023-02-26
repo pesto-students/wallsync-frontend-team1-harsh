@@ -5,10 +5,10 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import pic1 from "../../assets/login.png";
 import Google from "../../components/GB/Google";
-import axios from "axios";
+
 import { login } from "../../context/auth/apiCall";
 import { AuthContext } from "../../context/auth/AuthContext";
-
+import { Link } from "react-router-dom";
 const Login = () => {
 	const [userInfo, setUserInfo] = useState({
 		email: "",
@@ -31,7 +31,11 @@ const Login = () => {
 		<>
 			<Header
 				className="loginHeader"
-				children={<Button buttonName={"Sign up"} className={"signUpB"} />}
+				children={
+					<Link to="/signup">
+						<Button buttonName={"Sign up"} className={"signUpB"} />
+					</Link>
+				}
 			/>
 
 			<hr className="topLine" />

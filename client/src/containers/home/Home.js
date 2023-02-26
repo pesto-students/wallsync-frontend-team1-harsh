@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import Panel from './components/panel/Panel';
+import Panel from "./components/panel/Panel";
 import "./home.css";
 import pic1 from "../../assets/group.png";
 import pic2 from "../../assets/expenseManager.png";
@@ -22,10 +22,11 @@ const Home = () => {
 						panelLogo={pic1}
 						panelName="Add an activiy"
 						panelData="goaTrip"
+						linkTo="/splitbills"
 					/>
-					<Panel panelLogo={pic2} />
-					<Panel panelLogo={pic3} />
-					<Panel panelLogo={pic4} />
+					<Panel panelLogo={pic2} linkTo="/expense" />
+					<Panel panelLogo={pic3} linkTo="/repayments" />
+					<Panel panelLogo={pic4} linkTo="/live-market" />
 				</div>
 			</div>
 			<Footer />

@@ -29,13 +29,14 @@
     margin-top: 3%;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 .mainChart .spendingsTable{
     width: 60%;
     height: 45vh;
     background-color: azure;
 }
-.mainChart .spendingsDoughnut{
+.spendingsDoughnut{
     width: 30%;
     height: 45vh;
     background-color: azure;

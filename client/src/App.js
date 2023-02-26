@@ -55,10 +55,17 @@ const App = () => {
 			element: <Profile />,
 		},
 		{
-			path: "/profile",
-			element: <Profile />,
+			path: "/expense",
+			element: <Expense />,
 		},
-		
+		{
+			path: "/repayments",
+			element: <Repayments />,
+		},
+		{
+			path: "/live-market",
+			element: <LiveMarket />,
+		},
 	]);
 	return (
 		// <div className="App">
