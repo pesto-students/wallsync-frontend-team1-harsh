@@ -4,5 +4,6 @@
     width: 30%;
     height:52vh;
     border-radius: 25px;
-    background-color: #1f1f1f;
+    border: 0.3rem solid #E26E2D;
+    box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
 }

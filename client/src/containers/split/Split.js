@@ -9,6 +9,7 @@ import "./split.css";
 import axios from "axios";
 import Avatar from "../../components/avatar/Avatar";
 import Button from "../../components/button/Button";
+import PopOver from './components/popover/PopOver'
 
 const Split = () => {
 	const [content, setContent] = useState([]);
@@ -46,7 +47,23 @@ const Split = () => {
 								panelData={
 									<div className="cont">
 										<div className="first">
+										<div className="activityTable">
 											<Table columnData={columns} rowData={i.contributions} />
+											<form action="">
+												<select name="Members">
+													{i.groupMembers.map((member) => {
+														return (
+															<option className="options" value={member}>
+																{member}
+															</option>
+														);
+													})}
+												</select>
+												<input type="text" name="Description" />
+												<input type="number" name="Amount" />
+												<Button className='addShareB' buttonName={"Add Share"}/>
+											</form>
+										</div>	
 											<ExpenseChart
 												pieData={{
 													labels: i.finalContributions.map((item) => item.name),
@@ -83,13 +100,13 @@ const Split = () => {
 												<form action="">
 													<select name="SplitType" id="">
 														<option value="Equal">Equal</option>
-														<option value="UnEqual">UnEqual By %</option>
+														<option value="UnEqual" ><PopOver/></option>
 													</select>
-													<Button buttonName="Simplify" />
+													<Button className='simplifyB' buttonName="Simplify" />
 												</form>
 											</ul>
 										</div>
-										<div className="second">
+										{/* <div className="second">
 											<form action="">
 												<select name="Members">
 													{i.groupMembers.map((member) => {
@@ -104,7 +121,7 @@ const Split = () => {
 												<input type="number" name="Amount" />
 												<button type="Submit">Submit</button>
 											</form>
-										</div>
+										</div> */}
 									</div>
 								}
 							/>

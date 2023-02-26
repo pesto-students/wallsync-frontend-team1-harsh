@@ -11,7 +11,7 @@ import Toggle from "./components/nav/toggle/Toggle";
 import Settings from "./containers/settings/Settings";
 import Expense from "./containers/ExpenseManager/Expense";
 import { IconButton } from "@mui/material";
-import SplitBills from "./containers/Splitbills/SplitBills";
+// import Split from "./containers/split/Split";
 import Repayments from "./containers/Repayments/Repayments";
 import LiveMarket from "./containers/LiveMarket/LiveMarket";
 import {
@@ -44,10 +44,10 @@ const App = () => {
 			path: "/login",
 			element: <Login />,
 		},
-		{
-			path: "/splitbills",
-			element: <SplitBills />,
-		},
+		// {
+		// 	path: "/splitbills",
+		// 	element: <Split />,
+		// },
 		{
 			path: "/settings",
 			element: <Settings />,

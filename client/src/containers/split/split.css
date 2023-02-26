@@ -26,6 +26,8 @@
     width: 22%;
     background-color: #1f1f1f;
     border-radius: 25px;
+    border: 0.3rem solid #E26E2D;
+    box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
     padding:3%;
     font-size: 2em;
     color:white;
@@ -39,13 +41,53 @@
    align-items:center;
    margin-top: 20%;
   }
-  .second{
+  /* .second{
     display:flex;
-    margin:1%
-   
+    margin:2%
   }
   .second form{
     display: flex;
 flex-direction: row;
 justify-content: flex-start;
+  } */
+  .cont{
+    background-color: #1e1e1e;
+    padding: 2%;
   }
+
+.activityTable{
+  display: flex;
+  flex-direction: column;
+}
+.activityTable form{
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
+  /* gap: -2%; */
+  /* margin-left: -10%; */
+  flex-direction: row;
+}
+.activityTable form select , input{
+  width: 9.2em;
+  margin-right:-7%;
+}
+.addShareB{
+  width: 100px;
+  height: 40px;
+  color:white;
+  background: rgb(226,110,45);
+  background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
+}
+.simplifyB{
+  width: 100px;
+  margin-left: -30%;
+  height: 40px;
+  color:white;
+  background: rgb(226,110,45);
+  background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
+}
+.first ul form select{
+  width: 9.2em;
+  /* margin-right:-7%; */
+  margin-left: 14%;
+}

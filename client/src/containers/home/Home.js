@@ -22,7 +22,7 @@ const Home = () => {
 						panelLogo={pic1}
 						panelName="Add an activiy"
 						panelData="goaTrip"
-						linkTo="/splitbills"
+						linkTo="/split"
 					/>
 					<Panel panelLogo={pic2} linkTo="/expense" />
 					<Panel panelLogo={pic3} linkTo="/repayments" />
