@@ -1,19 +1,16 @@
 .header{
     display: flex;
     justify-content: space-between;
-   
     align-items: center;
     margin-right: 3%;
 }
 .header .default{
-    display: flex;
-    flex-direction: row;
-    padding: 10px auto;
+    display: flex; 
     align-items: center;
 }
 .header img{
-    width: 150px;
-    height: 120px;
+    width: 22%;
+    height: 18%;
 }
 .header h1{
     color: white;

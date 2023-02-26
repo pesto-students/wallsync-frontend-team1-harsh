@@ -22,6 +22,7 @@ import {
 	RouterProvider,
 	Navigate,
 } from "react-router-dom";
+import Budget from "./containers/Budget/Budget";
 
 const App = () => {
 	// const user = true;
@@ -65,6 +66,10 @@ const App = () => {
 		{
 			path: "/live-market",
 			element: <LiveMarket />,
+		},
+		{
+			path: "/budget",
+			element: <Budget />,
 		},
 	]);
 	return (

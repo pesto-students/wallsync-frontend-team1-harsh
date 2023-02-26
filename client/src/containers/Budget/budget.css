@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.budgetBody{
+  background-color: #1e1e1e;
+  border-radius: 25px;
+    width: 84%;
+    padding:2%
+   
+}
+.one{
+    display: flex;
+    justify-content:space-between;
+    gap: 10%;
+}
+
+
+.two{
+    margin:5%;
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.three{
+    margin:5%;
+    display: flex;
+    justify-content: space-between;
+}
+.three p{
+    background-color: black;
+    padding: 10%;
+}
