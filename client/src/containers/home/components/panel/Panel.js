@@ -13,7 +13,7 @@ const Panel = ({ panelName,panelClass, panelLogo, panelData }) => {
 		setExpanded(isExpanded ? panel : false);
 	};
 	return (
-		<div className='abc'>
+		<div className='homePanels'>
 			<Accordion sx={{borderRadius:"25px"}}
 				expanded={expanded === "panel1"}
 				onChange={handleChange("panel1")}

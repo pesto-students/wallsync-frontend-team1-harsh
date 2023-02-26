@@ -5,12 +5,12 @@ import Header from "../../components/header/Header";
 import Nav from "../../components/nav/Nav";
 import Button from "../../components/button/Button";
 import Panel from "./components/panel/Panel";
-import HelpIcon from '@mui/icons-material/Help';
-import ReportIcon from '@mui/icons-material/Report';
-import PrivacyTipIcon from '@mui/icons-material/PrivacyTip';
+import HelpIcon from "@mui/icons-material/Help";
+import ReportIcon from "@mui/icons-material/Report";
+import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { IconButton } from "@mui/material";
-import Footer from '../../components/footer/Footer'
+import Footer from "../../components/footer/Footer";
 
 const Settings = () => {
   return (
@@ -23,19 +23,17 @@ const Settings = () => {
         <div className="mainDashBoard">
           <div className="board">
             <Panel
+              className="settingsPanel"
               panelLogo={
                 <IconButton>
                   <NotificationsActiveIcon />
                 </IconButton>
               }
               panelName="Notifications"
-			  panelData={
-				<div>
-					hello
-				</div>
-			  }
+              panelData={<div>hello</div>}
             />
             <Panel
+              className="settingsPanel"
               panelLogo={
                 <IconButton>
                   <HelpIcon />
@@ -44,6 +42,7 @@ const Settings = () => {
               panelName="Help"
             />
             <Panel
+              className="settingsPanel"
               panelLogo={
                 <IconButton>
                   <ReportIcon />
@@ -52,6 +51,7 @@ const Settings = () => {
               panelName="Report"
             />
             <Panel
+              className="settingsPanel"
               panelLogo={
                 <IconButton>
                   <PrivacyTipIcon />
@@ -65,7 +65,7 @@ const Settings = () => {
           </div>
         </div>
       </div>
-	  <Footer></Footer>
+      <Footer></Footer>
     </div>
   );
 };

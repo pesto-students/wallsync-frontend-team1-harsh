@@ -17,6 +17,11 @@ body{
 .MuiSvgIcon-root:hover{
     cursor:pointer;
 }
+.MuiAccordion-root{
+    background: rgb(226,110,45);
+    background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
+    border-radius: 25px;
+}
 @media screen and (max-width: 600px) {
     .App{
         padding-bottom:-100px ;
