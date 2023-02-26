@@ -1,0 +1,29 @@
+.settingsBody {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .mainDashBoard {
+    background-color: #1e1e1e;
+    width: 84%;
+    height: auto;
+    padding: 2%;
+    border-radius: 25px 0 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    justify-content: space-between;
+  }
+  .board{
+    background-color: rgb(82, 80, 78);
+    padding: 3%;
+    width: auto;
+    /* height: 80vh; */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6vh;
+    border-radius: 25px;
+}

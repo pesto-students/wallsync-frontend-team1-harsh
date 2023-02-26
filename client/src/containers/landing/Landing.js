@@ -3,6 +3,7 @@ import Button from "../../components/button/Button";
 import Header from "../../components/header/Header";
 import Slideshow from "../../components/slideshow/Slideshow";
 import Footer from "../../components/footer/Footer";
+import {Link} from 'react-router-dom'
 
 import "./landing.css";
 import Nav from "../../components/nav/Nav";
@@ -13,8 +14,12 @@ const Landing = () => {
 				<Header
 					className="landingButtons"
 					children={[
-						<Button buttonName="Login" className="loginB" />,
-						<Button buttonName="Sign up" className="signUpB" />,
+					<Link to='/login'>
+						<Button buttonName="Login" className="loginB" />
+					</Link>,
+					<Link to='/signup'>
+						<Button buttonName="Sign up" className="signUpB" />
+					</Link>
 					]}
 				/>
 			</div>

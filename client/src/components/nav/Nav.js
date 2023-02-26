@@ -8,53 +8,55 @@ import settings from "../../assets/icons8-settings-64.png";
 import Toggle from "./toggle/Toggle";
 import { Link } from "react-router-dom";
 const Nav = () => {
-	return (
-		<div className="navbar">
-			<div className="sidenav">
-				<ul>
-					<Link to="/home">
-						<li>
-							<img src={home} alt="home icon" />
-							<p>Home</p>
-						</li>
-					</Link>
-					<li>
-						<img src={menu} />
-						<p>Menu</p>
-					</li>
-					<li>
-						<img src={wallet} />
-						<p>Wallet</p>
-					</li>
-					{/* <li><img src={toggle}  /><p>switch</p></li> */}
-					<li>
-						<Toggle />
-						<p>switch</p>
-					</li>
-					<Link to="/settings">
-						<li>
-							<img src={settings} />
-							<p>settings</p>
-						</li>
-					</Link>
-				</ul>
-				<ul>
-					<li>
-						<img src={home} />
-						<p>Logout</p>
-					</li>
-				</ul>
-			</div>
-			<div className="mobilenav">
-				<ul className="mobilenavbottom">
-					<img src={home} />
-					<img src={menu} />
-					<img src={wallet} />
-					<img src={settings} />
-				</ul>
-			</div>
-		</div>
-	);
+  return (
+    <div className="navbar">
+      <div className="sidenav">
+        <ul>
+          <Link to="/home">
+            <li>
+              <img src={home} alt="home icon" />
+              <p>Home</p>
+            </li>
+          </Link>
+          <li>
+            <img src={menu} />
+            <p>Menu</p>
+          </li>
+          <li>
+            <img src={wallet} />
+            <p>Wallet</p>
+          </li>
+          {/* <li><img src={toggle}  /><p>switch</p></li> */}
+          <li>
+            <Toggle />
+            <p>switch</p>
+          </li>
+          <Link to="/settings">
+            <li>
+              <img src={settings} />
+              <p>settings</p>
+            </li>
+          </Link>
+        </ul>
+        <ul>
+          <Link to="/">
+            <li>
+              <img src={home} />
+              <p>Logout</p>
+            </li>
+          </Link>
+        </ul>
+      </div>
+      <div className="mobilenav">
+        <ul className="mobilenavbottom">
+          <img src={home} />
+          <img src={menu} />
+          <img src={wallet} />
+          <img src={settings} />
+        </ul>
+      </div>
+    </div>
+  );
 };
 
 export default Nav;

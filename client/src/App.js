@@ -50,6 +50,15 @@ const App = () => {
 			path: "/settings",
 			element: <Settings />,
 		},
+		{
+			path: "/profile",
+			element: <Profile />,
+		},
+		{
+			path: "/profile",
+			element: <Profile />,
+		},
+		
 	]);
 	return (
 		// <div className="App">
