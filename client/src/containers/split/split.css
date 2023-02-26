@@ -1,0 +1,51 @@
+.sBody{
+    display: flex;
+    justify-content: space-between;
+  }
+  .sDash{
+    background-color: #1e1e1e;
+    width: 84%;
+    height: 80vh;
+    padding: 2%;
+    border-radius: 25px 0 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    justify-content: space-between;
+    overflow-y: scroll;
+  }
+  .cont{
+    display:flex;
+    flex-direction: column;
+  }
+  .first{
+    display:flex;
+    gap: 2%;
+  }
+  .first ul{
+    width: 22%;
+    background-color: #1f1f1f;
+    border-radius: 25px;
+    padding:3%;
+    font-size: 2em;
+    color:white;
+    text-align: center;
+    overflow-y: scroll hidden;
+    
+  } 
+  .first ul form{
+    display: flex;
+    flex-direction: row;
+   align-items:center;
+   margin-top: 20%;
+  }
+  .second{
+    display:flex;
+    margin:1%
+   
+  }
+  .second form{
+    display: flex;
+flex-direction: row;
+justify-content: flex-start;
+  }

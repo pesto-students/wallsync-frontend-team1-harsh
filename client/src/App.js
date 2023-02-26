@@ -23,6 +23,7 @@ import {
 	Navigate,
 } from "react-router-dom";
 import Budget from "./containers/Budget/Budget";
+import Split from "./containers/split/Split";
 
 const App = () => {
 	// const user = true;
@@ -70,6 +71,10 @@ const App = () => {
 		{
 			path: "/budget",
 			element: <Budget />,
+		},
+		{
+			path: "/split",
+			element: <Split />,
 		},
 	]);
 	return (
