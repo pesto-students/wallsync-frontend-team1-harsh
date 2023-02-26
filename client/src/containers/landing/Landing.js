@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../components/button/Button";
-import Header from "../../components/header/Header";
+// import Header from "../../components/header/Header";
+import LandingHeader from "../../components/header/LangingHeader";
 import Slideshow from "../../components/slideshow/Slideshow";
 import Footer from "../../components/footer/Footer";
 import {Link} from 'react-router-dom'
@@ -11,7 +12,7 @@ const Landing = () => {
 	return (
 		<div className="landing">
 			<div className="landingHeader">
-				<Header
+				<LandingHeader
 					className="landingButtons"
 					children={[
 					<Link to='/login'>

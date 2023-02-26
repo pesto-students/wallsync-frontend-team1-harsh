@@ -8,13 +8,13 @@ const Header = ({ children, className }) => {
       <div className="header">
         <Link to="/home">
           <div className="default">
-            <img src={logo} alt="" />
-            <h1>WALLSYNC</h1>
+            <img src={logo} className="hLogo" alt="" />
           </div>
         </Link>
+          <h1>WALLSYNC</h1>
         <div className={className}>{children}</div>
       </div>
-	  <hr className="headerLine"/>
+      <hr className="headerLine" />
     </>
   );
 };
