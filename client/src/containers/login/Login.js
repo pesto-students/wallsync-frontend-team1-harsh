@@ -9,6 +9,7 @@ import Google from "../../components/GB/Google";
 import { login } from "../../context/auth/apiCall";
 import { AuthContext } from "../../context/auth/AuthContext";
 import { Link } from "react-router-dom";
+import LandingHeader from "../../components/header/LangingHeader";
 const Login = () => {
 	const [userInfo, setUserInfo] = useState({
 		email: "",
@@ -29,7 +30,7 @@ const Login = () => {
 
 	return (
 		<>
-			<Header
+			<LandingHeader
 				className="loginHeader"
 				children={
 					<Link to="/signup">
@@ -37,8 +38,6 @@ const Login = () => {
 					</Link>
 				}
 			/>
-
-			<hr className="topLine" />
 
 			<div className="loginbody">
 				<div className="loginimages">

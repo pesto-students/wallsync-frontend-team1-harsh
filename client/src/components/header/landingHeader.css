@@ -16,6 +16,11 @@
     color: white;
     font-size: 3em;
 }
+.topLine{
+    margin-left:2%;
+    margin-right:2%;
+    margin-bottom:1%
+}
 
 @media screen and (max-width: 600px) {
     .header{

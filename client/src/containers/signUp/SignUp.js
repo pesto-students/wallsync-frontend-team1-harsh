@@ -7,6 +7,7 @@ import axios from "axios";
 import "./signup.css";
 import { Link } from "react-router-dom";
 import GoogleB from "../../components/GB/Google";
+import LandingHeader from "../../components/header/LangingHeader";
 const Signup = () => {
 	const [userInfo, setUserInfo] = useState({
 		firstName: "",
@@ -67,7 +68,7 @@ const Signup = () => {
 	};
 	return (
 		<>
-			<Header
+			<LandingHeader
 				className="signupHeader"
 				children={
 					<Link to="/login">
@@ -75,6 +76,7 @@ const Signup = () => {
 					</Link>
 				}
 			/>
+
 			<div className="signupBody">
 				<div className="signupForm">
 					<form onSubmit={(e) => handleSubmit(e)} className="mainform">
