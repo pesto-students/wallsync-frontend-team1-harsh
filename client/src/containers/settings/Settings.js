@@ -11,6 +11,9 @@ import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { IconButton } from "@mui/material";
 import Footer from "../../components/footer/Footer";
+import Switch from '@mui/material/Switch';
+
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 const Settings = () => {
   return (
@@ -30,7 +33,9 @@ const Settings = () => {
                 </IconButton>
               }
               panelName="Notifications"
-              panelData={<div>hello</div>}
+              panelData={<div>
+                <Switch {...label} defaultChecked />
+              </div>}
             />
             <Panel
               className="settingsPanel"
@@ -40,6 +45,11 @@ const Settings = () => {
                 </IconButton>
               }
               panelName="Help"
+              panelData={<>
+                <span>Contact Us</span>
+                <a href="">Guide</a>
+              </>
+              }
             />
             <Panel
               className="settingsPanel"
@@ -49,6 +59,11 @@ const Settings = () => {
                 </IconButton>
               }
               panelName="Report"
+              panelData={<>
+                <textarea placeholder="Report Any Issue"></textarea><br />
+                <button>Submit</button>
+              </>
+              }
             />
             <Panel
               className="settingsPanel"

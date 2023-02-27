@@ -10,6 +10,9 @@ import axios from "axios";
 import Avatar from "../../components/avatar/Avatar";
 import Button from "../../components/button/Button";
 import Popover from "./components/popover/PopOver";
+import Heading from './components/Heading/Heading'
+
+
 
 const Split = () => {
 	const [content, setContent] = useState([]);
@@ -43,7 +46,7 @@ const Split = () => {
 						return (
 							<Panel
 								className="Panel"
-								panelName={i.groupName}
+								panelName={<Heading className='headingText' text={i.groupName}/>}
 								panelData={
 									<div className="cont">
 										<div className="first">
@@ -84,7 +87,9 @@ const Split = () => {
 																"#ffffff",
 															],
 															hoverOffset: 4,
-														},
+															cutout:70,
+															// margintop:50,
+															borderRadius:5														},
 													],
 												}}
 											/>

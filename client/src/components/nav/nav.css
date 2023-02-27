@@ -42,6 +42,7 @@ ul li p{
     display: none;
 }
 .sidenav:hover{
+    /* opacity: 0.6; */
     width: 15%;
 }
 .sidenav:hover ul li p{

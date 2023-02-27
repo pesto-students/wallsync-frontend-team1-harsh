@@ -8,6 +8,7 @@ import ExpenseChart from "./components/chart/Chart";
 import axios from "axios";
 import LineChart from "./components/chart/LineChart";
 import Footer from "../../components/footer/Footer";
+import Heading from './components/Heading/Heading'
 const Budget = () => {
 	const [content, setContent] = useState([]);
 	const [chartData, setChartData] = useState([]);
@@ -59,7 +60,6 @@ const Budget = () => {
 	const lineChartData = {
 		labels: content.map((item) => item.date.substr(5, 5)),
 
-		// labels:["jan","feb","Mar","apr","may"],
 		datasets: [
 			{
 				label: final.map((index, i) => index),

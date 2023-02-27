@@ -1,6 +1,7 @@
 .sBody{
     display: flex;
     justify-content: space-between;
+    text-transform: uppercase;
   }
   .sDash{
     background-color: #1e1e1e;
@@ -89,6 +90,7 @@ justify-content: flex-start;
 .first ul p{
   display: flex;
   justify-content: space-between;
+  
   margin-top: 5%;
 }
 
@@ -106,4 +108,18 @@ justify-content: flex-start;
   background: rgb(226,110,45);
   background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
 
+}
+.headingText{
+  background-color: black;
+  margin-left: 30%;
+  text-align: center;
+  margin-top: 1vh;
+    width: 7em;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;  
+    text-transform: uppercase;
+    font-size: 2em;
+    /* font-weight: 500; */
 }
