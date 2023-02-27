@@ -1,7 +1,10 @@
 .expLineChart{
-    background-color: aqua;
+    background-color: #000000;
+    /* color: white; */
     width: 70%;
     height: 50vh;
+    border: 0.2em solid white;
+    padding: 2%;
 }
 .lineChart{
     width: 100%;

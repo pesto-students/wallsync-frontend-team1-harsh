@@ -4,8 +4,10 @@ import Chart from "chart.js/auto";
 import './chart.css'
 const ExpenseChart = ({ pieData }) => {
 	return (
-		<div className="DonutChart">
-			<Doughnut data={pieData} />
+		<div className="DoughnutChart">
+			<Doughnut sx={{
+				padding:15
+			}} data={pieData} />
 		</div>
 	);
 };

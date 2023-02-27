@@ -58,7 +58,7 @@ const Nav = () => {
     <div className="navbar">
 			<div className="sidenav">
 				<ul>
-					<Link to="/home">
+					<Link style={{textDecoration: 'none'}} to="/home">
 						<li>
 							<img src={home} alt="home icon" />
 							<p>Home</p>

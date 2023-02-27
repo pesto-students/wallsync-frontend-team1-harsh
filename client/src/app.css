@@ -5,6 +5,9 @@
 body{
     background-color: Black;
 }
+li:visited{
+    text-decoration: none;
+}
 .line{
     margin-top:10vh;
     margin-left:2%;

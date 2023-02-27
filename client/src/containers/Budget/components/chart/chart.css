@@ -1,0 +1,9 @@
+.DoughnutChart{
+    margin: auto;
+    padding:2em;
+    width: 30%;
+    height:51vh;
+    border-radius: 25px;
+    border: 0.3rem solid #E26E2D;
+    box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
+}
