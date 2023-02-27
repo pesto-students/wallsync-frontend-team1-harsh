@@ -80,14 +80,30 @@ justify-content: flex-start;
 }
 .simplifyB{
   width: 100px;
-  margin-left: -30%;
+  /* margin-left: -30%; */
   height: 40px;
   color:white;
   background: rgb(226,110,45);
   background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
 }
-.first ul form select{
-  width: 9.2em;
-  /* margin-right:-7%; */
-  margin-left: 14%;
+.first ul p{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.popupForm{
+  background-color: #1e1e1e;
+
+}
+.popupForm input{
+  margin-bottom: -25%;
+}
+.addPercentB{
+  width: 100px;
+  height: 40px;
+  color:white;
+  background: rgb(226,110,45);
+  background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
+
 }

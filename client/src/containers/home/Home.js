@@ -24,7 +24,7 @@ const Home = () => {
 						panelData="goaTrip"
 						linkTo="/split"
 					/>
-					<Panel panelLogo={pic2} linkTo="/expense" />
+					<Panel panelLogo={pic2} linkTo="/budget" />
 					<Panel panelLogo={pic3} linkTo="/repayments" />
 					<Panel panelLogo={pic4} linkTo="/live-market" />
 				</div>

@@ -9,7 +9,7 @@ import "./split.css";
 import axios from "axios";
 import Avatar from "../../components/avatar/Avatar";
 import Button from "../../components/button/Button";
-import PopOver from './components/popover/PopOver'
+import Popover from "./components/popover/PopOver";
 
 const Split = () => {
 	const [content, setContent] = useState([]);
@@ -47,23 +47,26 @@ const Split = () => {
 								panelData={
 									<div className="cont">
 										<div className="first">
-										<div className="activityTable">
-											<Table columnData={columns} rowData={i.contributions} />
-											<form action="">
-												<select name="Members">
-													{i.groupMembers.map((member) => {
-														return (
-															<option className="options" value={member}>
-																{member}
-															</option>
-														);
-													})}
-												</select>
-												<input type="text" name="Description" />
-												<input type="number" name="Amount" />
-												<Button className='addShareB' buttonName={"Add Share"}/>
-											</form>
-										</div>	
+											<div className="activityTable">
+												<Table columnData={columns} rowData={i.contributions} />
+												<form action="">
+													<select name="Members">
+														{i.groupMembers.map((member) => {
+															return (
+																<option className="options" value={member}>
+																	{member}
+																</option>
+															);
+														})}
+													</select>
+													<input type="text" name="Description" />
+													<input type="number" name="Amount" />
+													<Button
+														className="addShareB"
+														buttonName={"Add Share"}
+													/>
+												</form>
+											</div>
 											<ExpenseChart
 												pieData={{
 													labels: i.finalContributions.map((item) => item.name),
@@ -97,31 +100,25 @@ const Split = () => {
 														</p>
 													);
 												})}
-												<form action="">
-													<select name="SplitType" id="">
-														<option value="Equal">Equal</option>
-														<option value="UnEqual" ><PopOver/></option>
-													</select>
-													<Button className='simplifyB' buttonName="Simplify" />
-												</form>
+												<p>
+													<Popover
+														className="popverSection"
+														popdata={
+															<form className="popupForm">
+																{i.finalContributions.map((item) => {
+																	return <input placeholder={item.name} />;
+																})}
+																<Button
+																	className="addPercentB"
+																	buttonName="addPercent"
+																/>
+															</form>
+														}
+													/>
+													<Button className="simplifyB" buttonName="Simplify" />
+												</p>
 											</ul>
 										</div>
-										{/* <div className="second">
-											<form action="">
-												<select name="Members">
-													{i.groupMembers.map((member) => {
-														return (
-															<option className="options" value={member}>
-																{member}
-															</option>
-														);
-													})}
-												</select>
-												<input type="text" name="Description" />
-												<input type="number" name="Amount" />
-												<button type="Submit">Submit</button>
-											</form>
-										</div> */}
 									</div>
 								}
 							/>
@@ -129,6 +126,7 @@ const Split = () => {
 					})}
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 };
