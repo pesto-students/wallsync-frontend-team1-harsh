@@ -8,7 +8,8 @@ import ExpenseChart from "./components/chart/Chart";
 import axios from "axios";
 import LineChart from "./components/chart/LineChart";
 import Footer from "../../components/footer/Footer";
-import Heading from './components/Heading/Heading'
+import Heading from "./components/Heading/Heading";
+import Button from "../../components/button/Button";
 const Budget = () => {
 	const [content, setContent] = useState([]);
 	const [chartData, setChartData] = useState([]);
@@ -97,13 +98,15 @@ const Budget = () => {
 						<ExpenseChart pieData={data} />
 					</div>
 					<div className="two">
-						<form action="">
+						<form className="addExpenseForm" action="">
 							<input type="number" placeholder="Amount"></input>
 							<input type="text" placeholder="Description"></input>
-							<button>Add expenses</button>
+							<Button className="addExpenseB" buttonName="Add expenses" />
+						</form>
+						<div className="incomeDiv">
 							<input type="text" placeholder="Set limit" />
 							<input type="text" placeholder="Add Income" />
-						</form>
+						</div>
 					</div>
 					<div className="three">
 						<p>February spendings: {chartData.total}</p>

@@ -1,6 +1,8 @@
 .container{
     display: flex;
     justify-content: space-between;
+    /* justify-content: center; */
+
 }
 .budgetBody{
   background-color: #1e1e1e;
@@ -15,21 +17,35 @@
 }
 
 .two{
-    background-color: aqua;
+    /* background-color: aqua; */
     margin:5%;
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 95%;
+    margin-left: -2%;
 }
 .two form{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    margin: 2%;
+    padding: 0;
+    gap: 8%;
+    justify-content: flex-start;
 }
-.two input{
-    width: 25%;
+.two form input{
+    width:20%;
+    height:120%
 }
 
+.incomeDiv{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10%;
+    align-items: center;
+}
+.incomeDiv input{
+    height: 50%;
+}
 .three{
     margin:5%;
     display: flex;
@@ -38,4 +54,12 @@
 .three p{
     background-color: black;
     padding: 5%;
+}
+.addExpenseB{
+    width: 100px;
+    height: 40px;
+    color:white;
+    background: rgb(226,110,45);
+    background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
+  
 }

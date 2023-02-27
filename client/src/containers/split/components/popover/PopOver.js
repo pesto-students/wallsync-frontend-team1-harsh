@@ -37,7 +37,14 @@ export default function BasicPopover({ popdata }) {
 					horizontal: "left",
 				}}
 			>
-				<Typography sx={({ p: 2 }, { backgroundColor: "#1f1f1f" })}>
+				<Typography
+					sx={
+						({ p: 2 },
+						{ backgroundColor: "#1f1f1f" },
+						{ width: "300px" },
+						{ padding: "25px" })
+					}
+				>
 					{popdata}
 				</Typography>
 			</Popover>

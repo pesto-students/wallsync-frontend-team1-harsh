@@ -10,9 +10,8 @@ import axios from "axios";
 import Avatar from "../../components/avatar/Avatar";
 import Button from "../../components/button/Button";
 import Popover from "./components/popover/PopOver";
-import Heading from './components/Heading/Heading'
-
-
+import Heading from "./components/Heading/Heading";
+import AddMemberPopover from "./components/popover/AddMember";
 
 const Split = () => {
 	const [content, setContent] = useState([]);
@@ -30,7 +29,6 @@ const Split = () => {
 	}, []);
 	console.log(content);
 	const columns = [
-		{ field: "id", headerName: "ID", width: 70 },
 		{ field: "name", headerName: "Name", width: 100 },
 
 		{ field: "desc", headerName: "Description", width: 100 },
@@ -46,7 +44,22 @@ const Split = () => {
 						return (
 							<Panel
 								className="Panel"
-								panelName={<Heading className='headingText' text={i.groupName}/>}
+								panelName={
+									<Heading className="headingText" text={i.groupName} />
+								}
+								AddMemberPop={
+									<AddMemberPopover
+										addMemberPopData={
+											<form>
+												<input placeholder="add email or phone number "></input>
+												<Button
+													buttonName="add member"
+													className="addMemberB"
+												/>
+											</form>
+										}
+									/>
+								}
 								panelData={
 									<div className="cont">
 										<div className="first">
@@ -87,9 +100,10 @@ const Split = () => {
 																"#ffffff",
 															],
 															hoverOffset: 4,
-															cutout:70,
+															cutout: 70,
 															// margintop:50,
-															borderRadius:5														},
+															borderRadius: 5,
+														},
 													],
 												}}
 											/>
@@ -111,7 +125,12 @@ const Split = () => {
 														popdata={
 															<form className="popupForm">
 																{i.finalContributions.map((item) => {
-																	return <input placeholder={item.name} />;
+																	return (
+																		<input
+																			type="number"
+																			placeholder={item.name}
+																		/>
+																	);
 																})}
 																<Button
 																	className="addPercentB"
