@@ -7,6 +7,8 @@ import axios from "axios";
 import Table from "./components/Table";
 import Button from "../../components/button/Button";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import EditIcon from "@mui/icons-material/Edit";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 
 const Repayments = () => {
 	const [repayments, setRepayments] = useState([]);
@@ -46,18 +48,18 @@ const Repayments = () => {
 	};
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },
-		{ field: "Description", headerName: "Description", width: 100 },
-		{ field: "Amount", headerName: "Amount", width: 100, sortable: true },
+		{ field: "Description", headerName: "Description", width: 150 },
+		{ field: "Amount", headerName: "Amount", width: 150, sortable: true },
 		{
 			field: "Date",
 			headerName: "Date",
 			type: "number",
-			width: 100,
+			width: 200,
 			sortable: true,
 		},
 		{
-			field: "action",
-			headerName: "Action",
+			field: "delete",
+			headerName: "Delete",
 			width: 150,
 			renderCell: (params) => {
 				return (
@@ -66,6 +68,30 @@ const Repayments = () => {
 						<DeleteOutlineIcon
 						// onClick={() => handleDelete(params.row.id) }
 						/>
+					</>
+				);
+			},
+		},
+		{
+			field: "edit",
+			headerName: "Edit",
+			width: 150,
+			renderCell: (params) => {
+				return (
+					<>
+						<EditIcon />
+					</>
+				);
+			},
+		},
+		{
+			field: "notification",
+			headerName: "Notification",
+			width: 150,
+			renderCell: (params) => {
+				return (
+					<>
+						<NotificationsActiveIcon />
 					</>
 				);
 			},
@@ -94,22 +120,24 @@ const Repayments = () => {
 						rowData={rows}
 						columnData={columns}
 					/>
-					<div>
-						<form onSubmit={submit}>
-							<input
-								type="text"
-								placeholder="description"
-								onChange={(e) => setDescription(e.target.value)}
-							/>
-							<input
-								type="number"
-								placeholder="amount"
-								onChange={(e) => setAmount(e.target.value)}
-							/>
-							<input type="date" onChange={(e) => setDueDate(e.target.value)} />
-							<Button type="submit" buttonName="Add Repayment" />
-						</form>
-					</div>
+					<form className="repaymentsForm" onSubmit={submit}>
+						<input
+							type="text"
+							placeholder="description"
+							onChange={(e) => setDescription(e.target.value)}
+						/>
+						<input
+							type="number"
+							placeholder="amount"
+							onChange={(e) => setAmount(e.target.value)}
+						/>
+						<input type="date" onChange={(e) => setDueDate(e.target.value)} />
+						<Button
+							className="addRepaymentB"
+							type="submit"
+							buttonName="Add Repayment"
+						/>
+					</form>
 				</div>
 			</div>
 			<Footer />

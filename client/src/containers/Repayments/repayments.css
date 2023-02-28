@@ -3,7 +3,7 @@
     justify-content: space-between;
 }
 .repaymentsDashboard{
-    background-color: #6b6565;
+    background-color: #1e1e1e;
     width: 84%;
     height: 80vh;
     padding: 2%;
@@ -11,8 +11,27 @@
     display: flex;
     flex-direction: column;
     gap: 4vh;
-    justify-content: space-between;
+   
 }
-.repaymentTable{
-    color:white
+
+.repaymentsForm{
+    display: flex;
+    flex-direction: row;
+    gap: 8%;
+    height: 20%;
+    /* background-color: black; */
+
+}
+.repaymentsForm input{
+    height: 50%;
+    width:27%;
+    border-radius: 15px;
+    text-align: center;
+}
+.addRepaymentB{
+width: 100px;
+  height: 40px;
+  color:white;
+  background: rgb(226,110,45);
+  background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
 }
