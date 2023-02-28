@@ -27,17 +27,34 @@ const Panel = ({ panelName, panelClass, panelLogo, panelData, linkTo }) => {
 							<KeyboardDoubleArrowRightIcon />
 						</Link>
 					}
+					sx={{
+						"& .MuiAccordionSummary-expandIconWrapper ": {
+							transition: "none",
+							"&.Mui-expanded": {
+								transform: "none",
+							},
+						},
+					}}
 				>
 					<AccordionSummary
 						expandIcon={<ExpandMoreIcon />}
 						aria-controls="panel1bh-content"
 						id="panel1bh-header"
+						sx={{
+							"& .MuiAccordionSummary-expandIconWrapper ": {
+								transition: "0.2s",
+								"&.Mui-expanded": {
+									transform: "rotate(180deg)",
+								},
+							},
+						}}
 					></AccordionSummary>
 					<Typography sx={{ width: "33%", flexShrink: 0 }}>
 						<img src={panelLogo} className="panelLogo"></img>
 					</Typography>
 					<Typography sx={{ color: "text.secondary" }}>{panelName}</Typography>
 				</AccordionSummary>
+				{/* <KeyboardDoubleArrowRightIcon className="arrow" /> */}
 				<AccordionDetails>
 					<Typography>{panelData}</Typography>
 				</AccordionDetails>
