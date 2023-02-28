@@ -7,10 +7,12 @@
 .lHeader .lDefault{
     display: flex; 
     align-items: center;
+    justify-content: flex-start;
 }
-.lDefault .lLogo{
-    width: 30%;
-    height: 25%;
+.lLogo{
+    /* width: 30%;
+    height: 25%; */
+    width: 12vw;
 }
 .lHeader h1{
     color: white;

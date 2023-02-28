@@ -1,7 +1,7 @@
 .header{
     display: flex;
     justify-content: space-between;
-    /* margin-top: 10vh; */
+    padding: 1%;
     height: 12vh;
     align-items: center;
     margin-right: 3%;
@@ -10,13 +10,17 @@
     display: flex; 
     padding-top: 3vh;
     align-items: center;
+    justify-content: center;
+    margin-left: 45%;
 }
 
-.default .hLogo {
+.hLogo {
     position: fixed;
-    left: -2.5%;
-    width: 15%;
-    height: 20vh;
+    width: 12vw;
+    margin-top: 1%;
+    left: -1%; 
+    /* width: 15%;
+    height: 20vh;  */
 }
 .header h1{
     color: white;

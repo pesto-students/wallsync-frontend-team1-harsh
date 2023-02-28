@@ -6,12 +6,15 @@ const LandingHeader = ({ children, className }) => {
 	return (
 		<>
 			<div className="lHeader">
-			<Link to='/home'>
 				<div className="lDefault">
-					<img src={logo} className="lLogo" alt="" />
-					<h1>WALLSYNC</h1>
+					<Link to="/home">
+						<img src={logo} className="lLogo" alt="" />
+					</Link>
+					<Link to="/home">
+						<h1>WALLSYNC</h1>
+					</Link>
 				</div>
-			</Link>
+
 				<div className={className}>{children}</div>
 			</div>
 			<hr className="topLine" />
