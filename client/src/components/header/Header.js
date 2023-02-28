@@ -6,7 +6,9 @@ const Header = ({ children, className }) => {
 	return (
 		<>
 			<div className="header">
-				<img src={logo} className="hLogo" alt="" />
+				<Link to="/home">
+					<img src={logo} className="hLogo" alt="" />
+				</Link>
 				<div className="default">
 					<Link to="/home">
 						<h1>WALLSYNC</h1>
