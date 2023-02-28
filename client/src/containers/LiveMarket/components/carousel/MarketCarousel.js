@@ -87,22 +87,34 @@ const CarouselDiv = () => {
 			</div>
 			<div>
 				<iframe
-					src={
-						"https://in.widgets.investing.com/top-cryptocurrencies?theme=darkTheme"
-					}
-					width={"100%"}
-					height={"100%"}
-					frameborder={"0"}
-					allowtransparency={"true"}
-					marginwidth={"0"}
-					marginheight={"0"}
-					className="cryptoFrame"
+					src="https://sslecal2.investing.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=25,34,32,6,37,72,71,22,17,51,39,14,33,10,35,42,43,45,38,56,36,110,11,26,9,12,41,4,5,178&calType=week&timeZone=23&lang=56"
+					width="650"
+					height="467"
+					frameborder="0"
+					allowtransparency="true"
+					marginwidth="0"
+					marginheight="0"
+					className="economicCalendarFrame"
 				></iframe>
 			</div>
+			{/* <div>
+				<iframe
+					frameborder="0"
+					height="175"
+					width="555"
+					allowtransparency="true"
+					marginwidth="0"
+					marginheight="0"
+					src="https://sslfxrates.investing.com/index_exchange.php?params&inner-border-color=%23CBCBCB&border-color=%23cbcbcb&bg1=%23F6F6F6&bg2=%23ffffff&inner-text-color=%23000000&currency-name-color=%23000000&header-text-color=%23FFFFFF&force_lang=56"
+					align="center"
+					className="exchangeRatesFrame"
+				></iframe>
+			</div> */}
+
 			<div>
 				<iframe
 					src={
-						"https://in.widgets.investing.com/top-cryptocurrencies?theme=darkTheme"
+						"https://in.widgets.investing.com/live-currency-cross-rates?theme=darkTheme"
 					}
 					width={"100%"}
 					height={"100%"}
@@ -110,21 +122,7 @@ const CarouselDiv = () => {
 					allowtransparency={"true"}
 					marginwidth={"0"}
 					marginheight={"0"}
-					className="cryptoFrame"
-				></iframe>
-			</div>
-			<div>
-				<iframe
-					src={
-						"https://in.widgets.investing.com/top-cryptocurrencies?theme=darkTheme"
-					}
-					width={"100%"}
-					height={"100%"}
-					frameborder={"0"}
-					allowtransparency={"true"}
-					marginwidth={"0"}
-					marginheight={"0"}
-					className="cryptoFrame"
+					className="currencyCrossFrame"
 				></iframe>
 			</div>
 		</Carousel>

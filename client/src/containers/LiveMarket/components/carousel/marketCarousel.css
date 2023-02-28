@@ -2,9 +2,35 @@
 height:600px
 }
 .cryptoFrame{
+    padding: 2%;
+
     border: 0.2em solid #E26E2D;
     border-radius: 25px;
     height: 60vh;
-    width: 80vw;;
+    width: 75vw;;
+    overflow: hidden;
+}
+.economicCalendarFrame{
+    padding: 2%;
+    border: 0.2em solid #E26E2D;
+    border-radius: 25px;
+    height: 60vh;
+    width: 50vw;;
+    overflow: hidden;
+}
+/* .exchangeRatesFrame{
+    padding: 2%;
+    border: 0.2em solid #E26E2D;
+    border-radius: 25px;
+    height: 30vh;
+    width: 50vw;;
+    overflow: hidden;
+} */
+.currencyCrossFrame{
+    padding: 2%;
+    border: 0.2em solid #E26E2D;
+    border-radius: 25px;
+    height: 55vh;
+    width: 75vw;;
     overflow: hidden;
 }
