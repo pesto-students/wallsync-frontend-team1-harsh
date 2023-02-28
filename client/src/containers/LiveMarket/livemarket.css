@@ -5,11 +5,20 @@
 .LiveDashboard{
     background-color: #1e1e1e;
     width: 84%;
-    height: 80vh;
+    height: 120vh;
     padding: 2%;
     border-radius: 25px 0 0 25px;
     display: flex;
     flex-direction: column;
     gap: 4vh;
     justify-content: space-between;
+}
+.cryptoFrame{
+    border: 0.2em solid #E26E2D;
+    border-radius: 25px;
+    height: 55%;
+    overflow: hidden;
+}
+.widget{
+    width: 100%;
 }

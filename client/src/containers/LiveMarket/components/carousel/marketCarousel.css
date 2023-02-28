@@ -1,0 +1,10 @@
+.carouselDiv{
+height:600px
+}
+.cryptoFrame{
+    border: 0.2em solid #E26E2D;
+    border-radius: 25px;
+    height: 60vh;
+    width: 80vw;;
+    overflow: hidden;
+}
