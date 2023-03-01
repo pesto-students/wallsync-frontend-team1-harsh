@@ -28,11 +28,11 @@ const App = () => {
 	const router = createBrowserRouter([
 		{
 			path: "/",
-			element: <Landing />,
+			element: !user ? <Landing /> : <Navigate to="/home" />,
 		},
 		{
 			path: "/home",
-			element: <Home />,
+			element: user ? <Home /> : <Navigate to="/" />,
 		},
 		{
 			path: "/signup",

@@ -3,6 +3,10 @@
     font-family: 'Fjalla One', sans-serif;
     text-decoration-line: none;
 }
+*:visited { 
+    text-decoration: none; 
+    color:white
+   }
 body{
     background-color: Black;
 }

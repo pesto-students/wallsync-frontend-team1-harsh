@@ -8,14 +8,15 @@ import Google from "../../components/GB/Google";
 
 import { login } from "../../context/auth/apiCall";
 import { AuthContext } from "../../context/auth/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+
 import LandingHeader from "../../components/header/LangingHeader";
 const Login = () => {
 	const [userInfo, setUserInfo] = useState({
 		email: "",
 		password: "",
 	});
-
+	const navigate = useNavigate();
 	const { isFetching, dispatch } = useContext(AuthContext);
 	const handleChange = (e) => {
 		setUserInfo({
@@ -25,7 +26,13 @@ const Login = () => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		login(userInfo, dispatch);
+		login(userInfo, dispatch)
+			.then(() => {
+				navigate("/home");
+			})
+			.catch((err) => {
+				Navigate("");
+			});
 	};
 
 	return (

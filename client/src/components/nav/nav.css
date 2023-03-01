@@ -1,7 +1,9 @@
 *{
     margin: 0;
     padding:0;
+  
 }
+
 /* body{
     background-color: beige;
 } */
@@ -40,6 +42,11 @@ ul li{
 ul li p{
     white-space: nowrap;
     display: none;
+}
+ul li .MuiSvgIcon-root{
+    width: 2em;
+    height:2em;
+    margin-bottom:40%;
 }
 .sidenav:hover{
     /* opacity: 0.6; */
