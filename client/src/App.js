@@ -11,12 +11,12 @@ import Repayments from "./containers/Repayments/Repayments";
 import LiveMarket from "./containers/LiveMarket/LiveMarket";
 import axios from "axios";
 import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  Link,
-  RouterProvider,
-  Navigate,
+	createBrowserRouter,
+	createRoutesFromElements,
+	Route,
+	Link,
+	RouterProvider,
+	Navigate,
 } from "react-router-dom";
 import Budget from "./containers/Budget/Budget";
 import Split from "./containers/split/Split";
@@ -29,11 +29,11 @@ const App = () => {
 	const router = createBrowserRouter([
 		{
 			path: "/",
-			element: <Landing />,
+			element: !user ? <Landing /> : <Navigate to="/home" />,
 		},
 		{
 			path: "/home",
-			element: <Home />,
+			element: user ? <Home /> : <Navigate to="/" />,
 		},
 		{
 			path: "/signup",
