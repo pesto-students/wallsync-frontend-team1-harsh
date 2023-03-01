@@ -8,7 +8,7 @@ import ExpenseChart from "./components/chart/Chart";
 import axios from "axios";
 import LineChart from "./components/chart/LineChart";
 import Footer from "../../components/footer/Footer";
-import Heading from "./components/Heading/Heading";
+// import Heading from "./components/Heading/Heading";
 import Button from "../../components/button/Button";
 const Budget = () => {
   const [content, setContent] = useState([]);
