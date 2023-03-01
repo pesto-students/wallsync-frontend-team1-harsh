@@ -14,7 +14,6 @@ const LiveMarket = () => {
 				<Nav />
 				<div className="LiveDashboard">
 					<MarketCarousel />
-
 					<div className="widget">
 						<Widget />
 					</div>

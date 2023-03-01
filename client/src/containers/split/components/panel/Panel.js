@@ -8,6 +8,7 @@ import React from "react";
 import "./panel.css";
 import { IconButton } from "@mui/material";
 import AddMemberPopover from "../popover/AddMember";
+import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 
 const Panel = ({
 	panelName,
@@ -34,10 +35,10 @@ const Panel = ({
 					id="panel1bh-header"
 				>
 					<Typography sx={{ width: "33%", flexShrink: 0 }}>
-						<img src={panelLogo} className="panelLogo"></img>
+						{/* <img src={panelLogo} className="panelLogo"></img> */}
+						<AddAPhotoIcon />
 					</Typography>
 					<Typography sx={{ color: "text.secondary" }}>{panelName}</Typography>
-					<Typography></Typography>
 				</AccordionSummary>
 				<AccordionSummary
 					// expandIcon={<AddMemberPopover />}

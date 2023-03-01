@@ -3,27 +3,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./marketCarousel.css";
 const CarouselDiv = () => {
-	// const [slides, setSlides] = useState([
-	// 	{
-	// 		id: 1,
-	// 		title: "Slide 1",
-	// 		iframe:
-	// 			"https://in.widgets.investing.com/top-cryptocurrencies?theme=darkTheme",
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		title: "Slide 2",
-	// 		iframe:
-	// 			"https://in.widgets.investing.com/top-cryptocurrencies?theme=darkTheme",
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		title: "Slide 3",
-	// 		iframe:
-	// 			"https://in.widgets.investing.com/top-cryptocurrencies?theme=darkTheme",
-	// 	},
-	// ]);
-
 	const responsive = {
 		desktop: {
 			breakpoint: { max: 3000, min: 1024 },
@@ -41,26 +20,6 @@ const CarouselDiv = () => {
 			slidesToSlide: 1, // optional, default to 1.
 		},
 	};
-
-	// const renderSlides = () => {
-	// 	return slides.map((slide, index) => {
-	// 		return (
-	// 			<div key={index}>
-	// 				<h3>{slide.title}</h3>
-	// 				<iframe
-	// 					src={slide.iframe}
-	// 					width={"100%"}
-	// 					height={"100%"}
-	// 					frameborder={"0"}
-	// 					allowtransparency={"true"}
-	// 					marginwidth={"0"}
-	// 					marginheight={"0"}
-	// 					className="cryptoFrame"
-	// 				></iframe>
-	// 			</div>
-	// 		);
-	// 	});
-	// };
 
 	return (
 		<Carousel
@@ -97,19 +56,6 @@ const CarouselDiv = () => {
 					className="economicCalendarFrame"
 				></iframe>
 			</div>
-			{/* <div>
-				<iframe
-					frameborder="0"
-					height="175"
-					width="555"
-					allowtransparency="true"
-					marginwidth="0"
-					marginheight="0"
-					src="https://sslfxrates.investing.com/index_exchange.php?params&inner-border-color=%23CBCBCB&border-color=%23cbcbcb&bg1=%23F6F6F6&bg2=%23ffffff&inner-text-color=%23000000&currency-name-color=%23000000&header-text-color=%23FFFFFF&force_lang=56"
-					align="center"
-					className="exchangeRatesFrame"
-				></iframe>
-			</div> */}
 
 			<div>
 				<iframe

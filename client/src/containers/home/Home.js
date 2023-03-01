@@ -10,11 +10,11 @@ import pic3 from "../../assets/repayments.png";
 import pic4 from "../../assets/stockCheck.png";
 import Nav from "../../components/nav/Nav";
 import Avatar from "../../components/avatar/Avatar";
+
 const Home = () => {
 	const [groupContent, setGroupContent] = useState([]);
 	const [budgetContent, setBudgetContent] = useState([]);
 	const [repaymentContent, setRepaymentContent] = useState([]);
-	// const [a, setA] = useState({ type: "", date: "", amount: "" });
 
 	useEffect(() => {
 		const getHomeData = async () => {
@@ -99,6 +99,7 @@ const Home = () => {
 						panelLogo={pic4}
 						panelName="Check live market"
 						linkTo="/live-market"
+						// panelData={}
 					/>
 				</div>
 			</div>

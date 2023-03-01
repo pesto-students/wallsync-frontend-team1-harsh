@@ -54,8 +54,8 @@ const Panel = ({ panelName, panelClass, panelLogo, panelData, linkTo }) => {
 					</Typography>
 					<Typography sx={{ color: "text.secondary" }}>{panelName}</Typography>
 				</AccordionSummary>
-				{/* <KeyboardDoubleArrowRightIcon className="arrow" /> */}
-				<AccordionDetails>
+
+				<AccordionDetails sx={{ textAlignLast: "true" }}>
 					<Typography>{panelData}</Typography>
 				</AccordionDetails>
 			</Accordion>

@@ -2,42 +2,37 @@
     display:flex;
     justify-content: space-evenly;
 }
-.mainDashBoard {
+.profileDashBoard{
+    width:87%;
     background-color: #1e1e1e;
-    width: 84%;
-    height: auto;
-    padding: 2%;
-    border-radius: 25px 0 0 25px;
+    border-radius: 25px;
+    height:84vh;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    gap:5%;
+    /* align-items: center; */
+    padding-top: 5%;
+}
+.profileDashBoard .MuiSvgIcon-root{
+    width: 10em;
+    height:8em;
+    margin-top: 2%;
+    margin-left: 10%;
+}
+
+.profileForm{
     display: flex;
     flex-direction: column;
-    gap: 4vh;
-    justify-content: space-between;
-  }
-  .board{
-    background-color: rgb(82, 80, 78);
-    padding: 3%;
-    width: auto;
-    /* height: 80vh; */
-    height: auto;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6vh; */
+    gap:7%
+}
+.profileForm input{
+    height: 3em;
+    width: 15em;
     border-radius: 25px;
 }
-form{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    gap: 6vh;
-    align-items: center;
-    justify-content: center;
-}
-.profileForm form input{
-    width: 30%;
-    height: 6vh;
-    text-align: center;
-    font-size: 1.6rem;
-    border-radius: 25px;
+.profileEditImg{
+    padding-left: 5%;
+    width:25em;
+    height: 20em;
 }

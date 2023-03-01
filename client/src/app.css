@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto:wght@300;400;500;700;900&display=swap');
 *{
     font-family: 'Fjalla One', sans-serif;
+    text-decoration-line: none;
 }
 body{
     background-color: Black;
