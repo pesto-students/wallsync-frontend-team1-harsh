@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./profile.css";
 import Header from "../../components/header/Header";
 import Nav from "../../components/nav/Nav";
@@ -9,6 +9,9 @@ import Footer from "../../components/footer/Footer";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import profile from "../../assets/profile.png";
 const Profile = () => {
+	const [data, setData] = useState([]);
+  const sfoiensd = window.localStorage.getItem('user')
+  console.log(sfoiensd)
 	return (
 		<div>
 			<Header className="headerAvatar" children={<Avatar />} />

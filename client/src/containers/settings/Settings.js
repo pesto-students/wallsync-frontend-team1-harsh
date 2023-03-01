@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./settings.css";
 import Avatar from "../../components/avatar/Avatar";
 import Header from "../../components/header/Header";
@@ -11,11 +11,12 @@ import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { IconButton } from "@mui/material";
 import Footer from "../../components/footer/Footer";
-import Switch from '@mui/material/Switch';
+import Switch from "@mui/material/Switch";
 
-const label = { inputProps: { 'aria-label': 'Switch demo' } };
+const label = { inputProps: { "aria-label": "Switch demo" } };
 
 const Settings = () => {
+  
   return (
     <div>
       <Header className="headerAvatar" children={<Avatar />} />
@@ -33,9 +34,11 @@ const Settings = () => {
                 </IconButton>
               }
               panelName="Notifications"
-              panelData={<div>
-                <Switch {...label} defaultChecked />
-              </div>}
+              panelData={
+                <div>
+                  <Switch {...label} defaultChecked />
+                </div>
+              }
             />
             <Panel
               className="settingsPanel"
@@ -45,10 +48,11 @@ const Settings = () => {
                 </IconButton>
               }
               panelName="Help"
-              panelData={<>
-                <span>Contact Us</span>
-                <a href="">Guide</a>
-              </>
+              panelData={
+                <>
+                  <span>Contact Us</span>
+                  <a href="">Guide</a>
+                </>
               }
             />
             <Panel
@@ -59,10 +63,12 @@ const Settings = () => {
                 </IconButton>
               }
               panelName="Report"
-              panelData={<>
-                <textarea placeholder="Report Any Issue"></textarea><br />
-                <button>Submit</button>
-              </>
+              panelData={
+                <>
+                  <textarea placeholder="Report Any Issue"></textarea>
+                  <br />
+                  <button>Submit</button>
+                </>
               }
             />
             <Panel
