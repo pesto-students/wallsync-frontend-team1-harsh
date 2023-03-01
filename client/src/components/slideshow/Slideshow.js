@@ -62,15 +62,11 @@ const Slideshow = () => {
       <motion.div
         animate={{ x: [75, 150], opacity: 1, scale: 1 }}
         transition={{
-          duration: 4,
+          duration: 4.5,
           delay: 0,
-          //   opacity:0.2,
           repeat: Infinity,
-          //   ease: "spring",
           type: "spring",
-          // ease: [0.5, 0.71, 1, 1.5],
         }}
-        // whileHover={{ scale: 1.1 }}
         className="slideImage"
       >
         <img
@@ -82,7 +78,7 @@ const Slideshow = () => {
       <motion.div
         animate={{ x: [-250, 50], opacity: 1, scale: 1 }}
         transition={{
-          duration: 4,
+          duration: 4.5,
           type: "spring",
 
           delay: 0,

@@ -9,17 +9,18 @@ import Profile from "./containers/profile/Profile";
 import Settings from "./containers/settings/Settings";
 import Repayments from "./containers/Repayments/Repayments";
 import LiveMarket from "./containers/LiveMarket/LiveMarket";
+import axios from "axios";
 import {
-	createBrowserRouter,
-	createRoutesFromElements,
-	Route,
-	Link,
-	RouterProvider,
-	Navigate,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Link,
+  RouterProvider,
+  Navigate,
 } from "react-router-dom";
 import Budget from "./containers/Budget/Budget";
 import Split from "./containers/split/Split";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "./context/auth/AuthContext";
 
 const App = () => {
@@ -28,11 +29,11 @@ const App = () => {
 	const router = createBrowserRouter([
 		{
 			path: "/",
-			element: !user ? <Landing /> : <Navigate to="/home" />,
+			element: <Landing />,
 		},
 		{
 			path: "/home",
-			element: user ? <Home /> : <Navigate to="/" />,
+			element: <Home />,
 		},
 		{
 			path: "/signup",
