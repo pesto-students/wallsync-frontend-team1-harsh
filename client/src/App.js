@@ -67,20 +67,6 @@ const App = () => {
 			element: <Split />,
 		},
 	]);
-	return (
-		// <div className="App">
-		// 	{/* <Landing /> */}
-		// 	<Login />
-		// 	{/* <Repayments /> */}
-		// 	{/* <Signup /> */}
-		// 	{/* <Home /> */}
-		// 	{/* <Expense /> */}
-		// 	{/* <LiveMarket /> */}
-		// 	{/* <Profile /> */}
-		// 	{/* <Settings /> */}
-		// 	{/* <SplitBills /> */}
-		// </div>
-		<RouterProvider router={router} />
-	);
+	return <RouterProvider router={router} />;
 };
 export default App;
