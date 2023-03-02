@@ -111,9 +111,9 @@ const Repayments = ({
 	];
 	const rows = [];
 	{
-		repaymentData.repayment.map((index) => {
+		repaymentData.repayment.map((index, i) => {
 			rows.push({
-				id: index._id,
+				id: i + 1,
 				Description: index.description,
 				Amount: index.amount,
 				Date: index.dueDate,

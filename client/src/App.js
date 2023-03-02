@@ -1,5 +1,3 @@
-import Button from "./components/button/Button";
-import Header from "./components/header/Header";
 import Landing from "./containers/landing/Landing";
 import "./app.css";
 import Login from "./containers/login/Login";
@@ -9,7 +7,7 @@ import Profile from "./containers/profile/Profile";
 import Settings from "./containers/settings/Settings";
 import Repayments from "./containers/Repayments/Repayments";
 import LiveMarket from "./containers/LiveMarket/LiveMarket";
-import axios from "axios";
+import { useSelector } from "react-redux";
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
@@ -20,12 +18,10 @@ import {
 } from "react-router-dom";
 import Budget from "./containers/Budget/Budget";
 import Split from "./containers/split/Split";
-import { useContext, useEffect } from "react";
-import { AuthContext } from "./context/auth/AuthContext";
 
 const App = () => {
-	const { user } = useContext(AuthContext);
-	console.log(user);
+	const user = useSelector((state) => state.user);
+	console.log("====================================", user);
 	const router = createBrowserRouter([
 		{
 			path: "/",

@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { AuthContextProvider } from "./context/auth/AuthContext";
 import { Provider } from "react-redux";
 import store from "./store/Store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -10,9 +9,7 @@ root.render(
 	<GoogleOAuthProvider clientId="643850872187-fk35jmpilv1ichn7l4r573lim4imme8a.apps.googleusercontent.com">
 		<React.StrictMode>
 			<Provider store={store}>
-				<AuthContextProvider>
-					<App />
-				</AuthContextProvider>
+				<App />
 			</Provider>
 		</React.StrictMode>
 	</GoogleOAuthProvider>

@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import AuthReducer from "../context/auth/AuthReducer";
+import AuthenticationReducer from "../context/authentication/reducers";
 import groupReducer from "../context/groups/reducers";
 import repaymentReducer from "../context/repayments/reducers";
 const rootReducer = {
 	reducer: {
-		auth: AuthReducer,
+		authentication: AuthenticationReducer,
 		group: groupReducer,
 		repayment: repaymentReducer,
 	},

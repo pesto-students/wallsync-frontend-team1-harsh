@@ -1,23 +1,22 @@
 import React, { useState, useContext } from "react";
 import Button from "../../components/button/Button";
 import "./login.css";
-import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import pic1 from "../../assets/login.png";
 import Google from "../../components/GB/Google";
-
-import { login } from "../../context/auth/apiCall";
-import { AuthContext } from "../../context/auth/AuthContext";
+import { login } from "../../context/authentication/api";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-
+import { connect } from "react-redux";
 import LandingHeader from "../../components/header/LangingHeader";
-const Login = () => {
+import { useDispatch, useSelector } from "react-redux";
+
+const Login = ({ login }) => {
 	const [userInfo, setUserInfo] = useState({
 		email: "",
 		password: "",
 	});
 	const navigate = useNavigate();
-	const { isFetching, dispatch } = useContext(AuthContext);
+	const dispatch = useDispatch();
 	const handleChange = (e) => {
 		setUserInfo({
 			...userInfo,
@@ -26,7 +25,8 @@ const Login = () => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		login(userInfo, dispatch)
+
+		dispatch(login(userInfo))
 			.then(() => {
 				navigate("/home");
 			})
@@ -82,7 +82,7 @@ const Login = () => {
 								buttonName={"Login"}
 								className={"loginB"}
 								type={"Submit"}
-								disabled={isFetching}
+								// disabled={isFetching}
 							/>
 						</div>
 						<span>Or</span>
@@ -99,4 +99,15 @@ const Login = () => {
 	);
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+	return {
+		userData: state.user,
+	};
+};
+const mapDispatchToProps = (dispatch) => {
+	return {
+		login: (user) => dispatch(login(user)),
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

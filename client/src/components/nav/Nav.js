@@ -8,12 +8,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import settings from "../../assets/icons8-settings-64.png";
 import Toggle from "./toggle/Toggle";
 import { Link } from "react-router-dom";
-import { logoutStart } from "../../context/auth/AuthActions";
 
 const Nav = () => {
-	const removeall = () =>{
-		localStorage.remove()
-		}
 	return (
 		<div className="navbar">
 			<div className="sidenav">
@@ -47,7 +43,7 @@ const Nav = () => {
 					<Link to="/">
 						<li>
 							<LogoutIcon />
-							<p onClick={removeall}>Logout</p>
+							<p>Logout</p>
 						</li>
 					</Link>
 				</ul>
