@@ -9,53 +9,66 @@ import Button from "../../components/button/Button";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-
-const Repayments = () => {
-	const [repayments, setRepayments] = useState([]);
+import { connect } from "react-redux";
+import {
+	getRepayments,
+	addRepayment,
+	deleteRepayment,
+} from "../../context/repayments/api";
+import { IconButton } from "@mui/material";
+const Repayments = ({
+	repaymentData,
+	getRepayments,
+	addRepayment,
+	deleteRepayment,
+}) => {
+	// const [repayments, setRepayments] = useState([]);
 	const [description, setDescription] = useState("");
 	const [amount, setAmount] = useState("");
 	const [dueDate, setDueDate] = useState("");
 
 	useEffect(() => {
-		const getRepayments = () => {
-			axios
-				.get("http://localhost:8000/api/63f361935a6870f14f57389d/repayments")
-				.then((res) => {
-					console.log(res.data);
-					setRepayments(res.data);
-				})
-				.catch((err) => {
-					console.log("error");
-				});
-		};
 		getRepayments();
 	}, [description, amount, dueDate]);
 
-	// const handleDelete = (id) => {
-	// 	setData(data.filter((item) => item.id !== id));
-	// };
-
-	const submit = async (e) => {
+	const submit = (e) => {
 		e.preventDefault();
-
-		await axios.post(
-			"http://localhost:8000/api/63f361935a6870f14f57389d/addRepayment",
-			{ description, amount, dueDate }
-		);
+		addRepayment({
+			description,
+			amount,
+			dueDate,
+		});
 		setDescription(" ");
 		setAmount(" ");
 		setDueDate(" ");
 	};
+	console.log(repaymentData);
+	const handleDelete = (e, id) => {
+		e.stopPropagation();
+		deleteRepayment(id);
+	};
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },
-		{ field: "Description", headerName: "Description", width: 150 },
-		{ field: "Amount", headerName: "Amount", width: 150, sortable: true },
+		{
+			field: "Description",
+			headerName: "Description",
+			width: 150,
+			editable: true,
+		},
+		{
+			field: "Amount",
+			headerName: "Amount",
+			width: 150,
+			sortable: true,
+			editable: true,
+		},
 		{
 			field: "Date",
 			headerName: "Date",
 			type: "number",
 			width: 200,
 			sortable: true,
+			editable: true,
 		},
 		{
 			field: "delete",
@@ -64,10 +77,9 @@ const Repayments = () => {
 			renderCell: (params) => {
 				return (
 					<>
-						{/* <button className="userListEdit">Edit</button> */}
-						<DeleteOutlineIcon
-						// onClick={() => handleDelete(params.row.id) }
-						/>
+						<IconButton>
+							<DeleteOutlineIcon onClick={() => handleDelete(params.row.id)} />
+						</IconButton>
 					</>
 				);
 			},
@@ -99,9 +111,9 @@ const Repayments = () => {
 	];
 	const rows = [];
 	{
-		repayments.map((index, i) => {
+		repaymentData.repayment.map((index) => {
 			rows.push({
-				id: i + 1,
+				id: index._id,
 				Description: index.description,
 				Amount: index.amount,
 				Date: index.dueDate,
@@ -145,4 +157,18 @@ const Repayments = () => {
 	);
 };
 
-export default Repayments;
+const mapStateToProps = (state) => {
+	return {
+		repaymentData: state.repayment,
+	};
+};
+const mapDispatchToProps = (dispatch) => {
+	return {
+		getRepayments: () => dispatch(getRepayments()),
+		addRepayment: (repayment) => dispatch(addRepayment(repayment)),
+		deleteRepayment: (id) => dispatch(deleteRepayment(id)),
+	};
+};
+
+// export default Repayments;
+export default connect(mapStateToProps, mapDispatchToProps)(Repayments);
