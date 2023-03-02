@@ -12,25 +12,26 @@ import Button from "../../components/button/Button";
 import Popover from "./components/popover/PopOver";
 import Heading from "./components/Heading/Heading";
 import AddMemberPopover from "./components/popover/AddMember";
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 import { getGroups } from "../../context/groups/api";
 
-const Split = ({groupData,getGroups}) => {
-	const [content, setContent] = useState([]);
+const Split = ({ groupData, getGroups }) => {
+	// const [content, setContent] = useState([]);
 
 	useEffect(() => {
 		// const getData = async () => {
 		// 	const result = await axios.get(
-			// 		"http://localhost:8000/api/63f361935a6870f14f57389d/groups"
-			// 	);
-			
-			// 	setContent(result.data);
-			// };
-			
-			// getData();
-			getGroups()
+		// 		"http://localhost:8000/api/63f361935a6870f14f57389d/groups"
+		// 	);
+
+		// 	setContent(result.data);
+		// };
+
+		// getData();
+		getGroups();
 	}, []);
-	console.log(groupData);
+
+	console.log(groupData.group);
 	const columns = [
 		{ field: "name", headerName: "Name", width: 100 },
 
@@ -43,7 +44,7 @@ const Split = ({groupData,getGroups}) => {
 			<div className="sBody">
 				<Nav />
 				<div className="sDash">
-					{groupData.group.data.map((i) => {
+					{groupData.group.map((i) => {
 						return (
 							<Panel
 								className="Panel"
@@ -159,14 +160,14 @@ const Split = ({groupData,getGroups}) => {
 };
 const mapStateToProps = (state) => {
 	return {
-	  groupData: state.group
+		groupData: state.group,
 	};
-  };
-  const mapDispatchToProps = (dispatch) => {
+};
+const mapDispatchToProps = (dispatch) => {
 	return {
-	  getGroups: () => dispatch(getGroups())
+		getGroups: () => dispatch(getGroups()),
 	};
-  };
+};
 
 // export default Split;
 export default connect(mapStateToProps, mapDispatchToProps)(Split);
