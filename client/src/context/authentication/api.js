@@ -10,6 +10,7 @@ export const login = (user) => {
 			.then((data) => {
 				const user = data.data.user;
 				user.accessToken && dispatch(loginSuccess(user.user));
+				localStorage.setItem("user", JSON.stringify(user));
 				console.log("loggggggger", user);
 			})
 			.catch((err) => {

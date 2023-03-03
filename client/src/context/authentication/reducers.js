@@ -1,6 +1,6 @@
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "./types";
 const INITIAL_STATE = {
-	user: null,
+	user: JSON.parse(localStorage.getItem("user")) || null,
 	isFetching: null,
 	isSignedIn: false,
 	error: null,

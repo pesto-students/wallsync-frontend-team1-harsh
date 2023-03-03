@@ -16,18 +16,7 @@ import { connect } from "react-redux";
 import { getGroups } from "../../context/groups/api";
 
 const Split = ({ groupData, getGroups }) => {
-	// const [content, setContent] = useState([]);
-
 	useEffect(() => {
-		// const getData = async () => {
-		// 	const result = await axios.get(
-		// 		"http://localhost:8000/api/63f361935a6870f14f57389d/groups"
-		// 	);
-
-		// 	setContent(result.data);
-		// };
-
-		// getData();
 		getGroups();
 	}, []);
 
@@ -44,6 +33,7 @@ const Split = ({ groupData, getGroups }) => {
 			<div className="sBody">
 				<Nav />
 				<div className="sDash">
+					<Panel panelName={<Heading text="+ Add a group" />} />
 					{groupData.group.map((i) => {
 						return (
 							<Panel

@@ -1,38 +1,36 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../../components/button/Button";
 import "./login.css";
 import Footer from "../../components/footer/Footer";
 import pic1 from "../../assets/login.png";
 import Google from "../../components/GB/Google";
 import { login } from "../../context/authentication/api";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import LandingHeader from "../../components/header/LangingHeader";
 import { useDispatch, useSelector } from "react-redux";
 
-const Login = ({ login }) => {
+const Login = ({ userData, login }) => {
+	const user = useSelector((state) => state.authentication.user);
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const [userInfo, setUserInfo] = useState({
 		email: "",
 		password: "",
 	});
-	const navigate = useNavigate();
-	const dispatch = useDispatch();
+
 	const handleChange = (e) => {
 		setUserInfo({
 			...userInfo,
 			[e.target.name]: e.target.value,
 		});
 	};
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-
-		dispatch(login(userInfo))
-			.then(() => {
-				navigate("/home");
-			})
-			.catch((err) => {
-				Navigate("");
-			});
+		try {
+			await dispatch(login(userInfo));
+			navigate("/");
+		} catch (error) {}
 	};
 
 	return (
