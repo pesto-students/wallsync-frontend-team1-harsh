@@ -1,6 +1,10 @@
-import { loginRequest, loginSuccess, loginFailure } from "./actions";
+import {
+	loginRequest,
+	loginSuccess,
+	loginFailure,
+	logoutStart,
+} from "./actions";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 export const login = (user) => {
 	return (dispatch) => {
@@ -16,5 +20,12 @@ export const login = (user) => {
 			.catch((err) => {
 				dispatch(loginFailure(err));
 			});
+	};
+};
+
+export const logout = (user) => {
+	return (dispatch) => {
+		dispatch(logoutStart());
+		localStorage.setItem("user", null);
 	};
 };

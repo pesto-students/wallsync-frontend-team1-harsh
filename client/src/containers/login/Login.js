@@ -97,15 +97,4 @@ const Login = () => {
 	);
 };
 
-// const mapStateToProps = (state) => {
-// 	return {
-// 		userData: state.user,
-// 	};
-// };
-// const mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		login: (user) => dispatch(login(user)),
-// 	};
-// };
 export default Login;
-// export default connect(mapStateToProps, mapDispatchToProps)(Login);

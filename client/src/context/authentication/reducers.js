@@ -1,4 +1,9 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "./types";
+import {
+	LOGIN_REQUEST,
+	LOGIN_SUCCESS,
+	LOGIN_FAILURE,
+	LOGOUT_START,
+} from "./types";
 const INITIAL_STATE = {
 	user: JSON.parse(localStorage.getItem("user")) || null,
 	isFetching: null,
@@ -28,6 +33,13 @@ const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 				isFetching: false,
 				isSignedIn: false,
 				error: action.payload,
+			};
+		case LOGOUT_START:
+			return {
+				user: null,
+				isFetching: false,
+				error: false,
+				isSignedIn: false,
 			};
 
 		default:
