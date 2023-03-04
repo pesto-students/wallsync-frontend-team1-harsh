@@ -20,9 +20,7 @@ import Budget from "./containers/Budget/Budget";
 import Split from "./containers/split/Split";
 
 const App = () => {
-	// const user = JSON.parse(localStorage.getItem("user")) || null;
 	const user = useSelector((state) => state.authentication.user);
-	console.log("====================================", user);
 
 	const router = createBrowserRouter([
 		{

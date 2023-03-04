@@ -10,8 +10,8 @@ import { connect } from "react-redux";
 import LandingHeader from "../../components/header/LangingHeader";
 import { useDispatch, useSelector } from "react-redux";
 
-const Login = ({ userData, login }) => {
-	const user = useSelector((state) => state.authentication.user);
+const Login = () => {
+	const userData = useSelector((state) => state.authentication.user);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const [userInfo, setUserInfo] = useState({
@@ -25,12 +25,13 @@ const Login = ({ userData, login }) => {
 			[e.target.name]: e.target.value,
 		});
 	};
-	const handleSubmit = async (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		try {
-			await dispatch(login(userInfo));
-			navigate("/");
-		} catch (error) {}
+		dispatch(login(userInfo))
+			.then(() => {
+				navigate("/");
+			})
+			.catch((error) => {});
 	};
 
 	return (
@@ -97,15 +98,15 @@ const Login = ({ userData, login }) => {
 	);
 };
 
-const mapStateToProps = (state) => {
-	return {
-		userData: state.user,
-	};
-};
-const mapDispatchToProps = (dispatch) => {
-	return {
-		login: (user) => dispatch(login(user)),
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+// const mapStateToProps = (state) => {
+// 	return {
+// 		userData: state.user,
+// 	};
+// };
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		login: (user) => dispatch(login(user)),
+// 	};
+// };
+export default Login;
+// export default connect(mapStateToProps, mapDispatchToProps)(Login);

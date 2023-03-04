@@ -9,26 +9,23 @@ import Button from "../../components/button/Button";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import {
 	getRepayments,
 	addRepayment,
 	deleteRepayment,
 } from "../../context/repayments/api";
 import { IconButton } from "@mui/material";
-const Repayments = ({
-	repaymentData,
-	getRepayments,
-	addRepayment,
-	deleteRepayment,
-}) => {
-	// const [repayments, setRepayments] = useState([]);
+const Repayments = ({}) => {
 	const [description, setDescription] = useState("");
 	const [amount, setAmount] = useState("");
 	const [dueDate, setDueDate] = useState("");
 
+	const dispatch = useDispatch();
+	const repaymentData = useSelector((state) => state.repayment);
+
 	useEffect(() => {
-		getRepayments();
+		dispatch(getRepayments());
 	}, [description, amount, dueDate]);
 
 	const submit = (e) => {
@@ -157,18 +154,4 @@ const Repayments = ({
 	);
 };
 
-const mapStateToProps = (state) => {
-	return {
-		repaymentData: state.repayment,
-	};
-};
-const mapDispatchToProps = (dispatch) => {
-	return {
-		getRepayments: () => dispatch(getRepayments()),
-		addRepayment: (repayment) => dispatch(addRepayment(repayment)),
-		deleteRepayment: (id) => dispatch(deleteRepayment(id)),
-	};
-};
-
-// export default Repayments;
-export default connect(mapStateToProps, mapDispatchToProps)(Repayments);
+export default Repayments;
