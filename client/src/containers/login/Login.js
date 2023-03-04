@@ -29,11 +29,12 @@ const Login = () => {
 		e.preventDefault();
 		dispatch(login(userInfo))
 			.then(() => {
-				navigate("/");
+				// navigate(`/home/${}`);
 			})
 			.catch((error) => {});
-	};
-
+		};
+		
+		console.log(userData)
 	return (
 		<>
 			<LandingHeader

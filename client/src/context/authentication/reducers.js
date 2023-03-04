@@ -2,7 +2,7 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "./types";
 const INITIAL_STATE = {
 	user: JSON.parse(localStorage.getItem("user")) || null,
 	isFetching: null,
-	isSignedIn: false,
+	isSignedIn: JSON.parse(localStorage.getItem("user")) ? true : false,
 	error: null,
 };
 const AuthenticationReducer = (state = INITIAL_STATE, action) => {
