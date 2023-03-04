@@ -11,7 +11,7 @@ import LandingHeader from "../../components/header/LangingHeader";
 import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
-	const userData = useSelector((state) => state.authentication.user);
+	const userData = useSelector((state) => state.authentication);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const [userInfo, setUserInfo] = useState({
@@ -26,15 +26,13 @@ const Login = () => {
 		});
 	};
 	const handleSubmit = (e) => {
-		e.preventDefault();
 		dispatch(login(userInfo))
 			.then(() => {
-				// navigate(`/home/${}`);
+				navigate(`/home`);
 			})
 			.catch((error) => {});
-		};
-		
-		console.log(userData)
+	};
+
 	return (
 		<>
 			<LandingHeader

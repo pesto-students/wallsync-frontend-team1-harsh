@@ -20,8 +20,8 @@ import Budget from "./containers/Budget/Budget";
 import Split from "./containers/split/Split";
 
 const App = () => {
-	const user = useSelector((state) => state.authentication.user);
-
+	const user = useSelector((state) => state.authentication.isSignedIn);
+	console.log("here", user);
 	const router = createBrowserRouter([
 		{
 			path: "/",

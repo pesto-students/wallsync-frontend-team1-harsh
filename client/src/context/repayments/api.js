@@ -65,14 +65,16 @@ export const editRepayment = async (id, dispatch) => {
 	}
 };
 
-export const deleteRepayment = (id, dispatch) => {
-	dispatch(deleteRepaymentRequest());
-	axios
-		.delete(`http://localhost:8000/api/63f361935a6870f14f57389d/${id}/delete`)
-		.then(() => {
-			dispatch(deleteRepaymentSuccess(id));
-		})
-		.catch((err) => {
-			dispatch(deleteRepaymentFailure(err));
-		});
+export const deleteRepayment = (id) => {
+	return (dispatch) => {
+		dispatch(deleteRepaymentRequest());
+		axios
+			.delete(`http://localhost:8000/api/63f361935a6870f14f57389d/${id}/delete`)
+			.then(() => {
+				dispatch(deleteRepaymentSuccess(id));
+			})
+			.catch((err) => {
+				dispatch(deleteRepaymentFailure(err));
+			});
+	};
 };
