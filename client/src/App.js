@@ -19,17 +19,19 @@ import {
 import Budget from "./containers/Budget/Budget";
 import Split from "./containers/split/Split";
 
+// function RequireAuth({ children, redirectTo }) {
+// 	let isAuthenticated = useSelector((state) => state.authentication.isSignedIn);
+// 	console.log("65665655", isAuthenticated);
+// 	return isAuthenticated ? children : <Navigate to={redirectTo} />;
+// }
+
 const App = () => {
-	const user = useSelector((state) => state.authentication.isSignedIn);
+	let user = useSelector((state) => state.authentication.isSignedIn);
 	console.log("here", user);
 	const router = createBrowserRouter([
 		{
 			path: "/",
 			element: !user ? <Landing /> : <Navigate to="/home" />,
-		},
-		{
-			path: "/home",
-			element: user ? <Home /> : <Navigate to="/" />,
 		},
 		{
 			path: "/signup",
@@ -39,6 +41,11 @@ const App = () => {
 			path: "/login",
 			element: !user ? <Login /> : <Navigate to="/home" />,
 		},
+		{
+			path: "/home",
+			element: user ? <Home /> : <Navigate to="/" />,
+		},
+
 		{
 			path: "/settings",
 			element: <Settings />,

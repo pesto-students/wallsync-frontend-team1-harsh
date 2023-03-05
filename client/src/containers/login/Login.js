@@ -5,11 +5,11 @@ import Footer from "../../components/footer/Footer";
 import pic1 from "../../assets/login.png";
 import Google from "../../components/GB/Google";
 import { login } from "../../context/authentication/api";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import LandingHeader from "../../components/header/LangingHeader";
 import { useDispatch, useSelector } from "react-redux";
-
+import axios from "axios";
 const Login = () => {
 	const userData = useSelector((state) => state.authentication);
 	const navigate = useNavigate();
@@ -26,11 +26,26 @@ const Login = () => {
 		});
 	};
 	const handleSubmit = (e) => {
-		dispatch(login(userInfo))
-			.then(() => {
-				navigate(`/home`);
-			})
-			.catch((error) => {});
+		e.preventDefault();
+
+		dispatch(login(userInfo)).then(() => {
+			navigate("/home");
+
+			console.log("handling submit");
+		});
+		// axios
+		// 	.post("http://localhost:8000/api/login", userInfo, {
+		// 		headers: {
+		// 			"Content-Type": "application/json",
+		// 		},
+		// 	})
+		// 	.then((data) => {
+		// 		console.log(data.data.access_token);
+		// 		localStorage.setItem("user", JSON.stringify(data.data.user));
+		// 		if (data.data.access_token) {
+		// 			navigate("/home");
+		// 		}
+		// 	});
 	};
 
 	return (

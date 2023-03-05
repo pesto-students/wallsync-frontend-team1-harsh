@@ -10,11 +10,12 @@ export const login = (user) => {
 	return (dispatch) => {
 		dispatch(loginRequest());
 
-		axios
+		return axios
 			.post("http://localhost:8000/api/login", user)
 			.then((data) => {
 				const user = data.data.user;
-				user.accessToken && dispatch(loginSuccess(user.user));
+				data.data.access_token && dispatch(loginSuccess(user.user));
+				console.log("userrrrr", data.data.access_token);
 				localStorage.setItem("user", JSON.stringify(user));
 			})
 			.catch((err) => {
