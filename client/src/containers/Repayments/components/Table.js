@@ -1,7 +1,11 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 
-export default function DataTable({ rowData, columnData }) {
+export default function DataTable({
+	rowData,
+	columnData,
+	// onSelectionModelChange,
+}) {
 	return (
 		<div style={{ height: 372, width: "100%" }}>
 			<DataGrid
@@ -20,7 +24,8 @@ export default function DataTable({ rowData, columnData }) {
 				columns={columnData}
 				pageSize={10}
 				rowsPerPageOptions={[10]}
-				// checkboxSelection
+				checkboxSelection
+				// onSelectionModelChange={onSelectionModelChange}
 			/>
 		</div>
 	);

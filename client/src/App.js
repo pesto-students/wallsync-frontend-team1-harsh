@@ -19,12 +19,6 @@ import {
 import Budget from "./containers/Budget/Budget";
 import Split from "./containers/split/Split";
 
-// function RequireAuth({ children, redirectTo }) {
-// 	let isAuthenticated = useSelector((state) => state.authentication.isSignedIn);
-// 	console.log("65665655", isAuthenticated);
-// 	return isAuthenticated ? children : <Navigate to={redirectTo} />;
-// }
-
 const App = () => {
 	let user = useSelector((state) => state.authentication.isSignedIn);
 	console.log("here", user);

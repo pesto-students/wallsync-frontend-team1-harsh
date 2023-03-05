@@ -26,23 +26,24 @@ const Repayments = ({}) => {
 
 	useEffect(() => {
 		dispatch(getRepayments());
-	}, [description, amount, dueDate]);
-
+	}, [dispatch]);
+	//description, amount, dueDate
 	const submit = (e) => {
 		e.preventDefault();
-		addRepayment({
-			description,
-			amount,
-			dueDate,
-		});
+		dispatch(
+			addRepayment({
+				description,
+				amount,
+				dueDate,
+			})
+		);
 		setDescription(" ");
 		setAmount(" ");
 		setDueDate(" ");
 	};
-	console.log(repaymentData);
-	const handleDelete = (e, id) => {
-		e.stopPropagation();
-		deleteRepayment(id);
+
+	const handleDelete = (repaymentId) => {
+		dispatch(deleteRepayment(repaymentId));
 	};
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },
@@ -110,7 +111,7 @@ const Repayments = ({}) => {
 	{
 		repaymentData.repayment.map((index, i) => {
 			rows.push({
-				id: i + 1,
+				id: index._id,
 				Description: index.description,
 				Amount: index.amount,
 				Date: index.dueDate,
@@ -129,7 +130,7 @@ const Repayments = ({}) => {
 						rowData={rows}
 						columnData={columns}
 					/>
-					<form className="repaymentsForm" onSubmit={submit}>
+					<form className="repaymentsForm" onSubmit={(e) => submit(e)}>
 						<input
 							type="text"
 							placeholder="description"

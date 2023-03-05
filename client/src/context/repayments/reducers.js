@@ -81,21 +81,20 @@ const repaymentReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				loading: true,
-				repayment: [],
 				error: false,
 			};
 		case DELETE_REPAYMENT_SUCCESS:
 			return {
 				loading: false,
 				repayment: state.repayment.filter(
-					(item) => item._id !== action.payload._id
+					(item) => item._id !== action.payload
 				),
 				error: false,
 			};
 		case DELETE_REPAYMENT_FAILURE:
 			return {
+				...state,
 				loading: false,
-				repayment: [],
 				error: action.payload,
 			};
 		default:

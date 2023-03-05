@@ -15,6 +15,7 @@ import {
 
 import axios from "axios";
 
+const userId = JSON.parse(localStorage.getItem("user")).user.id;
 export const getRepayments = () => {
 	return (dispatch) => {
 		dispatch(fetchRepaymentRequest());
@@ -57,6 +58,7 @@ export const editRepayment = async (id, dispatch) => {
 		await axios.put("" + id, {
 			headers: {
 				"Content-Type": "application/json",
+				// Authorization: JSON.parse(localStorage.getItem("user")).access_token,
 			},
 		});
 		dispatch(editRepaymentSuccess(id));
@@ -65,13 +67,21 @@ export const editRepayment = async (id, dispatch) => {
 	}
 };
 
-export const deleteRepayment = (id) => {
+export const deleteRepayment = (repaymentId) => {
 	return (dispatch) => {
 		dispatch(deleteRepaymentRequest());
 		axios
-			.delete(`http://localhost:8000/api/63f361935a6870f14f57389d/${id}/delete`)
+			.delete(
+				`http://localhost:8000/api/${userId}/${repaymentId}/deleteRepayment`,
+				{
+					headers: {
+						Authorization: JSON.parse(localStorage.getItem("user"))
+							.access_token,
+					},
+				}
+			)
 			.then(() => {
-				dispatch(deleteRepaymentSuccess(id));
+				dispatch(deleteRepaymentSuccess(repaymentId));
 			})
 			.catch((err) => {
 				dispatch(deleteRepaymentFailure(err));

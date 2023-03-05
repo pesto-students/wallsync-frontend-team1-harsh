@@ -33,7 +33,7 @@ const Split = ({ groupData, getGroups }) => {
 			<div className="sBody">
 				<Nav />
 				<div className="sDash">
-				<SkeletonComp/>
+					<SkeletonComp />
 					<Panel panelName={<Heading text="+ Add a group" />} />
 					{groupData.group.map((i) => {
 						return (

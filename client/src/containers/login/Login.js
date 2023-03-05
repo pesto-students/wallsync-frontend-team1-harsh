@@ -33,19 +33,6 @@ const Login = () => {
 
 			console.log("handling submit");
 		});
-		// axios
-		// 	.post("http://localhost:8000/api/login", userInfo, {
-		// 		headers: {
-		// 			"Content-Type": "application/json",
-		// 		},
-		// 	})
-		// 	.then((data) => {
-		// 		console.log(data.data.access_token);
-		// 		localStorage.setItem("user", JSON.stringify(data.data.user));
-		// 		if (data.data.access_token) {
-		// 			navigate("/home");
-		// 		}
-		// 	});
 	};
 
 	return (
