@@ -5,6 +5,9 @@ import {
 	ADD_SHARE_REQUEST,
 	ADD_SHARE_SUCCESS,
 	ADD_SHARE_FAILURE,
+	DELETE_SHARE_REQUEST,
+	DELETE_SHARE_SUCCESS,
+	DELETE_SHARE_FAILURE,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -51,6 +54,24 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 			return {
 				loading: false,
 				group: [],
+				error: action.payload,
+			};
+		case DELETE_SHARE_REQUEST:
+			return {
+				...state,
+				loading: true,
+				error: false,
+			};
+		case DELETE_SHARE_SUCCESS:
+			return {
+				loading: false,
+				group: state.repayment.filter((item) => item._id !== action.payload),
+				error: false,
+			};
+		case DELETE_SHARE_FAILURE:
+			return {
+				...state,
+				loading: false,
 				error: action.payload,
 			};
 

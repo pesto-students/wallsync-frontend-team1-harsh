@@ -5,6 +5,12 @@ import {
 	ADD_SHARE_REQUEST,
 	ADD_SHARE_SUCCESS,
 	ADD_SHARE_FAILURE,
+	EDIT_SHARE_REQUEST,
+	EDIT_SHARE_SUCCESS,
+	EDIT_SHARE_FAILURE,
+	DELETE_SHARE_REQUEST,
+	DELETE_SHARE_SUCCESS,
+	DELETE_SHARE_FAILURE,
 } from "./types";
 
 export const fetchGroupRequest = () => {
@@ -38,6 +44,40 @@ export const addShareSuccess = (groups) => {
 export const addShareFailure = (error) => {
 	return {
 		type: ADD_SHARE_FAILURE,
+		payload: error,
+	};
+};
+export const editShareRequest = () => {
+	return {
+		type: EDIT_SHARE_REQUEST,
+	};
+};
+export const editShareSuccess = (groups) => {
+	return {
+		type: EDIT_SHARE_SUCCESS,
+		payload: groups,
+	};
+};
+export const editShareFailure = (error) => {
+	return {
+		type: EDIT_SHARE_FAILURE,
+		payload: error,
+	};
+};
+export const deleteShareRequest = () => {
+	return {
+		type: DELETE_SHARE_REQUEST,
+	};
+};
+export const deleteShareSuccess = (activityId) => {
+	return {
+		type: DELETE_SHARE_SUCCESS,
+		payload: activityId,
+	};
+};
+export const deleteShareFailure = (error) => {
+	return {
+		type: DELETE_SHARE_FAILURE,
 		payload: error,
 	};
 };

@@ -12,20 +12,46 @@ import Button from "../../components/button/Button";
 import Popover from "./components/popover/PopOver";
 import Heading from "./components/Heading/Heading";
 import AddMemberPopover from "./components/popover/AddMember";
-import { connect } from "react-redux";
-import { getGroups } from "../../context/groups/api";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { IconButton } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+
+import { deleteShare, getGroups } from "../../context/groups/api";
 import SkeletonComp from "./components/skeleton/Skeleton";
+import { useDispatch, useSelector } from "react-redux";
 
-const Split = ({ groupData, getGroups }) => {
+const Split = () => {
+	const dispatch = useDispatch();
+	const groupData = useSelector((state) => state.group);
 	useEffect(() => {
-		getGroups();
+		dispatch(getGroups());
 	}, []);
-
+	const handleDelete = (contributionId) => {
+		dispatch(deleteShare(contributionId));
+	};
 	console.log(groupData.group);
 	const columns = [
+		{ field: "id", headerName: "ID", width: 100 },
 		{ field: "name", headerName: "Name", width: 100 },
 		{ field: "desc", headerName: "Description", width: 100 },
 		{ field: "share", headerName: "Amount", width: 100, sortable: true },
+		{
+			field: "Actions",
+			headerName: "Actions",
+			width: 150,
+			renderCell: (params) => {
+				return (
+					<>
+						<IconButton>
+							<EditIcon />
+						</IconButton>
+						<IconButton>
+							<DeleteOutlineIcon onClick={() => handleDelete(params.row.id)} />
+						</IconButton>
+					</>
+				);
+			},
+		},
 	];
 	return (
 		<div>
@@ -149,16 +175,5 @@ const Split = ({ groupData, getGroups }) => {
 		</div>
 	);
 };
-const mapStateToProps = (state) => {
-	return {
-		groupData: state.group,
-	};
-};
-const mapDispatchToProps = (dispatch) => {
-	return {
-		getGroups: () => dispatch(getGroups()),
-	};
-};
 
-// export default Split;
-export default connect(mapStateToProps, mapDispatchToProps)(Split);
+export default Split;

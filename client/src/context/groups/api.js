@@ -5,8 +5,12 @@ import {
 	addShareRequest,
 	addShareSuccess,
 	addShareFailure,
+	deleteShareRequest,
+	deleteShareSuccess,
+	deleteShareFailure,
 } from "./actions";
 import axios from "axios";
+const userId = JSON.parse(localStorage.getItem("user")).user.id;
 
 export const getGroups = () => {
 	return (dispatch) => {
@@ -26,5 +30,26 @@ export const getGroups = () => {
 export const addShare = () => {
 	return (dispatch) => {
 		dispatch(addShareRequest());
+	};
+};
+export const deleteShare = (controbutionId) => {
+	return (dispatch) => {
+		dispatch(deleteShareRequest());
+		axios
+			.delete(
+				`http://localhost:8000/api/${userId}/london/${controbutionId}/deleteCont`,
+				{
+					headers: {
+						Authorization: JSON.parse(localStorage.getItem("user"))
+							.access_token,
+					},
+				}
+			)
+			.then(() => {
+				dispatch(deleteShareSuccess(controbutionId));
+			})
+			.catch((err) => {
+				dispatch(deleteShareFailure(err));
+			});
 	};
 };
