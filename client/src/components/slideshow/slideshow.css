@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 *{
   margin: 0;
   padding: 0;
 }
 .bodyContainer{
-  width: 100%;
+  width: 100vw;
   height: 60vh;
     display: flex;
     justify-content: space-around;
     transition-duration: 2s;
     animation-name: wipe-in-right;
-    margin-top: 50px;
+    margin-top: 8vh;
+  }
+  .bodyContainer p{
+  font-family: 'Abril Fatface', cursive;
+  text-transform: capitalize;
+}
+.bodyContainer p span{
+  font-family: 'Monoton', cursive;
+  font-size: 2em;
 }
 .slideImage {
     height: 30em;
@@ -18,17 +28,18 @@
     align-items: center;
 }
 .slideImage img{
-    width:100%;
-    height:100%;
+    width:90%;
+    height:90%;
 }
 .slideText {
-    width:40%;
+    width:40vw;
     font-size: 3em;
     display: flex;
     align-items: center;
     transition: all;
     color: white;
     transition-duration: 2s;
+    
 }
 .highlight{
   color: coral;
@@ -36,9 +47,6 @@
 }
 @media screen and (max-width: 600px) {
   .bodyContainer{
-      /* flex-direction: column;
-      align-items: center; */
-      /* display: flex; */
       display: block;
     }
       .slideImage{
@@ -59,5 +67,4 @@
         justify-content: flex-start;
         font-size: 2rem;
        } 
-
   }

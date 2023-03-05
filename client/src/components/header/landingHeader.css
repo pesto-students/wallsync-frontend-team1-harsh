@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 3%;
+    margin-right: 3vw;
 }
 .lHeader .lDefault{
     display: flex; 
@@ -10,8 +10,6 @@
     justify-content: flex-start;
 }
 .lLogo{
-    /* width: 30%;
-    height: 25%; */
     width: 12vw;
 }
 .lHeader h1{
@@ -19,9 +17,9 @@
     font-size: 3em;
 }
 .topLine{
-    margin-left:2%;
-    margin-right:2%;
-    margin-bottom:1%
+    margin-left:2vw;
+    margin-right:2vw;
+    margin-bottom:1vh;
 }
 
 @media screen and (max-width: 600px) {

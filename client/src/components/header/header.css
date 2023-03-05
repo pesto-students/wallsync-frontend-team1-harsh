@@ -4,32 +4,31 @@
     padding: 1%;
     height: 12vh;
     align-items: center;
-    margin-right: 3%;
+    margin-right: 3vw;
 }
 .header .default{
     display: flex; 
     padding-top: 3vh;
     align-items: center;
     justify-content: center;
-    margin-left: 5%;
+    margin-left: 5vw;
 }
 
 .hLogo {
     position: fixed;
     width: 12vw;
     margin-top: -4%;
-  left: -1%; 
+    left: -1%; 
 
 }
 .header h1{
     color: white;
-    margin-left: 7%;
+    margin-left: 7vw;
     font-size: 3em;
 }
 .headerLine{
     margin-bottom: 3vh;
-    margin-left:13%;
-    /* margin-right: 2%; */
+    margin-left:13vw;
 }
 
 @media screen and (max-width: 600px) {

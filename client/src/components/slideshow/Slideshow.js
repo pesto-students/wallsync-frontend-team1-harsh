@@ -13,39 +13,39 @@ const Slideshow = () => {
   const [currentText, setCurrentText] = useState(0);
   const [text] = useState([
     <p>
-      YOUR ONE STOP
+      Your one stop
       <br />
-      APP FOR ALL
+      app for all
       <br />
       <span className="highlight">FINANCES</span>
     </p>,
     <p>
-      MANAGE YOUR EXPENSES
+      Manage your expenses
       <br />
-      & CREATE A
+      & Create a 
       <br />
       <span className="highlight">BUDGET</span>
     </p>,
     <p>
-      CREATE ACTIVITIES &
+      Create activities &
       <br />
       <span className="highlight">SPLIT BILLS</span>
     </p>,
     <p>
-      PRIORITIZE
+      Prioritize
       <br />
       <span className="highlight">REPAYMENTS</span>
       <br />
-      & SET
+      & set
       <br />
       <span className="highlight"> REMINDERS</span>
     </p>,
     <p>
-      GET
+      Get
       <br />
       <span className="highlight">LIVE MARKET</span>
       <br />
-      DATA
+      data
     </p>,
   ]);
   useEffect(() => {

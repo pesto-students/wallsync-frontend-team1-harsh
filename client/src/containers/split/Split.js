@@ -14,6 +14,7 @@ import Heading from "./components/Heading/Heading";
 import AddMemberPopover from "./components/popover/AddMember";
 import { connect } from "react-redux";
 import { getGroups } from "../../context/groups/api";
+import SkeletonComp from "./components/skeleton/Skeleton";
 
 const Split = ({ groupData, getGroups }) => {
 	useEffect(() => {
@@ -23,7 +24,6 @@ const Split = ({ groupData, getGroups }) => {
 	console.log(groupData.group);
 	const columns = [
 		{ field: "name", headerName: "Name", width: 100 },
-
 		{ field: "desc", headerName: "Description", width: 100 },
 		{ field: "share", headerName: "Amount", width: 100, sortable: true },
 	];
@@ -33,6 +33,7 @@ const Split = ({ groupData, getGroups }) => {
 			<div className="sBody">
 				<Nav />
 				<div className="sDash">
+				<SkeletonComp/>
 					<Panel panelName={<Heading text="+ Add a group" />} />
 					{groupData.group.map((i) => {
 						return (

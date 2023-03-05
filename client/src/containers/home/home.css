@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+
+
 .homeBody{
     display: flex;
     /* margin-bottom: 6%; */
@@ -5,7 +8,7 @@
 }
 .mainPanel{
     background-color: #1E1E1E;
-    width: 84%;
+    width: 84vw;
     padding:2%;
     border-radius: 25px 0 0 25px;
     display: flex;
@@ -18,5 +21,42 @@
     color: white;
 }
 .homeFooter{
-    margin-top: 4%;
+    margin-top: 4vh;
 }
+.homePanelData{
+    text-align: center;
+    width: auto;
+    height: 10vh;
+    background-color: #1E1E1E;
+    display: flex;
+    gap: 10vw;
+    justify-content: center;
+    align-items: center;
+    /* padding :5%; */
+    font-size: 2em;
+    color: white;
+    text-transform: capitalize;
+}
+.panelDataInner{
+    display: flex;
+
+}
+.amount{
+    color: aquamarine;
+}
+.homeHeadingText{
+    background-color: black;
+    /* margin-left: 25vw; */
+    text-align: center;
+    margin-top: 1vh;
+      /* width: 7em; */
+      width: max-content;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 20px;  
+      text-transform: uppercase;
+      font-size: 2em;
+      font-family: 'Rampart One', cursive;
+      /* font-weight: 500; */
+  }
