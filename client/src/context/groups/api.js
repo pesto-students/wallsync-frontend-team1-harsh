@@ -32,12 +32,12 @@ export const addShare = () => {
 		dispatch(addShareRequest());
 	};
 };
-export const deleteShare = (controbutionId) => {
+export const deleteShare = (contributionId) => {
 	return (dispatch) => {
 		dispatch(deleteShareRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/${userId}/london/${controbutionId}/deleteCont`,
+				`http://localhost:8000/api/${userId}/london/${contributionId}/deleteCont`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))
@@ -46,7 +46,7 @@ export const deleteShare = (controbutionId) => {
 				}
 			)
 			.then(() => {
-				dispatch(deleteShareSuccess(controbutionId));
+				dispatch(deleteShareSuccess(contributionId));
 			})
 			.catch((err) => {
 				dispatch(deleteShareFailure(err));

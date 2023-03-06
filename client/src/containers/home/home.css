@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nova+Slim&display=swap');
 
 .homeBody{
     display: flex;
@@ -37,6 +37,10 @@
     color: white;
     text-transform: capitalize;
 }
+.homePanelData p{
+    font-family: 'Nova Slim', cursive;
+}
+
 .panelDataInner{
     display: flex;
 
@@ -46,7 +50,7 @@
 }
 .homeHeadingText{
     background-color: black;
-    /* margin-left: 25vw; */
+    margin:auto;
     text-align: center;
     margin-top: 1vh;
       /* width: 7em; */

@@ -8,6 +8,7 @@
   width: 100vw;
   height: 60vh;
     display: flex;
+    align-items: center;
     justify-content: space-around;
     transition-duration: 2s;
     animation-name: wipe-in-right;
@@ -15,9 +16,12 @@
   }
   .bodyContainer p{
   font-family: 'Abril Fatface', cursive;
-  text-transform: capitalize;
+  font-style: italic;
+  /* text-transform: capitalize; */
+  font-weight: 100;
 }
 .bodyContainer p span{
+  font-style: normal;
   font-family: 'Monoton', cursive;
   font-size: 2em;
 }

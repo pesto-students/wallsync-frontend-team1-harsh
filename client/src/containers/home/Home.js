@@ -65,49 +65,52 @@ const Home = () => {
         <div className="mainPanel">
           <Panel
             panelLogo={pic1}
-            panelName={
-				<p className="homeHeadingText" >Split Bills</p>
-			}
+            panelName={<p className="homeHeadingText">Split Bills</p>}
             panelData={
               <div className="homePanelData">
                 <p>Latest activity : {groupContent.groupName}</p>
-                <p className="panelDataInner">Total Group expense :&nbsp;<p className="amount">  ₹ {groupContent.groupTotal}</p> </p>
+                <p className="panelDataInner">
+                  Total Group expense :&nbsp;
+                  <p className="amount"> ₹ {groupContent.groupTotal}</p>{" "}
+                </p>
               </div>
             }
             linkTo="/split"
           />
           <Panel
             panelLogo={pic2}
-            panelName={
-				<p className="homeHeadingText" >Expense Management</p>
-			}
+            panelName={<p className="homeHeadingText">Expense Management</p>}
             linkTo="/budget"
             panelData={
               <div className="homePanelData">
-                <p className="panelDataInner" >Spent  : &nbsp;<p className="amount">₹  {budgetContent.total}</p> </p>
-                <p className="panelDataInner">Savings  : &nbsp;<p className="amount">₹  {budgetContent.savings}</p> </p>
+                <p className="panelDataInner">
+                  Spent : &nbsp;
+                  <p className="amount">₹ {budgetContent.total}</p>{" "}
+                </p>
+                <p className="panelDataInner">
+                  Savings : &nbsp;
+                  <p className="amount">₹ {budgetContent.savings}</p>{" "}
+                </p>
               </div>
             }
           />
           <Panel
             panelLogo={pic3}
-            panelName={
-				<p className="homeHeadingText" >Repayments</p>
-			}
+            panelName={<p className="homeHeadingText">Repayments</p>}
             linkTo="/repayments"
             panelData={
               <div className="homePanelData">
-                <p>Description  :  {b.type}</p>
-                <p>Due-Date  :  {b.date}</p>
-                <p className="panelDataInner">Amount  : &nbsp;<p className="amount">₹  {b.amount}</p></p>
+                <p>Description : {b.type}</p>
+                <p>Due-Date : {b.date}</p>
+                <p className="panelDataInner">
+                  Amount : &nbsp;<p className="amount">₹ {b.amount}</p>
+                </p>
               </div>
             }
           />
           <Panel
             panelLogo={pic4}
-            panelName={
-				<p className="homeHeadingText" >Live Market</p>
-			}
+            panelName={<p className="homeHeadingText">Live Market</p>}
             linkTo="/live-market"
             // panelData={}
           />

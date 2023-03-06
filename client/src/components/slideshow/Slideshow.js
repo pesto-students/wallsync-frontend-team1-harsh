@@ -62,7 +62,7 @@ const Slideshow = () => {
       <motion.div
         animate={{ x: [75, 150], opacity: 1, scale: 1 }}
         transition={{
-          duration: 4.5,
+          duration: 3,
           delay: 0,
           repeat: Infinity,
           type: "spring",
@@ -76,16 +76,15 @@ const Slideshow = () => {
         />
       </motion.div>
       <motion.div
-        animate={{ x: [-250, 50], opacity: 1, scale: 1 }}
+        animate={{ x: [-300, 50], opacity: 1, scale: 1 }}
         transition={{
-          duration: 4.5,
+          duration: 3,
           type: "spring",
 
           delay: 0,
           repeat: Infinity,
-          ease: [0.5, 0.71, 1, 1.5],
+          // ease: [0.5, 0.71, 1, 1.5],
         }}
-        whileHover={{ scale: 1.1 }}
         className="slideText"
       >
         {text[currentText % text.length]}

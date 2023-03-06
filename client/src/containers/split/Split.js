@@ -27,9 +27,11 @@ const Split = () => {
 		dispatch(getGroups());
 	}, []);
 	const handleDelete = (contributionId) => {
+		console.log(contributionId)
 		dispatch(deleteShare(contributionId));
 	};
-	console.log(groupData.group);
+	// console.log("============>",useSelector(state=>state.group.contributions));
+	console.log(groupData)
 	const columns = [
 		{ field: "id", headerName: "ID", width: 100 },
 		{ field: "name", headerName: "Name", width: 100 },
@@ -59,8 +61,17 @@ const Split = () => {
 			<div className="sBody">
 				<Nav />
 				<div className="sDash">
-					<SkeletonComp />
-					<Panel panelName={<Heading text="+ Add a group" />} />
+					{/* <SkeletonComp /> */}
+					<Panel panelName={<Heading text="+ Add a group" />} panelData={
+						<div className="addGroup">
+							<form action="">
+								<input type="text" placeholder="Group Name"/>
+								<input type="text" placeholder="Description"/>
+								<input type="text" placeholder="Some shit"/>
+								<button type="Submit">Create</button>
+							</form>
+						</div>
+					} />
 					{groupData.group.map((i) => {
 						return (
 							<Panel

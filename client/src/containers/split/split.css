@@ -126,3 +126,26 @@ justify-content: flex-start;
     font-family: 'Caveat', cursive;
     font-weight: 700;
 }
+.addGroup{
+  width: auto;
+  height: 15vh;
+  background-color: #1e1e1e;
+  display: flex;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+}
+.addGroup form{
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+}
+.addGroup form input{
+  border-radius: 15px;
+  text-align: center;
+  width: 20vw;
+  height: 6vh;
+}
+.addGroup form button{
+  width: 10vw;
+}
