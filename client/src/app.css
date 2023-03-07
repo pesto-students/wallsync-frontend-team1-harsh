@@ -25,10 +25,24 @@ li:visited{
 .MuiAccordion-root{
     background: rgb(226,110,45);
     background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
-    background-image: url('./assets/bg2-zEFitxBHV-transformed-removebg-preview.png');
+    /* background-image: url('./assets/bg2-zEFitxBHV-transformed-removebg-preview.png'); */
     background-size: fill;
     border-radius: 25px;
 }
+.MuiAccordion-root::after{
+    pointer-events: none;
+    content: "";
+    display: block; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background-image: url('./assets/bg2-zEFitxBHV-transformed-removebg-preview.png');
+    background-size: fill;
+    border-radius: 25px;
+    opacity: 0.2;
+  }
 @media screen and (max-width: 600px) {
     .App{
         padding-bottom:-100px ;

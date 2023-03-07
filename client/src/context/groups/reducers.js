@@ -65,10 +65,9 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 		case DELETE_SHARE_SUCCESS:
 			return {
 				loading: false,
-				group: state.group.map((i)=>{
-					i.contributions.filter((item) => item.id !== action.payload)
+				group: state.group.group.map((i) => {
+					i.contributions.filter((item) => item.id !== action.payload);
 				}),
-
 				error: false,
 			};
 		case DELETE_SHARE_FAILURE:
