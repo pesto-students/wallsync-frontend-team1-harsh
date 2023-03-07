@@ -69,10 +69,11 @@ export const deleteShareRequest = () => {
 		type: DELETE_SHARE_REQUEST,
 	};
 };
-export const deleteShareSuccess = (activityId) => {
+export const deleteShareSuccess = (groupName, contributionId) => {
 	return {
 		type: DELETE_SHARE_SUCCESS,
-		payload: activityId,
+		payload: groupName,
+		contributionId,
 	};
 };
 export const deleteShareFailure = (error) => {

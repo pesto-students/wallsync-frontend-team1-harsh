@@ -24,9 +24,9 @@ const Split = () => {
 	useEffect(() => {
 		dispatch(getGroups());
 	}, [dispatch]);
-	const handleDelete = (contributionId) => {
+	const handleDelete = (groupName, contributionId) => {
 		console.log(contributionId);
-		dispatch(deleteShare(contributionId));
+		dispatch(deleteShare(groupName, contributionId));
 	};
 	// console.log("============>",useSelector(state=>state.group.contributions));
 	console.log(groupData);
@@ -35,6 +35,8 @@ const Split = () => {
 		{ field: "name", headerName: "Name", width: 100 },
 		{ field: "desc", headerName: "Description", width: 100 },
 		{ field: "share", headerName: "Amount", width: 100, sortable: true },
+		{ field: "groupName", headerName: "GroupName", width: 70, hide: true },
+
 		{
 			field: "Actions",
 			headerName: "Actions",
@@ -46,7 +48,11 @@ const Split = () => {
 							<EditIcon />
 						</IconButton>
 						<IconButton>
-							<DeleteOutlineIcon onClick={() => handleDelete(params.row.id)} />
+							<DeleteOutlineIcon
+								onClick={() =>
+									handleDelete(params.row.groupName, params.row.id)
+								}
+							/>
 						</IconButton>
 					</>
 				);
@@ -59,6 +65,7 @@ const Split = () => {
 			<div className="sBody">
 				<Nav />
 				<div className="sDash">
+					{/* <SkeletonComp /> */}
 					<Panel
 						panelName={<Heading text="+ Add a group" />}
 						panelData={
@@ -72,7 +79,6 @@ const Split = () => {
 							</div>
 						}
 					/>
-					
 					{groupData.map((i) => {
 						return (
 							<Panel
@@ -97,7 +103,13 @@ const Split = () => {
 									<div className="cont">
 										<div className="first">
 											<div className="activityTable">
-												<Table columnData={columns} rowData={i.contributions} />
+												<Table
+													columnData={columns}
+													rowData={i.contributions.map((item) => ({
+														...item,
+														groupName: i.groupName,
+													}))}
+												/>
 												<form action="">
 													<select name="Members">
 														{i.groupMembers.map((member) => {
