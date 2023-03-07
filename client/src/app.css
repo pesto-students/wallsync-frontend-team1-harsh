@@ -29,7 +29,7 @@ li:visited{
     background-size: fill;
     border-radius: 25px;
 }
-.MuiAccordion-root::after{
+.MuiAccordionSummary-root::after{
     pointer-events: none;
     content: "";
     display: block; 

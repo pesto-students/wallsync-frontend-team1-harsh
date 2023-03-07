@@ -14,7 +14,7 @@ const Header = ({ children, className }) => {
 						<h1>WALLSYNC</h1>
 					</Link>
 				</div>
-				<div className={className}>{children}</div>
+				<div className="headerAvatar">{children}</div>
 			</div>
 			<hr className="headerLine" />
 		</>

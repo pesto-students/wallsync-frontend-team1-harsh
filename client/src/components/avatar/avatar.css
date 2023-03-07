@@ -5,26 +5,40 @@
     position: relative;
     width: max-content;
     color: white;
+    /* background-color: aqua; */
+    margin-left: 45%;
     font-size: small;
   }
   
+  .dropicon .MuiSvgIcon-root{
+    width:8vw ;
+    height:8vh ;
+  }
   .dropicon .options {
-    
+    padding: 15%; 
     display: none;
     background-color: gray;
     border-radius: 5px;
   }
   
   .dropicon span {
-    padding: 10px;
+    /* padding: 15%; */
     cursor: pointer;
     color: rgb(20, 20, 20);
-    font-size: small;
+    font-size: 1.5em;
+    
   }
   
   .dropicon:hover .options {
     display: flex;
     flex-direction: column;
+    gap: 1vh;
     position: absolute;
     z-index: 2;
+  }
+
+  .dropicon .options span:hover{
+    font-size: 1.75em;
+    color: white;
+    transition: font-size 0.3s;
   }

@@ -59,7 +59,6 @@ const Split = () => {
 			<div className="sBody">
 				<Nav />
 				<div className="sDash">
-					{/* <SkeletonComp /> */}
 					<Panel
 						panelName={<Heading text="+ Add a group" />}
 						panelData={
@@ -73,6 +72,7 @@ const Split = () => {
 							</div>
 						}
 					/>
+					
 					{groupData.map((i) => {
 						return (
 							<Panel

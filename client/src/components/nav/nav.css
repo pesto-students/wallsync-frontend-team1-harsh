@@ -15,33 +15,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     transition: width 0.5s;
     transition-timing-function: ease-in-out;
     border-radius: 0 25px 25px 0;
 }
 
-ul{
+ul .top{
     list-style: none;
-    padding: 0 15px;
-}
-ul li{
-    margin: 30px 0;
     display: flex;
-    /* align-items: center; */
+    flex-direction: column;
+    align-items: center;
+}
+
+ul li{
+    margin: 3vh;
+    /* background-color: rgb(52, 49, 44); */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
     list-style: none;
     cursor: pointer;
 }
 
 ul li p{
+    /* background-color: aqua; */
     white-space: nowrap;
     display: none;
 }
 ul li .MuiSvgIcon-root{
     width: 2em;
     height:2em;
-    margin-bottom:40%;
+    /* margin-bottom:40%; */
 }
 .sidenav:hover{
     /* opacity: 0.6; */
@@ -55,13 +61,13 @@ ul li p:hover{
     transition: font-size 0.3s;
     transition-timing-function: ease-in-out;
 }
-.sidenav:hover ul li img{
-    justify-content: flex-start;
-    margin-right: 30px;
-    transition: margin-right 0.4s;
-}
+/*  */
 .sidenav:hover ul li{
-    justify-content: center;
+    display: flex;
+    gap: 3vw;
+    /* align-items: flex-start; */
+    justify-content: space-between;
+    transition: 0.4s;
 }
 .mobilenav{
     display: none;
