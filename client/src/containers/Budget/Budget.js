@@ -14,19 +14,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { addExpense, getBudget } from "../../context/budget/api";
 const Budget = () => {
 	const [description, setDescription] = useState("");
+	const [refresh,setRefresh] = useState(0);
 	const [amount, setAmount] = useState("");
 	const dispatch = useDispatch();
 	const budgetData = useSelector((state) => state.budget.budget);
 	const expenseData = useSelector((state) => state.budget.budget.expensesArray);
 	useEffect(() => {
 		dispatch(getBudget());
-	}, [dispatch]);
+	}, []);
 
 	const submit = async (e) => {
 		e.preventDefault();
 		dispatch(addExpense({ description, amount }));
 		setDescription("");
 		setAmount("");
+		setTimeout(()=>{
+			dispatch(getBudget())
+		},500)
 	};
 
 	//table data
@@ -73,10 +77,10 @@ const Budget = () => {
 	};
 
 	const data = {
-		labels: ["Income", "Savings", "Total"],
+		labels: ["Income", "Savings", "Total Spendings"],
 		datasets: [
 			{
-				label: "My First Dataset",
+				// label: "My First Dataset",
 				data: [budgetData.income, budgetData.savings, budgetData.total],
 				backgroundColor: [
 					"rgb(255, 99, 132)",
@@ -123,7 +127,7 @@ const Budget = () => {
 					<hr className="expenseLine" />
 					<div className="three">
 						<p>
-							February spendings: <span>{budgetData.total}</span>
+							February spendings: <span>₹{budgetData.total}</span>
 						</p>
 						<LineChart rowData={lineChartData} />
 					</div>

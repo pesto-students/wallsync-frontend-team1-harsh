@@ -9,6 +9,7 @@ import settings from "../../assets/icons8-settings-64.png";
 import PeopleIcon from "@mui/icons-material/People";
 import SettingsIcon from "@mui/icons-material/Settings";
 import HomeIcon from "@mui/icons-material/Home";
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import Toggle from "./toggle/Toggle";
 import { Link } from "react-router-dom";
@@ -31,6 +32,10 @@ const Nav = () => {
           <li>
             <AccountBalanceWalletIcon />
             <p>Wallet</p>
+          </li>
+          <li>
+            <NotificationsIcon/>
+            <p>Notifications</p>
           </li>
           <li>
             <Toggle />

@@ -27,9 +27,25 @@ export const getGroups = () => {
 			});
 	};
 };
-export const addShare = () => {
+//work under progess
+export const addShare = (groupName,share) => {
 	return (dispatch) => {
 		dispatch(addShareRequest());
+		axios.post(
+			`https://localhost:8000/api/${groupName}/63f361935a6870f14f57389d/addShare`,
+			share,
+			{
+				headers:{
+					"Content-Type": "application/json",
+				},
+			}
+		)
+		.then((data)=>{
+			addShareSuccess(data);
+		})
+		.catch((err)=>{
+			dispatch(addShareFailure(err))
+		})
 	};
 };
 export const deleteShare = (groupName, contributionId) => {
