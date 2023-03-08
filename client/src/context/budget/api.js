@@ -5,6 +5,9 @@ import {
 	addExpenseRequest,
 	addExpenseFailure,
 	addExpenseSuccess,
+	deleteExpenseRequest,
+	deleteExpenseSuccess,
+	deleteExpenseFailure,
 } from "./actions";
 import axios from "axios";
 
@@ -40,6 +43,27 @@ export const addExpense = (expense) => {
 			})
 			.catch((err) => {
 				dispatch(addExpenseFailure(err));
+			});
+	};
+};
+export const deleteExpense = (expenseId) => {
+	return (dispatch) => {
+		dispatch(deleteExpenseRequest());
+		axios
+			.delete(
+				`http://localhost:8000/api/63f361935a6870f14f57389d/${expenseId}/deleteExpense`,
+				{
+					headers: {
+						Authorization: JSON.parse(localStorage.getItem("user"))
+							.access_token,
+					},
+				}
+			)
+			.then(() => {
+				dispatch(deleteExpenseSuccess(expenseId));
+			})
+			.catch((err) => {
+				dispatch(deleteExpenseFailure(err));
 			});
 	};
 };

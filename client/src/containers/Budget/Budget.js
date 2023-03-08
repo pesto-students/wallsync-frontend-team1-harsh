@@ -8,13 +8,14 @@ import ExpenseChart from "./components/chart/Chart";
 import axios from "axios";
 import LineChart from "./components/chart/LineChart";
 import Footer from "../../components/footer/Footer";
-// import Heading from "./components/Heading/Heading";
+import { IconButton } from "@mui/material";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Button from "../../components/button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { addExpense, getBudget } from "../../context/budget/api";
+import { addExpense, deleteExpense, getBudget } from "../../context/budget/api";
 const Budget = () => {
 	const [description, setDescription] = useState("");
-	const [refresh,setRefresh] = useState(0);
+	const [refresh, setRefresh] = useState(0);
 	const [amount, setAmount] = useState("");
 	const dispatch = useDispatch();
 	const budgetData = useSelector((state) => state.budget.budget);
@@ -28,11 +29,14 @@ const Budget = () => {
 		dispatch(addExpense({ description, amount }));
 		setDescription("");
 		setAmount("");
-		setTimeout(()=>{
-			dispatch(getBudget())
-		},500)
+		setTimeout(() => {
+			dispatch(getBudget());
+		}, 500);
 	};
-
+	console.log("expenses", expenseData);
+	const handleDelete = (expenseId) => {
+		dispatch(deleteExpense(expenseId));
+	};
 	//table data
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },
@@ -45,13 +49,27 @@ const Budget = () => {
 			width: 100,
 			sortable: true,
 		},
+		{
+			field: "delete",
+			headerName: "Delete",
+			width: 150,
+			renderCell: (params) => {
+				return (
+					<>
+						<IconButton>
+							<DeleteOutlineIcon onClick={() => handleDelete(params.row.id)} />
+						</IconButton>
+					</>
+				);
+			},
+		},
 	];
 	const rows = [];
 	{
 		expenseData &&
 			expenseData.map((item, i) => {
 				rows.push({
-					id: i + 1,
+					id: item._id,
 					Description: item.description,
 					Amount: item.amount,
 					Date: item.date.substr(0, 10),
@@ -120,8 +138,8 @@ const Budget = () => {
 							/>
 						</form>
 						<div className="incomeDiv">
-							<input type="text" placeholder="Set limit" />
-							<input type="text" placeholder="Add Income" />
+							<input type="text" placeholder={budgetData.limit} />
+							<input type="text" placeholder={budgetData.income} />
 						</div>
 					</div>
 					<hr className="expenseLine" />

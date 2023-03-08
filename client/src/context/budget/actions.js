@@ -5,6 +5,9 @@ import {
 	ADD_EXPENSE_REQUEST,
 	ADD_EXPENSE_SUCCESS,
 	ADD_EXPENSE_FAILURE,
+	DELETE_EXPENSE_REQUEST,
+	DELETE_EXPENSE_SUCCESS,
+	DELETE_EXPENSE_FAILURE,
 	ADD_LIMIT_REQUEST,
 	ADD_LIMIT_SUCCESS,
 	ADD_LIMIT_FAILURE,
@@ -42,6 +45,23 @@ export const addExpenseSuccess = (expense) => {
 	};
 };
 export const addExpenseFailure = (error) => {
+	return {
+		type: ADD_EXPENSE_FAILURE,
+		payload: error,
+	};
+};
+export const deleteExpenseRequest = () => {
+	return {
+		type: ADD_EXPENSE_REQUEST,
+	};
+};
+export const deleteExpenseSuccess = (expenseId) => {
+	return {
+		type: ADD_EXPENSE_SUCCESS,
+		payload: expenseId,
+	};
+};
+export const deleteExpenseFailure = (error) => {
 	return {
 		type: ADD_EXPENSE_FAILURE,
 		payload: error,

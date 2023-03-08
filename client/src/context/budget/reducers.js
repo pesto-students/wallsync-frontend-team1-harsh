@@ -5,6 +5,9 @@ import {
 	ADD_EXPENSE_REQUEST,
 	ADD_EXPENSE_SUCCESS,
 	ADD_EXPENSE_FAILURE,
+	DELETE_EXPENSE_REQUEST,
+	DELETE_EXPENSE_SUCCESS,
+	DELETE_EXPENSE_FAILURE,
 	ADD_LIMIT_REQUEST,
 	ADD_LIMIT_SUCCESS,
 	ADD_LIMIT_FAILURE,
@@ -57,6 +60,26 @@ const budgetReducer = (state = INITIAL_STATE, action) => {
 			return {
 				loading: false,
 				budget: [],
+				error: action.payload,
+			};
+		case DELETE_EXPENSE_REQUEST:
+			return {
+				...state,
+				loading: true,
+				error: false,
+			};
+		case DELETE_EXPENSE_SUCCESS:
+			return {
+				loading: false,
+				budget: state.budget.budget.expensesArray.filter(
+					(item) => item._id !== action.payload
+				),
+				error: false,
+			};
+		case DELETE_EXPENSE_FAILURE:
+			return {
+				...state,
+				loading: false,
 				error: action.payload,
 			};
 		default:
