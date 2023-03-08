@@ -24,7 +24,8 @@
 }
 .header h1{
     color: white;
-    margin-left: 7vw;
+    /* margin-left: 7vw; */
+    text-align: center;
     font-size: 3em;
 }
 .headerLine{

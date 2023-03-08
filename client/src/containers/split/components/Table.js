@@ -9,8 +9,8 @@ export default function DataTable({ rowData, columnData }) {
         sx={{
           boxShadow: 2,
           border: 5,
-		  borderRadius:6,
-		  color:"white",
+          borderRadius: 6,
+          color: "white",
           borderColor: "#E26E2D",
           "& .MuiDataGrid-cell:hover": {
             color: "primary.main",
@@ -25,4 +25,4 @@ export default function DataTable({ rowData, columnData }) {
     </div>
   );
 }
-// style={{ height: 380, width: "45%" }}
+

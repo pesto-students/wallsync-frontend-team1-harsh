@@ -10,7 +10,7 @@ import {
 	deleteShareFailure,
 } from "./actions";
 import axios from "axios";
-const userId = JSON.parse(localStorage.getItem("user")).user.id;
+// const userId = JSON.parse(localStorage.getItem("user")).user.id;
 
 export const getGroups = () => {
 	return (dispatch) => {
@@ -37,7 +37,7 @@ export const deleteShare = (groupName, contributionId) => {
 		dispatch(deleteShareRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/${userId}/${groupName}/${contributionId}/deleteCont`,
+				`http://localhost:8000/api/63f361935a6870f14f57389d/${groupName}/${contributionId}/deleteCont`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))

@@ -15,7 +15,7 @@ import {
 
 import axios from "axios";
 
-const userId = JSON.parse(localStorage.getItem("user")).user.id;
+// const userId = JSON.parse(localStorage.getItem("user")).user.id;
 export const getRepayments = () => {
 	return (dispatch) => {
 		dispatch(fetchRepaymentRequest());
@@ -72,7 +72,7 @@ export const deleteRepayment = (repaymentId) => {
 		dispatch(deleteRepaymentRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/${userId}/${repaymentId}/deleteRepayment`,
+				`http://localhost:8000/api/63f361935a6870f14f57389d/${repaymentId}/deleteRepayment`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))

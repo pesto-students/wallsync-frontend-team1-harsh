@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Split = () => {
 	const dispatch = useDispatch();
+	const loading = useSelector((state)=>state.group.loading)
 	const groupData = useSelector((state) => state.group.group);
 	useEffect(() => {
 		dispatch(getGroups());
@@ -31,9 +32,9 @@ const Split = () => {
 	// console.log("============>",useSelector(state=>state.group.contributions));
 	console.log(groupData);
 	const columns = [
-		{ field: "id", headerName: "ID", width: 100 },
+		{ field: "id", headerName: "ID", width: 100 ,hide:true},
 		{ field: "name", headerName: "Name", width: 100 },
-		{ field: "desc", headerName: "Description", width: 100 },
+		{ field: "desc", headerName: "Description", width: 150 ,sortable: true },
 		{ field: "share", headerName: "Amount", width: 100, sortable: true },
 		{ field: "groupName", headerName: "GroupName", width: 70, hide: true },
 
@@ -65,7 +66,6 @@ const Split = () => {
 			<div className="sBody">
 				<Nav />
 				<div className="sDash">
-					{/* <SkeletonComp /> */}
 					<Panel
 						panelName={<Heading text="+ Add a group" />}
 						panelData={
@@ -79,6 +79,8 @@ const Split = () => {
 							</div>
 						}
 					/>
+					
+					{loading && <SkeletonComp/>}
 					{groupData.map((i) => {
 						return (
 							<Panel
@@ -110,7 +112,7 @@ const Split = () => {
 														groupName: i.groupName,
 													}))}
 												/>
-												<form action="">
+												<form action="" className="addControForm">
 													<select name="Members">
 														{i.groupMembers.map((member) => {
 															return (
@@ -120,8 +122,8 @@ const Split = () => {
 															);
 														})}
 													</select>
-													<input type="text" name="Description" />
-													<input type="number" name="Amount" />
+													<input type="text" name="Description" placeholder="Description" />
+													<input type="number" name="Amount" placeholder="Amount" />
 													<Button
 														className="addShareB"
 														buttonName={"Add Share"}
@@ -146,7 +148,7 @@ const Split = () => {
 															],
 															hoverOffset: 4,
 															cutout: 70,
-															// margintop:50,
+															
 															borderRadius: 5,
 														},
 													],

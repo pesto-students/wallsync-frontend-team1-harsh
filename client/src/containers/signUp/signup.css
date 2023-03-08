@@ -1,3 +1,9 @@
+.signupBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15vh;
+}
 .signupForm{
     background-color: #1f1f1f;
     box-shadow: 3px 3px 3px white;
@@ -7,22 +13,35 @@
     color:white;
 }
 .mainform{
-    display:inline-block;
-}
-.mainform input{
-    margin: 2%;
+    display:flex;
+    margin-right: 1vw;
+    /* background-color: aqua; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .info{
     display: flex;
-    margin: 4%;
+    justify-content: space-between;
+    margin: 3%;
+}
+.info input{
+    width: 10vw;
+    height: 5vh;
+    border-radius: 10px;
+    /* text-align: start; */
 }
 .infoLabel{
+    /* background-color: bisque; */
     display:flex;
     flex-direction: column;
-    gap:2%
+    margin: 4%;
+    width: auto;
 }
-.infoLabel label{
-    margin:5%
+.infoLabelTick{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 .signupBody{
     display:flex;
@@ -33,10 +52,18 @@
     align-items: center;
     margin-right: 2%;
 }
+/* .signupImages{;
+} */
 .signupImages img {
+    /* background-color: #1f1f1f; */
     width:15vw;
-    height:70vh;
+    height:60vh;
 }
 .formSignupButton{
-    margin-top:5%
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
+
+/* @media and screen() */

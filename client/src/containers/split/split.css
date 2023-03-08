@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 .sBody{
     display: flex;
     justify-content: space-between;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    font-family: 'Gloock', serif;
   }
   .sDash{
     background-color: #1e1e1e;
@@ -36,13 +38,23 @@
     color:white;
     text-align: center;
     overflow-y: scroll hidden;
-    
+    /* font-family: 'Gloock', serif; */
+    /* font-family: 'Gloock', serif; */
   } 
   .first ul form{
     display: flex;
     flex-direction: row;
    align-items:center;
    margin-top: 20%;
+  }
+  .activityTable .addControForm{
+    /* background-color: aqua; */
+    display: flex;
+    gap: 2vw;
+    justify-content: space-evenly;
+  }
+  .addControForm input{
+    border-radius: 10px;
   }
   /* .second{
     display:flex;
