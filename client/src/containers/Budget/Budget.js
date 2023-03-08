@@ -72,7 +72,7 @@ const Budget = () => {
 					id: item._id,
 					Description: item.description,
 					Amount: item.amount,
-					Date: item.date.substr(0, 10),
+					Date: item.date /*.substr(0, 10)*/,
 				});
 			});
 	}
@@ -80,7 +80,7 @@ const Budget = () => {
 	final = expenseData ? expenseData.map((item) => item.description) : [];
 	const lineChartData = {
 		labels: expenseData
-			? expenseData.map((item) => item.date.substr(5, 5))
+			? expenseData.map((item) => item.date /*.substr(5, 5)*/)
 			: [],
 
 		datasets: [
