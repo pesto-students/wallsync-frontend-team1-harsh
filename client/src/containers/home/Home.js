@@ -22,22 +22,13 @@ const Home = () => {
 
 	const dispatch = useDispatch();
 	const firstGroupData = useSelector((state) => state.group.group);
-	console.log(firstGroupData[0]?.groupName, "FIRST GROUP DATA");
+	const firstBudgetData = useSelector(state=>state.budget.budget)
+	const firstRepaymentData = useSelector(state=>state.repayment.repayment)
+
 	useEffect(() => {
 		dispatch(getGroups());
-		// const group = await axios.get(
-		// 	"http://localhost:8000/api/63f361935a6870f14f57389d/groups"
-		// );
-		// const budget = await axios.get(
-		// 	"http://localhost:8000/api/63f361935a6870f14f57389d/budget"
-		// );
-		// const repayment = await axios.get(
-		// 	"http://localhost:8000/api/63f361935a6870f14f57389d/repayments"
-		// );
-		// setGroupContent(group.data[0]);
-		// setBudgetContent(budget.data[0]);
-		// setRepaymentContent(repayment.data);
-		// console.log(repayment.data);
+		dispatch(getBudget());
+		dispatch(getRepayments());
 	}, []);
 	let b = {};
 	const latestRepayment = (data) => {
@@ -56,10 +47,7 @@ const Home = () => {
 		});
 		return b;
 	};
-	// let repaymentPanelData = latestRepayment(repaymentContent);
-
-	console.log(latestRepayment(repaymentContent));
-
+	let repaymentPanelData = latestRepayment(firstRepaymentData);
 	return (
 		<div>
 			<Header className="landingButtons" />
@@ -79,7 +67,7 @@ const Home = () => {
 								</p>
 								<p className="panelDataInner">
 									Total Group expense :&nbsp;
-									<p className="amount"> ₹ {groupContent.groupTotal}</p>{" "}
+									<p className="amount"> ₹ {firstGroupData[firstGroupData.length - 1]?.groupTotal}</p>{" "}
 								</p>
 							</div>
 						}
@@ -93,11 +81,11 @@ const Home = () => {
 							<div className="homePanelData">
 								<p className="panelDataInner">
 									Spent : &nbsp;
-									<p className="amount">₹ {budgetContent.total}</p>{" "}
+									<p className="amount">₹ {firstBudgetData.total}</p>{" "}
 								</p>
 								<p className="panelDataInner">
 									Savings : &nbsp;
-									<p className="amount">₹ {budgetContent.savings}</p>{" "}
+									<p className="amount">₹ {firstBudgetData.savings}</p>{" "}
 								</p>
 							</div>
 						}
@@ -108,10 +96,10 @@ const Home = () => {
 						linkTo="/repayments"
 						panelData={
 							<div className="homePanelData">
-								<p>Description : {b.type}</p>
-								<p>Due-Date : {b.date}</p>
+								<p>Description : {repaymentPanelData.type}</p>
+								<p>Due-Date : {repaymentPanelData.date}</p>
 								<p className="panelDataInner">
-									Amount : &nbsp;<p className="amount">₹ {b.amount}</p>
+									Amount : &nbsp;<p className="amount">₹ {repaymentPanelData.amount}</p>
 								</p>
 							</div>
 						}
