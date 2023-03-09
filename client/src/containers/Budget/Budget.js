@@ -111,7 +111,7 @@ const Budget = () => {
 	};
 	return (
 		<div>
-			<Header children={<Avatar />} />
+			<Header />
 			<div className="container">
 				<Nav />
 				<div className="budgetBody">

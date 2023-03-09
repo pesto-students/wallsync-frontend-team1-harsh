@@ -2,7 +2,10 @@
 import "./header.css";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
-const Header = ({ children, className }) => {
+import Avatar from "../avatar/Avatar";
+import { useSelector } from "react-redux";
+const Header = () => {
+	const profilePic = useSelector((state) => state.user);
 	return (
 		<>
 			<div className="header">
@@ -14,7 +17,9 @@ const Header = ({ children, className }) => {
 						<h1>WALLSYNC</h1>
 					</Link>
 				</div>
-				<div className="headerAvatar">{children}</div>
+				<div className="headerAvatar">
+					<Avatar />
+				</div>
 			</div>
 			<hr className="headerLine" />
 		</>
