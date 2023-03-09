@@ -20,7 +20,7 @@ export const getRepayments = () => {
 	return (dispatch) => {
 		dispatch(fetchRepaymentRequest());
 		axios
-			.get("http://localhost:8000/api/63f361935a6870f14f57389d/repayments")
+			.get("http://localhost:8000/api/user/63f361935a6870f14f57389d/repayments")
 			.then((data) => {
 				const repayments = data.data;
 				// console.log(repayments)
@@ -36,7 +36,7 @@ export const addRepayment = (repayment) => {
 		dispatch(addRepaymentRequest());
 		axios
 			.post(
-				"http://localhost:8000/api/63f361935a6870f14f57389d/addRepayment",
+				"http://localhost:8000/api/repayment/63f361935a6870f14f57389d/addRepayment",
 				repayment,
 				{
 					headers: {
@@ -52,10 +52,10 @@ export const addRepayment = (repayment) => {
 			});
 	};
 };
-export const editRepayment = async (id, dispatch) => {
+export const editRepayment = async (id, dispatch,repaymentId) => {
 	dispatch(editRepaymentRequest());
 	try {
-		await axios.put("" + id, {
+		await axios.put(`http://localhost:8000/api/repayment/63f361935a6870f14f57389d/${repaymentId}/editRepayment` + id, {
 			headers: {
 				"Content-Type": "application/json",
 				// Authorization: JSON.parse(localStorage.getItem("user")).access_token,
@@ -72,7 +72,7 @@ export const deleteRepayment = (repaymentId) => {
 		dispatch(deleteRepaymentRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/63f361935a6870f14f57389d/${repaymentId}/deleteRepayment`,
+				`http://localhost:8000/api/repayment/63f361935a6870f14f57389d/${repaymentId}/deleteRepayment`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))

@@ -12,9 +12,13 @@ import { scale } from "@cloudinary/url-gen/actions/resize";
 
 const Avatar = () => {
 	const dispatch = useDispatch();
+
+	
 	const profilePic = useSelector(
 		(state) => state.authentication.user.profilePicture
 	);
+	// const profilePic = localStorage.getItem('user').user.profilePicture;
+	// localStorage.setItem('userProfile',profilePic)
 	console.log("herrrrrr", profilePic);
 
 	const cld = new Cloudinary({
@@ -37,6 +41,7 @@ const Avatar = () => {
 			) : (
 				<AccountCircleIcon />
 			)}
+			
 
 			<div className="options">
 				<Link to="/profile">

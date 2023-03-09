@@ -16,7 +16,7 @@ export const getGroups = () => {
 	return (dispatch) => {
 		dispatch(fetchGroupRequest());
 		axios
-			.get("http://localhost:8000/api/63f361935a6870f14f57389d/groups")
+			.get("http://localhost:8000/api/user/63f361935a6870f14f57389d/groups")
 			.then((data) => {
 				const groups = data.data;
 				// console.log(groups)
@@ -32,7 +32,7 @@ export const addShare = (groupName,share) => {
 	return (dispatch) => {
 		dispatch(addShareRequest());
 		axios.post(
-			`https://localhost:8000/api/${groupName}/63f361935a6870f14f57389d/addShare`,
+			`https://localhost:8000/api/group/${groupName}/63f361935a6870f14f57389d/addShare`,
 			share,
 			{
 				headers:{
@@ -53,7 +53,7 @@ export const deleteShare = (groupName, contributionId) => {
 		dispatch(deleteShareRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/63f361935a6870f14f57389d/${groupName}/${contributionId}/deleteCont`,
+				`http://localhost:8000/api/group/63f361935a6870f14f57389d/${groupName}/${contributionId}/deleteCont`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))

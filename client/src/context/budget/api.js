@@ -15,7 +15,7 @@ export const getBudget = () => {
 	return (dispatch) => {
 		dispatch(fetchBudgetRequest());
 		axios
-			.get("http://localhost:8000/api/63f361935a6870f14f57389d/budget")
+			.get("http://localhost:8000/api/user/63f361935a6870f14f57389d/budget")
 			.then((data) => {
 				const budget = data.data[0];
 				dispatch(fetchBudgetSuccess(budget));
@@ -30,7 +30,7 @@ export const addExpense = (expense) => {
 		dispatch(addExpenseRequest());
 		axios
 			.post(
-				"http://localhost:8000/api/63f361935a6870f14f57389d/addExpense",
+				"http://localhost:8000/api/budget/63f361935a6870f14f57389d/addExpense",
 				expense,
 				{
 					headers: {
@@ -51,7 +51,7 @@ export const deleteExpense = (expenseId) => {
 		dispatch(deleteExpenseRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/63f361935a6870f14f57389d/${expenseId}/deleteExpense`,
+				`http://localhost:8000/api/budget/63f361935a6870f14f57389d/${expenseId}/deleteExpense`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))

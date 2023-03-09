@@ -11,6 +11,9 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import HomeIcon from "@mui/icons-material/Home";
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+// import DialogTitle from '@mui/material/DialogTitle';
+// import Dialog from '@mui/material/Dialog';
+import Dialogue from '../dialog/Dialogue'
 import Toggle from "./toggle/Toggle";
 import { Link } from "react-router-dom";
 
@@ -35,7 +38,8 @@ const Nav = () => {
           </li>
           <li>
             <NotificationsIcon/>
-            <p>Notifications</p>
+            <Dialogue/>
+            {/* <p>Notifications</p> */}
           </li>
           <li>
             <Toggle />
