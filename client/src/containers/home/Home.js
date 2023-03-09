@@ -10,9 +10,9 @@ import pic3 from "../../assets/repayments.png";
 import pic4 from "../../assets/stockCheck.png";
 import Nav from "../../components/nav/Nav";
 import Avatar from "../../components/avatar/Avatar";
-import {getGroups} from '../../context/groups/api';
-import {getBudget} from '../../context/budget/api';
-import {getRepayments} from '../../context/repayments/api';
+import { getGroups } from "../../context/groups/api";
+import { getBudget } from "../../context/budget/api";
+import { getRepayments } from "../../context/repayments/api";
 import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
@@ -21,26 +21,23 @@ const Home = () => {
 	const [repaymentContent, setRepaymentContent] = useState([]);
 
 	const dispatch = useDispatch();
-	const firstGroupData = useSelector(state=>state.group.group)
-	console.log(firstGroupData,"FIRST GROUP DATA")
+	const firstGroupData = useSelector((state) => state.group.group);
+	console.log(firstGroupData[0]?.groupName, "FIRST GROUP DATA");
 	useEffect(() => {
-		
-			dispatch(getGroups())
-			// const group = await axios.get(
-			// 	"http://localhost:8000/api/63f361935a6870f14f57389d/groups"
-			// );
-			// const budget = await axios.get(
-			// 	"http://localhost:8000/api/63f361935a6870f14f57389d/budget"
-			// );
-			// const repayment = await axios.get(
-			// 	"http://localhost:8000/api/63f361935a6870f14f57389d/repayments"
-			// );
-			// setGroupContent(group.data[0]);
-			// setBudgetContent(budget.data[0]);
-			// setRepaymentContent(repayment.data);
-			// console.log(repayment.data);
-	
-
+		dispatch(getGroups());
+		// const group = await axios.get(
+		// 	"http://localhost:8000/api/63f361935a6870f14f57389d/groups"
+		// );
+		// const budget = await axios.get(
+		// 	"http://localhost:8000/api/63f361935a6870f14f57389d/budget"
+		// );
+		// const repayment = await axios.get(
+		// 	"http://localhost:8000/api/63f361935a6870f14f57389d/repayments"
+		// );
+		// setGroupContent(group.data[0]);
+		// setBudgetContent(budget.data[0]);
+		// setRepaymentContent(repayment.data);
+		// console.log(repayment.data);
 	}, []);
 	let b = {};
 	const latestRepayment = (data) => {
@@ -76,7 +73,10 @@ const Home = () => {
 						panelName={<p className="homeHeadingText">Split Bills</p>}
 						panelData={
 							<div className="homePanelData">
-								<p>Latest activity : {firstGroupData[0].groupName}</p>
+								<p>
+									Latest activity :
+									{firstGroupData[firstGroupData.length - 1]?.groupName}
+								</p>
 								<p className="panelDataInner">
 									Total Group expense :&nbsp;
 									<p className="amount"> ₹ {groupContent.groupTotal}</p>{" "}
