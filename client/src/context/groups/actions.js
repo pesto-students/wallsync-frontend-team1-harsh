@@ -35,10 +35,11 @@ export const addShareRequest = () => {
 		type: ADD_SHARE_REQUEST,
 	};
 };
-export const addShareSuccess = (groups) => {
+export const addShareSuccess = (groupName, share) => {
 	return {
 		type: ADD_SHARE_SUCCESS,
-		payload: groups,
+		payload: groupName,
+		share,
 	};
 };
 export const addShareFailure = (error) => {

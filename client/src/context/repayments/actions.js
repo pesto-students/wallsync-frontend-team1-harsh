@@ -52,10 +52,10 @@ export const editRepaymentRequest = () => {
 		type: EDIT_REPAYMENT_REQUEST,
 	};
 };
-export const editRepaymentSuccess = (repayments) => {
+export const editRepaymentSuccess = (repayment) => {
 	return {
 		type: EDIT_REPAYMENT_SUCCESS,
-		payload: repayments,
+		payload: repayment,
 	};
 };
 export const editRepaymentFailure = (error) => {

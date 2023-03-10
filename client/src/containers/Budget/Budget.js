@@ -1,3 +1,4 @@
+//budget
 import React, { useState, useEffect } from "react";
 import "./budget.css";
 import Header from "../../components/header/Header";
@@ -36,6 +37,9 @@ const Budget = () => {
 	console.log("expenses", expenseData);
 	const handleDelete = (expenseId) => {
 		dispatch(deleteExpense(expenseId));
+		setTimeout(() => {
+			dispatch(getBudget());
+		}, 500);
 	};
 	//table data
 	const columns = [
@@ -123,10 +127,12 @@ const Budget = () => {
 						<form className="addExpenseForm" action="" onSubmit={submit}>
 							<input
 								type="text"
+								value={description}
 								onChange={(e) => setDescription(e.target.value)}
 								placeholder="Description"
 							></input>
 							<input
+								value={amount}
 								type="number"
 								onChange={(e) => setAmount(e.target.value)}
 								placeholder="Amount"

@@ -52,21 +52,30 @@ export const addRepayment = (repayment) => {
 			});
 	};
 };
-export const editRepayment = async (id, dispatch,repaymentId) => {
-	dispatch(editRepaymentRequest());
-	try {
-		await axios.put(`http://localhost:8000/api/repayment/63f361935a6870f14f57389d/${repaymentId}/editRepayment` + id, {
-			headers: {
-				"Content-Type": "application/json",
-				// Authorization: JSON.parse(localStorage.getItem("user")).access_token,
-			},
-		});
-		dispatch(editRepaymentSuccess(id));
-	} catch (err) {
-		dispatch(editRepaymentFailure());
-	}
-};
+export const editRepayment = (repayment, repaymentId) => {
+	return (dispatch) => {
+		dispatch(editRepaymentRequest());
 
+		axios
+			.put(
+				`http://localhost:8000/api/63f361935a6870f14f57389d/${repaymentId}/editRepayment`,
+				repayment,
+				{
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: JSON.parse(localStorage.getItem("user"))
+							.access_token,
+					},
+				}
+			)
+			.then(() => {
+				dispatch(editRepaymentSuccess(repayment, repaymentId));
+			})
+			.catch((err) => {
+				dispatch(editRepaymentFailure());
+			});
+	};
+};
 export const deleteRepayment = (repaymentId) => {
 	return (dispatch) => {
 		dispatch(deleteRepaymentRequest());

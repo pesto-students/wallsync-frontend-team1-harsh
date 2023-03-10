@@ -14,6 +14,7 @@ import {
 	getRepayments,
 	addRepayment,
 	deleteRepayment,
+	editRepayment,
 } from "../../context/repayments/api";
 import { IconButton } from "@mui/material";
 const Repayments = ({}) => {
@@ -40,6 +41,21 @@ const Repayments = ({}) => {
 		setDescription(" ");
 		setAmount(" ");
 		setDueDate(" ");
+	};
+
+	const handleEdit = (repayment, repaymentId) => {
+		console.log("trying to delete");
+		dispatch(
+			editRepayment(
+				{
+					description: repayment.description,
+					amount: repayment.amount,
+					dueDate: repayment.dueDate,
+				},
+				// updatedRepayment,
+				repaymentId
+			)
+		);
 	};
 
 	const handleDelete = (repaymentId) => {

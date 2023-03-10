@@ -28,24 +28,26 @@ export const getGroups = () => {
 	};
 };
 //work under progess
-export const addShare = (groupName,share) => {
+export const addShare = (groupName, share) => {
 	return (dispatch) => {
 		dispatch(addShareRequest());
-		axios.post(
-			`https://localhost:8000/api/group/${groupName}/63f361935a6870f14f57389d/addShare`,
-			share,
-			{
-				headers:{
-					"Content-Type": "application/json",
-				},
-			}
-		)
-		.then((data)=>{
-			addShareSuccess(data);
-		})
-		.catch((err)=>{
-			dispatch(addShareFailure(err))
-		})
+		axios
+			.post(
+				`http://localhost:8000/api/contribution/63f361935a6870f14f57389d/${groupName}/addCont`,
+				share,
+				{
+					headers: {
+						"Content-Type": "application/json",
+						"Access-Control-Allow-Origin": "*",
+					},
+				}
+			)
+			.then((data) => {
+				dispatch(addShareSuccess(groupName, share));
+			})
+			.catch((err) => {
+				dispatch(addShareFailure(err));
+			});
 	};
 };
 export const deleteShare = (groupName, contributionId) => {

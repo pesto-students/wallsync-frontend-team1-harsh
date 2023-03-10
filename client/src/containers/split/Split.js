@@ -1,3 +1,4 @@
+//split
 import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import Nav from "../../components/nav/Nav";
@@ -14,26 +15,40 @@ import AddMemberPopover from "./components/popover/AddMember";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
-import { deleteShare, getGroups } from "../../context/groups/api";
+import { addShare, deleteShare, getGroups } from "../../context/groups/api";
 import SkeletonComp from "./components/skeleton/Skeleton";
 import { useDispatch, useSelector } from "react-redux";
-
 const Split = () => {
 	const dispatch = useDispatch();
+	const [contributedBy, setContributedBy] = useState("");
+	const [description, setDescription] = useState("");
+	const [amount, setAmount] = useState("");
 	const loading = useSelector((state) => state.group.loading);
 	const groupData = useSelector((state) => state.group.group);
 	useEffect(() => {
 		dispatch(getGroups());
-	}, [dispatch]);
+	}, []);
+
+	const handleSubmit = (e, groupName) => {
+		e.preventDefault();
+		console.log(contributedBy);
+		dispatch(
+			addShare(groupName, {
+				group: groupName,
+				contributedBy: contributedBy,
+				description: description,
+				amount: amount,
+			})
+		);
+	};
+
 	const handleDelete = (groupName, contributionId) => {
-		console.log(contributionId);
 		dispatch(deleteShare(groupName, contributionId));
 	};
-	// console.log("============>",useSelector(state=>state.group.contributions));
-	console.log(groupData);
+
 	const columns = [
 		{ field: "id", headerName: "ID", width: 100, hide: true },
-		{ field: "name", headerName: "Name", width: 100 },
+		{ field: "contributedBy", headerName: "Name", width: 100 },
 		{ field: "desc", headerName: "Description", width: 150, sortable: true },
 		{ field: "share", headerName: "Amount", width: 100, sortable: true },
 		{ field: "groupName", headerName: "GroupName", width: 70, hide: true },
@@ -73,7 +88,7 @@ const Split = () => {
 								<form action="">
 									<input type="text" placeholder="Group Name" />
 									<input type="text" placeholder="Description" />
-									<input type="text" placeholder="Some shit" />
+									<input type="text" placeholder="Some" />
 									<button type="Submit">Create</button>
 								</form>
 							</div>
@@ -81,7 +96,7 @@ const Split = () => {
 					/>
 
 					{loading && <SkeletonComp />}
-					{groupData.map((i) => {
+					{groupData?.map((i) => {
 						return (
 							<Panel
 								className="Panel"
@@ -107,32 +122,53 @@ const Split = () => {
 											<div className="activityTable">
 												<Table
 													columnData={columns}
-													rowData={i.contributions.map((item) => ({
+													rowData={i.contributions?.map((item) => ({
 														...item,
 														groupName: i.groupName,
 													}))}
 												/>
-												<form action="" className="addControForm">
-													<select name="Members">
-														{i.groupMembers.map((member) => {
+												<form
+													action=""
+													className="addControForm"
+													onSubmit={(e) => handleSubmit(e, i.groupName)}
+												>
+													<select
+														contributedBy="Members"
+														onChange={(e) => setContributedBy(e.target.value)}
+													>
+														{i.groupMembers?.map((member) => {
 															return (
-																<option className="options" value={member}>
-																	{member}
-																</option>
+																<>
+																	<option
+																		value="none"
+																		selected
+																		disabled
+																		hidden
+																	></option>
+																	<option className="options" value={member}>
+																		{member}
+																	</option>
+																</>
 															);
 														})}
 													</select>
+
 													<input
+														value={description}
 														type="text"
-														name="Description"
+														contributedBy="Description"
 														placeholder="Description"
+														onChange={(e) => setDescription(e.target.value)}
 													/>
 													<input
+														value={amount}
 														type="number"
-														name="Amount"
+														contributedBy="Amount"
 														placeholder="Amount"
+														onChange={(e) => setAmount(e.target.value)}
 													/>
 													<Button
+														type="submit"
 														className="addShareB"
 														buttonName={"Add Share"}
 													/>
@@ -140,11 +176,13 @@ const Split = () => {
 											</div>
 											<ExpenseChart
 												pieData={{
-													labels: i.finalContributions.map((item) => item.name),
+													labels: i.finalContributions?.map(
+														(item) => item.contributedBy
+													),
 													datasets: [
 														{
 															label: "",
-															data: i.finalContributions.map(
+															data: i.finalContributions?.map(
 																(item) => item.share
 															),
 															backgroundColor: [
@@ -162,12 +200,11 @@ const Split = () => {
 													],
 												}}
 											/>
-
 											<ul>
-												{i.memberBalances.map((item) => {
+												{i.memberBalances?.map((item) => {
 													return (
 														<p>
-															{item.name}{" "}
+															{item.contributedBy}{" "}
 															{item.toSettle
 																? `settle: ${item.toSettle} `
 																: ` owed: ${item.owed}`}
@@ -179,11 +216,11 @@ const Split = () => {
 														className="popverSection"
 														popdata={
 															<form className="popupForm">
-																{i.finalContributions.map((item) => {
+																{i.finalContributions?.map((item) => {
 																	return (
 																		<input
 																			type="number"
-																			placeholder={item.name}
+																			placeholder={item.contributedBy}
 																		/>
 																	);
 																})}
