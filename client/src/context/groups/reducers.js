@@ -8,6 +8,12 @@ import {
 	DELETE_SHARE_REQUEST,
 	DELETE_SHARE_SUCCESS,
 	DELETE_SHARE_FAILURE,
+	ADD_GROUP_REQUEST,
+	ADD_GROUP_FAILURE,
+	ADD_GROUP_SUCCESS,
+	ADD_USER_REQUEST,
+	ADD_USER_SUCCESS,
+	ADD_USER_FAILURE,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -76,7 +82,44 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 				loading: false,
 				error: action.payload,
 			};
-
+		case ADD_GROUP_REQUEST:
+			return {
+				...state,
+				loading: true,
+				group: [],
+				error: false,
+			};
+		case ADD_GROUP_SUCCESS:
+			return {
+				loading: false,
+				group: [...state.group, action.payload],
+				error: false,
+			};
+		case ADD_GROUP_FAILURE:
+			return {
+				loading: false,
+				group: [],
+				error: action.payload,
+			};
+		case ADD_USER_REQUEST:
+			return {
+				...state,
+				loading: true,
+				group: [],
+				error: false,
+			};
+		case ADD_USER_SUCCESS:
+			return {
+				loading: false,
+				group: [...state.group, action.payload],
+				error: false,
+			};
+		case ADD_USER_FAILURE:
+			return {
+				loading: false,
+				group: [],
+				error: action.payload,
+			};
 		default:
 			return state;
 	}

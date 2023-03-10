@@ -11,6 +11,12 @@ import {
 	DELETE_SHARE_REQUEST,
 	DELETE_SHARE_SUCCESS,
 	DELETE_SHARE_FAILURE,
+	ADD_GROUP_REQUEST,
+	ADD_GROUP_FAILURE,
+	ADD_GROUP_SUCCESS,
+	ADD_USER_REQUEST,
+	ADD_USER_SUCCESS,
+	ADD_USER_FAILURE,
 } from "./types";
 
 export const fetchGroupRequest = () => {
@@ -80,6 +86,41 @@ export const deleteShareSuccess = (groupName, contributionId) => {
 export const deleteShareFailure = (error) => {
 	return {
 		type: DELETE_SHARE_FAILURE,
+		payload: error,
+	};
+};
+export const addGroupRequest = () => {
+	return {
+		type: ADD_GROUP_REQUEST,
+	};
+};
+export const addGroupSuccess = (group) => {
+	return {
+		type: ADD_GROUP_SUCCESS,
+		payload: group,
+	};
+};
+export const addGroupFailure = (error) => {
+	return {
+		type: ADD_GROUP_FAILURE,
+		payload: error,
+	};
+};
+export const addUserRequest = () => {
+	return {
+		type: ADD_USER_REQUEST,
+	};
+};
+export const addUserSuccess = (groupName, user) => {
+	return {
+		type: ADD_USER_SUCCESS,
+		payload: groupName,
+		user,
+	};
+};
+export const addUserFailure = (error) => {
+	return {
+		type: ADD_USER_FAILURE,
 		payload: error,
 	};
 };
