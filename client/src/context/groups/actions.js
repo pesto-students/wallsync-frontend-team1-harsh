@@ -17,6 +17,9 @@ import {
 	ADD_USER_REQUEST,
 	ADD_USER_SUCCESS,
 	ADD_USER_FAILURE,
+	SIMPLIFY_REQUEST,
+	SIMPLIFY_SUCCESS,
+	SIMPLIFY_FAILURE,
 } from "./types";
 
 export const fetchGroupRequest = () => {
@@ -114,13 +117,29 @@ export const addUserRequest = () => {
 export const addUserSuccess = (groupName, user) => {
 	return {
 		type: ADD_USER_SUCCESS,
-		payload: groupName,
-		user,
+		payload: { groupName, user },
 	};
 };
 export const addUserFailure = (error) => {
 	return {
 		type: ADD_USER_FAILURE,
+		payload: error,
+	};
+};
+export const simplifyRequest = () => {
+	return {
+		type: SIMPLIFY_REQUEST,
+	};
+};
+export const simplifySuccess = (group) => {
+	return {
+		type: SIMPLIFY_SUCCESS,
+		payload: group,
+	};
+};
+export const simplifyFailure = (error) => {
+	return {
+		type: SIMPLIFY_FAILURE,
 		payload: error,
 	};
 };

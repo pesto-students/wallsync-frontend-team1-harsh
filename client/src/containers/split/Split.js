@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Header from "../../components/header/Header";
 import Nav from "../../components/nav/Nav";
 import Footer from "../../components/footer/Footer";
@@ -20,6 +20,7 @@ import {
 	addShare,
 	addGroup,
 	addUser,
+	simplify,
 } from "../../context/groups/api";
 import SkeletonComp from "./components/skeleton/Skeleton";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,11 +33,11 @@ const Split = () => {
 	const [newGroupName, setNewGroupName] = useState("");
 	const [newGroupDescription, setNewGroupDescription] = useState("");
 	const [newMember, setNewMember] = useState("");
-	const loading = useSelector((state) => state.group.loading);
+	const [simplified, setSimplified] = useState(false);
+	// const loading = useSelector((state) => state.group.loading);
 	const groupData = useSelector((state) => state.group.group);
-	useEffect(() => {
-		dispatch(getGroups());
-	}, []);
+	const simplifiedData = useSelector((state) => state.group.simplified);
+	console.log("simplified data", simplifiedData);
 	const handleSubmit = (e, groupName) => {
 		e.preventDefault();
 
@@ -67,15 +68,19 @@ const Split = () => {
 	const handleAddMember = (e, groupName) => {
 		e.preventDefault();
 		console.log("findinggroup", groupName);
-		dispatch(addUser(groupName, { email: newMember }))
-			.then(() => {
-				alert("user added");
-			})
-			.catch((err) => {
-				alert("user not found. email invite sent");
-			});
+		dispatch(addUser(groupName, { email: newMember }));
+		setNewMember("");
 	};
-	console.log(groupData);
+	const handleSimplify = (e, groupName) => {
+		e.preventDefault();
+		dispatch(simplify(groupName));
+		setSimplified(true);
+	};
+
+	useEffect(() => {
+		dispatch(getGroups());
+	}, [newGroupDescription /*addUser, handleDeleteShare*/]);
+
 	const columns = [
 		{ field: "id", headerName: "ID", width: 100, hide: true },
 		{ field: "name", headerName: "Name", width: 100 },
@@ -115,7 +120,7 @@ const Split = () => {
 						panelName={<Heading text="+ Add a group" />}
 						panelData={
 							<div className="addGroup">
-								<form onSubmit={handleCreateGroup}>
+								<form onSubmit={(e) => handleCreateGroup(e)}>
 									<input
 										value={newGroupName}
 										type="text"
@@ -137,168 +142,179 @@ const Split = () => {
 						}
 					/>
 
-					{loading && <SkeletonComp />}
+					{/* {loading && <SkeletonComp />} */}
 					{groupData &&
 						groupData.map((i) => {
 							return (
-								<Panel
-									className="Panel"
-									panelName={
-										<Heading className="headingText" text={i.groupName} />
-									}
-									AddMemberPop={
-										<AddMemberPopover
-											addMemberPopData={
-												<form onSubmit={(e) => handleAddMember(e, i.groupName)}>
-													<input
-														value={newMember}
-														placeholder="add email or phone number"
-														name="email"
-														onChange={(e) => setNewMember(e.target.value)}
-													></input>
-													<Button
-														type="submit"
-														buttonName="add member"
-														className="addMemberB"
-													/>
-												</form>
-											}
-										/>
-									}
-									panelData={
-										<div className="cont">
-											<div className="first">
-												<div className="activityTable">
-													<Table
-														columnData={columns}
-														rowData={
-															i.contributions
-																? i.contributions.map((item) => ({
-																		...item,
-																		groupName: i.groupName,
-																  }))
-																: []
-														}
-													/>
+								i && (
+									<Panel
+										className="Panel"
+										panelName={
+											<Heading className="headingText" text={i.groupName} />
+										}
+										AddMemberPop={
+											<AddMemberPopover
+												addMemberPopData={
 													<form
-														action=""
-														className="addControForm"
-														onSubmit={(e) => handleSubmit(e, i.groupName)}
+														onSubmit={(e) => handleAddMember(e, i.groupName)}
 													>
-														<select
-															name="Members"
-															onChange={(e) => setName(e.target.value)}
-														>
-															{i.groupMembers &&
-																i.groupMembers.map((member) => {
-																	return (
-																		<>
-																			<option
-																				value="none"
-																				selected
-																				disabled
-																				hidden
-																			></option>
-																			<option
-																				className="options"
-																				value={member}
-																			>
-																				{member}
-																			</option>
-																		</>
-																	);
-																})}
-														</select>
 														<input
-															value={description}
-															type="text"
-															name="Description"
-															placeholder="Description"
-															onChange={(e) => setDescription(e.target.value)}
-														/>
-														<input
-															value={amount}
-															type="number"
-															name="Amount"
-															placeholder="Amount"
-															onChange={(e) => setAmount(e.target.value)}
-														/>
+															value={newMember}
+															placeholder="add email or phone number"
+															name="email"
+															onChange={(e) => setNewMember(e.target.value)}
+														></input>
 														<Button
-															className="addShareB"
-															buttonName={"Add Share"}
+															type="submit"
+															buttonName="add member"
+															className="addMemberB"
 														/>
 													</form>
-												</div>
-												<ExpenseChart
-													pieData={{
-														labels:
-															i.finalContributions &&
-															i.finalContributions.map((item) => item.name),
-														datasets: [
-															{
-																label: "",
-																data:
-																	i.finalContributions &&
-																	i.finalContributions.map(
-																		(item) => item.share
-																	),
-																backgroundColor: [
-																	"rgb(255, 99, 132)",
-																	"rgb(54, 162, 235)",
-																	"rgb(255, 205, 86)",
-																	"#d57ad4",
-																	"#ffffff",
-																],
-																hoverOffset: 4,
-																cutout: 70,
-
-																borderRadius: 5,
-															},
-														],
-													}}
-												/>
-
-												<ul>
-													{i.memberBalances.map((item) => {
-														return (
-															<p>
-																{item.name}{" "}
-																{item.toSettle
-																	? `settle: ${item.toSettle} `
-																	: ` owed: ${item.owed}`}
-															</p>
-														);
-													})}
-													<p>
-														<Popover
-															className="popverSection"
-															popdata={
-																<form className="popupForm">
-																	{i.finalContributions.map((item) => {
-																		return (
-																			<input
-																				type="number"
-																				placeholder={item.name}
-																			/>
-																		);
-																	})}
-																	<Button
-																		className="addPercentB"
-																		buttonName="addPercent"
-																	/>
-																</form>
+												}
+											/>
+										}
+										panelData={
+											<div className="cont">
+												<div className="first">
+													<div className="activityTable">
+														<Table
+															columnData={columns}
+															rowData={
+																i.contributions
+																	? i.contributions.map((item) => ({
+																			...item,
+																			groupName: i.groupName,
+																	  }))
+																	: []
 															}
 														/>
-														<Button
-															className="simplifyB"
-															buttonName="Simplify"
-														/>
-													</p>
-												</ul>
+														<form
+															action=""
+															className="addControForm"
+															onSubmit={(e) => handleSubmit(e, i.groupName)}
+														>
+															<select
+																name="Members"
+																onChange={(e) => setName(e.target.value)}
+															>
+																{i.groupMembers &&
+																	i.groupMembers.map((member) => {
+																		return (
+																			<>
+																				<option
+																					value="none"
+																					selected
+																					disabled
+																					hidden
+																				></option>
+																				<option
+																					className="options"
+																					value={member}
+																				>
+																					{member}
+																				</option>
+																			</>
+																		);
+																	})}
+															</select>
+															<input
+																value={description}
+																type="text"
+																name="Description"
+																placeholder="Description"
+																onChange={(e) => setDescription(e.target.value)}
+															/>
+															<input
+																value={amount}
+																type="number"
+																name="Amount"
+																placeholder="Amount"
+																onChange={(e) => setAmount(e.target.value)}
+															/>
+															<Button
+																className="addShareB"
+																buttonName={"Add Share"}
+															/>
+														</form>
+													</div>
+													<ExpenseChart
+														pieData={{
+															labels:
+																i.finalContributions &&
+																i.finalContributions.map((item) => item.name),
+															datasets: [
+																{
+																	label: "",
+																	data:
+																		i.finalContributions &&
+																		i.finalContributions.map(
+																			(item) => item.share
+																		),
+																	backgroundColor: [
+																		"rgb(255, 99, 132)",
+																		"rgb(54, 162, 235)",
+																		"rgb(255, 205, 86)",
+																		"#d57ad4",
+																		"#ffffff",
+																	],
+																	hoverOffset: 4,
+																	cutout: 70,
+
+																	borderRadius: 5,
+																},
+															],
+														}}
+													/>
+													<ul>
+														{!simplified
+															? i.memberBalances &&
+															  i.memberBalances.map((item) => {
+																	return (
+																		<p>
+																			{item.name}{" "}
+																			{item.toSettle
+																				? `settle: ${item.toSettle} `
+																				: `owed: ${item.owed}`}
+																		</p>
+																	);
+															  })
+															: simplifiedData &&
+															  simplifiedData.map((data) => {
+																	return <p>{data}</p>;
+															  })}
+														<p>
+															<Popover
+																className="popverSection"
+																popdata={
+																	<form className="popupForm">
+																		{i.finalContributions.map((item) => {
+																			return (
+																				<input
+																					type="number"
+																					placeholder={item.name}
+																				/>
+																			);
+																		})}
+																		<Button
+																			className="addPercentB"
+																			buttonName="addPercent"
+																		/>
+																	</form>
+																}
+															/>
+															<Button
+																type="button"
+																onClick={(e) => handleSimplify(e, i.groupName)}
+																className="simplifyB"
+																buttonName="Simplify"
+															/>
+														</p>
+													</ul>
+												</div>
 											</div>
-										</div>
-									}
-								/>
+										}
+									/>
+								)
 							);
 						})}
 				</div>

@@ -14,11 +14,15 @@ import {
 	ADD_USER_REQUEST,
 	ADD_USER_SUCCESS,
 	ADD_USER_FAILURE,
+	SIMPLIFY_REQUEST,
+	SIMPLIFY_SUCCESS,
+	SIMPLIFY_FAILURE,
 } from "./types";
 
 const INITIAL_STATE = {
 	loading: true,
 	group: [],
+	simplified: [],
 	error: false,
 };
 
@@ -74,6 +78,7 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 				group: state.group.group.map((i) => {
 					i.contributions.filter((item) => item.id !== action.payload);
 				}),
+
 				error: false,
 			};
 		case DELETE_SHARE_FAILURE:
@@ -92,7 +97,7 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 		case ADD_GROUP_SUCCESS:
 			return {
 				loading: false,
-				group: [...state.group, action.payload],
+				group: [...state.group.group, action.payload],
 				error: false,
 			};
 		case ADD_GROUP_FAILURE:
@@ -105,10 +110,16 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				loading: true,
-				group: [],
+				group: [...state.group],
 				error: false,
 			};
 		case ADD_USER_SUCCESS:
+			// let x = state;
+			// x.group.map((i) => {
+			// 	if (i.groupName === action.payload.groupName) {
+			// 		i.groupMembers = action.payload.user;
+			// 	}
+			// });
 			return {
 				loading: false,
 				group: [...state.group, action.payload],
@@ -117,7 +128,27 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 		case ADD_USER_FAILURE:
 			return {
 				loading: false,
-				group: [],
+				group: [...state.group],
+				error: action.payload,
+			};
+		case SIMPLIFY_REQUEST:
+			return {
+				...state,
+				loading: true,
+				group: [...state.group],
+				error: false,
+			};
+		case SIMPLIFY_SUCCESS:
+			return {
+				loading: false,
+				group: [...state.group],
+				simplified: action.payload,
+				error: false,
+			};
+		case SIMPLIFY_FAILURE:
+			return {
+				loading: false,
+				group: [...state.group],
 				error: action.payload,
 			};
 		default:

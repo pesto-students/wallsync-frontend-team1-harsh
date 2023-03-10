@@ -14,6 +14,9 @@ import {
 	addUserRequest,
 	addUserSuccess,
 	addUserFailure,
+	simplifyRequest,
+	simplifySuccess,
+	simplifyFailure,
 } from "./actions";
 import axios from "axios";
 // const userId = JSON.parse(localStorage.getItem("user")).user.id;
@@ -61,7 +64,7 @@ export const deleteShare = (groupName, contributionId) => {
 		dispatch(deleteShareRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/group/63f361935a6870f14f57389d/${groupName}/${contributionId}/deleteCont`,
+				`http://localhost:8000/api/contribution/63f361935a6870f14f57389d/${groupName}/${contributionId}/deleteCont`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))
@@ -80,7 +83,7 @@ export const deleteShare = (groupName, contributionId) => {
 
 export const addGroup = (group) => {
 	return (dispatch) => {
-		dispatch(addGroupRequest);
+		dispatch(addGroupRequest());
 		axios
 			.post(
 				`http://localhost:8000/api/group/63f361935a6870f14f57389d/createGroup`,
@@ -92,10 +95,10 @@ export const addGroup = (group) => {
 				}
 			)
 			.then(() => {
-				addGroupSuccess(group);
+				dispatch(addGroupSuccess(group));
 			})
 			.catch((err) => {
-				addGroupFailure(err);
+				dispatch(addGroupFailure(err));
 			});
 	};
 };
@@ -112,11 +115,29 @@ export const addUser = (groupName, user) => {
 					},
 				}
 			)
-			.then(() => {
-				dispatch(addUserSuccess(groupName, user));
+			.then((data) => {
+				console.log("checking add user data", data);
+
+				dispatch(addUserSuccess(groupName, data.data.members));
 			})
 			.catch((err) => {
+				console.log("?????", err);
 				dispatch(addUserFailure(err));
+			});
+	};
+};
+export const simplify = (groupName) => {
+	return (dispatch) => {
+		dispatch(simplifyRequest());
+		axios
+			.get(
+				`http://localhost:8000/api/group/63f361935a6870f14f57389d/${groupName}/settle/equal`
+			)
+			.then((data) => {
+				dispatch(simplifySuccess(data.data.simplified));
+			})
+			.catch((err) => {
+				dispatch(simplifyFailure(err));
 			});
 	};
 };
