@@ -1,26 +1,87 @@
-.footer{
-    /* position:fixed; */
-    /* position: absolute; */
+
+.footer {
     width: 100%;
-    bottom:0;
-    /* margin-top: 2%; */
-    display: flex;
-    color: white;
-    /* justify-content: center;   */
-}
-.footer_links{
-    flex:4;
+    /* height: 6vh; */
+    /* background-color: aqua; */
+    position: fixed;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.footer_icons{
-   margin: 1%;
-}
-.MuiSvgIcon-root{
-   margin-right: 5px
-}
-.footerLine{
+    color: white;
+  }
+  .footer_links {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer_icons {
+    margin: 1%;
+  }
+  .MuiSvgIcon-root {
+    margin-right: 5px;
+  }
+  .footerLine {
     margin-top: 3vh;
-}
+  }
+  
+  /* Styles for screens smaller than 320px (e.g. iPhone SE) */
+  @media (max-width: 320px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .footer_links {
+      display: flex;
+      align-items: flex-start;
+      font-size: 0.8rem;
+      gap: 2vw;
+    }
+    .footer {
+      height: 6vh;
+    }
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    .footer_links {
+      display: flex;
+      font-size: 0.8rem;
+      gap: 5vw;
+    }
+    .footer {
+      height: 6vh;
+    }
+    hr.footerLine {
+      height: 0;
+    }
+    .footerLine {
+      position: fixed;
+      width: 95%;
+      margin-left: 2.5vw;
+      margin-top: 15vh;
+      /* height: 1vh; */
+    }
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .footerLine {
+      position: fixed;
+      width: 95%;
+      margin-left: 2.5vw;
+      margin-top: 15vh;
+      /* height: 1vh; */
+    }
+    hr.footerLine {
+      height: 0;
+    }
+  }
+  
+  /* Styles for screens larger than 992px (e.g. iMac) */
+  @media (min-width: 992px) {
+    /* Add your styles here */
+  }

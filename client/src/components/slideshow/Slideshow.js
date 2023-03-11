@@ -20,7 +20,9 @@ const Slideshow = () => {
       <span className="highlight">FINANCES</span>
     </p>,
     <p>
-      Manage your expenses
+      Manage your
+      <br />
+      <span className="highlight">EXPENSES</span>
       <br />
       & Create a 
       <br />
@@ -35,7 +37,7 @@ const Slideshow = () => {
       Prioritize
       <br />
       <span className="highlight">REPAYMENTS</span>
-      <br />
+      {/* <br /> */}
       & set
       <br />
       <span className="highlight"> REMINDERS</span>
@@ -60,13 +62,13 @@ const Slideshow = () => {
     // <motion.div animate={{ opacity: isVisible ? 1 : 0 }}></motion.div>
     <div className="bodyContainer">
       <motion.div
-        animate={{ x: [75, 150], opacity: 1, scale: 1 }}
-        transition={{
-          duration: 3,
-          delay: 0,
-          repeat: Infinity,
-          type: "spring",
-        }}
+        // animate={{ x: [75, 150], opacity: 1, scale: 1 }}
+        // transition={{
+        //   duration: 3,
+        //   delay: 0,
+        //   repeat: Infinity,
+        //   type: "spring",
+        // }}
         className="slideImage"
       >
         <img
@@ -76,15 +78,15 @@ const Slideshow = () => {
         />
       </motion.div>
       <motion.div
-        animate={{ x: [-300, 50], opacity: 1, scale: 1 }}
-        transition={{
-          duration: 3,
-          type: "spring",
+        // animate={{ x: [-300, 50], opacity: 1, scale: 1 }}
+        // transition={{
+        //   duration: 3,
+        //   type: "spring",
 
-          delay: 0,
-          repeat: Infinity,
-          // ease: [0.5, 0.71, 1, 1.5],
-        }}
+        //   delay: 0,
+        //   repeat: Infinity,
+        //   // ease: [0.5, 0.71, 1, 1.5],
+        // }}
         className="slideText"
       >
         {text[currentText % text.length]}

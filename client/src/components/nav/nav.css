@@ -72,12 +72,24 @@ ul li p:hover{
 .mobilenav{
     display: none;
 }
-@media only screen and (max-width:700px) {
+/* @media only screen and (max-width:700px) {
+    
+} */
+
+/* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
     .sidenav {
         display: none;
     }
     .mobilenav{
-        display:block;
+        display:flex;
+        width: 100%;
+        background-color: aqua;
         color:#8d8989; 
         position: fixed;
         bottom: 0;
@@ -88,4 +100,20 @@ ul li p:hover{
         width: 10vw;
         height:5vh;
     }
-}
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens larger than 992px (e.g. iMac) */
+  @media (min-width: 992px) {
+    /* Add your styles here */
+  }
+  
