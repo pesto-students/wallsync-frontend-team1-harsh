@@ -14,6 +14,8 @@ import AddMemberPopover from "./components/popover/AddMember";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
 	deleteShare,
 	getGroups,
@@ -38,6 +40,7 @@ const Split = () => {
 	const groupData = useSelector((state) => state.group.group);
 	const simplifiedData = useSelector((state) => state.group.simplified);
 	console.log("simplified data", simplifiedData);
+
 	const handleSubmit = (e, groupName) => {
 		e.preventDefault();
 
@@ -49,6 +52,7 @@ const Split = () => {
 				amount: amount,
 			})
 		);
+		notifyAddShare();
 		setDescription("");
 		setName("");
 		setAmount("");
@@ -61,17 +65,20 @@ const Split = () => {
 				groupDescription: newGroupDescription,
 			})
 		);
+		notifyGroupAdd();
 		setNewGroupName("");
 		setNewGroupDescription("");
 	};
 	const handleDeleteShare = (groupName, contributionId) => {
 		console.log(contributionId);
 		dispatch(deleteShare(groupName, contributionId));
+		notifyDeleteShare();
 	};
 	const handleAddMember = (e, groupName) => {
 		e.preventDefault();
 		console.log("findinggroup", groupName);
 		dispatch(addUser(groupName, { email: newMember }));
+		notifyAddMember();
 		setNewMember("");
 	};
 	const handleSimplify = (e, groupName) => {
@@ -113,6 +120,18 @@ const Split = () => {
 			},
 		},
 	];
+	const notifyAddShare = () => {
+		toast("Share added");
+	};
+	const notifyDeleteShare = () => {
+		toast("Share deleted");
+	};
+	const notifyGroupAdd = () => {
+		toast("New group Added");
+	};
+	const notifyAddMember = () => {
+		toast("New group member added");
+	};
 	return (
 		<div>
 			<Header />

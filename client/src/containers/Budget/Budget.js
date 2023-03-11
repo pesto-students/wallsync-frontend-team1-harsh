@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import "./budget.css";
 import Header from "../../components/header/Header";
 import Nav from "../../components/nav/Nav";
-import Avatar from "../../components/avatar/Avatar";
 import Table from "./components/table/Table";
 import ExpenseChart from "./components/chart/Chart";
-import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import LineChart from "./components/chart/LineChart";
 import Footer from "../../components/footer/Footer";
 import { IconButton } from "@mui/material";
@@ -28,12 +28,20 @@ const Budget = () => {
 	const submit = async (e) => {
 		e.preventDefault();
 		dispatch(addExpense({ description, amount }));
+		notifySubmit();
 		setDescription("");
 		setAmount("");
 	};
 
 	const handleDelete = (expenseId) => {
 		dispatch(deleteExpense(expenseId));
+		notifyDelete();
+	};
+	const notifySubmit = () => {
+		toast("Expense added");
+	};
+	const notifyDelete = () => {
+		toast("Expense deleted");
 	};
 	//table data
 	const columns = [

@@ -8,7 +8,8 @@ import Table from "./components/Table";
 import Button from "../../components/button/Button";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import SaveIcon from "@mui/icons-material/Save";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,6 +45,7 @@ const Repayments = ({}) => {
 				dueDate,
 			})
 		);
+		notifyAdd();
 		setDescription(" ");
 		setAmount(" ");
 		setDueDate(" ");
@@ -60,6 +62,7 @@ const Repayments = ({}) => {
 	};
 	const handleDelete = (repaymentId) => {
 		dispatch(deleteRepayment(repaymentId));
+		notifyDelete();
 	};
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },
@@ -136,6 +139,12 @@ const Repayments = ({}) => {
 			});
 		});
 	}
+	const notifyAdd = () => {
+		toast("Repayment added");
+	};
+	const notifyDelete = () => {
+		toast("Repayment deleted");
+	};
 
 	return (
 		<div>

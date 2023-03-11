@@ -9,7 +9,8 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from "@cloudinary/react";
 import cloudinaryConfig from "../cloudinaryConfig";
 import { scale } from "@cloudinary/url-gen/actions/resize";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Avatar = () => {
 	const dispatch = useDispatch();
 
@@ -25,6 +26,11 @@ const Avatar = () => {
 	});
 	const handleLogout = () => {
 		dispatch(logout());
+
+		notify();
+	};
+	const notify = () => {
+		toast("Logged out!");
 	};
 	return (
 		<div className="dropicon">
