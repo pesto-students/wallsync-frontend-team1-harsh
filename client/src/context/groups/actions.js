@@ -47,8 +47,7 @@ export const addShareRequest = () => {
 export const addShareSuccess = (groupName, share) => {
 	return {
 		type: ADD_SHARE_SUCCESS,
-		payload: groupName,
-		share,
+		payload: { groupName, share },
 	};
 };
 export const addShareFailure = (error) => {
@@ -82,8 +81,7 @@ export const deleteShareRequest = () => {
 export const deleteShareSuccess = (groupName, contributionId) => {
 	return {
 		type: DELETE_SHARE_SUCCESS,
-		payload: groupName,
-		contributionId,
+		payload: { groupName, contributionId },
 	};
 };
 export const deleteShareFailure = (error) => {

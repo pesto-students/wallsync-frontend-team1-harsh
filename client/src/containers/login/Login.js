@@ -11,100 +11,89 @@ import LandingHeader from "../../components/header/LangingHeader";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 const Login = () => {
-  const userData = useSelector((state) => state.authentication);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [userInfo, setUserInfo] = useState({
-    email: "",
-    password: "",
-  });
+	const userData = useSelector((state) => state.authentication);
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const [userInfo, setUserInfo] = useState({
+		email: "",
+		password: "",
+	});
 
-  const handleChange = (e) => {
-    setUserInfo({
-      ...userInfo,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+	const handleChange = (e) => {
+		setUserInfo({
+			...userInfo,
+			[e.target.name]: e.target.value,
+		});
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
 
-    dispatch(login(userInfo)).then(() => {
-      navigate("/home");
+		dispatch(login(userInfo)).then(() => {
+			navigate("/home");
 
-      console.log("handling submit");
-    });
-    // axios
-    // 	.post("http://localhost:8000/api/login", userInfo, {
-    // 		headers: {
-    // 			"Content-Type": "application/json",
-    // 		},
-    // 	})
-    // 	.then((data) => {
-    // 		console.log(data.data.access_token);
-    // 		localStorage.setItem("user", JSON.stringify(data.data.user));
-    // 		if (data.data.access_token) {
-    // 			navigate("/home");
-    // 		}
-    // 	});
-  };
+			console.log("handling submit");
+		});
+	};
 
-  return (
-    <>
-      <LandingHeader
-        className="loginHeader"
-        children={
-          <Link to="/signup">
-            <Button buttonName={"Sign up"} className={"signUpB"} />
-          </Link>
-        }
-      />
+	return (
+		<>
+			<LandingHeader
+				className="loginHeader"
+				children={
+					<Link to="/signup">
+						<Button buttonName={"Sign up"} className={"signUpB"} />
+					</Link>
+				}
+			/>
 
-      <div className="loginbody">
-        <div className="loginimages">
-          <img src={pic1} alt="" />
-        </div>
-        <div className="loginform">
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <div className="input">
-              <input
-                type="text"
-                className="email"
-                placeholder="enter username or email"
-                name="email"
-                value={userInfo.email}
-                onChange={(e) => handleChange(e)}
-              ></input>
-              <input
-                type="password"
-                className="password"
-                placeholder="enter password"
-                name="password"
-                value={userInfo.password}
-                onChange={(e) => handleChange(e)}
-              ></input>
-            </div>
-            <div className="check">
-			<p>Keep me Signed in <input type="checkbox"/></p>
-              <h5>Forgot Password?</h5>
-            </div>
+			<div className="loginbody">
+				<div className="loginimages">
+					<img src={pic1} alt="" />
+				</div>
+				<div className="loginform">
+					<form onSubmit={(e) => handleSubmit(e)}>
+						<div className="input">
+							<input
+								type="text"
+								className="email"
+								placeholder="enter username or email"
+								name="email"
+								value={userInfo.email}
+								onChange={(e) => handleChange(e)}
+							></input>
+							<input
+								type="password"
+								className="password"
+								placeholder="enter password"
+								name="password"
+								value={userInfo.password}
+								onChange={(e) => handleChange(e)}
+							></input>
+						</div>
+						<div className="check">
+							<p>
+								Keep me Signed in <input type="checkbox" />
+							</p>
+							<h5>Forgot Password?</h5>
+						</div>
 
-            <div className="thirdLevel">
-              <Button
-                buttonName={"Login"}
-                className={"loginB"}
-                type={"Submit"}
-              />
-              <span>Or</span>
-              <Google className="googleButton" />
-              <span>Need an account? SignUp</span>
-            </div>
-          </form>
-        </div>
-      </div>
+						<div className="thirdLevel">
+							<Button
+								buttonName={"Login"}
+								className={"loginB"}
+								type={"Submit"}
+							/>
+							<span>Or</span>
+							<Google className="googleButton" />
+							<span>Need an account? SignUp</span>
+						</div>
+					</form>
+				</div>
+			</div>
 
-      <Footer />
-    </>
-  );
+			<Footer />
+		</>
+	);
 };
 
 export default Login;

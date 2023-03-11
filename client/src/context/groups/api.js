@@ -28,7 +28,7 @@ export const getGroups = () => {
 			.get("http://localhost:8000/api/user/63f361935a6870f14f57389d/groups")
 			.then((data) => {
 				const groups = data.data;
-				// console.log(groups)
+				console.log("group data", data.data);
 				dispatch(fetchGroupSuccess(groups));
 			})
 			.catch((err) => {
@@ -36,7 +36,7 @@ export const getGroups = () => {
 			});
 	};
 };
-//work under progess
+
 export const addShare = (groupName, share) => {
 	return (dispatch) => {
 		dispatch(addShareRequest());
@@ -52,7 +52,7 @@ export const addShare = (groupName, share) => {
 				}
 			)
 			.then((data) => {
-				dispatch(addShareSuccess(groupName, share));
+				dispatch(addShareSuccess(groupName, data.data.contributions));
 			})
 			.catch((err) => {
 				dispatch(addShareFailure(err));
@@ -72,8 +72,8 @@ export const deleteShare = (groupName, contributionId) => {
 					},
 				}
 			)
-			.then(() => {
-				dispatch(deleteShareSuccess(groupName, contributionId));
+			.then((data) => {
+				dispatch(deleteShareSuccess(groupName, data.data.message));
 			})
 			.catch((err) => {
 				dispatch(deleteShareFailure(err));
@@ -94,8 +94,8 @@ export const addGroup = (group) => {
 					},
 				}
 			)
-			.then(() => {
-				dispatch(addGroupSuccess(group));
+			.then((data) => {
+				dispatch(addGroupSuccess(data.data));
 			})
 			.catch((err) => {
 				dispatch(addGroupFailure(err));
@@ -116,12 +116,11 @@ export const addUser = (groupName, user) => {
 				}
 			)
 			.then((data) => {
-				console.log("checking add user data", data);
+				console.log("checking add user data", data.data.newUser.firstName);
 
-				dispatch(addUserSuccess(groupName, data.data.members));
+				dispatch(addUserSuccess(groupName, data.data.newUser.firstName));
 			})
 			.catch((err) => {
-				console.log("?????", err);
 				dispatch(addUserFailure(err));
 			});
 	};

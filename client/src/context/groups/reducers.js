@@ -23,6 +23,7 @@ const INITIAL_STATE = {
 	loading: true,
 	group: [],
 	simplified: [],
+	contributions: [],
 	error: false,
 };
 
@@ -51,78 +52,107 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				loading: true,
-				group: [],
+				group: [...state.group],
 				error: false,
 			};
 		case ADD_SHARE_SUCCESS:
+			const updatedGroup = state.group.map((group) => {
+				if (group.groupName === action.payload.groupName) {
+					return {
+						...group,
+						contributions: action.payload.share,
+					};
+				} else {
+					return group;
+				}
+			});
+
 			return {
+				...state,
 				loading: false,
-				group: [...state.group, action.payload],
+				group: updatedGroup,
 				error: false,
 			};
 		case ADD_SHARE_FAILURE:
 			return {
 				loading: false,
-				group: [],
+				group: [...state.group],
 				error: action.payload,
 			};
 		case DELETE_SHARE_REQUEST:
 			return {
-				...state,
+				group: [...state.group],
 				loading: true,
 				error: false,
 			};
-		case DELETE_SHARE_SUCCESS:
-			return {
-				loading: false,
-				group: state.group.group.map((i) => {
-					i.contributions.filter((item) => item.id !== action.payload);
-				}),
 
-				error: false,
-			};
-		case DELETE_SHARE_FAILURE:
+		case DELETE_SHARE_SUCCESS:
+			const updatedGroups = state.group.map((group) => {
+				if (group.groupName === action.payload.groupName) {
+					return {
+						...group,
+						contributions: group.contributions.filter(
+							(item) => item.id !== action.payload.contributionId
+						),
+					};
+				} else {
+					return group;
+				}
+			});
+
 			return {
 				...state,
+				loading: false,
+				group: updatedGroups,
+				error: false,
+			};
+
+		case DELETE_SHARE_FAILURE:
+			return {
+				group: [...state.group],
 				loading: false,
 				error: action.payload,
 			};
 		case ADD_GROUP_REQUEST:
 			return {
-				...state,
 				loading: true,
-				group: [],
+				group: [...state.group],
 				error: false,
 			};
 		case ADD_GROUP_SUCCESS:
 			return {
 				loading: false,
-				group: [...state.group.group, action.payload],
+				group: [...state.group, action.payload],
 				error: false,
 			};
 		case ADD_GROUP_FAILURE:
 			return {
 				loading: false,
-				group: [],
+				group: [...state.group],
 				error: action.payload,
 			};
 		case ADD_USER_REQUEST:
 			return {
-				...state,
 				loading: true,
 				group: [...state.group],
 				error: false,
 			};
+
 		case ADD_USER_SUCCESS:
-			// let x = state;
-			// x.group.map((i) => {
-			// 	if (i.groupName === action.payload.groupName) {
-			// 		i.groupMembers = action.payload.user;
-			// 	}
-			// });
+			const { groupName, user } = action.payload;
+			const uGroup = state.group.map((group) => {
+				if (group.groupName === groupName) {
+					return {
+						...group,
+						groupMembers: [...group.groupMembers, user],
+					};
+				}
+				return group;
+			});
 			return {
+				...state,
 				loading: false,
-				group: [...state.group, action.payload],
+				group: uGroup,
 				error: false,
 			};
 		case ADD_USER_FAILURE:
