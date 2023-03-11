@@ -1,15 +1,17 @@
+//repayment
 import React, { useState, useEffect } from "react";
 import "./repayments.css";
 import Header from "../../components/header/Header";
 import Nav from "../../components/nav/Nav";
 import Footer from "../../components/footer/Footer";
-import axios from "axios";
 import Table from "./components/Table";
 import Button from "../../components/button/Button";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
+
+import SaveIcon from "@mui/icons-material/Save";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
 	getRepayments,
 	addRepayment,
@@ -21,14 +23,18 @@ const Repayments = ({}) => {
 	const [description, setDescription] = useState("");
 	const [amount, setAmount] = useState("");
 	const [dueDate, setDueDate] = useState("");
-
+	const [editedRowData, setEditedRowData] = useState({
+		id: "",
+		Description: "",
+		Amount: "",
+		Date: "",
+	});
 	const dispatch = useDispatch();
 	const repaymentData = useSelector((state) => state.repayment);
 
 	useEffect(() => {
 		dispatch(getRepayments());
-	}, [dispatch]);
-	//description, amount, dueDate
+	}, []);
 	const submit = (e) => {
 		e.preventDefault();
 		dispatch(
@@ -43,21 +49,15 @@ const Repayments = ({}) => {
 		setDueDate(" ");
 	};
 
-	const handleEdit = (repayment, repaymentId) => {
-		console.log("trying to delete");
-		dispatch(
-			editRepayment(
-				{
-					description: repayment.description,
-					amount: repayment.amount,
-					dueDate: repayment.dueDate,
-				},
-				// updatedRepayment,
-				repaymentId
-			)
-		);
+	const handleCellEditCommit = (params) => {
+		const { field, value } = params;
+		const updatedRowData = { ...params.row, [field]: value };
+		dispatch(editRepayment(updatedRowData, params.row.id));
 	};
-
+	const handleEdit = (rowData) => {
+		console.log("trying to delete");
+		setEditedRowData(rowData);
+	};
 	const handleDelete = (repaymentId) => {
 		dispatch(deleteRepayment(repaymentId));
 	};
@@ -105,7 +105,9 @@ const Repayments = ({}) => {
 			renderCell: (params) => {
 				return (
 					<>
-						<EditIcon />
+						<IconButton>
+							<SaveIcon onClick={() => handleEdit(params.row)} />
+						</IconButton>
 					</>
 				);
 			},
@@ -145,19 +147,27 @@ const Repayments = ({}) => {
 						className="repaymentTable"
 						rowData={rows}
 						columnData={columns}
+						onCellEditCommit={handleCellEditCommit}
+						// editRowsModel={editingRow ? [editingRow.id] : []}
 					/>
 					<form className="repaymentsForm" onSubmit={(e) => submit(e)}>
 						<input
+							value={description}
 							type="text"
 							placeholder="description"
 							onChange={(e) => setDescription(e.target.value)}
 						/>
 						<input
+							value={amount}
 							type="number"
 							placeholder="amount"
 							onChange={(e) => setAmount(e.target.value)}
 						/>
-						<input type="date" onChange={(e) => setDueDate(e.target.value)} />
+						<input
+							value={dueDate}
+							type="date"
+							onChange={(e) => setDueDate(e.target.value)}
+						/>
 						<Button
 							className="addRepaymentB"
 							type="submit"

@@ -4,6 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 export default function DataTable({
 	rowData,
 	columnData,
+	onCellEditCommit,
 	// onSelectionModelChange,
 }) {
 	return (
@@ -25,6 +26,7 @@ export default function DataTable({
 				pageSize={10}
 				rowsPerPageOptions={[10]}
 				checkboxSelection
+				onCellEditCommit={onCellEditCommit}
 				// onSelectionModelChange={onSelectionModelChange}
 			/>
 		</div>

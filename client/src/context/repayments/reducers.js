@@ -62,7 +62,7 @@ const repaymentReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				loading: true,
-				repayment: [],
+				repayment: [...state.repayment],
 				error: false,
 			};
 		case EDIT_REPAYMENT_SUCCESS:
@@ -70,7 +70,7 @@ const repaymentReducer = (state = INITIAL_STATE, action) => {
 				...state,
 				loading: false,
 				repayment: state.repayment.map((item) =>
-					item._id === action.payload._id
+					item._id === action.payload.repaymentId
 						? { ...item, ...action.payload }
 						: item
 				),
@@ -80,7 +80,7 @@ const repaymentReducer = (state = INITIAL_STATE, action) => {
 		case EDIT_REPAYMENT_FAILURE:
 			return {
 				loading: false,
-				repayment: [],
+				repayment: [...state.repayment],
 				error: action.payload,
 			};
 		case DELETE_REPAYMENT_REQUEST:

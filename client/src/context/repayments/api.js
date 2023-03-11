@@ -55,10 +55,9 @@ export const addRepayment = (repayment) => {
 export const editRepayment = (repayment, repaymentId) => {
 	return (dispatch) => {
 		dispatch(editRepaymentRequest());
-
 		axios
 			.put(
-				`http://localhost:8000/api/63f361935a6870f14f57389d/${repaymentId}/editRepayment`,
+				`http://localhost:8000/api/repayment/63f361935a6870f14f57389d/${repaymentId}/editRepayment`,
 				repayment,
 				{
 					headers: {
@@ -68,7 +67,8 @@ export const editRepayment = (repayment, repaymentId) => {
 					},
 				}
 			)
-			.then(() => {
+			.then((data) => {
+				console.log("printing edit repayment data", data);
 				dispatch(editRepaymentSuccess(repayment, repaymentId));
 			})
 			.catch((err) => {
