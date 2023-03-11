@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -68,7 +67,7 @@ const Signup = () => {
     });
   };
   return (
-    <>
+    <div className="sign">
       <LandingHeader
         className="signupHeader"
         children={
@@ -166,7 +165,9 @@ const Signup = () => {
             </div>
 
             <div className="formSignupButton">
+            <Link to='/login'>
               <Button type="submit" buttonName="SignUp" className="signUpB" />
+            </Link>
               or
               <GoogleB />
             </div>
@@ -177,7 +178,7 @@ const Signup = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

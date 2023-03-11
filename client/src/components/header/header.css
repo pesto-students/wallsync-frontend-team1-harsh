@@ -17,7 +17,6 @@
 .hLogo {
     position: fixed;
     width: 12vw;
-    /* margin-top: -4%; */
     top: 0.8vh;
     left: -1%; 
 
@@ -33,27 +32,54 @@
     margin-left:13vw;
 }
 
-@media screen and (max-width: 600px) {
+/* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .default h1{
+        display: none;
+    }
     .header{
-        display: block;
-        margin: auto;
-    }
-    .default{
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
+        padding: 1%;
+        height: 8vh;
+        align-items: center;
+        margin-right: 3vw;
     }
-    .landingButtons{
-        display: flex;
+    .header .default{
+        display: flex; 
+        padding-top: 3vh;
+        align-items: center;
         justify-content: center;
+        margin-left: 5vw;
+    }
+    
+    .hLogo {
+        width: 25vw;    
+    }
+    hr .headerLine{
+        margin-bottom: 3vh;
+        width: 100vw;
+        /* margin-left:13vw; */
     }
   }
- 
-  @media only screen and (max-width: 768px) {
-    .landing {
-      height: auto;
-      overflow: hidden;
-    }
-    .landingButtons {
-      gap: 0px;
-    }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    /* Add your styles here */
   }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens larger than 992px (e.g. iMac) */
+  @media (min-width: 992px) {
+    /* Add your styles here */
+  }
+  

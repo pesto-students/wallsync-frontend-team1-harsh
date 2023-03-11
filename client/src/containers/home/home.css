@@ -63,3 +63,97 @@
       font-family: 'Gloock', serif;
       /* font-weight: 500; */
   }
+
+
+/* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .home .homeFooter{
+        display: none;
+    }
+    .home{
+        overflow-y: hidden;
+        /* overflow-x: hidden; */
+    }
+    .homeBody{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+    }
+    .mainPanel{
+        background-color: #1E1E1E;
+        width: 100vw;
+        padding:5%;
+        border-radius: 25px 0 0 25px;
+        display: flex;
+        flex-direction: column;
+        gap:4vh;
+        justify-content:space-between; 
+
+    }
+    .MuiSvgIcon-root{
+        color: white;
+    }
+    .homeFooter{
+        margin-top: 4vh;
+    }
+    .homePanelData{
+        text-align: center;
+        width: auto;
+        height: 10vh;
+        background-color: #1E1E1E;
+        display: flex;
+        gap: 10vw;
+        justify-content: center;
+        align-items: center;
+        /* padding :5%; */
+        font-size: 2em;
+        color: white;
+        text-transform: capitalize;
+    }
+    .homePanelData p{
+        font-family: 'Nova Slim', cursive;
+    }
+    
+    .panelDataInner{
+        display: flex;
+    
+    }
+    .amount{
+        color: aquamarine;
+    }
+    .homeHeadingText{
+        background-color: black;
+        margin:auto;
+        text-align: center;
+        margin-top: 1vh;
+          width: max-content;
+          color: white;
+          text-align: center;
+          padding: 20px;
+          border-radius: 20px;  
+          text-transform: uppercase;
+          font-size: 0.5em;
+          font-family: 'Gloock', serif;
+          /* font-weight: 500; */
+      }
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens larger than 992px (e.g. iMac) */
+  @media (min-width: 992px) {
+    /* Add your styles here */
+  }

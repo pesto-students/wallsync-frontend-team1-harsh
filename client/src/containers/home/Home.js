@@ -49,7 +49,7 @@ const Home = () => {
 	};
 	let repaymentPanelData = latestRepayment(firstRepaymentData);
 	return (
-		<div>
+		<div className="home">
 			<Header className="landingButtons" />
 			<div className="homeBody">
 				<div className="navigation">
@@ -112,9 +112,10 @@ const Home = () => {
 					/>
 				</div>
 			</div>
-			<Footer />
+			<Footer className='homeFooter'/>
 		</div>
 	);
 };
 
 export default Home;
+

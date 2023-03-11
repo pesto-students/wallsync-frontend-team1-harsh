@@ -64,3 +64,178 @@
 .googleButton{
     width: 20vw;
 }
+.loginform span p{
+    color: orange;
+}
+
+/* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .loginbody{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15vw;
+        margin-top: 6vh;
+        margin-bottom: 8vh;
+    }
+    .loginimages{
+        display: none;
+    }
+    .login .signUpB{
+        display: none;
+    }
+    .login .loginB{
+        width: 65vw;
+    }
+    .loginform{
+        background-color: #1f1f1f;
+        box-shadow: 3px 3px 3px white;
+        color: white;
+        width: 80%;
+        height: 62vh;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5%;
+    }
+    .loginform span p{
+        color: orange;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .input input{
+        width: 100%;
+        margin-right:2vw ;
+    }
+    .check{
+        width: 100%;
+        margin-right:2vw;
+    }
+    .check h5{
+        width:25vw;
+    }
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    .loginbody{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15vw;
+        margin-top: 8vh;
+        margin-bottom: 8vh;
+    }
+    .loginimages{
+        display: none;
+    }
+    
+    .login .loginB{
+        width: 65vw;
+    }
+    .loginform{
+        background-color: #1f1f1f;
+        box-shadow: 3px 3px 3px white;
+        color: white;
+        width: 80%;
+        height: 62vh;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5%;
+    }
+    .loginform span p{
+        color: orange;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .input input{
+        width: 100%;
+        margin-right:2vw ;
+    }
+    .check{
+        width: 100%;
+        margin-right:2vw;
+    }
+    .check h5{
+        width:25vw;
+    }
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .loginbody{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15vw;
+        margin-top: 8vh;
+        margin-bottom: 8vh;
+    }
+    .loginimages{
+        display: none;
+    }
+    
+    .login .loginB{
+        width: 65vw;
+    }
+    .loginform{
+        background-color: #1f1f1f;
+        box-shadow: 3px 3px 3px white;
+        color: white;
+        width: 80%;
+        height: 62vh;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5%;
+    }
+    .loginform span p{
+        color: orange;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .input input{
+        width: 100%;
+        margin-right:2vw ;
+    }
+    .check{
+        width: 100%;
+        margin-right:2vw;
+    }
+    .check h5{
+        width:25vw;
+    }
+  }
+  
+  /* Styles for screens larger than 992px (e.g. iMac) */
+  @media (min-width: 992px) {
+    /* Add your styles here */
+  }
+  
