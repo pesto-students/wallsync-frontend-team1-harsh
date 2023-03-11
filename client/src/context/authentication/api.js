@@ -13,9 +13,9 @@ export const login = (user) => {
 		return axios
 			.post("http://localhost:8000/api/login", user)
 			.then((data) => {
-				// console.log("userrrrr", data);
+				console.log("userrrrr", data);
 				const user = data.data;
-				data.data.access_token && dispatch(loginSuccess(user.user));
+				data.data.access_token && dispatch(loginSuccess(user));
 				localStorage.setItem("user", JSON.stringify(user));
 			})
 			.catch((err) => {

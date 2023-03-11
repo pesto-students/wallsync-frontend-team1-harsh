@@ -19,13 +19,15 @@ import {
 	simplifyFailure,
 } from "./actions";
 import axios from "axios";
+import config from "../../config/config";
+
 // const userId = JSON.parse(localStorage.getItem("user")).user.id;
 
 export const getGroups = () => {
 	return (dispatch) => {
 		dispatch(fetchGroupRequest());
 		axios
-			.get("http://localhost:8000/api/user/63f361935a6870f14f57389d/groups")
+			.get(`${config.apiUrl}/user/${config.getUserId()}/groups`)
 			.then((data) => {
 				const groups = data.data;
 
@@ -42,7 +44,9 @@ export const addShare = (groupName, share) => {
 		dispatch(addShareRequest());
 		axios
 			.post(
-				`http://localhost:8000/api/contribution/63f361935a6870f14f57389d/${groupName}/addCont`,
+				`${
+					config.apiUrl
+				}/contribution/${config.getUserId()}/${groupName}/addCont`,
 				share,
 				{
 					headers: {
@@ -64,7 +68,9 @@ export const deleteShare = (groupName, contributionId) => {
 		dispatch(deleteShareRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/contribution/63f361935a6870f14f57389d/${groupName}/${contributionId}/deleteCont`,
+				`${
+					config.apiUrl
+				}/contribution/${config.getUserId()}/${groupName}/${contributionId}/deleteCont`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))
@@ -85,15 +91,11 @@ export const addGroup = (group) => {
 	return (dispatch) => {
 		dispatch(addGroupRequest());
 		axios
-			.post(
-				`http://localhost:8000/api/group/63f361935a6870f14f57389d/createGroup`,
-				group,
-				{
-					headers: {
-						"Content-Type": "application/json",
-					},
-				}
-			)
+			.post(`${config.apiUrl}/group/${config.getUserId()}/createGroup`, group, {
+				headers: {
+					"Content-Type": "application/json",
+				},
+			})
 			.then((data) => {
 				dispatch(addGroupSuccess(data.data));
 			})
@@ -107,7 +109,7 @@ export const addUser = (groupName, user) => {
 		dispatch(addUserRequest());
 		axios
 			.post(
-				`http://localhost:8000/api/group/63f361935a6870f14f57389d/${groupName}/adduser`,
+				`${config.apiUrl}/group/${config.getUserId()}/${groupName}/adduser`,
 				user,
 				{
 					headers: {
@@ -128,7 +130,7 @@ export const simplify = (groupName) => {
 		dispatch(simplifyRequest());
 		axios
 			.get(
-				`http://localhost:8000/api/group/63f361935a6870f14f57389d/${groupName}/settle/equal`
+				`${config.apiUrl}/group/${config.getUserId()}/${groupName}/settle/equal`
 			)
 			.then((data) => {
 				dispatch(simplifySuccess(data.data.simplified));

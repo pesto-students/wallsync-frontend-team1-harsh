@@ -10,12 +10,12 @@ import {
 	deleteExpenseFailure,
 } from "./actions";
 import axios from "axios";
-
+import config from "../../config/config";
 export const getBudget = () => {
 	return (dispatch) => {
 		dispatch(fetchBudgetRequest());
 		axios
-			.get("http://localhost:8000/api/user/63f361935a6870f14f57389d/budget")
+			.get(`${config.apiUrl}/user/${config.getUserId()}/budget`)
 			.then((data) => {
 				const budget = data.data[0];
 				dispatch(fetchBudgetSuccess(budget));
@@ -30,7 +30,7 @@ export const addExpense = (expense) => {
 		dispatch(addExpenseRequest());
 		axios
 			.post(
-				"http://localhost:8000/api/budget/63f361935a6870f14f57389d/addExpense",
+				`${config.apiUrl}/budget/${config.getUserId()}/addExpense`,
 				expense,
 				{
 					headers: {
@@ -51,7 +51,9 @@ export const deleteExpense = (expenseId) => {
 		dispatch(deleteExpenseRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/budget/63f361935a6870f14f57389d/${expenseId}/deleteExpense`,
+				`${
+					config.apiUrl
+				}/budget/${config.getUserId()}/${expenseId}/deleteExpense`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))

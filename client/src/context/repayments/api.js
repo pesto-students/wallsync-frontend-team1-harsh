@@ -12,18 +12,16 @@ import {
 	deleteRepaymentSuccess,
 	deleteRepaymentFailure,
 } from "./actions.js";
-
+import config from "../../config/config.js";
 import axios from "axios";
 
-// const userId = JSON.parse(localStorage.getItem("user")).user.id;
 export const getRepayments = () => {
 	return (dispatch) => {
 		dispatch(fetchRepaymentRequest());
 		axios
-			.get("http://localhost:8000/api/user/63f361935a6870f14f57389d/repayments")
+			.get(`${config.apiUrl}/user/${config.getUserId()}/repayments`)
 			.then((data) => {
 				const repayments = data.data;
-				// console.log(repayments)
 				dispatch(fetchRepaymentSuccess(repayments));
 			})
 			.catch((err) => {
@@ -36,7 +34,7 @@ export const addRepayment = (repayment) => {
 		dispatch(addRepaymentRequest());
 		axios
 			.post(
-				"http://localhost:8000/api/repayment/63f361935a6870f14f57389d/addRepayment",
+				`${config.apiUrl}/repayment/${config.getUserId()}/addRepayment`,
 				repayment,
 				{
 					headers: {
@@ -57,7 +55,9 @@ export const editRepayment = (repayment, repaymentId) => {
 		dispatch(editRepaymentRequest());
 		axios
 			.put(
-				`http://localhost:8000/api/repayment/63f361935a6870f14f57389d/${repaymentId}/editRepayment`,
+				`${
+					config.apiUrl
+				}/repayment/${config.getUserId()}/${repaymentId}/editRepayment`,
 				repayment,
 				{
 					headers: {
@@ -81,7 +81,9 @@ export const deleteRepayment = (repaymentId) => {
 		dispatch(deleteRepaymentRequest());
 		axios
 			.delete(
-				`http://localhost:8000/api/repayment/63f361935a6870f14f57389d/${repaymentId}/deleteRepayment`,
+				`${
+					config.apiUrl
+				}/repayment/${config.getUserId()}/${repaymentId}/deleteRepayment`,
 				{
 					headers: {
 						Authorization: JSON.parse(localStorage.getItem("user"))
