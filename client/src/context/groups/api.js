@@ -28,7 +28,7 @@ export const getGroups = () => {
 			.get("http://localhost:8000/api/user/63f361935a6870f14f57389d/groups")
 			.then((data) => {
 				const groups = data.data;
-				console.log("group data", data.data);
+
 				dispatch(fetchGroupSuccess(groups));
 			})
 			.catch((err) => {
@@ -116,8 +116,6 @@ export const addUser = (groupName, user) => {
 				}
 			)
 			.then((data) => {
-				console.log("checking add user data", data.data.newUser.firstName);
-
 				dispatch(addUserSuccess(groupName, data.data.newUser.firstName));
 			})
 			.catch((err) => {
@@ -140,3 +138,5 @@ export const simplify = (groupName) => {
 			});
 	};
 };
+
+export const addPercentageArray = () => {};

@@ -18,7 +18,7 @@ import {
 
 const INITIAL_STATE = {
 	loading: true,
-	budget: [],
+	budget: {},
 	error: false,
 };
 
@@ -28,7 +28,7 @@ const budgetReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				loading: true,
-				budget: [],
+				budget: {},
 				error: false,
 			};
 		case FETCH_BUDGET_SUCCESS:
@@ -40,45 +40,50 @@ const budgetReducer = (state = INITIAL_STATE, action) => {
 		case FETCH_BUDGET_FAILURE:
 			return {
 				loading: false,
-				budget: [],
+				budget: {},
 				error: action.payload,
 			};
 		case ADD_EXPENSE_REQUEST:
 			return {
-				...state,
 				loading: true,
-				budget: [],
+				budget: { ...state.budget },
 				error: false,
 			};
 		case ADD_EXPENSE_SUCCESS:
 			return {
 				loading: false,
-				budget: [...state.budget, action.payload],
+				budget: {
+					...state.budget,
+					expensesArray: [...state.budget.expensesArray, action.payload],
+				},
 				error: false,
 			};
 		case ADD_EXPENSE_FAILURE:
 			return {
 				loading: false,
-				budget: [],
+				budget: { ...state.budget },
 				error: action.payload,
 			};
 		case DELETE_EXPENSE_REQUEST:
 			return {
-				...state,
+				budget: { ...state.budget },
 				loading: true,
 				error: false,
 			};
 		case DELETE_EXPENSE_SUCCESS:
 			return {
 				loading: false,
-				budget: state.budget.budget.expensesArray.filter(
-					(item) => item._id !== action.payload
-				),
 				error: false,
+				budget: {
+					...state.budget,
+					expensesArray: state.budget.expensesArray.filter(
+						(item) => item._id !== action.payload
+					),
+				},
 			};
 		case DELETE_EXPENSE_FAILURE:
 			return {
-				...state,
+				budget: { ...state.budget },
 				loading: false,
 				error: action.payload,
 			};

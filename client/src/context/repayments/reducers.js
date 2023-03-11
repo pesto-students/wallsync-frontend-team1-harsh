@@ -43,7 +43,7 @@ const repaymentReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				loading: true,
-				repayment: [],
+				repayment: [...state.repayment],
 				error: false,
 			};
 		case ADD_REPAYMENT_SUCCESS:
@@ -55,7 +55,7 @@ const repaymentReducer = (state = INITIAL_STATE, action) => {
 		case ADD_REPAYMENT_FAILURE:
 			return {
 				loading: false,
-				repayment: [],
+				repayment: [...state.repayment],
 				error: action.payload,
 			};
 		case EDIT_REPAYMENT_REQUEST:

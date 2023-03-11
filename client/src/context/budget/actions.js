@@ -52,18 +52,18 @@ export const addExpenseFailure = (error) => {
 };
 export const deleteExpenseRequest = () => {
 	return {
-		type: ADD_EXPENSE_REQUEST,
+		type: DELETE_EXPENSE_REQUEST,
 	};
 };
 export const deleteExpenseSuccess = (expenseId) => {
 	return {
-		type: ADD_EXPENSE_SUCCESS,
+		type: DELETE_EXPENSE_SUCCESS,
 		payload: expenseId,
 	};
 };
 export const deleteExpenseFailure = (error) => {
 	return {
-		type: ADD_EXPENSE_FAILURE,
+		type: DELETE_EXPENSE_FAILURE,
 		payload: error,
 	};
 };

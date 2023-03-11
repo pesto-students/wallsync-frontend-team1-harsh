@@ -45,7 +45,7 @@ export const addRepayment = (repayment) => {
 				}
 			)
 			.then((data) => {
-				dispatch(addRepaymentSuccess(data));
+				dispatch(addRepaymentSuccess(data.data));
 			})
 			.catch((err) => {
 				dispatch(addRepaymentFailure(err));

@@ -49,6 +49,9 @@ const Split = () => {
 				amount: amount,
 			})
 		);
+		setDescription("");
+		setName("");
+		setAmount("");
 	};
 	const handleCreateGroup = (e) => {
 		e.preventDefault();

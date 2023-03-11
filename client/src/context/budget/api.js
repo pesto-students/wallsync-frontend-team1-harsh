@@ -39,7 +39,7 @@ export const addExpense = (expense) => {
 				}
 			)
 			.then((data) => {
-				addExpenseSuccess(data);
+				dispatch(addExpenseSuccess(data.data.newTransaction));
 			})
 			.catch((err) => {
 				dispatch(addExpenseFailure(err));
@@ -59,8 +59,10 @@ export const deleteExpense = (expenseId) => {
 					},
 				}
 			)
-			.then(() => {
-				dispatch(deleteExpenseSuccess(expenseId));
+			.then((data) => {
+				console.log("deleteexp data", data);
+
+				dispatch(deleteExpenseSuccess(data.data.deletedId));
 			})
 			.catch((err) => {
 				dispatch(deleteExpenseFailure(err));

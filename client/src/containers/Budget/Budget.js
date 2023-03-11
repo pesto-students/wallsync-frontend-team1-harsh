@@ -30,16 +30,10 @@ const Budget = () => {
 		dispatch(addExpense({ description, amount }));
 		setDescription("");
 		setAmount("");
-		setTimeout(() => {
-			dispatch(getBudget());
-		}, 500);
 	};
-	console.log("expenses", expenseData);
+
 	const handleDelete = (expenseId) => {
 		dispatch(deleteExpense(expenseId));
-		setTimeout(() => {
-			dispatch(getBudget());
-		}, 500);
 	};
 	//table data
 	const columns = [
