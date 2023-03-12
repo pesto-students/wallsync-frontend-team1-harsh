@@ -16,14 +16,10 @@ import { getRepayments } from "../../context/repayments/api";
 import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
-	const [groupContent, setGroupContent] = useState([]);
-	const [budgetContent, setBudgetContent] = useState([]);
-	const [repaymentContent, setRepaymentContent] = useState([]);
-
 	const dispatch = useDispatch();
 	const firstGroupData = useSelector((state) => state.group.group);
-	const firstBudgetData = useSelector(state=>state.budget.budget)
-	const firstRepaymentData = useSelector(state=>state.repayment.repayment)
+	const firstBudgetData = useSelector((state) => state.budget.budget);
+	const firstRepaymentData = useSelector((state) => state.repayment.repayment);
 
 	useEffect(() => {
 		dispatch(getGroups());
@@ -67,7 +63,10 @@ const Home = () => {
 								</p>
 								<p className="panelDataInner">
 									Total Group expense :&nbsp;
-									<p className="amount"> ₹ {firstGroupData[firstGroupData.length - 1]?.groupTotal}</p>{" "}
+									<p className="amount">
+										{" "}
+										₹ {firstGroupData[firstGroupData.length - 1]?.groupTotal}
+									</p>{" "}
 								</p>
 							</div>
 						}
@@ -81,11 +80,15 @@ const Home = () => {
 							<div className="homePanelData">
 								<p className="panelDataInner">
 									Spent : &nbsp;
-									<p className="amount">₹ {firstBudgetData.total}</p>{" "}
+									<p className="amount">
+										₹ {firstBudgetData && firstBudgetData.total}
+									</p>{" "}
 								</p>
 								<p className="panelDataInner">
 									Savings : &nbsp;
-									<p className="amount">₹ {firstBudgetData.savings}</p>{" "}
+									<p className="amount">
+										₹ {firstBudgetData && firstBudgetData.savings}
+									</p>{" "}
 								</p>
 							</div>
 						}
@@ -96,10 +99,17 @@ const Home = () => {
 						linkTo="/repayments"
 						panelData={
 							<div className="homePanelData">
-								<p>Description : {repaymentPanelData.type}</p>
-								<p>Due-Date : {repaymentPanelData.date}</p>
+								<p>
+									Description : {repaymentPanelData && repaymentPanelData.type}
+								</p>
+								<p>
+									Due-Date : {repaymentPanelData && repaymentPanelData.date}
+								</p>
 								<p className="panelDataInner">
-									Amount : &nbsp;<p className="amount">₹ {repaymentPanelData.amount}</p>
+									Amount : &nbsp;
+									<p className="amount">
+										₹ {repaymentPanelData && repaymentPanelData.amount}
+									</p>
 								</p>
 							</div>
 						}
@@ -112,10 +122,9 @@ const Home = () => {
 					/>
 				</div>
 			</div>
-			<Footer className='homeFooter'/>
+			<Footer className="homeFooter" />
 		</div>
 	);
 };
 
 export default Home;
-

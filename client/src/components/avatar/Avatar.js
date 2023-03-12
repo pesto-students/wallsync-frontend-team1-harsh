@@ -15,9 +15,9 @@ const Avatar = () => {
 	const dispatch = useDispatch();
 
 	const profilePic = useSelector(
-		(state) => state.authentication.user.profilePicture
+		(state) => state.authentication.user.user.profilePicture
 	);
-
+	console.log("pfp", profilePic);
 	const cld = new Cloudinary({
 		cloud: {
 			cloudName: cloudinaryConfig.cloud_name,

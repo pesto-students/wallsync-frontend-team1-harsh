@@ -6,7 +6,7 @@
     width:87%;
     background-color: #1e1e1e;
     border-radius: 25px;
-    height:84vh;
+    height:88vh;
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -14,9 +14,9 @@
     /* align-items: center; */
     padding-top: 5%;
 }
-.profileDashBoard .MuiSvgIcon-root{
-    width: 10em;
-    height:8em;
+.profileDashBoard .editDp{
+    width: 12em;
+    height:10em;
     margin-top: 2%;
     margin-left: 10%;
 }
@@ -24,15 +24,38 @@
 .profileForm{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap:7%
 }
 .profileForm input{
     height: 3em;
     width: 15em;
     border-radius: 25px;
+    padding: 5%;
 }
+.profileForm ::placeholder {
+    color: #1f1f1f;
+    font-size: larger;
+  }
+/* .profileForm input ::placeholder {
+    text-decoration: red;
+    padding: 5%;
+  } */
 .profileEditImg{
     padding-left: 5%;
     width:25em;
     height: 20em;
+}
+.updateB{
+    width: 150px;
+    height: 50px;
+    color:white;
+    background: rgb(226,110,45);
+    background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
+}
+.changeDp{
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+    align-items:center;
 }
