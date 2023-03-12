@@ -20,7 +20,9 @@ const Budget = () => {
 	const [amount, setAmount] = useState("");
 	const dispatch = useDispatch();
 	const budgetData = useSelector((state) => state.budget.budget);
-	const expenseData = useSelector((state) => state.budget.budget.expensesArray);
+	const expenseData = useSelector(
+		(state) => state.budget.budget && state.budget.budget.expensesArray
+	);
 	useEffect(() => {
 		dispatch(getBudget());
 	}, []);
@@ -83,15 +85,13 @@ const Budget = () => {
 			});
 	}
 	let final = [];
-	final = expenseData && expenseData.map((item) => item.description)
+	final = expenseData && expenseData.map((item) => item.description);
 	const lineChartData = {
-		labels: expenseData
-			&& expenseData.map((item) => item.date /*.substr(5, 5)*/)
-			,
-
+		labels:
+			expenseData && expenseData.map((item) => item.date /*.substr(5, 5)*/),
 		datasets: [
 			{
-				label: final.map((index, i) => index),
+				label: final && final.map((index, i) => index),
 				data: expenseData && expenseData.map((item) => item.amount),
 				fill: false,
 				borderColor: "rgb(75, 192, 192)",
@@ -105,7 +105,11 @@ const Budget = () => {
 		datasets: [
 			{
 				// label: "My First Dataset",
-				data: [budgetData.income, budgetData.savings, budgetData.total],
+				data: [
+					budgetData && budgetData.income,
+					budgetData && budgetData.savings,
+					budgetData && budgetData.total,
+				],
 				backgroundColor: [
 					"rgb(255, 99, 132)",
 					"rgb(54, 162, 235)",
@@ -146,14 +150,17 @@ const Budget = () => {
 							/>
 						</form>
 						<div className="incomeDiv">
-							<input type="text" placeholder={budgetData.limit} />
-							<input type="text" placeholder={budgetData.income} />
+							<input type="text" placeholder={budgetData && budgetData.limit} />
+							<input
+								type="text"
+								placeholder={budgetData && budgetData.income}
+							/>
 						</div>
 					</div>
 					<hr className="expenseLine" />
 					<div className="three">
 						<p>
-							February spendings: <span>₹{budgetData.total}</span>
+							Spendings: <span>₹{budgetData && budgetData.total}</span>
 						</p>
 						<LineChart rowData={lineChartData} />
 					</div>
