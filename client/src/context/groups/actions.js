@@ -23,6 +23,9 @@ import {
 	DELETE_GROUP_REQUEST,
 	DELETE_GROUP_SUCCESS,
 	DELETE_GROUP_FAILURE,
+	ADD_PERCENTAGE_ARRAY_REQUEST,
+	ADD_PERCENTAGE_ARRAY_SUCCESS,
+	ADD_PERCENTAGE_ARRAY_FAILURE,
 } from "./types";
 
 export const fetchGroupRequest = () => {
@@ -158,6 +161,23 @@ export const deleteGroupSuccess = (groupName) => {
 export const deleteGroupFailure = (error) => {
 	return {
 		type: DELETE_GROUP_FAILURE,
+		payload: error,
+	};
+};
+export const addPercentageArrayRequest = () => {
+	return {
+		type: ADD_PERCENTAGE_ARRAY_REQUEST,
+	};
+};
+export const addPercentageArraySuccess = (groupName, percentageArray) => {
+	return {
+		type: ADD_PERCENTAGE_ARRAY_SUCCESS,
+		payload: { groupName, percentageArray },
+	};
+};
+export const addPercentageArrayFailure = (error) => {
+	return {
+		type: ADD_PERCENTAGE_ARRAY_SUCCESS,
 		payload: error,
 	};
 };

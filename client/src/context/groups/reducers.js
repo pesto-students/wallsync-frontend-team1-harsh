@@ -20,6 +20,9 @@ import {
 	DELETE_GROUP_REQUEST,
 	DELETE_GROUP_SUCCESS,
 	DELETE_GROUP_FAILURE,
+	ADD_PERCENTAGE_ARRAY_REQUEST,
+	ADD_PERCENTAGE_ARRAY_SUCCESS,
+	ADD_PERCENTAGE_ARRAY_FAILURE,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -201,6 +204,37 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 			};
 		case DELETE_GROUP_FAILURE:
+			return {
+				loading: false,
+				group: [...state.group],
+				error: action.payload,
+			};
+		case ADD_PERCENTAGE_ARRAY_REQUEST:
+			return {
+				...state,
+				loading: true,
+				group: [...state.group],
+				error: false,
+			};
+		case ADD_PERCENTAGE_ARRAY_SUCCESS:
+			const updatedPA = state.group.map((group) => {
+				if (group.groupName === action.payload.groupName) {
+					return {
+						...group,
+						percentageArray: action.payload.percentageArray,
+					};
+				} else {
+					return group;
+				}
+			});
+
+			return {
+				...state,
+				loading: false,
+				group: updatedPA,
+				error: false,
+			};
+		case ADD_PERCENTAGE_ARRAY_FAILURE:
 			return {
 				loading: false,
 				group: [...state.group],

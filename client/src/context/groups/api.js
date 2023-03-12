@@ -20,6 +20,9 @@ import {
 	deleteGroupRequest,
 	deleteGroupSuccess,
 	deleteGroupFailure,
+	addPercentageArrayRequest,
+	addPercentageArraySuccess,
+	addPercentageArrayFailure,
 } from "./actions";
 import axios from "axios";
 import config from "../../config/config";
@@ -166,4 +169,27 @@ export const deleteGroup = (groupName) => {
 			});
 	};
 };
-export const addPercentageArray = () => {};
+export const addPercentageArray = (groupName, percentageArray) => {
+	return (dispatch) => {
+		dispatch(addPercentageArrayRequest());
+		axios
+			.post(
+				`${
+					config.apiUrl
+				}/group/${config.getUserId()}/${groupName}/addPercentage`,
+				percentageArray,
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			)
+			.then((data) => {
+				console.log("paaaaaaaaaa", data.data);
+				dispatch(addPercentageArraySuccess(groupName, data.data));
+			})
+			.catch((err) => {
+				dispatch(addPercentageArrayFailure(err));
+			});
+	};
+};

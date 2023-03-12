@@ -24,12 +24,14 @@ import {
 	addUser,
 	simplify,
 	deleteGroup,
+	addPercentageArray,
 } from "../../context/groups/api";
 import SkeletonComp from "./components/skeleton/Skeleton";
 import { useDispatch, useSelector } from "react-redux";
 
 const Split = () => {
 	const dispatch = useDispatch();
+	const [percentageArray, setPercentageArray] = useState([]);
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [amount, setAmount] = useState("");
@@ -40,7 +42,8 @@ const Split = () => {
 	// const loading = useSelector((state) => state.group.loading);
 	const groupData = useSelector((state) => state.group.group);
 	const simplifiedData = useSelector((state) => state.group.simplified);
-	console.log("simplified data", simplifiedData);
+
+	// let percentageArray = [];
 
 	const handleSubmit = (e, groupName) => {
 		e.preventDefault();
@@ -90,6 +93,19 @@ const Split = () => {
 	const handleGroupDelete = (e, groupName) => {
 		e.preventDefault();
 		dispatch(deleteGroup(groupName));
+	};
+	const handlePercentageArray = (e, groupName) => {
+		e.preventDefault();
+		setPercentageArray(percentageArray);
+		const totalPercent = percentageArray.reduce(
+			(acc, curr) => acc + curr.percent,
+			0
+		);
+		if (totalPercent !== 100) {
+			alert("Percentages should add up to 100");
+			return;
+		}
+		dispatch(addPercentageArray(groupName, percentageArray));
 	};
 	useEffect(() => {
 		dispatch(getGroups());
@@ -323,17 +339,45 @@ const Split = () => {
 																	className="popverSection"
 																	popdata={
 																		<form className="popupForm">
-																			{i.finalContributions.map((item) => {
-																				return (
-																					<input
-																						type="number"
-																						placeholder={item.name}
-																					/>
-																				);
-																			})}
+																			{i.groupMembers &&
+																				i.groupMembers.map((item) => {
+																					return (
+																						<>
+																							<span>{item}:</span>
+																							<input
+																								type="number"
+																								placeholder="percent"
+																								onChange={(event) => {
+																									const index =
+																										percentageArray.findIndex(
+																											(el) => el.name === item
+																										);
+																									if (index === -1) {
+																										percentageArray.push({
+																											name: item,
+																											percent: parseInt(
+																												event.target.value
+																											),
+																										});
+																									} else {
+																										percentageArray[
+																											index
+																										].percent = parseInt(
+																											event.target.value
+																										);
+																									}
+																								}}
+																							/>
+																							<br />
+																						</>
+																					);
+																				})}
 																			<Button
 																				className="addPercentB"
 																				buttonName="addPercent"
+																				onClick={(e) =>
+																					handlePercentageArray(e, i.groupName)
+																				}
 																			/>
 																		</form>
 																	}
