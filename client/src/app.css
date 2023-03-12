@@ -43,8 +43,52 @@ li:visited{
     border-radius: 25px;
     opacity: 0.2;
   }
-@media screen and (max-width: 600px) {
-    .App{
-        padding-bottom:-100px ;
+
+
+  /* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .MuiSvgIcon-root:hover{
+        cursor:pointer;
     }
-}
+    .MuiAccordion-root{
+        background: rgb(226,110,45);
+        background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
+        /* background-image: url('./assets/bg2-zEFitxBHV-transformed-removebg-preview.png'); */
+        background-size: fill;
+        border-radius: 25px;
+    }
+    .MuiAccordionSummary-root::after{
+        pointer-events: none;
+        content: "";
+        display: block; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; 
+        background-image: url('./assets/bg2-zEFitxBHV-transformed-removebg-preview.png');
+        background-size: fill;
+        border-radius: 25px;
+        opacity: 0.2;
+      }
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens larger than 992px (e.g. iMac) */
+  @media (min-width: 992px) {
+    /* Add your styles here */
+  }

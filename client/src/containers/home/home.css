@@ -1,159 +1,162 @@
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nova+Slim&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
-.homeBody{
-    display: flex;
-    /* margin-bottom: 6%; */
-    justify-content: space-between;
+.homeBody {
+  display: flex;
+  /* margin-bottom: 6%; */
+  justify-content: space-between;
 }
-.mainPanel{
-    background-color: #1E1E1E;
-    width: 84vw;
-    padding:2%;
-    border-radius: 25px 0 0 25px;
-    display: flex;
-    flex-direction: column;
-    gap:4vh;
-    justify-content:space-between; 
-    /* margin: auto 2%; */
+.mainPanel {
+  background-color: #1e1e1e;
+  width: 84vw;
+  padding: 2%;
+  border-radius: 25px 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  justify-content: space-between;
+  /* margin: auto 2%; */
 }
-.MuiSvgIcon-root{
-    color: white;
+.MuiSvgIcon-root {
+  color: white;
 }
-.homeFooter{
-    margin-top: 4vh;
+.homeFooter {
+  margin-top: 4vh;
 }
-.homePanelData{
-    text-align: center;
-    width: auto;
-    height: 10vh;
-    background-color: #1E1E1E;
-    display: flex;
-    gap: 10vw;
-    justify-content: center;
-    align-items: center;
-    /* padding :5%; */
-    font-size: 2em;
-    color: white;
-    text-transform: capitalize;
+.homePanelData {
+  text-align: center;
+  width: auto;
+  height: 10vh;
+  background-color: #1e1e1e;
+  display: flex;
+  gap: 10vw;
+  justify-content: center;
+  align-items: center;
+  /* padding :5%; */
+  font-size: 2em;
+  color: white;
+  text-transform: capitalize;
 }
-.homePanelData p{
-    font-family: 'Nova Slim', cursive;
+.homePanelData p {
+  font-family: 'Nova Slim', cursive;
 }
 
-.panelDataInner{
-    display: flex;
-
+.panelDataInner {
+  display: flex;
 }
-.amount{
-    color: aquamarine;
+.amount {
+  color: aquamarine;
 }
-.homeHeadingText{
-    background-color: black;
-    margin:auto;
-    text-align: center;
-    margin-top: 1vh;
-      width: max-content;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      border-radius: 20px;  
-      text-transform: uppercase;
-      font-size: 2em;
-      font-family: 'Gloock', serif;
-      /* font-weight: 500; */
-  }
-
+.homeHeadingText {
+  background-color: black;
+  margin: auto;
+  text-align: center;
+  margin-top: 1vh;
+  width: max-content;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: 2em;
+  font-family: 'Gloock', serif;
+  /* font-weight: 500; */
+}
 
 /* Styles for screens smaller than 320px (e.g. iPhone SE) */
 @media (max-width: 320px) {
-    /* Add your styles here */
-  }
-  
-  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
-  @media (min-width: 320px) and (max-width: 480px) {
-    .home .homeFooter{
-        display: none;
-    }
-    .home{
-        overflow-y: hidden;
-        /* overflow-x: hidden; */
-    }
-    .homeBody{
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: space-between;
-    }
-    .mainPanel{
-        background-color: #1E1E1E;
-        width: 100vw;
-        padding:5%;
-        border-radius: 25px 0 0 25px;
-        display: flex;
-        flex-direction: column;
-        gap:4vh;
-        justify-content:space-between; 
+  /* Add your styles here */
+}
 
-    }
-    .MuiSvgIcon-root{
-        color: white;
-    }
-    .homeFooter{
-        margin-top: 4vh;
-    }
-    .homePanelData{
-        text-align: center;
-        width: auto;
-        height: 10vh;
-        background-color: #1E1E1E;
-        display: flex;
-        gap: 10vw;
-        justify-content: center;
-        align-items: center;
-        /* padding :5%; */
-        font-size: 2em;
-        color: white;
-        text-transform: capitalize;
-    }
-    .homePanelData p{
-        font-family: 'Nova Slim', cursive;
-    }
-    
-    .panelDataInner{
-        display: flex;
-    
-    }
-    .amount{
-        color: aquamarine;
-    }
-    .homeHeadingText{
-        background-color: black;
-        margin:auto;
-        text-align: center;
-        margin-top: 1vh;
-          width: max-content;
-          color: white;
-          text-align: center;
-          padding: 20px;
-          border-radius: 20px;  
-          text-transform: uppercase;
-          font-size: 0.5em;
-          font-family: 'Gloock', serif;
-          /* font-weight: 500; */
-      }
+/* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .home .homeFooter {
+    display: none;
   }
-  
-  /* Styles for screens between 480px and 768px (e.g. iPad) */
-  @media (min-width: 480px) and (max-width: 768px) {
-    /* Add your styles here */
+  .home {
+    overflow-y: hidden;
+    /* overflow-x: hidden; */
   }
-  
-  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
-  @media (min-width: 768px) and (max-width: 992px) {
-    /* Add your styles here */
+  .homeBody {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
   }
-  
-  /* Styles for screens larger than 992px (e.g. iMac) */
-  @media (min-width: 992px) {
-    /* Add your styles here */
+  .mainPanel {
+    background-color: #1e1e1e;
+    width: 90vw;
+    padding: 5%;
+    border-radius: 25px 25px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    justify-content: space-between;
   }
+  .MuiSvgIcon-root {
+    color: white;
+  }
+  .homeFooter {
+    margin-top: 4vh;
+  }
+  .homePanelData {
+    text-align: center;
+    width: auto;
+    height: 100%;
+    background-color: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    justify-content: center;
+    align-items: center;
+    /* padding :5%; */
+    font-size: 1em;
+    color: white;
+    text-transform: capitalize;
+  }
+  .homePanelData p {
+    font-family: 'Nova Slim', cursive;
+  }
+
+  .panelDataInner {
+    display: flex;
+  }
+  .amount {
+    color: aquamarine;
+  }
+  .homeHeadingText {
+    background-color: black;
+    /* margin:auto; */
+    text-align: center;
+    /* margin-top: 4vh; */
+    position: absolute;
+    right: 5vw;
+    top: 4vh;
+    z-index: 2;
+    width: 25vw;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Gloock', serif;
+  }
+  .footerLine {
+    display: none;
+  }
+}
+
+/* Styles for screens between 480px and 768px (e.g. iPad) */
+@media (min-width: 480px) and (max-width: 768px) {
+  /* Add your styles here */
+}
+
+/* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+@media (min-width: 768px) and (max-width: 992px) {
+  /* Add your styles here */
+}
+
+/* Styles for screens larger than 992px (e.g. iMac) */
+@media (min-width: 992px) {
+  /* Add your styles here */
+}

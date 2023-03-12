@@ -14,6 +14,7 @@ import { getGroups } from "../../context/groups/api";
 import { getBudget } from "../../context/budget/api";
 import { getRepayments } from "../../context/repayments/api";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 	const dispatch = useDispatch();
@@ -54,7 +55,7 @@ const Home = () => {
 				<div className="mainPanel">
 					<Panel
 						panelLogo={pic1}
-						panelName={<p className="homeHeadingText">Split Bills</p>}
+						panelName={<Link to="/split"><p className="homeHeadingText">Split Bills</p></Link>}
 						panelData={
 							<div className="homePanelData">
 								<p>
@@ -74,7 +75,7 @@ const Home = () => {
 					/>
 					<Panel
 						panelLogo={pic2}
-						panelName={<p className="homeHeadingText">Expense Management</p>}
+						panelName={<Link to="/budget"><p className="homeHeadingText">Expenses</p></Link>}
 						linkTo="/budget"
 						panelData={
 							<div className="homePanelData">
@@ -95,7 +96,7 @@ const Home = () => {
 					/>
 					<Panel
 						panelLogo={pic3}
-						panelName={<p className="homeHeadingText">Repayments</p>}
+						panelName={<Link to="/repayments"><p className="homeHeadingText">Repayments</p></Link>}
 						linkTo="/repayments"
 						panelData={
 							<div className="homePanelData">
@@ -116,7 +117,7 @@ const Home = () => {
 					/>
 					<Panel
 						panelLogo={pic4}
-						panelName={<p className="homeHeadingText">Live Market</p>}
+						panelName={<Link to="/live-market"><p className="homeHeadingText">Live Market</p></Link>}
 						linkTo="/live-market"
 						// panelData={}
 					/>

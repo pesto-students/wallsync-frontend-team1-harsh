@@ -81,11 +81,11 @@ const Settings = () => {
 						/>
 					</div>
 					<div className="settingsInfo">
-						<Button buttonName="Sign Out" />
+						<Button buttonName="Sign Out" className='settingsSignOutButton' />
 					</div>
 				</div>
 			</div>
-			<Footer></Footer>
+			{/* <Footer></Footer> */}
 		</div>
 	);
 };

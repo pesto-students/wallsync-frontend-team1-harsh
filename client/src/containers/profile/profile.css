@@ -6,13 +6,12 @@
     width:87%;
     background-color: #1e1e1e;
     border-radius: 25px;
-    height:88vh;
+    height:70vh;
     display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
+    align-items: center;
+    justify-content: center;
     gap:5%;
-    /* align-items: center; */
-    padding-top: 5%;
+    /* padding-top: 5%; */
 }
 .profileDashBoard .editDp{
     width: 12em;
@@ -20,27 +19,27 @@
     margin-top: 2%;
     margin-left: 10%;
 }
+.profileDashBoard .MuiSvgIcon-root{
+    width: 10em;
+    height:8em;
+}
 
 .profileForm{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:7%
+    gap:3vh;
 }
 .profileForm input{
-    height: 3em;
-    width: 15em;
-    border-radius: 25px;
-    padding: 5%;
+    height: 5vh;
+    width: 20vw;
+    border-radius: 10px;
+    padding-left: 1vw;
 }
 .profileForm ::placeholder {
     color: #1f1f1f;
     font-size: larger;
   }
-/* .profileForm input ::placeholder {
-    text-decoration: red;
-    padding: 5%;
-  } */
 .profileEditImg{
     padding-left: 5%;
     width:25em;
@@ -59,3 +58,108 @@
     margin: 5%;
     align-items:center;
 }
+
+@media (max-width: 320px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .profileBody{
+        display:flex;
+        justify-content: space-evenly;
+    }
+    .profileDashBoard{
+        width:90vw;
+        background-color: #1e1e1e;
+        border-radius: 25px;
+        height:70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap:1vh;
+        /* padding-top: 5%; */
+    }
+    .profileDashBoard .MuiSvgIcon-root{
+        width: 30vw;
+        height:15vh;
+        /* background-color: aqua; */
+    }
+    
+    .profileForm{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:2vh;
+    }
+    .profileForm input{
+        height: 4vh;
+        width: 50vw;
+        border-radius: 10px;
+        padding-left: 1vw;
+    }
+    .profileEditImg{
+        display: none;
+    }
+    .profileFooter{
+        display: none;
+    }
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    .profileEditImg{
+        display: none;
+    }
+    .profileForm input{
+        height: 4vh;
+        width: 35vw;
+        border-radius: 10px;
+        padding-left: 1vw;
+    }
+    .profileDashBoard{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap:1vw;
+    }
+    .profileDashBoard .MuiSvgIcon-root{
+        width: 25vw;
+        height:20vh;
+        margin-left: 5vw;
+        /* background-color: aqua; */
+    }
+    
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .profileEditImg{
+        display: none;
+    }
+    .profileForm input{
+        height: 4vh;
+        width: 35vw;
+        border-radius: 10px;
+        /* padding-left: 1vw; */
+    }
+    .profileDashBoard{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap:1vw;
+
+    }
+    .profileDashBoard .MuiSvgIcon-root{
+        width: 25vw;
+        height:20vh;
+        margin-left: 5vw;
+        /* background-color: aqua; */
+    }
+  }
+  
+  /* Styles for screens larger than 992px (e.g. iMac) */
+  @media (min-width: 992px) {
+    /* Add your styles here */
+  }

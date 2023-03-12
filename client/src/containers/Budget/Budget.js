@@ -83,16 +83,16 @@ const Budget = () => {
 			});
 	}
 	let final = [];
-	final = expenseData ? expenseData.map((item) => item.description) : [];
+	final = expenseData && expenseData.map((item) => item.description)
 	const lineChartData = {
 		labels: expenseData
-			? expenseData.map((item) => item.date /*.substr(5, 5)*/)
-			: [],
+			&& expenseData.map((item) => item.date /*.substr(5, 5)*/)
+			,
 
 		datasets: [
 			{
 				label: final.map((index, i) => index),
-				data: expenseData ? expenseData.map((item) => item.amount) : [],
+				data: expenseData && expenseData.map((item) => item.amount),
 				fill: false,
 				borderColor: "rgb(75, 192, 192)",
 				tension: 0.1,
