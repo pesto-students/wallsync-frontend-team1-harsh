@@ -1,4 +1,4 @@
-import * as React from "react";
+import React , {useEffect} from "react";
 import PropTypes from "prop-types";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -7,6 +7,8 @@ import ListItemText from "@mui/material/ListItemText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
 import ClearIcon from "@mui/icons-material/Clear";
+import { useDispatch, useSelector } from "react-redux";
+import { getRepayments } from "../../context/repayments/api"
 
 const notifications = [
   "Car payment DUE on 03/2/23",
@@ -21,6 +23,13 @@ const notifications = [
 
 function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
+
+  //  const dispatch = useDispatch()
+  // const notifications = useSelector((state)=>state.repayments.repayments)
+
+  // useEffect(()=>{
+  //   dispatch(getRepayments())
+  // },[])
 
   const handleClose = () => {
     onClose(selectedValue);

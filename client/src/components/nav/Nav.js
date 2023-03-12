@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./nav.css";
 import home from "../../assets/icons8-home-48 (1).png";
 import logo from "../../assets/logo.png";
@@ -16,8 +16,13 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import Dialogue from '../dialog/Dialogue'
 import Toggle from "./toggle/Toggle";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getRepayments } from "../../context/repayments/api";
 
 const Nav = () => {
+
+ 
+
   return (
     <div className="navbar">
       <div className="sidenav">
@@ -63,10 +68,10 @@ const Nav = () => {
       </div>
       <div className="mobilenav">
         <ul className="mobilenavbottom">
-          <img src={home} />
-          <img src={menu} />
-          <img src={wallet} />
-          <img src={settings} />
+         <Link to='/home' ><img src={home} /></Link> 
+         <Link to='/' ><img src={menu} /></Link> 
+         <Link to='/' ><img src={wallet} /></Link> 
+         <Link to='/settings' ><img src={settings} /></Link> 
         </ul>
       </div>
     </div>

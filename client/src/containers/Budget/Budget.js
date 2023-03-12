@@ -162,6 +162,7 @@ const Budget = () => {
 						<p>
 							Spendings: <span>₹{budgetData && budgetData.total}</span>
 						</p>
+						
 						<LineChart rowData={lineChartData} />
 					</div>
 				</div>

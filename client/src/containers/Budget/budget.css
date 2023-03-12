@@ -1,81 +1,299 @@
-.container{
-    display: flex;
-    justify-content: space-between;
-    /* justify-content: center; */
-    text-transform: capitalize;
+.container {
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
 }
-.budgetBody{
+.budgetBody {
   background-color: #1e1e1e;
   border-radius: 25px;
-    width: 84%;
-    padding:2%
+  width: 84%;
+  padding: 2%;
 }
-.one{
-    display: flex;
-    justify-content:space-between;
-    gap: 10%;
+.one {
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
 }
 
-.two{
-    margin:5%;
-    display: flex;
-    flex-direction: row;
-    width: 95%;
-    margin-left: -2%;
+.two {
+  margin: 5%;
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin-left: -2%;
 }
-.two form{
+.two form {
+  display: flex;
+  flex-direction: row;
+  margin: 2%;
+  margin-left: 12%;
+  padding: 0;
+  gap: 10%;
+  justify-content: flex-start;
+}
+.two form input {
+  width: 20%;
+  height: 120%;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.incomeDiv {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10%;
+  align-items: center;
+}
+.incomeDiv input {
+  height: 50%;
+  border-radius: 15px;
+  text-align: center;
+}
+.three {
+  margin: 5%;
+  display: flex;
+  /* justify-content: center;
+  align-content:center ; */
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5vh;
+}
+.three p {
+  width: 20%;
+  background-color: black;
+  border-radius: 25px;
+  border: 0.1em solid white;
+  text-align: center;
+  font-size: 3em;
+  padding: 5%;
+}
+.three p span {
+  color: aquamarine;
+}
+
+.addExpenseB {
+  width: 100px;
+  height: 40px;
+  color: white;
+  background: rgb(226, 110, 45);
+  background: linear-gradient(
+    0deg,
+    rgba(226, 110, 45, 1) 0%,
+    rgba(214, 86, 58, 1) 100%
+  );
+}
+.expenseLine {
+  margin-top: -2%;
+}
+
+/* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+  /* Add your styles here */
+}
+
+/* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .budgetBody {
+    background-color: #1e1e1e;
+    border-radius: 25px;
+    width: 100vw;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 2%; */
+  }
+  .expenseTable{
+    /* background-color: aqua; */
+    width: 90vw;
+
+  }
+  .one {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    gap: 5vh;
+  }
+
+  .two {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+    /* margin-left: -2%; */
+}
+.addExpenseForm {
+    display: flex;
+    /* flex-direction: column; */
+    flex-flow: wrap;
     flex-direction: row;
     margin: 2%;
-    margin-left: 12%;
+    /* margin-left: 12%; */
     padding: 0;
     gap: 10%;
     justify-content: flex-start;
-}
-.two form input{
-    width:20%;
-    height:120%;
+  }
+  .two form input {
+    width: 20vw;
+    height: 5vh;
     border-radius: 15px;
     text-align: center;
-}
+  }
 
-.incomeDiv{
+  .incomeDiv {
     display: flex;
-    justify-content: flex-end;
-    gap: 10%;
     align-items: center;
-}
-.incomeDiv input{
-    height: 50%;
+    justify-content: center;
+    width: 90vw;
+    gap: 10%;
+  }
+  .incomeDiv input {
+    height: 5vh;
+    width: 35vw;
     border-radius: 15px;
     text-align: center;
-}
-.three{
-    margin:5%;
+  }
+  .three {
+    margin: 5%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     gap: 10%;
-}
-.three p{
-    width: 20%;
+  }
+  .three p {
+    width: 80vw;
+    height: 20vh;
     background-color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     border-radius: 25px;
     border: 0.1em solid white;
     text-align: center;
     font-size: 3em;
     padding: 5%;
-}
-.three p span{
+  }
+  .three p span {
     color: aquamarine;
-}
-.addExpenseB{
+  }
+  .addExpenseB {
     width: 100px;
     height: 40px;
-    color:white;
-    background: rgb(226,110,45);
-    background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
-  
-}
-.expenseLine{
+    color: white;
+    background: rgb(226, 110, 45);
+    background: linear-gradient(
+      0deg,
+      rgba(226, 110, 45, 1) 0%,
+      rgba(214, 86, 58, 1) 100%
+    );
+  }
+  .expenseLine {
     margin-top: -2%;
+    display: none;
+  }
+}
+
+/* Styles for screens between 480px and 768px (e.g. iPad) */
+@media (min-width: 480px) and (max-width: 768px) {
+  /* Add your styles here */
+}
+
+/* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        text-transform: capitalize;
+      }
+      .budgetBody {
+        background-color: #1e1e1e;
+        border-radius: 25px;
+        width: 84%;
+        padding: 2%;
+      }
+      .one {
+        display: flex;
+        justify-content: space-between;
+        gap: 5vw;
+        /* height: 40vh; */
+      }
+      
+      .two {
+        margin: 5%;
+        display: flex;
+        flex-direction: row;
+        width: 95%;
+        margin-left: -2%;
+      }
+      .two form {
+        display: flex;
+        flex-direction: row;
+        margin: 2%;
+        margin-left: 12%;
+        padding: 0;
+        gap: 10%;
+        justify-content: flex-start;
+      }
+      .two form input {
+        width: 20%;
+        height: 120%;
+        border-radius: 15px;
+        text-align: center;
+      }
+      
+      .incomeDiv {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10%;
+        align-items: center;
+      }
+      .incomeDiv input {
+        height: 50%;
+        border-radius: 15px;
+        text-align: center;
+      }
+      .three {
+        margin: 5%;
+        display: flex;
+        /* justify-content: center;
+        align-content:center ; */
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 5vh;
+      }
+      .three p {
+        width: 20%;
+        background-color: black;
+        border-radius: 25px;
+        border: 0.1em solid white;
+        text-align: center;
+        font-size: 3em;
+        padding: 5%;
+      }
+      .three p span {
+        color: aquamarine;
+      }
+      
+      .addExpenseB {
+        width: 100px;
+        height: 40px;
+        color: white;
+        background: rgb(226, 110, 45);
+        background: linear-gradient(
+          0deg,
+          rgba(226, 110, 45, 1) 0%,
+          rgba(214, 86, 58, 1) 100%
+        );
+      }
+      .expenseLine {
+        margin-top: -2%;
+      }
+}
+
+/* Styles for screens larger than 992px (e.g. iMac) */
+@media (min-width: 992px) {
+  /* Add your styles here */
 }

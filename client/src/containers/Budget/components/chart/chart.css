@@ -7,3 +7,47 @@
     border: 0.3rem solid #E26E2D;
     box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
 }
+
+/* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .DoughnutChart{
+        margin: auto;
+        padding:2em;
+        width: 70vw;
+        height:30vh;
+        border-radius: 25px;
+        border: 0.3rem solid #E26E2D;
+        box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
+    }
+    
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .DoughnutChart{
+        margin: auto;
+        padding:2em;
+        width: 40vw;
+        height:30vh;
+        border-radius: 25px;
+        border: 0.3rem solid #E26E2D;
+        box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
+    }
+    
+  }
+  
+  /* Styles for screens larger than 992px (e.g. iMac) */
+  @media (min-width: 992px) {
+    /* Add your styles here */
+  }
+  

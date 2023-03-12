@@ -1,9 +1,10 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
+import '../../budget.css'
 
 export default function DataTable({ rowData, columnData }) {
   return (
-    <div style={{ height: 490, width: "60%", backgroundColor: "#1f1f1f" ,borderRadius:25 }}>
+    <div className="table" style={{ height: 490, width: "60%", backgroundColor: "#1f1f1f" ,borderRadius:25 }}>
       <DataGrid
         sx={{
           boxShadow: 2,
@@ -16,6 +17,7 @@ export default function DataTable({ rowData, columnData }) {
             color: "primary.main",
           },
         }}
+        className="expenseTable"
         rows={rowData}
         columns={columnData}
         pageSize={7}

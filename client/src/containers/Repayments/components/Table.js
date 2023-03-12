@@ -1,15 +1,15 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
+import '../repayments.css'
 
 export default function DataTable({
 	rowData,
 	columnData,
 	onCellEditCommit,
-	// onSelectionModelChange,
 }) {
 	return (
 		<div style={{ height: 372, width: "100%" }}>
-			<DataGrid
+			<DataGrid className="repaymentsTable"
 				sx={{
 					boxShadow: 2,
 					border: 5,

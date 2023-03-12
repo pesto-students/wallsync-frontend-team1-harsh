@@ -65,7 +65,7 @@ const Repayments = ({}) => {
 		notifyDelete();
 	};
 	const columns = [
-		{ field: "id", headerName: "ID", width: 70 },
+		{ field: "id", headerName: "ID", width: 70 , hidden:true},
 		{
 			field: "Description",
 			headerName: "Description",
@@ -163,13 +163,13 @@ const Repayments = ({}) => {
 						<input
 							value={description}
 							type="text"
-							placeholder="description"
+							placeholder="Description"
 							onChange={(e) => setDescription(e.target.value)}
 						/>
 						<input
 							value={amount}
 							type="number"
-							placeholder="amount"
+							placeholder="Amount"
 							onChange={(e) => setAmount(e.target.value)}
 						/>
 						<input
