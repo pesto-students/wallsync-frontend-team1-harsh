@@ -7,6 +7,8 @@ import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import React from "react";
 import "./panel.css";
 import { IconButton } from "@mui/material";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+
 import AddMemberPopover from "../popover/AddMember";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 
@@ -16,6 +18,7 @@ const Panel = ({
 	panelLogo,
 	panelData,
 	AddMemberPop,
+	deleteIcon,
 }) => {
 	const [expanded, setExpanded] = React.useState(false);
 
@@ -40,10 +43,9 @@ const Panel = ({
 					</Typography>
 					<Typography sx={{ color: "text.secondary" }}>{panelName}</Typography>
 				</AccordionSummary>
-				<AccordionSummary
-					// expandIcon={<AddMemberPopover />}
-					expandIcon={AddMemberPop}
-				></AccordionSummary>
+				<AccordionSummary expandIcon={AddMemberPop}>
+					{deleteIcon}
+				</AccordionSummary>
 				<AccordionDetails>
 					<Typography>{panelData}</Typography>
 				</AccordionDetails>

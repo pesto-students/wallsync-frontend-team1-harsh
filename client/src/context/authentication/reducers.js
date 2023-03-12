@@ -3,6 +3,9 @@ import {
 	LOGIN_SUCCESS,
 	LOGIN_FAILURE,
 	LOGOUT_START,
+	UPDATE_USER_REQUEST,
+	UPDATE_USER_SUCCESS,
+	UPDATE_USER_FAILURE,
 } from "./types";
 const INITIAL_STATE = {
 	user: JSON.parse(localStorage.getItem("user")) || null,
@@ -41,7 +44,45 @@ const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 				isSignedIn: false,
 			};
+		case UPDATE_USER_REQUEST:
+			return {
+				...state,
+				isFetching: true,
+				isSignedIn: true,
+				error: false,
+			};
 
+		// case UPDATE_USER_SUCCESS:
+		// 	return {
+		// 		...state,
+		// 		isFetching: false,
+		// 		isSignedIn: true,
+		// 		error: false,
+		// 		user: action.payload,
+		// 	};
+		case UPDATE_USER_SUCCESS:
+			const updatedUserData = { ...state.user };
+			updatedUserData.firstName = action.payload.firstName;
+			updatedUserData.lastName = action.payload.lastName;
+			updatedUserData.phone = action.payload.phone;
+			updatedUserData.email = action.payload.email;
+			updatedUserData.zip = action.payload.zip;
+			updatedUserData.profilePicture = action.payload.profilePicture;
+
+			return {
+				...state,
+				isFetching: false,
+				isSignedIn: true,
+				error: false,
+				user: updatedUserData,
+			};
+		case UPDATE_USER_FAILURE:
+			return {
+				...state,
+				isFetching: false,
+				isSignedIn: true,
+				error: action.payload,
+			};
 		default:
 			return { ...state };
 	}

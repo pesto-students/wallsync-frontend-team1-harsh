@@ -195,145 +195,156 @@ const Split = () => {
 												}
 											/>
 										}
+										deleteIcon={
+											<IconButton>
+												<DeleteOutlineIcon />
+											</IconButton>
+										}
 										panelData={
-											<div className="cont">
-												<div className="first">
-													<div className="activityTable">
-														<Table
-															columnData={columns}
-															rowData={
-																i.contributions
-																	? i.contributions.map((item) => ({
-																			...item,
-																			groupName: i.groupName,
-																	  }))
-																	: []
-															}
-														/>
-														<form
-															action=""
-															className="addControForm"
-															onSubmit={(e) => handleSubmit(e, i.groupName)}
-														>
-															<select
-																name="Members"
-																onChange={(e) => setName(e.target.value)}
-															>
-																{i.groupMembers &&
-																	i.groupMembers.map((member) => {
-																		return (
-																			<>
-																				<option
-																					value="none"
-																					selected
-																					disabled
-																					hidden
-																				></option>
-																				<option
-																					className="options"
-																					value={member}
-																				>
-																					{member}
-																				</option>
-																			</>
-																		);
-																	})}
-															</select>
-															<input
-																value={description}
-																type="text"
-																name="Description"
-																placeholder="Description"
-																onChange={(e) => setDescription(e.target.value)}
-															/>
-															<input
-																value={amount}
-																type="number"
-																name="Amount"
-																placeholder="Amount"
-																onChange={(e) => setAmount(e.target.value)}
-															/>
-															<Button
-																className="addShareB"
-																buttonName={"Add Share"}
-															/>
-														</form>
-													</div>
-													<ExpenseChart
-														pieData={{
-															labels:
-																i.finalContributions &&
-																i.finalContributions.map((item) => item.name),
-															datasets: [
-																{
-																	label: "",
-																	data:
-																		i.finalContributions &&
-																		i.finalContributions.map(
-																			(item) => item.share
-																		),
-																	backgroundColor: [
-																		"rgb(255, 99, 132)",
-																		"rgb(54, 162, 235)",
-																		"rgb(255, 205, 86)",
-																		"#d57ad4",
-																		"#ffffff",
-																	],
-																	hoverOffset: 4,
-																	cutout: 70,
-
-																	borderRadius: 5,
-																},
-															],
-														}}
-													/>
-													<ul>
-														{!simplified
-															? i.memberBalances &&
-															  i.memberBalances.map((item) => {
-																	return (
-																		<p>
-																			{item.name}{" "}
-																			{item.toSettle
-																				? `settle: ${item.toSettle} `
-																				: `owed: ${item.owed}`}
-																		</p>
-																	);
-															  })
-															: simplifiedData &&
-															  simplifiedData.map((data) => {
-																	return <p>{data}</p>;
-															  })}
-														<p>
-															<Popover
-																className="popverSection"
-																popdata={
-																	<form className="popupForm">
-																		{i.finalContributions.map((item) => {
-																			return (
-																				<input
-																					type="number"
-																					placeholder={item.name}
-																				/>
-																			);
-																		})}
-																		<Button
-																			className="addPercentB"
-																			buttonName="addPercent"
-																		/>
-																	</form>
+											<>
+												<div className="cont">
+													<div className="first">
+														<div className="activityTable">
+															<Table
+																columnData={columns}
+																rowData={
+																	i.contributions
+																		? i.contributions.map((item) => ({
+																				...item,
+																				groupName: i.groupName,
+																		  }))
+																		: []
 																}
 															/>
-															<Button
-																type="button"
-																onClick={(e) => handleSimplify(e, i.groupName)}
-																className="simplifyB"
-																buttonName="Simplify"
-															/>
-														</p>
-													</ul>
+															<form
+																action=""
+																className="addControForm"
+																onSubmit={(e) => handleSubmit(e, i.groupName)}
+															>
+																<select
+																	name="Members"
+																	onChange={(e) => setName(e.target.value)}
+																>
+																	{i.groupMembers &&
+																		i.groupMembers.map((member) => {
+																			return (
+																				<>
+																					<option
+																						value="none"
+																						selected
+																						disabled
+																						hidden
+																					></option>
+																					<option
+																						className="options"
+																						value={member}
+																					>
+																						{member}
+																					</option>
+																				</>
+																			);
+																		})}
+																</select>
+																<input
+																	value={description}
+																	type="text"
+																	name="Description"
+																	placeholder="Description"
+																	onChange={(e) =>
+																		setDescription(e.target.value)
+																	}
+																/>
+																<input
+																	value={amount}
+																	type="number"
+																	name="Amount"
+																	placeholder="Amount"
+																	onChange={(e) => setAmount(e.target.value)}
+																/>
+																<Button
+																	className="addShareB"
+																	buttonName={"Add Share"}
+																/>
+															</form>
+														</div>
+														<ExpenseChart
+															pieData={{
+																labels:
+																	i.finalContributions &&
+																	i.finalContributions.map((item) => item.name),
+																datasets: [
+																	{
+																		label: "",
+																		data:
+																			i.finalContributions &&
+																			i.finalContributions.map(
+																				(item) => item.share
+																			),
+																		backgroundColor: [
+																			"rgb(255, 99, 132)",
+																			"rgb(54, 162, 235)",
+																			"rgb(255, 205, 86)",
+																			"#d57ad4",
+																			"#ffffff",
+																		],
+																		hoverOffset: 4,
+																		cutout: 70,
+
+																		borderRadius: 5,
+																	},
+																],
+															}}
+														/>
+														<ul>
+															{!simplified
+																? i.memberBalances &&
+																  i.memberBalances.map((item) => {
+																		return (
+																			<p>
+																				{item.name}{" "}
+																				{item.toSettle
+																					? `settle: ${item.toSettle} `
+																					: `owed: ${item.owed}`}
+																			</p>
+																		);
+																  })
+																: simplifiedData &&
+																  simplifiedData.map((data) => {
+																		return <p>{data}</p>;
+																  })}
+															<p>
+																<Popover
+																	className="popverSection"
+																	popdata={
+																		<form className="popupForm">
+																			{i.finalContributions.map((item) => {
+																				return (
+																					<input
+																						type="number"
+																						placeholder={item.name}
+																					/>
+																				);
+																			})}
+																			<Button
+																				className="addPercentB"
+																				buttonName="addPercent"
+																			/>
+																		</form>
+																	}
+																/>
+																<Button
+																	type="button"
+																	onClick={(e) =>
+																		handleSimplify(e, i.groupName)
+																	}
+																	className="simplifyB"
+																	buttonName="Simplify"
+																/>
+															</p>
+														</ul>
+													</div>
 												</div>
-											</div>
+											</>
 										}
 									/>
 								)

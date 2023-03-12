@@ -9,16 +9,24 @@ import cloudinaryConfig from "../../components/cloudinaryConfig";
 import { scale } from "@cloudinary/url-gen/actions/resize";
 import { Icon, IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../components/footer/Footer";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import profile from "../../assets/profile.png";
+import { updateUser } from "../../context/authentication/api";
 
 const Profile = () => {
+	const [editedFirstName, setEditedFirstName] = useState("");
+	const [editedLastName, setEditedLastName] = useState("");
+	const [editedPhone, setEditedPhone] = useState("");
+	const [editedZip, setEditedZip] = useState("");
+	const [editedEmail, setEditedEmail] = useState("");
+	const [editedProfilePicture, setEditedProfilePicture] = useState("");
 	const profileData = useSelector((state) => state.authentication.user.user);
 	const profilePic = useSelector(
 		(state) => state.authentication.user.user.profilePicture
 	);
+	const dispatch = useDispatch();
 
 	const cld = new Cloudinary({
 		cloud: {
@@ -26,7 +34,72 @@ const Profile = () => {
 			secure: true,
 		},
 	});
+	const handleEditUser = (e) => {
+		e.preventDefault();
+		dispatch(
+			updateUser({
+				firstName: editedFirstName,
+				lastName: editedLastName,
+				phone: editedPhone,
+				email: editedEmail,
+				zip: editedZip,
+				profilePicture: editedProfilePicture,
+			})
+		);
+		setEditedFirstName("");
+		setEditedLastName("");
+		setEditedEmail("");
+		setEditedPhone("");
+		setEditedZip("");
+	};
+
 	console.log(profileData);
+
+	const handleImageUpload = async (e) => {
+		e.preventDefault();
+
+		if (!editedProfilePicture) {
+			return;
+		}
+
+		const formData = new FormData();
+		formData.append("file", editedProfilePicture);
+		formData.append("upload_preset", "wallsync_dp");
+		formData.append("cloud_name", cloudinaryConfig.cloud_name);
+
+		try {
+			const response = await fetch(
+				`https://api.cloudinary.com/v1_1/${cloudinaryConfig.cloud_name}/image/upload`,
+				{
+					method: "POST",
+					body: formData,
+				}
+			);
+
+			const data = await response.json();
+
+			// Update the Cloudinary resource
+			console.log("new pbid", data.public_id);
+			dispatch(
+				updateUser({
+					firstName: editedFirstName,
+					lastName: editedLastName,
+					phone: editedPhone,
+					email: editedEmail,
+					zip: editedZip,
+					profilePicture: {
+						public_id: data.public_id,
+						secure_url: data.secure_url,
+					},
+				})
+			);
+
+			// Clear the edited profile picture state
+			setEditedProfilePicture(null);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	return (
 		<div>
 			<Header className="headerAvatar" />
@@ -46,46 +119,48 @@ const Profile = () => {
 						)}
 						<input
 							type="file"
-							id="fileInput"
-							accept=".jpg, .jpeg, .png"
-							style={{ display: "none" }}
-							// onChange={handleFileChange}
+							onChange={(e) => setEditedProfilePicture(e.target.files[0])}
 						/>
+						<Button onClick={handleImageUpload} buttonName="upload picture" />
 					</label>
-
-					<form action="" className="profileForm">
+					<form onSubmit={handleEditUser} className="profileForm">
 						<input
 							type="text"
 							name="name"
-							id="name"
+							id="firstname"
 							placeholder={profileData && profileData.firstName}
+							onChange={(e) => setEditedFirstName(e.target.value)}
 						/>
 						<input
 							type="text"
-							name="name"
+							name="lastname"
 							id="name"
 							placeholder={profileData && profileData.lastName}
+							onChange={(e) => setEditedLastName(e.target.value)}
 						/>
 						<input
 							type="Number"
-							name=""
+							name="phone"
 							id=""
 							placeholder={profileData && profileData.phone}
+							onChange={(e) => setEditedPhone(e.target.value)}
 						/>
 						<input
 							type="Number"
-							name=""
+							name="zip"
 							id=""
 							placeholder={profileData && profileData.zip}
+							onChange={(e) => setEditedZip(e.target.value)}
 						/>
 						<input
 							type="email"
-							name=""
+							name="email"
 							id=""
 							placeholder={profileData && profileData.email}
+							onChange={(e) => setEditedEmail(e.target.value)}
 						/>
-						<input type="text" name="" id="" placeholder="India" />
-						<Button className="updateB" buttonName="Update" />
+
+						<Button type="submit" className="updateB" buttonName="Update" />
 					</form>
 					<img
 						className="profileEditImg"
