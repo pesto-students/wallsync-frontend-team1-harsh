@@ -17,6 +17,9 @@ import {
 	simplifyRequest,
 	simplifySuccess,
 	simplifyFailure,
+	deleteGroupRequest,
+	deleteGroupSuccess,
+	deleteGroupFailure,
 } from "./actions";
 import axios from "axios";
 import config from "../../config/config";
@@ -140,5 +143,27 @@ export const simplify = (groupName) => {
 			});
 	};
 };
-
+export const deleteGroup = (groupName) => {
+	return (dispatch) => {
+		dispatch(deleteGroupRequest());
+		axios
+			.delete(
+				`${config.apiUrl}/group/${config.getUserId()}/${groupName}/delete`,
+				groupName,
+				{
+					headers: {
+						Authorization: JSON.parse(localStorage.getItem("user"))
+							.access_token,
+					},
+				}
+			)
+			.then((data) => {
+				console.log("deleted group data", data);
+				dispatch(deleteGroupSuccess(data.data.deletedGroup.groupName));
+			})
+			.catch((err) => {
+				dispatch(deleteGroupFailure());
+			});
+	};
+};
 export const addPercentageArray = () => {};

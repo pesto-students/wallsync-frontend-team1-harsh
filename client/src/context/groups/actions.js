@@ -20,6 +20,9 @@ import {
 	SIMPLIFY_REQUEST,
 	SIMPLIFY_SUCCESS,
 	SIMPLIFY_FAILURE,
+	DELETE_GROUP_REQUEST,
+	DELETE_GROUP_SUCCESS,
+	DELETE_GROUP_FAILURE,
 } from "./types";
 
 export const fetchGroupRequest = () => {
@@ -138,6 +141,23 @@ export const simplifySuccess = (group) => {
 export const simplifyFailure = (error) => {
 	return {
 		type: SIMPLIFY_FAILURE,
+		payload: error,
+	};
+};
+export const deleteGroupRequest = () => {
+	return {
+		type: DELETE_GROUP_REQUEST,
+	};
+};
+export const deleteGroupSuccess = (groupName) => {
+	return {
+		type: DELETE_GROUP_SUCCESS,
+		payload: groupName,
+	};
+};
+export const deleteGroupFailure = (error) => {
+	return {
+		type: DELETE_GROUP_FAILURE,
 		payload: error,
 	};
 };

@@ -23,6 +23,7 @@ import {
 	addGroup,
 	addUser,
 	simplify,
+	deleteGroup,
 } from "../../context/groups/api";
 import SkeletonComp from "./components/skeleton/Skeleton";
 import { useDispatch, useSelector } from "react-redux";
@@ -86,7 +87,10 @@ const Split = () => {
 		dispatch(simplify(groupName));
 		setSimplified(true);
 	};
-
+	const handleGroupDelete = (e, groupName) => {
+		e.preventDefault();
+		dispatch(deleteGroup(groupName));
+	};
 	useEffect(() => {
 		dispatch(getGroups());
 	}, [newGroupDescription /*addUser, handleDeleteShare*/]);
@@ -197,7 +201,9 @@ const Split = () => {
 										}
 										deleteIcon={
 											<IconButton>
-												<DeleteOutlineIcon />
+												<DeleteOutlineIcon
+													onClick={(e) => handleGroupDelete(e, i.groupName)}
+												/>
 											</IconButton>
 										}
 										panelData={

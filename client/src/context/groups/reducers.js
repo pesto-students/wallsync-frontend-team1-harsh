@@ -17,6 +17,9 @@ import {
 	SIMPLIFY_REQUEST,
 	SIMPLIFY_SUCCESS,
 	SIMPLIFY_FAILURE,
+	DELETE_GROUP_REQUEST,
+	DELETE_GROUP_SUCCESS,
+	DELETE_GROUP_FAILURE,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -176,6 +179,28 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 			};
 		case SIMPLIFY_FAILURE:
+			return {
+				loading: false,
+				group: [...state.group],
+				error: action.payload,
+			};
+		case DELETE_GROUP_REQUEST:
+			return {
+				loading: true,
+				group: [...state.group],
+				error: false,
+			};
+		case DELETE_GROUP_SUCCESS:
+			const updatedAfterDelete = state.group.filter(
+				(group) => group.groupName !== action.payload
+			);
+			return {
+				...state,
+				loading: false,
+				group: updatedAfterDelete,
+				error: false,
+			};
+		case DELETE_GROUP_FAILURE:
 			return {
 				loading: false,
 				group: [...state.group],
