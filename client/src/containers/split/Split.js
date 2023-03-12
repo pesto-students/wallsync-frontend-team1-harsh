@@ -290,6 +290,9 @@ const Split = () => {
 															</form>
 														</div>
 														<ExpenseChart
+															// generateButton={
+															// 	<Button buttonName="show stats" className="statB"/>
+															// }
 															pieData={{
 																labels:
 																	i.finalContributions &&

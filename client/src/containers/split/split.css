@@ -93,6 +93,13 @@ justify-content: flex-start;
   background: rgb(226,110,45);
   background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
 }
+.statB{
+  width: 100px;
+  height: 40px;
+  color:white;
+  background: rgb(226,110,45);
+  background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
+}
 .simplifyB{
   width: 100px;
   /* margin-left: -30%; */
