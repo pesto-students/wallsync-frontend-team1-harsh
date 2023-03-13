@@ -31,6 +31,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Split = () => {
 	const dispatch = useDispatch();
+	const [type, setType] = useState("equal");
+
 	const [percentageArray, setPercentageArray] = useState([]);
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
@@ -43,8 +45,9 @@ const Split = () => {
 	const groupData = useSelector((state) => state.group.group);
 	const simplifiedData = useSelector((state) => state.group.simplified);
 
-	// let percentageArray = [];
-
+	const handleType = (type) => {
+		setType(type);
+	};
 	const handleSubmit = (e, groupName) => {
 		e.preventDefault();
 
@@ -85,9 +88,10 @@ const Split = () => {
 		notifyAddMember();
 		setNewMember("");
 	};
-	const handleSimplify = (e, groupName,type) => {
+	const handleSimplify = (e, groupName, type) => {
 		e.preventDefault();
-		dispatch(simplify(groupName,type));
+		console.log("tis the type", type);
+		dispatch(simplify(groupName, type));
 		setSimplified(true);
 	};
 	const handleGroupDelete = (e, groupName) => {
@@ -341,6 +345,7 @@ const Split = () => {
 															<p>
 																<Popover
 																	className="popverSection"
+																	handleType={handleType}
 																	popdata={
 																		<form className="popupForm">
 																			{i.groupMembers &&
@@ -389,7 +394,7 @@ const Split = () => {
 																<Button
 																	type="button"
 																	onClick={(e) =>
-																		handleSimplify(e, i.groupName)
+																		handleSimplify(e, i.groupName, type)
 																	}
 																	className="simplifyB"
 																	buttonName="Simplify"

@@ -4,16 +4,17 @@ import Typography from "@mui/material/Typography";
 
 import "./popover.css";
 
-export default function BasicPopover({ popdata }) {
+export default function BasicPopover({ popdata, handleType }) {
 	const [anchorEl, setAnchorEl] = React.useState(null);
-	const [type, setType] = React.useState(null);
+
 	const handleClick = (event) => {
 		if (event.target.value === "unequal") {
 			setAnchorEl(event.currentTarget);
 		} else {
 			setAnchorEl(null);
 		}
-		setType(event.target.value);
+		handleType(event.target.value);
+		// setType(event.target.value);
 	};
 
 	const handleClose = () => {
@@ -50,7 +51,6 @@ export default function BasicPopover({ popdata }) {
 					{popdata}
 				</Typography>
 			</Popover>
-			{type}
 		</div>
 	);
 }

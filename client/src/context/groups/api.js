@@ -144,12 +144,14 @@ export const addUser = (groupName, user) => {
 			});
 	};
 };
-export const simplify = (groupName) => {
+export const simplify = (groupName, type) => {
 	return (dispatch) => {
 		dispatch(simplifyRequest());
 		axios
 			.get(
-				`${config.apiUrl}/group/${config.getUserId()}/${groupName}/settle/unequal`
+				`${
+					config.apiUrl
+				}/group/${config.getUserId()}/${groupName}/settle/${type}`
 			)
 			.then((data) => {
 				dispatch(simplifySuccess(data.data.simplified));
