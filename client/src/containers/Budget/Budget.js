@@ -125,7 +125,7 @@ const Budget = () => {
 			<div className="container">
 				<Nav />
 				<div className="budgetBody">
-				<NewUser className='newUser'/>
+					<NewUser className="newUser" />
 					<div className="one">
 						<Table rowData={rows} columnData={columns} />
 						<ExpenseChart pieData={data} />
@@ -151,11 +151,14 @@ const Budget = () => {
 							/>
 						</form>
 						<div className="incomeDiv">
-							<input type="text" placeholder={budgetData && budgetData.limit} />
+							<span>INCOME:{budgetData && budgetData.income}</span>
+							<span>LIMIT:{budgetData && budgetData.limit}</span>
+
+							{/* <input type="text" placeholder={budgetData && budgetData.limit} />
 							<input
 								type="text"
 								placeholder={budgetData && budgetData.income}
-							/>
+							/> */}
 						</div>
 					</div>
 					<hr className="expenseLine" />
