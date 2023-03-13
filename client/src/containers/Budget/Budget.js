@@ -14,7 +14,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Button from "../../components/button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addExpense, deleteExpense, getBudget } from "../../context/budget/api";
-import NewUser from "./components/newUser/dialog/NewUser";
+import NewUser from "./components/newuser/NewUser";
 const Budget = () => {
 	const [description, setDescription] = useState("");
 	const [refresh, setRefresh] = useState(0);
@@ -125,7 +125,7 @@ const Budget = () => {
 			<div className="container">
 				<Nav />
 				<div className="budgetBody">
-					<NewUser className="newUser" />
+					{!budgetData && <NewUser/>}
 					<div className="one">
 						<Table rowData={rows} columnData={columns} />
 						<ExpenseChart pieData={data} />
