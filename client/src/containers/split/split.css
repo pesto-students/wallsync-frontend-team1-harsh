@@ -103,7 +103,7 @@ justify-content: flex-start;
 }
 .simplifyB{
   width: 100px;
-  margin-top:15%;
+  /* margin-left: -30%; */
   height: 40px;
   color:white;
   background: rgb(226,110,45);
@@ -286,12 +286,164 @@ text-align: center;
 
 /* Styles for screens between 480px and 768px (e.g. iPad) */
 @media (min-width: 480px) and (max-width: 768px) {
-  /* Add your styles here */
+  .headingText{
+    background-color: black;
+    margin-left:-7vw;
+    text-align: center;
+    /* margin-top: 1vh; */
+      width: 40vw;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 20px;  
+      text-transform: capitalize;
+      font-size: 2em;
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+  }
+  .cont .first{
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .activityTable .addControForm{
+    width: 80vw;
+    flex-flow: wrap;
+    margin-left: -4vw;
+    margin-bottom: 5vh;
+  }
+  .addControForm input{
+    width: 20vw;
+    height: 5vh;
+    padding-left: 2vw;
+  }
+	
+  .addControForm .addShareB{
+    width: 50vw;
+    margin-left:5vw;
+    margin-top:3vh
+  }
+  .first ul{
+    width: 50vw;
+    margin-bottom: 5vh;
+    background-color: #1f1f1f;
+    border-radius: 25px;
+    border: 0.3rem solid #E26E2D;
+    box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
+    padding:3%;
+    font-size: 2em;
+    color:white;
+    text-align: center;
+    overflow-y: scroll hidden;
+    /* font-family: 'Gloock', serif; */
+    /* font-family: 'Gloock', serif; */
+  } 
+  .addGroup{
+    width: 80vw;
+    height: 15vh;
+    background-color: #1e1e1e;
+    display: flex;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .addGroup form{
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+  }
+  .addGroup form input{
+    border-radius: 15px;
+    text-align: center;
+    /* margin-left: 2vw; */
+    width: 30vw;
+    height: 6vh;
+  }
+  .addGroup form button{
+    width: 10vw;
+  }
 }
 
 /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
 @media (min-width: 768px) and (max-width: 992px) {
-  /* Add your styles here */
+  .headingText{
+    background-color: black;
+    margin-left:-7vw;
+    text-align: center;
+    /* margin-top: 1vh; */
+      width: 40vw;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 20px;  
+      text-transform: capitalize;
+      font-size: 2em;
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+  }
+  .cont .first{
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .activityTable .addControForm{
+    width: 80vw;
+    flex-flow: wrap;
+    margin-left: -4vw;
+    margin-bottom: 5vh;
+  }
+  .addControForm input{
+    width: 20vw;
+    height: 5vh;
+    padding-left: 2vw;
+  }
+	
+  .addControForm .addShareB{
+    width: 50vw;
+    margin-left:5vw;
+    margin-top:3vh
+  }
+  .first ul{
+    width: 50vw;
+    margin-bottom: 5vh;
+    background-color: #1f1f1f;
+    border-radius: 25px;
+    border: 0.3rem solid #E26E2D;
+    box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
+    padding:3%;
+    font-size: 2em;
+    color:white;
+    text-align: center;
+    overflow-y: scroll hidden;
+    /* font-family: 'Gloock', serif; */
+    /* font-family: 'Gloock', serif; */
+  } 
+  .addGroup{
+    width: 80vw;
+    height: 15vh;
+    background-color: #1e1e1e;
+    display: flex;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .addGroup form{
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+  }
+  .addGroup form input{
+    border-radius: 15px;
+    text-align: center;
+    /* margin-left: 2vw; */
+    width: 30vw;
+    height: 6vh;
+  }
+  .addGroup form button{
+    width: 10vw;
+  }
 }
 
 /* Styles for screens larger than 992px (e.g. iMac) */

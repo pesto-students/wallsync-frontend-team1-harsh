@@ -6,7 +6,7 @@ const ExpenseChart = ({ pieData, generateButton }) => {
 	return (
 		<div className="DonutChart">
 			{generateButton}
-			<Doughnut data={pieData} />
+			<Doughnut data={pieData} className='doughnut' />
 		</div>
 	);
 };
