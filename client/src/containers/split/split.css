@@ -30,6 +30,7 @@
   }
   .first ul{
     width: 22%;
+    height: 45vh;
     background-color: #1f1f1f;
     border-radius: 25px;
     border: 0.3rem solid #E26E2D;
@@ -38,7 +39,7 @@
     font-size: 2em;
     color:white;
     text-align: center;
-    overflow-y: scroll hidden;
+    overflow-y: scroll;
     /* font-family: 'Gloock', serif; */
     /* font-family: 'Gloock', serif; */
   } 

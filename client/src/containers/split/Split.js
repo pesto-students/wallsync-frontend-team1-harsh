@@ -85,9 +85,9 @@ const Split = () => {
 		notifyAddMember();
 		setNewMember("");
 	};
-	const handleSimplify = (e, groupName) => {
+	const handleSimplify = (e, groupName,type) => {
 		e.preventDefault();
-		dispatch(simplify(groupName));
+		dispatch(simplify(groupName,type));
 		setSimplified(true);
 	};
 	const handleGroupDelete = (e, groupName) => {

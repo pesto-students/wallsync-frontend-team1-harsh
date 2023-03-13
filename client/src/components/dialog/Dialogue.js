@@ -24,12 +24,12 @@ const notifications = [
 function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
 
-  //  const dispatch = useDispatch()
-  // const notifications = useSelector((state)=>state.repayments.repayments)
+   const dispatch = useDispatch()
+  const notifications = useSelector((state)=>state.repayment.repayment)
 
-  // useEffect(()=>{
-  //   dispatch(getRepayments())
-  // },[])
+  useEffect(()=>{
+    dispatch(getRepayments())
+  },[])
 
   const handleClose = () => {
     onClose(selectedValue);
@@ -74,11 +74,12 @@ function SimpleDialog(props) {
               display: "flex",
               // alignItems:'center',
               justifyContent: "space-between",
+              width:500,
               fontSize: 6,
             }}
             disableGutters
           >
-            <ListItemText sx={{}} primary={notif} />
+            <ListItemText sx={{}} primary={[notif.description,notif.amount,notif.dueDate]} />
             <ClearIcon
               sx={{
                 backgroundColor: "black",

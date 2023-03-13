@@ -149,7 +149,7 @@ export const simplify = (groupName) => {
 		dispatch(simplifyRequest());
 		axios
 			.get(
-				`${config.apiUrl}/group/${config.getUserId()}/${groupName}/settle/equal`
+				`${config.apiUrl}/group/${config.getUserId()}/${groupName}/settle/unequal`
 			)
 			.then((data) => {
 				dispatch(simplifySuccess(data.data.simplified));

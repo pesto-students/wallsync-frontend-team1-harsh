@@ -26,8 +26,8 @@ export default function BasicPopover({ popdata }) {
 	return (
 		<div className="popover">
 			<select aria-describedby={id} variant="contained" onChange={handleClick}>
-				<option>equal</option>
-				<option>unequal</option>
+				<option value='equal'>equal</option>
+				<option value='unequal'>unequal</option>
 			</select>
 			<Popover
 				id={id}
@@ -50,7 +50,7 @@ export default function BasicPopover({ popdata }) {
 					{popdata}
 				</Typography>
 			</Popover>
-			{/* {type} */}
+			{type}
 		</div>
 	);
 }
