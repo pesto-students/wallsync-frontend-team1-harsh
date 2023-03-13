@@ -62,7 +62,14 @@ export const addShare = (groupName, share) => {
 				}
 			)
 			.then((data) => {
-				dispatch(addShareSuccess(groupName, data.data.contributions));
+				console.log("finding final", data);
+				dispatch(
+					addShareSuccess(
+						groupName,
+						data.data.contributions,
+						data.data.finalContributions
+					)
+				);
 			})
 			.catch((err) => {
 				dispatch(addShareFailure(err));
@@ -85,7 +92,13 @@ export const deleteShare = (groupName, contributionId) => {
 				}
 			)
 			.then((data) => {
-				dispatch(deleteShareSuccess(groupName, data.data.message));
+				dispatch(
+					deleteShareSuccess(
+						groupName,
+						data.data.message,
+						data.data.finalContributions
+					)
+				);
 			})
 			.catch((err) => {
 				dispatch(deleteShareFailure(err));

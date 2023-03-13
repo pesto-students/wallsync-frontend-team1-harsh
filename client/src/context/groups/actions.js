@@ -50,10 +50,10 @@ export const addShareRequest = () => {
 		type: ADD_SHARE_REQUEST,
 	};
 };
-export const addShareSuccess = (groupName, share) => {
+export const addShareSuccess = (groupName, share, finalContributions) => {
 	return {
 		type: ADD_SHARE_SUCCESS,
-		payload: { groupName, share },
+		payload: { groupName, share, finalContributions },
 	};
 };
 export const addShareFailure = (error) => {
@@ -84,10 +84,14 @@ export const deleteShareRequest = () => {
 		type: DELETE_SHARE_REQUEST,
 	};
 };
-export const deleteShareSuccess = (groupName, contributionId) => {
+export const deleteShareSuccess = (
+	groupName,
+	contributionId,
+	finalContributions
+) => {
 	return {
 		type: DELETE_SHARE_SUCCESS,
-		payload: { groupName, contributionId },
+		payload: { groupName, contributionId, finalContributions },
 	};
 };
 export const deleteShareFailure = (error) => {

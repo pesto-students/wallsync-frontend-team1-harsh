@@ -104,7 +104,6 @@ const Budget = () => {
 		labels: ["Income", "Savings", "Total Spendings"],
 		datasets: [
 			{
-				// label: "My First Dataset",
 				data: [
 					budgetData && budgetData.income,
 					budgetData && budgetData.savings,
@@ -162,7 +161,7 @@ const Budget = () => {
 						<p>
 							Spendings: <span>₹{budgetData && budgetData.total}</span>
 						</p>
-						
+
 						<LineChart rowData={lineChartData} />
 					</div>
 				</div>

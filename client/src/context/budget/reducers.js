@@ -54,7 +54,11 @@ const budgetReducer = (state = INITIAL_STATE, action) => {
 				loading: false,
 				budget: {
 					...state.budget,
-					expensesArray: [...state.budget.expensesArray, action.payload],
+					savings: [...state.budget.expensesArray, action.payload.savings],
+					expensesArray: [
+						...state.budget.expensesArray,
+						action.payload.expense,
+					],
 				},
 				error: false,
 			};
@@ -76,8 +80,9 @@ const budgetReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 				budget: {
 					...state.budget,
+					savings: action.payload.savings,
 					expensesArray: state.budget.expensesArray.filter(
-						(item) => item._id !== action.payload
+						(item) => item._id !== action.payload.expenseId
 					),
 				},
 			};

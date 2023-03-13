@@ -66,6 +66,7 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 				if (group.groupName === action.payload.groupName) {
 					return {
 						...group,
+						finalContributions: action.payload.finalContributions,
 						contributions: action.payload.share,
 					};
 				} else {
@@ -97,6 +98,7 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 				if (group.groupName === action.payload.groupName) {
 					return {
 						...group,
+						finalContributions: action.payload.finalContributions,
 						contributions: group.contributions.filter(
 							(item) => item.id !== action.payload.contributionId
 						),

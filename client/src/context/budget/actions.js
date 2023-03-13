@@ -38,10 +38,10 @@ export const addExpenseRequest = () => {
 		type: ADD_EXPENSE_REQUEST,
 	};
 };
-export const addExpenseSuccess = (expense) => {
+export const addExpenseSuccess = (expense, savings) => {
 	return {
 		type: ADD_EXPENSE_SUCCESS,
-		payload: expense,
+		payload: { expense, savings },
 	};
 };
 export const addExpenseFailure = (error) => {
@@ -55,10 +55,10 @@ export const deleteExpenseRequest = () => {
 		type: DELETE_EXPENSE_REQUEST,
 	};
 };
-export const deleteExpenseSuccess = (expenseId) => {
+export const deleteExpenseSuccess = (expenseId, savings) => {
 	return {
 		type: DELETE_EXPENSE_SUCCESS,
-		payload: expenseId,
+		payload: { expenseId, savings },
 	};
 };
 export const deleteExpenseFailure = (error) => {
