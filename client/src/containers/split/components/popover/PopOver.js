@@ -1,7 +1,7 @@
 import * as React from "react";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+
 import "./popover.css";
 
 export default function BasicPopover({ popdata }) {
@@ -26,8 +26,8 @@ export default function BasicPopover({ popdata }) {
 	return (
 		<div className="popover">
 			<select aria-describedby={id} variant="contained" onChange={handleClick}>
-				<option value='equal'>equal</option>
-				<option value='unequal'>unequal</option>
+				<option value="equal">equal</option>
+				<option value="unequal">unequal</option>
 			</select>
 			<Popover
 				id={id}
