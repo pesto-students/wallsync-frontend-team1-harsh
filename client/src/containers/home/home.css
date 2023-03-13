@@ -30,6 +30,7 @@
   background-color: #1e1e1e;
   display: flex;
   gap: 10vw;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   /* padding :5%; */

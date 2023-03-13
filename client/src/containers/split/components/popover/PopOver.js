@@ -6,12 +6,14 @@ import "./popover.css";
 
 export default function BasicPopover({ popdata }) {
 	const [anchorEl, setAnchorEl] = React.useState(null);
+	const [type, setType] = React.useState(null);
 	const handleClick = (event) => {
 		if (event.target.value === "unequal") {
 			setAnchorEl(event.currentTarget);
 		} else {
 			setAnchorEl(null);
 		}
+		setType(event.target.value);
 	};
 
 	const handleClose = () => {
@@ -48,6 +50,7 @@ export default function BasicPopover({ popdata }) {
 					{popdata}
 				</Typography>
 			</Popover>
+			{/* {type} */}
 		</div>
 	);
 }

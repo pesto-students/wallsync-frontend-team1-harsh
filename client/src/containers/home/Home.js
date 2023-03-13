@@ -8,6 +8,7 @@ import pic1 from "../../assets/group.png";
 import pic2 from "../../assets/expenseManager.png";
 import pic3 from "../../assets/repayments.png";
 import pic4 from "../../assets/stockCheck.png";
+import budgetPic from "../../assets/savingmoney.png";
 import Nav from "../../components/nav/Nav";
 import Avatar from "../../components/avatar/Avatar";
 import { getGroups } from "../../context/groups/api";
@@ -55,7 +56,11 @@ const Home = () => {
 				<div className="mainPanel">
 					<Panel
 						panelLogo={pic1}
-						panelName={<Link to="/split"><p className="homeHeadingText">Split Bills</p></Link>}
+						panelName={
+							<Link to="/split">
+								<p className="homeHeadingText">Split Bills</p>
+							</Link>
+						}
 						panelData={
 							<div className="homePanelData">
 								<p>
@@ -75,7 +80,11 @@ const Home = () => {
 					/>
 					<Panel
 						panelLogo={pic2}
-						panelName={<Link to="/budget"><p className="homeHeadingText">Expenses</p></Link>}
+						panelName={
+							<Link to="/budget">
+								<p className="homeHeadingText">Expenses</p>
+							</Link>
+						}
 						linkTo="/budget"
 						panelData={
 							<div className="homePanelData">
@@ -96,7 +105,11 @@ const Home = () => {
 					/>
 					<Panel
 						panelLogo={pic3}
-						panelName={<Link to="/repayments"><p className="homeHeadingText">Repayments</p></Link>}
+						panelName={
+							<Link to="/repayments">
+								<p className="homeHeadingText">Repayments</p>
+							</Link>
+						}
 						linkTo="/repayments"
 						panelData={
 							<div className="homePanelData">
@@ -117,7 +130,11 @@ const Home = () => {
 					/>
 					<Panel
 						panelLogo={pic4}
-						panelName={<Link to="/live-market"><p className="homeHeadingText">Live Market</p></Link>}
+						panelName={
+							<Link to="/live-market">
+								<p className="homeHeadingText">Live Market</p>
+							</Link>
+						}
 						linkTo="/live-market"
 						// panelData={}
 					/>
