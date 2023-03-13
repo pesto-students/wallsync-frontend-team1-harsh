@@ -7,7 +7,7 @@ const ExpenseChart = ({ pieData }) => {
 		<div className="DoughnutChart">
 			<Doughnut sx={{
 				padding:15
-			}} data={pieData} />
+			}} data={pieData} className='doughnut' />
 		</div>
 	);
 };

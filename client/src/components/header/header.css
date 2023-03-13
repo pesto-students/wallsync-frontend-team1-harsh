@@ -11,16 +11,14 @@
     padding-top: 3vh;
     align-items: center;
     justify-content: center;
-    margin-left: 5vw;
+    margin-left: 14vw;
 }
-
 .hLogo {
-    position: fixed;
     width: 12vw;
     top: 0.8vh;
     left: -1%; 
-
 }
+
 .header h1{
     color: white;
     /* margin-left: 7vw; */
@@ -59,6 +57,7 @@
     }
     
     .hLogo {
+        position: inherit;
         width: 25vw;    
     }
     .headerLine{
@@ -70,10 +69,9 @@
   /* Styles for screens between 480px and 768px (e.g. iPad) */
   @media (min-width: 480px) and (max-width: 768px) {
     .hLogo {
-        position: fixed;
+        position: absolute;
         width: 25vw;
         left: -3vw;
-    
     }
     .headerLine{
         margin-left:-13vw;
@@ -91,7 +89,7 @@
   /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
   @media (min-width: 768px) and (max-width: 992px) {
     .hLogo {
-        position: fixed;
+        position: absolute;
         width: 25vw;
         left: -3vw;
     }
@@ -111,5 +109,11 @@
   
   /* Styles for screens larger than 992px (e.g. iMac) */
   @media (min-width: 992px) {
-    /* Add your styles here */
+    .hLogo {
+        position: fixed;
+        width: 12vw;
+        top: 0.8vh;
+        left: -1%; 
+    
+    }
   }

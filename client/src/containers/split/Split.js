@@ -190,7 +190,7 @@ const Split = () => {
 							return (
 								i && (
 									<Panel
-										className="Panel"
+										className="splitPanel"
 										panelName={
 											<Heading className="headingText" text={i.groupName} />
 										}
@@ -245,6 +245,7 @@ const Split = () => {
 															>
 																<select
 																	name="Members"
+																	placeholder="Members"
 																	onChange={(e) => setName(e.target.value)}
 																>
 																	{i.groupMembers &&

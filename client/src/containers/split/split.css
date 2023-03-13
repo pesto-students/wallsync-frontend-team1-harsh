@@ -11,12 +11,13 @@
     background-color: #1e1e1e;
     width: 84%;
     height: 80vh;
+    /* height: auto; */
     padding: 2%;
     border-radius: 25px 0 0 25px;
     display: flex;
     flex-direction: column;
     gap: 4vh;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     overflow-y: scroll;
   }
   .cont{
@@ -115,12 +116,22 @@ justify-content: flex-start;
   margin-top: 5%;
 }
 
-/* .popupForm{
-  background-color: #1e1e1e;
-
-} */
+.popupForm{
+  color: #000000;
+  background-color: #c79165;
+  margin: -15.1%;
+  padding: 10%;
+  text-transform: capitalize;
+  justify-content: center;
+  
+}
 .popupForm input{
-  margin-bottom: -25%;
+margin-bottom: 10%;
+margin-left: 10%;
+border: 1px solid black;
+border-radius: 5px;
+padding:1%;
+text-align: center;
 }
 .addPercentB{
   width: 100px;
@@ -128,7 +139,8 @@ justify-content: flex-start;
   color:white;
   background: rgb(226,110,45);
   background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
-
+  margin-left: 20%;
+  margin-top: 5%;
 }
 .headingText{
   background-color: black;
@@ -167,4 +179,122 @@ justify-content: flex-start;
 }
 .addGroup form button{
   width: 10vw;
+}
+
+
+/* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+  /* Add your styles here */
+}
+
+/* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .sDash{
+    background-color: #1e1e1e;
+    width: 95vw;
+    height: 80vh;
+    padding: 5vw;
+    border-radius: 25px 25px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    margin-bottom: 10vh;
+  }
+  .headingText{
+    background-color: black;
+    margin-left:-7vw;
+    text-align: center;
+    /* margin-top: 1vh; */
+      width: 40vw;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 20px;  
+      text-transform: capitalize;
+      font-size: 2em;
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+  }
+  .cont .first{
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .activityTable .addControForm{
+    width: 80vw;
+    flex-flow: wrap;
+    margin-left: -4vw;
+    margin-bottom: 5vh;
+  }
+  .addControForm input{
+    width: 20vw;
+    height: 5vh;
+    padding-left: 2vw;
+  }
+	
+  .addControForm .addShareB{
+    width: 50vw;
+    margin-left:5vw;
+    margin-top:3vh
+  }
+  .first ul{
+    width: 70vw;
+    margin-bottom: 5vh;
+    background-color: #1f1f1f;
+    border-radius: 25px;
+    border: 0.3rem solid #E26E2D;
+    box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
+    padding:3%;
+    font-size: 2em;
+    color:white;
+    text-align: center;
+    overflow-y: scroll hidden;
+    /* font-family: 'Gloock', serif; */
+    /* font-family: 'Gloock', serif; */
+  } 
+  .addGroup{
+    width: 80vw;
+    height: 15vh;
+    background-color: #1e1e1e;
+    display: flex;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .addGroup form{
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+  }
+  .addGroup form input{
+    border-radius: 15px;
+    text-align: center;
+    /* margin-left: 2vw; */
+    width: 30vw;
+    height: 6vh;
+  }
+  .addGroup form button{
+    width: 10vw;
+  }
+  
+
+
+}
+
+/* Styles for screens between 480px and 768px (e.g. iPad) */
+@media (min-width: 480px) and (max-width: 768px) {
+  /* Add your styles here */
+}
+
+/* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+@media (min-width: 768px) and (max-width: 992px) {
+  /* Add your styles here */
+}
+
+/* Styles for screens larger than 992px (e.g. iMac) */
+@media (min-width: 992px) {
+  /* Add your styles here */
 }
