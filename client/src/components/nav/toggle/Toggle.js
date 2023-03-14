@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./toggle.css";
-import "./lightmode.css";
-import ToggleOnIcon from "@mui/icons-material/ToggleOn";
-import toggle from "../../../assets/icons8-toggle-on-50.png";
-import Button from "../../button/Button";
+// import "./lightmode.css";
+import "../../../darkMode.scss";
 import MaterialUISwitch from "./MuiSwitch";
 const Toggle = () => {
-	const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+	const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 	const toggleTheme = () => {
 		if (theme === "light") {
 			setTheme("dark");
@@ -24,12 +22,7 @@ const Toggle = () => {
 		// 	onClick={toggleTheme}
 		// 	src={toggle}
 		// ></img>
-		<MaterialUISwitch
-			// checked={theme}
-			onChange={toggleTheme}
-			sx={{ m: 1 }}
-			defaultChecked
-		/>
+		<MaterialUISwitch onChange={toggleTheme} sx={{ m: 1 }} defaultChecked />
 	);
 };
 

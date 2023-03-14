@@ -1,5 +1,6 @@
 import Landing from "./containers/landing/Landing";
 import "./app.css";
+import "./darkMode.scss";
 import Login from "./containers/login/Login";
 import Signup from "./containers/signUp/SignUp";
 import Home from "./containers/home/Home";

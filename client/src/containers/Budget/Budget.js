@@ -125,7 +125,7 @@ const Budget = () => {
 			<div className="container">
 				<Nav />
 				<div className="budgetBody">
-					{!budgetData && <NewUser/>}
+					{!budgetData && <NewUser />}
 					<div className="one">
 						<Table rowData={rows} columnData={columns} />
 						<ExpenseChart pieData={data} />

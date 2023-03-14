@@ -35,10 +35,10 @@ export const addExpenseRequest = () => {
 		type: ADD_EXPENSE_REQUEST,
 	};
 };
-export const addExpenseSuccess = (expense, savings) => {
+export const addExpenseSuccess = (expense, savings, total) => {
 	return {
 		type: ADD_EXPENSE_SUCCESS,
-		payload: { expense, savings },
+		payload: { expense, savings, total },
 	};
 };
 export const addExpenseFailure = (error) => {

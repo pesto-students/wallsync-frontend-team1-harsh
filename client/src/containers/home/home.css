@@ -39,7 +39,7 @@
   text-transform: capitalize;
 }
 .homePanelData p {
-  font-family: 'Nova Slim', cursive;
+  /* font-family: 'Nova Slim', cursive; */
 }
 
 .panelDataInner {

@@ -56,6 +56,7 @@ const budgetReducer = (state = INITIAL_STATE, action) => {
 						...state.budget.expensesArray,
 						action.payload.expense,
 					],
+					total: action.payload.total,
 				},
 				error: false,
 			};

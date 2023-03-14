@@ -182,7 +182,11 @@ const Split = () => {
 										onChange={(e) => setNewGroupDescription(e.target.value)}
 									/>
 									{/* <input type="text" placeholder="Some shit" /> */}
-									<button type="submit">Create</button>
+									<Button
+										type="submit"
+										className="createB"
+										buttonName="Create"
+									/>
 								</form>
 							</div>
 						}

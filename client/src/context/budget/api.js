@@ -43,7 +43,11 @@ export const addExpense = (expense) => {
 			)
 			.then((data) => {
 				dispatch(
-					addExpenseSuccess(data.data.newTransaction, data.data.savings)
+					addExpenseSuccess(
+						data.data.newTransaction,
+						data.data.savings,
+						data.data.total
+					)
 				);
 			})
 			.catch((err) => {
