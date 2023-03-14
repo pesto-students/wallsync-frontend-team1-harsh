@@ -11,14 +11,26 @@ import LineChart from "./components/chart/LineChart";
 import Footer from "../../components/footer/Footer";
 import { IconButton } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import SaveIcon from "@mui/icons-material/Save";
 import Button from "../../components/button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { addExpense, deleteExpense, getBudget } from "../../context/budget/api";
+import {
+	addExpense,
+	deleteExpense,
+	editExpense,
+	getBudget,
+} from "../../context/budget/api";
 import NewUser from "./components/newuser/NewUser";
 const Budget = () => {
 	const [description, setDescription] = useState("");
 	const [refresh, setRefresh] = useState(0);
 	const [amount, setAmount] = useState("");
+	const [editedRowData, setEditedRowData] = useState({
+		id: "",
+		Description: "",
+		Amount: "",
+		Date: "",
+	});
 	const dispatch = useDispatch();
 	const budgetData = useSelector((state) => state.budget.budget);
 	const expenseData = useSelector(
@@ -40,6 +52,14 @@ const Budget = () => {
 		dispatch(deleteExpense(expenseId));
 		notifyDelete();
 	};
+	const handleCellEditCommit = (params) => {
+		const { field, value } = params;
+		const updatedRowData = { ...params.row, [field]: value };
+		dispatch(editExpense(params.row.id, updatedRowData));
+	};
+	const handleEdit = (rowData) => {
+		setEditedRowData(rowData);
+	};
 	const notifySubmit = () => {
 		toast("Expense added");
 	};
@@ -49,14 +69,40 @@ const Budget = () => {
 	//table data
 	const columns = [
 		{ field: "id", headerName: "ID", width: 70 },
-		{ field: "Description", headerName: "Description", width: 100 },
-		{ field: "Amount", headerName: "Amount", width: 100, sortable: true },
 		{
-			field: "Date",
+			field: "description",
+			headerName: "Description",
+			width: 100,
+			editable: true,
+		},
+		{
+			field: "amount",
+			headerName: "Amount",
+			width: 100,
+			sortable: true,
+			editable: true,
+		},
+		{
+			field: "date",
 			headerName: "Date",
 			type: "number",
 			width: 100,
 			sortable: true,
+			editable: true,
+		},
+		{
+			field: "edit",
+			headerName: "Edit",
+			width: 150,
+			renderCell: (params) => {
+				return (
+					<>
+						<IconButton>
+							<SaveIcon onClick={() => handleEdit(params.row)} />
+						</IconButton>
+					</>
+				);
+			},
 		},
 		{
 			field: "delete",
@@ -79,9 +125,9 @@ const Budget = () => {
 			expenseData.map((item, i) => {
 				rows.push({
 					id: item._id,
-					Description: item.description,
-					Amount: item.amount,
-					Date: item.date /*.substr(0, 10)*/,
+					description: item.description,
+					amount: item.amount,
+					date: item.date /*.substr(0, 10)*/,
 				});
 			});
 	}
@@ -127,7 +173,11 @@ const Budget = () => {
 				<div className="budgetBody">
 					{!budgetData && <NewUser />}
 					<div className="one">
-						<Table rowData={rows} columnData={columns} />
+						<Table
+							rowData={rows}
+							columnData={columns}
+							onCellEditCommit={handleCellEditCommit}
+						/>
 						<ExpenseChart pieData={data} />
 					</div>
 					<div className="two">

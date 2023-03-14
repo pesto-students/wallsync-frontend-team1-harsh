@@ -71,7 +71,7 @@ const repaymentReducer = (state = INITIAL_STATE, action) => {
 				loading: false,
 				repayment: state.repayment.map((item) =>
 					item._id === action.payload.repaymentId
-						? { ...item, ...action.payload }
+						? { ...item, ...action.payload.repayment }
 						: item
 				),
 

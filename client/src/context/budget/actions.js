@@ -11,6 +11,9 @@ import {
 	ADD_BUDGET_REQUEST,
 	ADD_BUDGET_SUCCESS,
 	ADD_BUDGET_FAILURE,
+	EDIT_EXPENSE_REQUEST,
+	EDIT_EXPENSE_SUCCESS,
+	EDIT_EXPENSE_FAILURE,
 } from "./types";
 
 export const fetchBudgetRequest = () => {
@@ -78,6 +81,23 @@ export const addBudgetSuccess = (budget) => {
 export const addBudgetFailure = (error) => {
 	return {
 		type: ADD_BUDGET_FAILURE,
+		payload: error,
+	};
+};
+export const editExpenseRequest = () => {
+	return {
+		type: EDIT_EXPENSE_REQUEST,
+	};
+};
+export const editExpenseSuccess = (expenseId, expense, savings, total) => {
+	return {
+		type: EDIT_EXPENSE_SUCCESS,
+		payload: { expenseId, expense, savings, total },
+	};
+};
+export const editExpenseFailure = (error) => {
+	return {
+		type: EDIT_EXPENSE_FAILURE,
 		payload: error,
 	};
 };

@@ -68,8 +68,7 @@ export const editRepayment = (repayment, repaymentId) => {
 				}
 			)
 			.then((data) => {
-				console.log("printing edit repayment data", data);
-				dispatch(editRepaymentSuccess(repayment, repaymentId));
+				dispatch(editRepaymentSuccess(data.data.update, repaymentId));
 			})
 			.catch((err) => {
 				dispatch(editRepaymentFailure());

@@ -57,7 +57,6 @@ const Repayments = ({}) => {
 		dispatch(editRepayment(updatedRowData, params.row.id));
 	};
 	const handleEdit = (rowData) => {
-		console.log("trying to delete");
 		setEditedRowData(rowData);
 	};
 	const handleDelete = (repaymentId) => {
@@ -65,22 +64,22 @@ const Repayments = ({}) => {
 		notifyDelete();
 	};
 	const columns = [
-		{ field: "id", headerName: "ID", width: 70 , hidden:true},
+		{ field: "id", headerName: "ID", width: 70, hidden: true },
 		{
-			field: "Description",
+			field: "description",
 			headerName: "Description",
 			width: 150,
 			editable: true,
 		},
 		{
-			field: "Amount",
+			field: "amount",
 			headerName: "Amount",
 			width: 150,
 			sortable: true,
 			editable: true,
 		},
 		{
-			field: "Date",
+			field: "date",
 			headerName: "Date",
 			type: "number",
 			width: 200,
@@ -130,14 +129,15 @@ const Repayments = ({}) => {
 	];
 	const rows = [];
 	{
-		repaymentData.repayment.map((index, i) => {
-			rows.push({
-				id: index._id,
-				Description: index.description,
-				Amount: index.amount,
-				Date: index.dueDate,
+		repaymentData &&
+			repaymentData.repayment.map((index) => {
+				rows.push({
+					id: index._id,
+					description: index.description,
+					amount: index.amount,
+					date: index.dueDate,
+				});
 			});
-		});
 	}
 	const notifyAdd = () => {
 		toast("Repayment added");
