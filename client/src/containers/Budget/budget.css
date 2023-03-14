@@ -17,40 +17,55 @@
 }
 
 .newUserBudget{
-  width: 85vw;
+  width: 83vw;
   height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10vw;
   margin-bottom: 5vh;
-  background-color: aqua;
+  background-color: rgb(65, 70, 70);
+  border-radius: 10px;
 }
 
 .newUserBudget input{
+  padding: 0.5%;
   width: 10vw;
   height: 5vh;
+  border-radius: 10px;
 }
-
+.createBudgetB{
+  width: 120px;
+  height: 40px;
+  color: white;
+  background: rgb(226, 110, 45);
+  background: linear-gradient(
+    0deg,
+    rgba(226, 110, 45, 1) 0%,
+    rgba(214, 86, 58, 1) 100%
+  );
+  border: none;
+}
 .two {
   margin: 5%;
   display: flex;
   flex-direction: row;
   width: 95%;
   margin-left: -2%;
+  gap: 35%;
 }
 .two form {
   display: flex;
   flex-direction: row;
   margin: 2%;
-  margin-left: 12%;
+  margin-left: 15%;
   padding: 0;
-  gap: 10%;
+  gap: 15%;
   justify-content: flex-start;
 }
 .two form input {
-  width: 20%;
-  height: 120%;
+  width: 45%;
+  height: 100%;
   border-radius: 15px;
   text-align: center;
 }
@@ -90,6 +105,7 @@
 }
 
 .addExpenseB {
+  margin-top: 4%;
   width: 100px;
   height: 40px;
   color: white;
@@ -99,6 +115,7 @@
     rgba(226, 110, 45, 1) 0%,
     rgba(214, 86, 58, 1) 100%
   );
+  border:none;
 }
 .expenseLine {
   margin-top: -2%;

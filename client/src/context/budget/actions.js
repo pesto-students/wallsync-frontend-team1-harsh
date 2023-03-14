@@ -8,12 +8,9 @@ import {
 	DELETE_EXPENSE_REQUEST,
 	DELETE_EXPENSE_SUCCESS,
 	DELETE_EXPENSE_FAILURE,
-	ADD_LIMIT_REQUEST,
-	ADD_LIMIT_SUCCESS,
-	ADD_LIMIT_FAILURE,
-	ADD_INCOME_REQUEST,
-	ADD_INCOME_SUCCESS,
-	ADD_INCOME_FAILURE,
+	ADD_BUDGET_REQUEST,
+	ADD_BUDGET_SUCCESS,
+	ADD_BUDGET_FAILURE,
 } from "./types";
 
 export const fetchBudgetRequest = () => {
@@ -67,37 +64,20 @@ export const deleteExpenseFailure = (error) => {
 		payload: error,
 	};
 };
-// export const addLimitRequest = () => {
-// 	return {
-// 		type: ADD_LIMIT_REQUEST,
-// 	};
-// };
-// export const addLimitSuccess = (limit) => {
-// 	return {
-// 		type: ADD_LIMIT_SUCCESS,
-// 		payload: limit,
-// 	};
-// };
-// export const addLimitFailure = (error) => {
-// 	return {
-// 		type: ADD_LIMIT_FAILURE,
-// 		payload: error,
-// 	};
-// };
-// export const addIncomeRequest = () => {
-// 	return {
-// 		type: ADD_INCOME_REQUEST,
-// 	};
-// };
-// export const addIncomeSuccess = (repayments) => {
-// 	return {
-// 		type: ADD_INCOME_SUCCESS,
-// 		payload: repayments,
-// 	};
-// };
-// export const addIncomeFailure = (error) => {
-// 	return {
-// 		type: ADD_INCOME_FAILURE,
-// 		payload: error,
-// 	};
-// };
+export const addBudgetRequest = () => {
+	return {
+		type: ADD_BUDGET_REQUEST,
+	};
+};
+export const addBudgetSuccess = (budget) => {
+	return {
+		type: ADD_BUDGET_SUCCESS,
+		payload: budget,
+	};
+};
+export const addBudgetFailure = (error) => {
+	return {
+		type: ADD_BUDGET_FAILURE,
+		payload: error,
+	};
+};

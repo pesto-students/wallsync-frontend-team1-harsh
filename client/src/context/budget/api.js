@@ -8,6 +8,9 @@ import {
 	deleteExpenseRequest,
 	deleteExpenseSuccess,
 	deleteExpenseFailure,
+	addBudgetRequest,
+	addBudgetSuccess,
+	addBudgetFailure,
 } from "./actions";
 import axios from "axios";
 import config from "../../config/config";
@@ -70,6 +73,26 @@ export const deleteExpense = (expenseId) => {
 			})
 			.catch((err) => {
 				dispatch(deleteExpenseFailure(err));
+			});
+	};
+};
+export const addBudget = (budget) => {
+	return (dispatch) => {
+		dispatch(addBudgetRequest());
+		axios
+			.post(`${config.apiUrl}/budget/${config.getUserId()}/addBudget`, budget, {
+				headers: {
+					"Content-Type": "application/json",
+				},
+			})
+			.then((data) => {
+				console.log("new budget datsss", data);
+				dispatch(
+					addBudgetSuccess({ income: data.data.income, limit: data.data.limit })
+				);
+			})
+			.catch((err) => {
+				dispatch(addBudgetFailure(err));
 			});
 	};
 };

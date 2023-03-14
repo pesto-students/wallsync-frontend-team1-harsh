@@ -1,20 +1,40 @@
-import React from 'react'
-import Button from '../../../../components/button/Button'
-import '../../budget.css'
-
+import React, { useState } from "react";
+import Button from "../../../../components/button/Button";
+import "../../budget.css";
+import { useDispatch } from "react-redux";
+import { addBudget } from "../../../../context/budget/api";
 const NewUser = () => {
-    // const handleSubmit =()=>{
+	const dispatch = useDispatch();
+	const [income, setIncome] = useState("");
+	const [limit, setLimit] = useState("");
 
-    // }
-  return (
-    <div>
-        <form action="" className='newUserBudget'>
-            <input type="text" name="" placeholder='Income' />
-            <input type="text" name="" placeholder='Limit' />
-            <Button buttonName="Create a Budget"/>
-        </form>
-    </div>
-  )
-}
+	const handleBudgetSumbit = (e) => {
+		e.preventDefault();
+		dispatch(addBudget({ income, limit }));
+	};
+	return (
+		<div>
+			<form action="" onSubmit={handleBudgetSumbit} className="newUserBudget">
+				<input
+					type="text"
+					name=""
+					placeholder="Income"
+					onChange={(e) => setIncome(e.target.value)}
+				/>
+				<input
+					type="text"
+					name=""
+					placeholder="Limit"
+					onChange={(e) => setLimit(e.target.value)}
+				/>
+				<Button
+					type="submit"
+					className="createBudgetB"
+					buttonName="Start Budget"
+				/>
+			</form>
+		</div>
+	);
+};
 
-export default NewUser
+export default NewUser;

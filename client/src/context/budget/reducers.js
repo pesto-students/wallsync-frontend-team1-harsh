@@ -8,12 +8,9 @@ import {
 	DELETE_EXPENSE_REQUEST,
 	DELETE_EXPENSE_SUCCESS,
 	DELETE_EXPENSE_FAILURE,
-	ADD_LIMIT_REQUEST,
-	ADD_LIMIT_SUCCESS,
-	ADD_LIMIT_FAILURE,
-	ADD_INCOME_REQUEST,
-	ADD_INCOME_SUCCESS,
-	ADD_INCOME_FAILURE,
+	ADD_BUDGET_REQUEST,
+	ADD_BUDGET_SUCCESS,
+	ADD_BUDGET_FAILURE,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -90,6 +87,25 @@ const budgetReducer = (state = INITIAL_STATE, action) => {
 			return {
 				budget: { ...state.budget },
 				loading: false,
+				error: action.payload,
+			};
+		case ADD_BUDGET_REQUEST:
+			return {
+				...state,
+				loading: true,
+				budget: {},
+				error: false,
+			};
+		case ADD_BUDGET_SUCCESS:
+			return {
+				loading: false,
+				budget: action.payload,
+				error: false,
+			};
+		case ADD_BUDGET_FAILURE:
+			return {
+				loading: false,
+				budget: {},
 				error: action.payload,
 			};
 		default:
