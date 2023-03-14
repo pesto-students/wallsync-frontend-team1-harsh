@@ -276,24 +276,31 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 		// 		error: null,
 		// 	};
 		case EDIT_SHARE_SUCCESS:
+			const uG = state.group.map((group) => {
+				if (group.groupName === action.payload.groupName) {
+					return {
+						...group,
+						finalContributions: action.payload.finalContributions,
+						contributions: group.contributions.map((item) =>
+							item.id === action.payload.contributionId
+								? {
+										id: action.payload.share._id,
+										name: action.payload.share.contributedBy,
+										desc: action.payload.share.description,
+										share: action.payload.share.amount,
+								  }
+								: item
+						),
+					};
+				} else {
+					return group;
+				}
+			});
 			return {
 				...state,
 				loading: false,
-				group: state.group.map((i) => {
-					if (i.groupName === action.payload.groupName) {
-						return {
-							...i,
-							contributions: i.contributions.map((contribution) =>
-								contribution.id === action.payload.contributionId
-									? { ...contribution, ...action.payload.share }
-									: contribution
-							),
-							finalContributions: action.payload.finalContributions,
-						};
-					}
-					return i;
-				}),
-				error: null,
+				group: uG,
+				error: false,
 			};
 
 		case EDIT_SHARE_FAILURE:
