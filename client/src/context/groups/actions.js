@@ -67,10 +67,14 @@ export const editShareRequest = () => {
 		type: EDIT_SHARE_REQUEST,
 	};
 };
-export const editShareSuccess = (groups) => {
+export const editShareSuccess = (
+	groupName,
+	contributionId,
+	finalContributions
+) => {
 	return {
 		type: EDIT_SHARE_SUCCESS,
-		payload: groups,
+		payload: { groupName, contributionId, finalContributions },
 	};
 };
 export const editShareFailure = (error) => {

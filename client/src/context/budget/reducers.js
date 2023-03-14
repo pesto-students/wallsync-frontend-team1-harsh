@@ -81,6 +81,7 @@ const budgetReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 				budget: {
 					...state.budget,
+					total: action.payload.total,
 					savings: action.payload.savings,
 					expensesArray: state.budget.expensesArray.filter(
 						(item) => item._id !== action.payload.expenseId

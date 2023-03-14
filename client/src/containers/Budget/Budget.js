@@ -127,15 +127,14 @@ const Budget = () => {
 					id: item._id,
 					description: item.description,
 					amount: item.amount,
-					date: item.date /*.substr(0, 10)*/,
+					date: item.date.substr(0, 10),
 				});
 			});
 	}
 	let final = [];
 	final = expenseData && expenseData.map((item) => item.description);
 	const lineChartData = {
-		labels:
-			expenseData && expenseData.map((item) => item.date /*.substr(5, 5)*/),
+		labels: expenseData && expenseData.map((item) => item.date.substr(5, 5)),
 		datasets: [
 			{
 				label: final && final.map((index, i) => index),

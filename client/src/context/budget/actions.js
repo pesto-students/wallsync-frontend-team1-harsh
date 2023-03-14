@@ -55,10 +55,10 @@ export const deleteExpenseRequest = () => {
 		type: DELETE_EXPENSE_REQUEST,
 	};
 };
-export const deleteExpenseSuccess = (expenseId, savings) => {
+export const deleteExpenseSuccess = (expenseId, savings, total) => {
 	return {
 		type: DELETE_EXPENSE_SUCCESS,
-		payload: { expenseId, savings },
+		payload: { expenseId, savings, total },
 	};
 };
 export const deleteExpenseFailure = (error) => {

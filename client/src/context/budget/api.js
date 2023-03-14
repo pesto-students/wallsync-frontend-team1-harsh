@@ -76,7 +76,13 @@ export const deleteExpense = (expenseId) => {
 			.then((data) => {
 				console.log("deleteexp data", data);
 
-				dispatch(deleteExpenseSuccess(data.data.deletedId, data.data.savings));
+				dispatch(
+					deleteExpenseSuccess(
+						data.data.deletedId,
+						data.data.savings,
+						data.data.total
+					)
+				);
 			})
 			.catch((err) => {
 				dispatch(deleteExpenseFailure(err));
@@ -126,8 +132,8 @@ export const editExpense = (expenseId, expense) => {
 					editExpenseSuccess(
 						data.data.newTransaction._id,
 						data.data.newTransaction,
-						data.data.total,
-						data.data.savings
+						data.data.savings,
+						data.data.total
 					)
 				);
 			})
