@@ -23,11 +23,12 @@ import {
 	addPercentageArrayRequest,
 	addPercentageArraySuccess,
 	addPercentageArrayFailure,
+	editShareRequest,
+	editShareSuccess,
+	editShareFailure,
 } from "./actions";
 import axios from "axios";
 import config from "../../config/config";
-
-// const userId = JSON.parse(localStorage.getItem("user")).user.id;
 
 export const getGroups = () => {
 	return (dispatch) => {
@@ -102,6 +103,39 @@ export const deleteShare = (groupName, contributionId) => {
 			})
 			.catch((err) => {
 				dispatch(deleteShareFailure(err));
+			});
+	};
+};
+
+export const editShare = (groupName, contributionId, share) => {
+	return (dispatch) => {
+		dispatch(editShareRequest());
+		axios
+			.put(
+				`${
+					config.apiUrl
+				}/contribution/${config.getUserId()}/${groupName}/${contributionId}/editCont`,
+				share,
+				{
+					headers: {
+						Authorization: JSON.parse(localStorage.getItem("user"))
+							.access_token,
+					},
+				}
+			)
+			.then((data) => {
+				console.log("edited shareee", data);
+				dispatch(
+					editShareSuccess(
+						groupName,
+						contributionId,
+						data.data.updatedData,
+						data.data.finalContributions
+					)
+				);
+			})
+			.catch((err) => {
+				dispatch(editShareFailure(err));
 			});
 	};
 };

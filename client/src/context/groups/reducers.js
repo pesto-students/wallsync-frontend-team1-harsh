@@ -23,6 +23,9 @@ import {
 	ADD_PERCENTAGE_ARRAY_REQUEST,
 	ADD_PERCENTAGE_ARRAY_SUCCESS,
 	ADD_PERCENTAGE_ARRAY_FAILURE,
+	EDIT_SHARE_REQUEST,
+	EDIT_SHARE_FAILURE,
+	EDIT_SHARE_SUCCESS,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -237,6 +240,63 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 			};
 		case ADD_PERCENTAGE_ARRAY_FAILURE:
+			return {
+				loading: false,
+				group: [...state.group],
+				error: action.payload,
+			};
+		case EDIT_SHARE_REQUEST:
+			return {
+				...state,
+				loading: true,
+				group: [...state.group],
+				error: false,
+			};
+
+		// case EDIT_SHARE_SUCCESS:
+		// 	const updatedG = state.group.map((item) => {
+		// 		console.log("printings", item);
+		// 		if (item.groupName === action.payload.groupName) {
+		// 			return {
+		// 				...item,
+		// 				contributions: item.contributions.map((contribution) =>
+		// 					contribution.id === action.payload.contributionId
+		// 						? { ...contribution, ...action.payload.share }
+		// 						: contribution
+		// 				),
+		// 				finalContributions: action.payload.finalContributions,
+		// 			};
+		// 		}
+		// 		return item;
+		// 	});
+		// 	return {
+		// 		...state,
+		// 		group: updatedG,
+		// 		loading: false,
+		// 		error: null,
+		// 	};
+		case EDIT_SHARE_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				group: state.group.map((i) => {
+					if (i.groupName === action.payload.groupName) {
+						return {
+							...i,
+							contributions: i.contributions.map((contribution) =>
+								contribution.id === action.payload.contributionId
+									? { ...contribution, ...action.payload.share }
+									: contribution
+							),
+							finalContributions: action.payload.finalContributions,
+						};
+					}
+					return i;
+				}),
+				error: null,
+			};
+
+		case EDIT_SHARE_FAILURE:
 			return {
 				loading: false,
 				group: [...state.group],

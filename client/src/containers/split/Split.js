@@ -13,7 +13,7 @@ import Heading from "./components/Heading/Heading";
 import AddMemberPopover from "./components/popover/AddMember";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
+import SaveIcon from "@mui/icons-material/Save";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -28,11 +28,18 @@ import {
 } from "../../context/groups/api";
 import SkeletonComp from "./components/skeleton/Skeleton";
 import { useDispatch, useSelector } from "react-redux";
+import { editShare } from "../../context/groups/api";
 
 const Split = () => {
 	const dispatch = useDispatch();
 	const [type, setType] = useState("equal");
-
+	const [editedRowData, setEditedRowData] = useState({
+		id: "",
+		name: "",
+		desc: "",
+		share: "",
+		group: "",
+	});
 	const [percentageArray, setPercentageArray] = useState([]);
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
@@ -111,27 +118,60 @@ const Split = () => {
 		}
 		dispatch(addPercentageArray(groupName, percentageArray));
 	};
+	const handleCellEditCommit = (params) => {
+		const { field, value } = params;
+		// const { id, name, share, desc, ...rest } = params.row;
+		// const updatedRowData = { id, name, share, desc, [field]: value };
+		const updatedRowData = { ...params.row, [field]: value };
+		dispatch(editShare(params.row.groupName, params.row.id, updatedRowData));
+	};
+	const handleEdit = (rowData) => {
+		setEditedRowData(rowData);
+	};
 	useEffect(() => {
 		dispatch(getGroups());
-	}, [newGroupDescription /*addUser, handleDeleteShare*/]);
+	}, []);
 
 	const columns = [
 		{ field: "id", headerName: "ID", width: 100, hide: true },
-		{ field: "name", headerName: "Name", width: 100 },
-		{ field: "desc", headerName: "Description", width: 150, sortable: true },
-		{ field: "share", headerName: "Amount", width: 100, sortable: true },
-		{ field: "groupName", headerName: "GroupName", width: 70, hide: true },
+		{ field: "name", headerName: "Name", width: 100, editable: true },
 
 		{
-			field: "Actions",
-			headerName: "Actions",
+			field: "desc",
+			headerName: "Description",
 			width: 150,
+			sortable: true,
+			editable: true,
+		},
+		{
+			field: "share",
+			headerName: "Amount",
+			width: 100,
+			sortable: true,
+			editable: true,
+		},
+		{ field: "group", headerName: "GroupName", width: 70, hide: true },
+		{
+			field: "edit",
+			headerName: "Edit",
+			width: 100,
 			renderCell: (params) => {
 				return (
 					<>
 						<IconButton>
-							<EditIcon />
+							<SaveIcon onClick={() => handleEdit(params.row)} />
 						</IconButton>
+					</>
+				);
+			},
+		},
+		{
+			field: "delete",
+			headerName: "Delete",
+			width: 150,
+			renderCell: (params) => {
+				return (
+					<>
 						<IconButton>
 							<DeleteOutlineIcon
 								onClick={() =>
@@ -236,6 +276,7 @@ const Split = () => {
 													<div className="first">
 														<div className="activityTable">
 															<Table
+																onCellEditCommit={handleCellEditCommit}
 																columnData={columns}
 																rowData={
 																	i.contributions
