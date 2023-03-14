@@ -1,0 +1,19 @@
+.termsBody{
+    display: flex;
+    justify-content: space-between;
+
+}
+.termsDashboard{
+    background-color: #1e1e1e;
+    width: 84%;
+    height: 85vh;
+    padding: 2%;
+    border-radius: 25px 0 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+ul li{
+    list-style-type: square;
+    list-style-position: inside;
+  }

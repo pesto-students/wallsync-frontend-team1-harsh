@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 import Budget from "./containers/Budget/Budget";
 import Split from "./containers/split/Split";
+import TermsConditions from "./containers/TermsConditions/TermsConditions";
 
 const App = () => {
 	let user = useSelector((state) => state.authentication.isSignedIn);
@@ -38,6 +39,10 @@ const App = () => {
 		{
 			path: "/home",
 			element: user ? <Home /> : <Navigate to="/" />,
+		},
+		{
+			path: "/termsAndConditions",
+			element: <TermsConditions />,
 		},
 
 		{
