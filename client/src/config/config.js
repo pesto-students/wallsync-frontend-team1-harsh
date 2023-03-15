@@ -8,6 +8,9 @@ const config = {
 			return null;
 		}
 	},
+	emailServiceId: "service_t0tni14",
+	emailTemplateId: "template_zzmxwfl",
+	emailPublicKey: "vgrEB-gEpoXI2lqUv",
 };
 
 export default config;

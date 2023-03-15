@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Button from "../../../../components/button/Button";
 import "./reportform.css";
-
+import config from "../../../../config/config";
 const ReportForm = () => {
 	const form = useRef();
 	const nameInput = useRef();
@@ -14,10 +14,10 @@ const ReportForm = () => {
 
 		emailjs
 			.sendForm(
-				"service_t0tni14",
-				"template_zzmxwfl",
+				config.emailServiceId,
+				config.emailTemplateId,
 				form.current,
-				"vgrEB-gEpoXI2lqUv"
+				config.emailPublicKey
 			)
 			.then(
 				(result) => {
