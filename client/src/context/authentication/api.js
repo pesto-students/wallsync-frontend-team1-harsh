@@ -47,8 +47,8 @@ export const updateUser = (user) => {
 				},
 			})
 			.then((data) => {
-				console.log("updating", data);
-				dispatch(updateUserSuccess(data.data.ud));
+				console.log("updating only user data", data);
+				dispatch(updateUserSuccess(data.data.updatedUser));
 			})
 			.catch((err) => {
 				dispatch(updateUserFailure(err));
@@ -71,8 +71,10 @@ export const updatePP = (user) => {
 				}
 			)
 			.then((data) => {
-				console.log("updating", data);
-				dispatch(updatePPSuccess(data.data.updatedUser));
+				console.log("updating", data.data.updatedUser.profilePicture.public_id);
+				dispatch(
+					updatePPSuccess(data.data.updatedUser.profilePicture.public_id)
+				);
 			})
 			.catch((err) => {
 				dispatch(updatePPFailure(err));

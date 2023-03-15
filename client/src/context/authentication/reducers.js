@@ -54,21 +54,19 @@ const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 				isSignedIn: true,
 				error: false,
 			};
-
 		case UPDATE_USER_SUCCESS:
-			const updatedUserData = { ...state.user };
-			updatedUserData.firstName = action.payload.firstName;
-			updatedUserData.lastName = action.payload.lastName;
-			updatedUserData.phone = action.payload.phone;
-			updatedUserData.email = action.payload.email;
-			updatedUserData.zip = action.payload.zip;
-
 			return {
 				...state,
 				isFetching: false,
 				isSignedIn: true,
 				error: false,
-				user: updatedUserData,
+				authentication: {
+					...state.authentication,
+					user: {
+						...state.authentication.user,
+						...action.payload,
+					},
+				},
 			};
 		case UPDATE_USER_FAILURE:
 			return {
@@ -84,14 +82,22 @@ const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 				isSignedIn: true,
 				error: false,
 			};
-
 		case UPDATE_PP_SUCCESS:
 			return {
 				...state,
 				isFetching: false,
 				isSignedIn: true,
 				error: false,
-				user: action.payload,
+				user: {
+					...state.user,
+					user: {
+						...state.user.user,
+						profilePicture: {
+							...state.user.user.profilePicture,
+							public_id: action.payload,
+						},
+					},
+				},
 			};
 		case UPDATE_PP_FAILURE:
 			return {

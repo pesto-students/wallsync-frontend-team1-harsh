@@ -23,6 +23,7 @@ const Profile = () => {
 	const [editedEmail, setEditedEmail] = useState("");
 	const [editedProfilePicture, setEditedProfilePicture] = useState("");
 	const [previewUrl, setPreviewUrl] = useState("");
+
 	const profileData = useSelector((state) => state.authentication.user.user);
 	const profilePic = useSelector(
 		(state) => state.authentication.user.user.profilePicture
@@ -67,7 +68,8 @@ const Profile = () => {
 			setPreviewUrl(reader.result);
 		};
 		const formData = new FormData();
-		formData.append("file", editedProfilePicture);
+		// formData.append("file", editedProfilePicture);
+		formData.append("profilePicture", editedProfilePicture);
 
 		try {
 			dispatch(updatePP(formData));

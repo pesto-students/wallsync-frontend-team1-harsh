@@ -53,10 +53,10 @@ export const updatePPRequest = () => {
 		type: UPDATE_PP_REQUEST,
 	};
 };
-export const updatePPSuccess = (user) => {
+export const updatePPSuccess = (publicId) => {
 	return {
 		type: UPDATE_PP_SUCCESS,
-		payload: user,
+		payload: publicId,
 	};
 };
 export const updatePPFailure = (error) => {
