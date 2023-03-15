@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../components/footer/Footer";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import profile from "../../assets/profile.png";
-import { updateUser } from "../../context/authentication/api";
+import { updateUser, updatePP } from "../../context/authentication/api";
 
 const Profile = () => {
 	const [editedFirstName, setEditedFirstName] = useState("");
@@ -44,7 +44,6 @@ const Profile = () => {
 				phone: editedPhone,
 				email: editedEmail,
 				zip: editedZip,
-				profilePicture: editedProfilePicture,
 			})
 		);
 		setEditedFirstName("");
@@ -69,37 +68,10 @@ const Profile = () => {
 		};
 		const formData = new FormData();
 		formData.append("file", editedProfilePicture);
-		formData.append("upload_preset", "wallsync_dp");
-		formData.append("cloud_name", cloudinaryConfig.cloud_name);
 
 		try {
-			const response = await fetch(
-				`https://api.cloudinary.com/v1_1/${cloudinaryConfig.cloud_name}/image/upload`,
-				{
-					method: "POST",
-					body: formData,
-				}
-			);
+			dispatch(updatePP(formData));
 
-			const data = await response.json();
-
-			// Update the Cloudinary resource
-			console.log("new pbid", data.public_id);
-			dispatch(
-				updateUser({
-					firstName: editedFirstName,
-					lastName: editedLastName,
-					phone: editedPhone,
-					email: editedEmail,
-					zip: editedZip,
-					profilePicture: {
-						public_id: data.public_id,
-						secure_url: data.secure_url,
-					},
-				})
-			);
-
-			// Clear the edited profile picture state
 			setEditedProfilePicture(null);
 		} catch (error) {
 			console.log(error);
@@ -133,7 +105,11 @@ const Profile = () => {
 							type="file"
 							onChange={(e) => setEditedProfilePicture(e.target.files[0])}
 						/>
-						<Button onClick={handleImageUpload} buttonName="upload picture" />
+						<Button
+							onClick={handleImageUpload}
+							buttonName="upload picture"
+							className="handleImageUpload"
+						/>
 					</label>
 					<form onSubmit={handleEditUser} className="profileForm">
 						<input

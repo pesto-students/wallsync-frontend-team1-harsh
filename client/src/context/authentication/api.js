@@ -6,6 +6,9 @@ import {
 	updateUserRequest,
 	updateUserSuccess,
 	updateUserFailure,
+	updatePPRequest,
+	updatePPFailure,
+	updatePPSuccess,
 } from "./actions";
 import axios from "axios";
 import config from "../../config/config";
@@ -45,10 +48,34 @@ export const updateUser = (user) => {
 			})
 			.then((data) => {
 				console.log("updating", data);
-				dispatch(updateUserSuccess(data.data.updatedUser));
+				dispatch(updateUserSuccess(data.data.ud));
 			})
 			.catch((err) => {
 				dispatch(updateUserFailure(err));
+			});
+	};
+};
+export const updatePP = (user) => {
+	return (dispatch) => {
+		dispatch(updatePPRequest());
+		axios
+			.put(
+				`${config.apiUrl}/user/${config.getUserId()}/updateProfilePicture`,
+				user,
+				{
+					headers: {
+						"Content-Type": "multipart/form-data",
+						Authorization: JSON.parse(localStorage.getItem("user"))
+							.access_token,
+					},
+				}
+			)
+			.then((data) => {
+				console.log("updating", data);
+				dispatch(updatePPSuccess(data.data.updatedUser));
+			})
+			.catch((err) => {
+				dispatch(updatePPFailure(err));
 			});
 	};
 };

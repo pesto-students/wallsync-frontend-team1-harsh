@@ -6,6 +6,9 @@ import {
 	UPDATE_USER_REQUEST,
 	UPDATE_USER_SUCCESS,
 	UPDATE_USER_FAILURE,
+	UPDATE_PP_REQUEST,
+	UPDATE_PP_SUCCESS,
+	UPDATE_PP_FAILURE,
 } from "./types";
 const INITIAL_STATE = {
 	user: JSON.parse(localStorage.getItem("user")) || null,
@@ -52,14 +55,6 @@ const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 			};
 
-		// case UPDATE_USER_SUCCESS:
-		// 	return {
-		// 		...state,
-		// 		isFetching: false,
-		// 		isSignedIn: true,
-		// 		error: false,
-		// 		user: action.payload,
-		// 	};
 		case UPDATE_USER_SUCCESS:
 			const updatedUserData = { ...state.user };
 			updatedUserData.firstName = action.payload.firstName;
@@ -67,7 +62,6 @@ const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 			updatedUserData.phone = action.payload.phone;
 			updatedUserData.email = action.payload.email;
 			updatedUserData.zip = action.payload.zip;
-			updatedUserData.profilePicture = action.payload.profilePicture;
 
 			return {
 				...state,
@@ -77,6 +71,29 @@ const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 				user: updatedUserData,
 			};
 		case UPDATE_USER_FAILURE:
+			return {
+				...state,
+				isFetching: false,
+				isSignedIn: true,
+				error: action.payload,
+			};
+		case UPDATE_PP_REQUEST:
+			return {
+				...state,
+				isFetching: true,
+				isSignedIn: true,
+				error: false,
+			};
+
+		case UPDATE_PP_SUCCESS:
+			return {
+				...state,
+				isFetching: false,
+				isSignedIn: true,
+				error: false,
+				user: action.payload,
+			};
+		case UPDATE_PP_FAILURE:
 			return {
 				...state,
 				isFetching: false,

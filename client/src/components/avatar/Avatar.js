@@ -34,7 +34,7 @@ const Avatar = () => {
 	};
 	return (
 		<div className="dropicon">
-			{profilePic ? (
+			{profilePic && profilePic ? (
 				<AdvancedImage
 					cldImg={cld
 						.image(profilePic.public_id)

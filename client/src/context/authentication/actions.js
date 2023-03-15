@@ -6,6 +6,9 @@ import {
 	UPDATE_USER_REQUEST,
 	UPDATE_USER_SUCCESS,
 	UPDATE_USER_FAILURE,
+	UPDATE_PP_REQUEST,
+	UPDATE_PP_SUCCESS,
+	UPDATE_PP_FAILURE,
 } from "./types";
 export const loginRequest = () => {
 	return {
@@ -43,5 +46,21 @@ export const updateUserSuccess = (user) => {
 export const updateUserFailure = (error) => {
 	return {
 		type: UPDATE_USER_FAILURE,
+	};
+};
+export const updatePPRequest = () => {
+	return {
+		type: UPDATE_PP_REQUEST,
+	};
+};
+export const updatePPSuccess = (user) => {
+	return {
+		type: UPDATE_PP_SUCCESS,
+		payload: user,
+	};
+};
+export const updatePPFailure = (error) => {
+	return {
+		type: UPDATE_PP_FAILURE,
 	};
 };
