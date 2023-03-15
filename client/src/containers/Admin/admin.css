@@ -1,0 +1,56 @@
+.adminGroups{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: antiquewhite;
+    /* color: white; */
+}
+/* .adminGroups h1{
+    color: white;
+} */
+.adminGroups .groupsTable{
+    width: 70vw;
+    height: 60vh;
+    background-color: #1e1e1e;
+}
+.adminUsers{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: antiquewhite;
+    /* color: white; */
+}
+/* .adminUsers h1{
+    color: white;
+} */
+.adminUsers .usersTable{
+    width: 70vw;
+    height: 60vh;
+    background-color: #1e1e1e;
+}
+.adminNavbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #1e1e1e;
+    height: 10vh;
+    margin-bottom: 15vh;
+}
+.adminNavbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10vw;
+}
+.adminNavbar ul li p{
+    color: #1e1e1e;
+    z-index: 2;
+}

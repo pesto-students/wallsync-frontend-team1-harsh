@@ -8,6 +8,8 @@ import Profile from "./containers/profile/Profile";
 import Settings from "./containers/settings/Settings";
 import Repayments from "./containers/Repayments/Repayments";
 import LiveMarket from "./containers/LiveMarket/LiveMarket";
+import AdminGroups from "./containers/Admin/AdminGroups";
+import AdminUsers from "./containers/Admin/AdminUsers";
 import { useSelector } from "react-redux";
 import {
 	createBrowserRouter,
@@ -45,6 +47,22 @@ const App = () => {
 			path: "/termsAndConditions",
 			element: <TermsConditions />,
 		},
+		{
+			path: "/adminUsers",
+			element: user ? <AdminUsers /> : <Navigate to="/" />,
+		},
+		{
+			path: "/adminGroups",
+			element: user ? <AdminGroups /> : <Navigate to="/" />,
+		},
+		// {
+		// 	path: "/adminUsers",
+		// 	element: user.isAdmin ? <AdminUsers /> : <Navigate to="/" />,
+		// },{
+		// 	path: "/adminGroups",
+		// 	element: user.isAdmin ? <AdminGroups /> : <Navigate to="/" />,
+		// },
+
 
 		{
 			path: "/settings",
