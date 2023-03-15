@@ -22,6 +22,7 @@ const Profile = () => {
 	const [editedZip, setEditedZip] = useState("");
 	const [editedEmail, setEditedEmail] = useState("");
 	const [editedProfilePicture, setEditedProfilePicture] = useState("");
+	const [previewUrl, setPreviewUrl] = useState("");
 	const profileData = useSelector((state) => state.authentication.user.user);
 	const profilePic = useSelector(
 		(state) => state.authentication.user.user.profilePicture
@@ -61,7 +62,11 @@ const Profile = () => {
 		if (!editedProfilePicture) {
 			return;
 		}
-
+		const reader = new FileReader();
+		reader.readAsDataURL(editedProfilePicture);
+		reader.onloadend = () => {
+			setPreviewUrl(reader.result);
+		};
 		const formData = new FormData();
 		formData.append("file", editedProfilePicture);
 		formData.append("upload_preset", "wallsync_dp");
@@ -107,8 +112,15 @@ const Profile = () => {
 				<Nav />
 				<div className="profileDashBoard">
 					<label className="changeDp">
-						{profilePic ? (
+						{previewUrl ? (
+							<img
+								src={previewUrl}
+								alt="Profile preview"
+								className="profilePreviewImg"
+							/>
+						) : profilePic ? (
 							<AdvancedImage
+								key={profilePic && profilePic.public_id}
 								className="editDp"
 								cldImg={cld
 									.image(profilePic.public_id)

@@ -2,6 +2,10 @@
     display:flex;
     justify-content: space-between;
 }
+.profilePreviewImg{
+    width: 12em;
+    height:10em;
+}
 .profileDashBoard{
     width:87%;
     background-color: #1e1e1e;

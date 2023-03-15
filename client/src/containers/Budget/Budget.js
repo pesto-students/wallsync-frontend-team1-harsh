@@ -21,6 +21,7 @@ import {
 	getBudget,
 } from "../../context/budget/api";
 import NewUser from "./components/newuser/NewUser";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 const Budget = () => {
 	const [description, setDescription] = useState("");
 	const [refresh, setRefresh] = useState(0);
@@ -170,7 +171,11 @@ const Budget = () => {
 			<div className="container">
 				<Nav />
 				<div className="budgetBody">
-					{!budgetData && <NewUser />}
+					{!budgetData && (
+						// <ErrorBoundary>
+						<NewUser />
+						// </ErrorBoundary>
+					)}
 					<div className="one">
 						<Table
 							rowData={rows}

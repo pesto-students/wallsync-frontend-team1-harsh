@@ -3,6 +3,7 @@ import Button from "../../../../components/button/Button";
 import "../../budget.css";
 import { useDispatch } from "react-redux";
 import { addBudget } from "../../../../context/budget/api";
+import ErrorBoundary from "../../../../errorBoundary/ErrorBoundary";
 const NewUser = () => {
 	const dispatch = useDispatch();
 	const [income, setIncome] = useState("");
@@ -10,8 +11,15 @@ const NewUser = () => {
 
 	const handleBudgetSumbit = (e) => {
 		e.preventDefault();
+
 		dispatch(addBudget({ income, limit }));
 	};
+	// if (limit && parseInt(limit) > parseInt(income)) {
+	// 	throw new Error("Limit cannot be greater than income");
+	// }
+	if (income && parseInt(limit) > parseInt(income)) {
+		throw new Error("Limit cannot be greater than income");
+	}
 	return (
 		<div>
 			<form action="" onSubmit={handleBudgetSumbit} className="newUserBudget">
@@ -37,4 +45,11 @@ const NewUser = () => {
 	);
 };
 
-export default NewUser;
+// export default NewUser;
+const NewUserWithErrorBoundary = () => (
+	<ErrorBoundary>
+		<NewUser />
+	</ErrorBoundary>
+);
+
+export default NewUserWithErrorBoundary;
