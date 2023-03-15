@@ -12,6 +12,7 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { IconButton } from "@mui/material";
 import Footer from "../../components/footer/Footer";
 import Switch from "@mui/material/Switch";
+import ReportForm from "./components/report/ReportForm";
 
 const label = { inputProps: { "aria-label": "Switch demo" } };
 
@@ -63,11 +64,12 @@ const Settings = () => {
 							}
 							panelName="Report"
 							panelData={
-								<>
-									<textarea placeholder="Report Any Issue"></textarea>
-									<br />
-									<button>Submit</button>
-								</>
+								<ReportForm />
+								// <>
+								// 	<textarea placeholder="Report Any Issue"></textarea>
+								// 	<br />
+								// 	<button>Submit</button>
+								// </>
 							}
 						/>
 						<Panel
