@@ -103,7 +103,7 @@ const Profile = () => {
 	return (
 		<div>
 			<Header className="headerAvatar" />
-			<div className="settingsBody">
+			<div className="profileBody">
 				<Nav />
 				<div className="profileDashBoard">
 					<label className="changeDp">

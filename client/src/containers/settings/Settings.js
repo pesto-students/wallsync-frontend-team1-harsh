@@ -23,7 +23,7 @@ const Settings = () => {
 				<div className="navigation">
 					<Nav />
 				</div>
-				<div className="mainDashBoard">
+				<div className="settingsDashBoard">
 					<div className="board">
 						<Panel
 							className="settingsPanel"
@@ -81,11 +81,12 @@ const Settings = () => {
 						/>
 					</div>
 					<div className="settingsInfo">
-						<Button buttonName="Sign Out" className='settingsSignOutButton' />
+						<Button buttonName="Sign Out" className="settingsSignOutButton" />
 					</div>
 				</div>
 			</div>
-			{/* <Footer></Footer> */}
+
+			<Footer />
 		</div>
 	);
 };

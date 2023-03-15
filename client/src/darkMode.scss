@@ -60,6 +60,13 @@
 
         }
      }
+     .settingsDashBoard {
+        background-color: #8b8b8b;
+        .board{
+        background-color: #817c7c;
+
+        }
+    }
      .repaymentsDashboard{
         background-color: #8b8b8b;
      }
@@ -87,12 +94,11 @@
      .LiveDashboard{
         background-color: #8b8b8b;
      }
-    //  .MuiAccordion-root{
-    //     background: rgb(221, 223, 106);
-    //     // background: linear-gradient(0deg, rgb(58, 103, 226) 0%, rgb(130, 211, 236) 100%);
-    //     /* background-image: url('./assets/bg2-zEFitxBHV-transformed-removebg-preview.png'); */
-    //     // background-color: red;
-    //     background-size: fill;
-    //     border-radius: 25px;
-    // }
+    .termsDashboard{
+        background-color: #8b8b8b;
+    }
+    .profileDashBoard{
+        background-color: #8b8b8b;
+
+    }
  }

@@ -3,7 +3,7 @@
   justify-content: space-between;
 }
 
-.mainDashBoard {
+.settingsDashBoard {
   background-color: #1e1e1e;
   width: 84%;
   height: auto;
@@ -14,6 +14,14 @@
   gap: 4vh;
   align-items: center;
   justify-content: space-between;
+}
+.settingsSignOutButton{
+  width: 150px;
+  height: 50px;
+  color:white;
+  margin-left: -15%;
+  background: rgb(226,110,45);
+  background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
 }
 .board{
   background-color: rgb(82, 80, 78);

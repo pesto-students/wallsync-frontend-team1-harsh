@@ -4,17 +4,18 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
-import './panel.css'
+import "./panel.css";
 
-const Panel = ({ panelName,panelClass, panelLogo, panelData }) => {
+const Panel = ({ panelName, panelClass, panelLogo, panelData }) => {
 	const [expanded, setExpanded] = React.useState(false);
 
 	const handleChange = (panel) => (event, isExpanded) => {
 		setExpanded(isExpanded ? panel : false);
 	};
 	return (
-		<div className='mainSettingsPanel'>
-			<Accordion sx={{borderRadius:"25px"}}
+		<div className="mainSettingsPanel">
+			<Accordion
+				sx={{ borderRadius: "25px" }}
 				expanded={expanded === "panel1"}
 				onChange={handleChange("panel1")}
 			>
@@ -27,7 +28,15 @@ const Panel = ({ panelName,panelClass, panelLogo, panelData }) => {
 						{/* <img src={panelLogo} className="panelLogo"></img> */}
 						{panelLogo}
 					</Typography>
-					<Typography sx={{ color: "text.secondary" }}>{panelName}</Typography>
+					<Typography
+						sx={{
+							color: "text.secondary",
+							marginLeft: 15,
+							fontWeight: 1000,
+						}}
+					>
+						{panelName}
+					</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
 					<Typography>{panelData}</Typography>

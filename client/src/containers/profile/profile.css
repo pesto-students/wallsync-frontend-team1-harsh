@@ -1,11 +1,11 @@
 .profileBody{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .profileDashBoard{
     width:87%;
     background-color: #1e1e1e;
-    border-radius: 25px;
+    border-radius: 25px 0 0 25px;
     height:80vh;
     display: flex;
     align-items: center;
