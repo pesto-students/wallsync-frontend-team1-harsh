@@ -38,6 +38,13 @@ export const updateUserRequest = () => {
 	};
 };
 export const updateUserSuccess = (user) => {
+	// localStorage.setItem(
+	// 	"user",
+	// 	JSON.stringify({
+	// 		...JSON.parse(localStorage.getItem("user")),
+	// 		user: user,
+	// 	})
+	// );
 	return {
 		type: UPDATE_USER_SUCCESS,
 		payload: user,
@@ -46,6 +53,7 @@ export const updateUserSuccess = (user) => {
 export const updateUserFailure = (error) => {
 	return {
 		type: UPDATE_USER_FAILURE,
+		payload: error,
 	};
 };
 export const updatePPRequest = () => {
@@ -62,5 +70,6 @@ export const updatePPSuccess = (publicId) => {
 export const updatePPFailure = (error) => {
 	return {
 		type: UPDATE_PP_FAILURE,
+		payload: error,
 	};
 };

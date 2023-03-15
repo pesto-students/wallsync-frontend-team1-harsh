@@ -25,9 +25,10 @@ const Profile = () => {
 	const [previewUrl, setPreviewUrl] = useState("");
 
 	const profileData = useSelector((state) => state.authentication.user.user);
-	const profilePic = useSelector(
-		(state) => state.authentication.user.user.profilePicture
-	);
+	// const profilePic = useSelector(
+	// 	(state) => state.authentication.user.user.profilePicture
+	// );
+	const profilePic = profileData ? profileData.profilePicture : null;
 	const dispatch = useDispatch();
 
 	const cld = new Cloudinary({

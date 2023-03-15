@@ -47,7 +47,7 @@ export const updateUser = (user) => {
 				},
 			})
 			.then((data) => {
-				console.log("updating only user data", data);
+				console.log("updating only user data", data.data.updatedUser);
 				dispatch(updateUserSuccess(data.data.updatedUser));
 			})
 			.catch((err) => {

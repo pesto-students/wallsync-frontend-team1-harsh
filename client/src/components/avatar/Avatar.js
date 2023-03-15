@@ -13,11 +13,12 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Avatar = () => {
 	const dispatch = useDispatch();
+	const profileData = useSelector((state) => state.authentication.user.user);
+	// const profilePic = useSelector(
+	// 	(state) => state.authentication.user.user.profilePicture
+	// );
+	const profilePic = profileData ? profileData.profilePicture : null;
 
-	const profilePic = useSelector(
-		(state) => state.authentication.user.user.profilePicture
-	);
-	// console.log("pfp", profilePic);
 	const cld = new Cloudinary({
 		cloud: {
 			cloudName: cloudinaryConfig.cloud_name,
