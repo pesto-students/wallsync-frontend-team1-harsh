@@ -22,7 +22,7 @@ const INITIAL_STATE = {
 	error: false,
 };
 
-const budgetReducer = (state = INITIAL_STATE, action) => {
+const BudgetReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case FETCH_BUDGET_REQUEST:
 			return {
@@ -146,4 +146,4 @@ const budgetReducer = (state = INITIAL_STATE, action) => {
 			return state;
 	}
 };
-export default budgetReducer;
+export default BudgetReducer;

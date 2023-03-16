@@ -36,7 +36,7 @@ const INITIAL_STATE = {
 	error: false,
 };
 
-const groupReducer = (state = INITIAL_STATE, action) => {
+const GroupReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case FETCH_GROUP_REQUEST:
 			return {
@@ -314,4 +314,4 @@ const groupReducer = (state = INITIAL_STATE, action) => {
 	}
 };
 
-export default groupReducer;
+export default GroupReducer;

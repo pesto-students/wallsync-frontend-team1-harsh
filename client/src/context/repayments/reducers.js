@@ -18,7 +18,7 @@ const INITIAL_STATE = {
 	error: false,
 };
 
-const repaymentReducer = (state = INITIAL_STATE, action) => {
+const RepaymentReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case FETCH_REPAYMENT_REQUEST:
 			return {
@@ -108,4 +108,4 @@ const repaymentReducer = (state = INITIAL_STATE, action) => {
 	}
 };
 
-export default repaymentReducer;
+export default RepaymentReducer;
