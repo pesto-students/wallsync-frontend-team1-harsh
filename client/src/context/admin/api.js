@@ -13,6 +13,12 @@ import {
 	deleteUserRequest,
 	deleteUserFailure,
 	deleteUserSuccess,
+	editUserRequest,
+	editUserSuccess,
+	editUserFailure,
+	editGroupRequest,
+	editGroupSuccess,
+	editGroupFailure,
 } from "./actions";
 
 export const getUsers = () => {
@@ -77,10 +83,61 @@ export const deleteUserFromAdmin = (email) => {
 			})
 			.then((data) => {
 				console.log("admin delet user", data);
-				dispatch(deleteUserSuccess(/*data.data.deletedGroup.groupName*/));
+				dispatch(deleteUserSuccess(data.data.deletedUser.email));
 			})
 			.catch((err) => {
 				dispatch(deleteUserFailure());
+			});
+	};
+};
+
+export const editUserFromAdmin = (email, user) => {
+	return (dispatch) => {
+		dispatch(editUserRequest());
+
+		axios
+			.put(
+				`${config.apiUrl}/admin/${config.getUserId()}/editUser/${email}`,
+				user,
+				{
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: JSON.parse(localStorage.getItem("user"))
+							.access_token,
+					},
+				}
+			)
+			.then((data) => {
+				console.log("editedUseradmin", data.data);
+				dispatch(editUserSuccess(email, data.data.editedUser));
+			})
+			.catch((err) => {
+				dispatch(editUserFailure(err));
+			});
+	};
+};
+
+export const editGroupFromAdmin = (groupName, group) => {
+	return (dispatch) => {
+		dispatch(editGroupRequest());
+		axios
+			.put(
+				`${config.apiUrl}/admin/${config.getUserId()}/editGroup/${groupName}`,
+				group,
+				{
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: JSON.parse(localStorage.getItem("user"))
+							.access_token,
+					},
+				}
+			)
+			.then((data) => {
+				console.log("edit group admin", data.data);
+				dispatch(editGroupSuccess(groupName, data.data.editedGroup));
+			})
+			.catch((err) => {
+				dispatch(editGroupFailure(err));
 			});
 	};
 };

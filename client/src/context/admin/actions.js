@@ -11,6 +11,12 @@ import {
 	DELETE_USER_REQUEST,
 	DELETE_USER_FAILURE,
 	DELETE_USER_SUCCESS,
+	EDIT_USER_REQUEST,
+	EDIT_USER_SUCCESS,
+	EDIT_USER_FAILURE,
+	EDIT_GROUP_REQUEST,
+	EDIT_GROUP_SUCCESS,
+	EDIT_GROUP_FAILURE,
 } from "./types";
 export const getUsersRequest = () => {
 	return {
@@ -77,6 +83,40 @@ export const deleteUserSuccess = (email) => {
 export const deleteUserFailure = (error) => {
 	return {
 		type: DELETE_USER_FAILURE,
+		payload: error,
+	};
+};
+export const editUserRequest = () => {
+	return {
+		type: EDIT_USER_REQUEST,
+	};
+};
+export const editUserSuccess = (email, user) => {
+	return {
+		type: EDIT_USER_SUCCESS,
+		payload: { email, user },
+	};
+};
+export const editUserFailure = (error) => {
+	return {
+		type: EDIT_USER_FAILURE,
+		payload: error,
+	};
+};
+export const editGroupRequest = () => {
+	return {
+		type: EDIT_GROUP_REQUEST,
+	};
+};
+export const editGroupSuccess = (groupName, group) => {
+	return {
+		type: EDIT_GROUP_SUCCESS,
+		payload: { groupName, group },
+	};
+};
+export const editGroupFailure = (error) => {
+	return {
+		type: EDIT_GROUP_FAILURE,
 		payload: error,
 	};
 };

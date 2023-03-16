@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import AdminNav from "./AdminNav";
 import "./admin.css";
@@ -6,9 +6,21 @@ import { IconButton } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import SaveIcon from "@mui/icons-material/Save";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUserFromAdmin, getUsers } from "../../context/admin/api";
+import {
+	deleteUserFromAdmin,
+	editUserFromAdmin,
+	getUsers,
+} from "../../context/admin/api";
 
 const AdminUsers = () => {
+	const [editedRowData, setEditedRowData] = useState({
+		id: "",
+		firstName: "",
+		lastName: "",
+		email: "",
+		zip: "",
+		phone: "",
+	});
 	const allUsers = useSelector((state) => state.admin.users);
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -20,10 +32,10 @@ const AdminUsers = () => {
 	const handleCellEditCommit = (params) => {
 		const { field, value } = params;
 		const updatedRowData = { ...params.row, [field]: value };
-		// dispatch(editExpense(params.row.id, updatedRowData));
+		dispatch(editUserFromAdmin(params.row.email, updatedRowData));
 	};
 	const handleEdit = (rowData) => {
-		// setEditedRowData(rowData);
+		setEditedRowData(rowData);
 	};
 
 	const columns = [
@@ -130,6 +142,7 @@ const AdminUsers = () => {
 					pageSizeOptions={[5]}
 					checkboxSelection
 					disableRowSelectionOnClick
+					onCellEditCommit={handleCellEditCommit}
 				/>
 			</div>
 		</div>

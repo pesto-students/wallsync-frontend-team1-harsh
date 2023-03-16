@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import AdminNav from "./AdminNav";
 import "./admin.css";
@@ -6,9 +6,19 @@ import { IconButton } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import SaveIcon from "@mui/icons-material/Save";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteGroupFromAdmin, getGroups } from "../../context/admin/api";
+import {
+	deleteGroupFromAdmin,
+	editGroupFromAdmin,
+	getGroups,
+} from "../../context/admin/api";
 
 const AdminGroups = () => {
+	const [editedRowData, setEditedRowData] = useState({
+		id: "",
+		groupName: "",
+		groupDescription: "",
+		groupTotal: "",
+	});
 	const allGroups = useSelector((state) => state.admin.groups);
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -23,10 +33,10 @@ const AdminGroups = () => {
 	const handleCellEditCommit = (params) => {
 		const { field, value } = params;
 		const updatedRowData = { ...params.row, [field]: value };
-		// dispatch(editExpense(params.row.id, updatedRowData));
+		dispatch(editGroupFromAdmin(params.row.groupName, updatedRowData));
 	};
 	const handleEdit = (rowData) => {
-		// setEditedRowData(rowData);
+		setEditedRowData(rowData);
 	};
 
 	const columns = [

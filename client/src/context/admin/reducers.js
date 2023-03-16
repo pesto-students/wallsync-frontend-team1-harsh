@@ -11,6 +11,12 @@ import {
 	DELETE_USER_REQUEST,
 	DELETE_USER_FAILURE,
 	DELETE_USER_SUCCESS,
+	EDIT_USER_REQUEST,
+	EDIT_USER_SUCCESS,
+	EDIT_USER_FAILURE,
+	EDIT_GROUP_REQUEST,
+	EDIT_GROUP_SUCCESS,
+	EDIT_GROUP_FAILURE,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -98,6 +104,52 @@ const AdminReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 			};
 		case DELETE_USER_FAILURE:
+			return {
+				...state,
+				isFetching: false,
+				error: action.payload,
+			};
+		case EDIT_USER_REQUEST:
+			return {
+				...state,
+				isFetching: true,
+				error: false,
+			};
+		case EDIT_USER_SUCCESS:
+			return {
+				...state,
+				isFetching: false,
+				users: state.users.map((item) =>
+					item.email === action.payload.email
+						? { ...item, ...action.payload.user }
+						: item
+				),
+				error: false,
+			};
+		case EDIT_USER_FAILURE:
+			return {
+				...state,
+				isFetching: false,
+				error: action.payload,
+			};
+		case EDIT_GROUP_REQUEST:
+			return {
+				...state,
+				isFetching: true,
+				error: false,
+			};
+		case EDIT_GROUP_SUCCESS:
+			return {
+				...state,
+				isFetching: false,
+				groups: state.groups.map((item) =>
+					item.groupName === action.payload.groupName
+						? { ...item, ...action.payload.group }
+						: item
+				),
+				error: false,
+			};
+		case EDIT_GROUP_FAILURE:
 			return {
 				...state,
 				isFetching: false,
