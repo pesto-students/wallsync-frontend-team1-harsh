@@ -85,7 +85,10 @@ const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 				isFetching: false,
 				isSignedIn: true,
 				error: false,
-				user: action.payload,
+				user: {
+					...state.user,
+					user: { ...state.user.user, ...action.payload },
+				},
 			};
 		case UPDATE_USER_FAILURE:
 			return {

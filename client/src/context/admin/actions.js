@@ -8,6 +8,9 @@ import {
 	DELETE_GROUP_REQUEST,
 	DELETE_GROUP_SUCCESS,
 	DELETE_GROUP_FAILURE,
+	DELETE_USER_REQUEST,
+	DELETE_USER_FAILURE,
+	DELETE_USER_SUCCESS,
 } from "./types";
 export const getUsersRequest = () => {
 	return {
@@ -57,6 +60,23 @@ export const deleteGroupSuccess = (groupName) => {
 export const deleteGroupFailure = (error) => {
 	return {
 		type: DELETE_GROUP_FAILURE,
+		payload: error,
+	};
+};
+export const deleteUserRequest = () => {
+	return {
+		type: DELETE_USER_REQUEST,
+	};
+};
+export const deleteUserSuccess = (email) => {
+	return {
+		type: DELETE_USER_SUCCESS,
+		payload: email,
+	};
+};
+export const deleteUserFailure = (error) => {
+	return {
+		type: DELETE_USER_FAILURE,
 		payload: error,
 	};
 };

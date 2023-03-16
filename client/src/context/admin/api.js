@@ -10,6 +10,9 @@ import {
 	deleteGroupRequest,
 	deleteGroupFailure,
 	deleteGroupSuccess,
+	deleteUserRequest,
+	deleteUserFailure,
+	deleteUserSuccess,
 } from "./actions";
 
 export const getUsers = () => {
@@ -59,6 +62,25 @@ export const deleteGroupFromAdmin = (groupName) => {
 			})
 			.catch((err) => {
 				dispatch(deleteGroupFailure());
+			});
+	};
+};
+
+export const deleteUserFromAdmin = (email) => {
+	return (dispatch) => {
+		dispatch(deleteUserRequest());
+		axios
+			.delete(`${config.apiUrl}/admin/${config.getUserId()}/delete/${email}`, {
+				headers: {
+					Authorization: JSON.parse(localStorage.getItem("user")).access_token,
+				},
+			})
+			.then((data) => {
+				console.log("admin delet user", data);
+				dispatch(deleteUserSuccess(/*data.data.deletedGroup.groupName*/));
+			})
+			.catch((err) => {
+				dispatch(deleteUserFailure());
 			});
 	};
 };

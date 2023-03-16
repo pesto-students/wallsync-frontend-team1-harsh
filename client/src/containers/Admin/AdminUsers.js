@@ -6,7 +6,7 @@ import { IconButton } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import SaveIcon from "@mui/icons-material/Save";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../context/admin/api";
+import { deleteUserFromAdmin, getUsers } from "../../context/admin/api";
 
 const AdminUsers = () => {
 	const allUsers = useSelector((state) => state.admin.users);
@@ -14,9 +14,8 @@ const AdminUsers = () => {
 	useEffect(() => {
 		dispatch(getUsers());
 	}, []);
-	const handleDelete = (expenseId) => {
-		// dispatch(deleteExpense(expenseId));
-		// notifyDelete();
+	const handleDelete = (email) => {
+		dispatch(deleteUserFromAdmin(email));
 	};
 	const handleCellEditCommit = (params) => {
 		const { field, value } = params;
@@ -85,7 +84,9 @@ const AdminUsers = () => {
 				return (
 					<>
 						<IconButton>
-							<DeleteOutlineIcon onClick={() => handleDelete(params.row.id)} />
+							<DeleteOutlineIcon
+								onClick={() => handleDelete(params.row.email)}
+							/>
 						</IconButton>
 					</>
 				);

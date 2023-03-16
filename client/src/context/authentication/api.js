@@ -26,7 +26,7 @@ export const register = (user) => {
 			})
 			.then((res) => {
 				console.log("trying to register", res);
-				dispatch(registerSuccess());
+				dispatch(registerSuccess(res.data.userdata));
 			})
 			.catch((err) => {
 				console.log(err);
@@ -44,6 +44,7 @@ export const login = (user) => {
 				const user = data.data;
 				data.data.access_token && dispatch(loginSuccess(user));
 				localStorage.setItem("user", JSON.stringify(user));
+				console.log(user, "logger");
 			})
 			.catch((err) => {
 				dispatch(loginFailure(err));

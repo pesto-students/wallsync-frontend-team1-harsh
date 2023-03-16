@@ -9,8 +9,10 @@ import { Link } from "react-router-dom";
 import GoogleB from "../../components/GB/Google";
 import LandingHeader from "../../components/header/LangingHeader";
 import { useDispatch } from "react-redux";
-import { register, login } from "../../context/authentication/api";
+import { register } from "../../context/authentication/api";
+import { useNavigate } from "react-router-dom";
 const Signup = () => {
+	const navigate = useNavigate();
 	const [userInfo, setUserInfo] = useState({
 		firstName: "",
 		lastName: "",
@@ -29,6 +31,7 @@ const Signup = () => {
 	};
 
 	const handleSubmit = (e) => {
+		console.log("tryuing to sign in");
 		e.preventDefault();
 		const {
 			firstName,
@@ -51,7 +54,9 @@ const Signup = () => {
 					zip,
 					password,
 				})
-			);
+			).then(() => {
+				navigate("/home");
+			});
 		}
 		setUserInfo({
 			firstName: "",
@@ -156,15 +161,13 @@ const Signup = () => {
 								<p> Recieve emails & newsletters from WallSync</p>
 							</div>
 							<div className="infoLabelTick">
-								<input type="checkbox" required="true" />
+								<input type="checkbox" /*required={true}*/ />
 								<p>I Agree to all privacy policies</p>
 							</div>
 						</div>
 
 						<div className="formSignupButton">
-							<Link to="/login">
-								<Button type="submit" buttonName="SignUp" className="signUpB" />
-							</Link>
+							<Button type="submit" buttonName="SignUp" className="signUpB" />
 							or
 							<GoogleB />
 						</div>

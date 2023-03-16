@@ -25,9 +25,7 @@ const Profile = () => {
 	const [previewUrl, setPreviewUrl] = useState("");
 
 	const profileData = useSelector((state) => state.authentication.user.user);
-	// const profilePic = useSelector(
-	// 	(state) => state.authentication.user.user.profilePicture
-	// );
+
 	const profilePic = profileData ? profileData.profilePicture : null;
 	const dispatch = useDispatch();
 
@@ -39,6 +37,8 @@ const Profile = () => {
 	});
 	const handleEditUser = (e) => {
 		e.preventDefault();
+		console.log(profileData, "printtt 23");
+
 		dispatch(
 			updateUser({
 				firstName: editedFirstName,
@@ -48,14 +48,13 @@ const Profile = () => {
 				zip: editedZip,
 			})
 		);
+		console.log(profileData, "printtt");
 		setEditedFirstName("");
 		setEditedLastName("");
 		setEditedEmail("");
 		setEditedPhone("");
 		setEditedZip("");
 	};
-
-	console.log(profileData);
 
 	const handleImageUpload = async (e) => {
 		e.preventDefault();

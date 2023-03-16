@@ -32,17 +32,21 @@ const Home = () => {
 	const latestRepayment = (data) => {
 		let nearestDueDate;
 		let repay;
-		data.forEach((item) => {
-			if (!nearestDueDate || nearestDueDate > item.dueDate) {
-				nearestDueDate = item.dueDate;
-				repay = item;
-				b = {
-					type: repay.description,
-					date: repay.dueDate.toString().substr(0, 10),
-					amount: repay.amount,
-				};
-			}
-		});
+		console.log(data.length, "length datat");
+		if (data.length > 0) {
+			data.forEach((item) => {
+				if (!nearestDueDate || nearestDueDate > item.dueDate) {
+					nearestDueDate = item.dueDate;
+					repay = item;
+					b = {
+						type: repay.description,
+						date: repay.dueDate.toString().substr(0, 10),
+						amount: repay.amount,
+					};
+				}
+			});
+		}
+
 		return b;
 	};
 	let repaymentPanelData = latestRepayment(firstRepaymentData);

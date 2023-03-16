@@ -8,6 +8,9 @@ import {
 	DELETE_GROUP_REQUEST,
 	DELETE_GROUP_SUCCESS,
 	DELETE_GROUP_FAILURE,
+	DELETE_USER_REQUEST,
+	DELETE_USER_FAILURE,
+	DELETE_USER_SUCCESS,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -76,6 +79,25 @@ const AdminReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 			};
 		case DELETE_GROUP_FAILURE:
+			return {
+				...state,
+				isFetching: false,
+				error: action.payload,
+			};
+		case DELETE_USER_REQUEST:
+			return {
+				...state,
+				isFetching: true,
+				error: false,
+			};
+		case DELETE_USER_SUCCESS:
+			return {
+				...state,
+				isFetching: false,
+				users: state.users.filter((item) => item.email !== action.payload),
+				error: false,
+			};
+		case DELETE_USER_FAILURE:
 			return {
 				...state,
 				isFetching: false,

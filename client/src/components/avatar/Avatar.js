@@ -13,7 +13,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Avatar = () => {
 	const dispatch = useDispatch();
-	const profileData = useSelector((state) => state.authentication.user.user);
+	const profileData = useSelector(
+		(state) => state.authentication.user && state.authentication.user.user
+	);
 	// const profilePic = useSelector(
 	// 	(state) => state.authentication.user.user.profilePicture
 	// );
@@ -33,9 +35,10 @@ const Avatar = () => {
 	const notify = () => {
 		toast("Logged out!");
 	};
+	console.log(profilePic && profilePic, "checking profile pic");
 	return (
 		<div className="dropicon">
-			{profilePic && profilePic ? (
+			{profilePic && profilePic.public_id ? (
 				<AdvancedImage
 					cldImg={cld
 						.image(profilePic.public_id)
