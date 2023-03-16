@@ -5,6 +5,9 @@ import {
 	GET_GROUPS_REQUEST,
 	GET_GROUPS_SUCCESS,
 	GET_GROUPS_FAILURE,
+	DELETE_GROUP_REQUEST,
+	DELETE_GROUP_SUCCESS,
+	DELETE_GROUP_FAILURE,
 } from "./types";
 export const getUsersRequest = () => {
 	return {
@@ -37,6 +40,23 @@ export const getGroupsSuccess = (groups) => {
 export const getGroupsFailure = (error) => {
 	return {
 		type: GET_GROUPS_FAILURE,
+		payload: error,
+	};
+};
+export const deleteGroupRequest = () => {
+	return {
+		type: DELETE_GROUP_REQUEST,
+	};
+};
+export const deleteGroupSuccess = (groupName) => {
+	return {
+		type: DELETE_GROUP_SUCCESS,
+		payload: groupName,
+	};
+};
+export const deleteGroupFailure = (error) => {
+	return {
+		type: DELETE_GROUP_FAILURE,
 		payload: error,
 	};
 };

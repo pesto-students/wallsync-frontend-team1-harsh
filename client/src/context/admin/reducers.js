@@ -5,6 +5,9 @@ import {
 	GET_GROUPS_REQUEST,
 	GET_GROUPS_SUCCESS,
 	GET_GROUPS_FAILURE,
+	DELETE_GROUP_REQUEST,
+	DELETE_GROUP_SUCCESS,
+	DELETE_GROUP_FAILURE,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -56,6 +59,27 @@ const AdminReducer = (state = INITIAL_STATE, action) => {
 				groups: [],
 				isFetching: false,
 				error: true,
+			};
+		case DELETE_GROUP_REQUEST:
+			return {
+				...state,
+				isFetching: true,
+				error: false,
+			};
+		case DELETE_GROUP_SUCCESS:
+			return {
+				...state,
+				isFetching: false,
+				groups: state.groups.filter(
+					(item) => item.groupName !== action.payload
+				),
+				error: false,
+			};
+		case DELETE_GROUP_FAILURE:
+			return {
+				...state,
+				isFetching: false,
+				error: action.payload,
 			};
 		default:
 			return { ...state };
