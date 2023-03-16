@@ -30,9 +30,30 @@
     display: flex;
     align-items: center;
 }
-.slideImage img{
-    width:90%;
-    height:90%;
+/* .slideImage img{
+    width:80%;
+    height:70%;
+} */
+.slideimg.slide0 {
+  /* CSS styles for the second image */
+  width:85%;
+  height:80%;
+}
+.slideimg.slide1{
+  width:90%;
+  height:80%;
+}
+.slideimg.slide2{
+  width:76%;
+  height:85%;
+}
+.slideimg.slide3{
+  width:55%;
+  height:100%;
+}
+.slideimg.slide4{
+  width:70%;
+  height:70%;
 }
 .slideText {
     width:40vw;
