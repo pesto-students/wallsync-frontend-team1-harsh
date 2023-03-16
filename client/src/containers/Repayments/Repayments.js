@@ -64,7 +64,7 @@ const Repayments = ({}) => {
 		notifyDelete();
 	};
 	const columns = [
-		{ field: "id", headerName: "ID", width: 70, hidden: true },
+		{ field: "id", headerName: "ID", width: 70, hide: true },
 		{
 			field: "description",
 			headerName: "Description",
@@ -135,7 +135,7 @@ const Repayments = ({}) => {
 					id: index._id,
 					description: index.description,
 					amount: index.amount,
-					date: index.dueDate,
+					date: index.dueDate.toString().substr(0, 10),
 				});
 			});
 	}

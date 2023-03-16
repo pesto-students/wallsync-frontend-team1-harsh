@@ -25,7 +25,7 @@ import TermsConditions from "./containers/TermsConditions/TermsConditions";
 
 const App = () => {
 	let user = useSelector((state) => state.authentication.isSignedIn);
-	let admin = useSelector((state) => state.authentication.user.user.isAdmin);
+	// let admin = useSelector((state) => state.authentication.user.user.isAdmin);
 	console.log("here", user);
 	const router = createBrowserRouter([
 		{
@@ -48,7 +48,8 @@ const App = () => {
 
 		{
 			path: "/adminUsers",
-			element: admin ? <AdminUsers /> : <Navigate to="/" />,
+			element: <AdminUsers />,
+			// : <Navigate to="/" />,
 		},
 		{
 			path: "/adminGroups",

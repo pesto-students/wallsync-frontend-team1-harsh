@@ -35,7 +35,7 @@ const CarouselDiv = () => {
 					src={
 						"https://in.widgets.investing.com/top-cryptocurrencies?theme=darkTheme"
 					}
-					width={"100%"}
+					width={"80%"}
 					height={"100%"}
 					frameborder={"0"}
 					allowtransparency={"true"}
@@ -47,7 +47,7 @@ const CarouselDiv = () => {
 			<div>
 				<iframe
 					src="https://sslecal2.investing.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=25,34,32,6,37,72,71,22,17,51,39,14,33,10,35,42,43,45,38,56,36,110,11,26,9,12,41,4,5,178&calType=week&timeZone=23&lang=56"
-					width="650"
+					width="500"
 					height="467"
 					frameborder="0"
 					allowtransparency="true"
@@ -62,7 +62,7 @@ const CarouselDiv = () => {
 					src={
 						"https://in.widgets.investing.com/live-currency-cross-rates?theme=darkTheme"
 					}
-					width={"100%"}
+					width={"80%"}
 					height={"100%"}
 					frameborder={"0"}
 					allowtransparency={"true"}

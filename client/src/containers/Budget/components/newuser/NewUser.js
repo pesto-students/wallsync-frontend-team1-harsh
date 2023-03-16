@@ -45,11 +45,11 @@ const NewUser = () => {
 	);
 };
 
-// export default NewUser;
-const NewUserWithErrorBoundary = () => (
-	<ErrorBoundary>
-		<NewUser />
-	</ErrorBoundary>
-);
+export default NewUser;
+// const NewUserWithErrorBoundary = () => (
+// 	<ErrorBoundary>
+// 		<NewUser />
+// 	</ErrorBoundary>
+// );
 
-export default NewUserWithErrorBoundary;
+// export default NewUserWithErrorBoundary;

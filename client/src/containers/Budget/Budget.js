@@ -20,7 +20,8 @@ import {
 	editExpense,
 	getBudget,
 } from "../../context/budget/api";
-import NewUser from "./components/newuser/NewUser";
+import NewUser from "../Budget/components/newuser/NewUser";
+
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 const Budget = () => {
 	const [description, setDescription] = useState("");
@@ -34,6 +35,7 @@ const Budget = () => {
 	});
 	const dispatch = useDispatch();
 	const budgetData = useSelector((state) => state.budget.budget);
+
 	const expenseData = useSelector(
 		(state) => state.budget.budget && state.budget.budget.expensesArray
 	);
@@ -69,7 +71,7 @@ const Budget = () => {
 	};
 	//table data
 	const columns = [
-		{ field: "id", headerName: "ID", width: 70 },
+		{ field: "id", headerName: "ID", width: 70, hide: true },
 		{
 			field: "description",
 			headerName: "Description",
@@ -171,11 +173,7 @@ const Budget = () => {
 			<div className="container">
 				<Nav />
 				<div className="budgetBody">
-					{!budgetData && (
-						// <ErrorBoundary>
-						<NewUser />
-						// </ErrorBoundary>
-					)}
+					{!budgetData && <NewUser />}
 					<div className="one">
 						<Table
 							rowData={rows}

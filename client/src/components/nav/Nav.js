@@ -9,73 +9,82 @@ import settings from "../../assets/icons8-settings-64.png";
 import PeopleIcon from "@mui/icons-material/People";
 import SettingsIcon from "@mui/icons-material/Settings";
 import HomeIcon from "@mui/icons-material/Home";
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import { logout } from "../../context/authentication/api";
+
 // import DialogTitle from '@mui/material/DialogTitle';
 // import Dialog from '@mui/material/Dialog';
-import Dialogue from '../dialog/Dialogue'
+import Dialogue from "../dialog/Dialogue";
 import Toggle from "./toggle/Toggle";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getRepayments } from "../../context/repayments/api";
 
 const Nav = () => {
-
- 
-
-  return (
-    <div className="navbar">
-      <div className="sidenav">
-        <ul className="top">
-          <Link style={{ textDecoration: "none" }} to="/home">
-            <li>
-              <HomeIcon />
-              <p>Home</p>
-            </li>
-          </Link>
-          <li>
-            <PeopleIcon />
-            <p>Friends</p>
-          </li>
-          <li>
-            <AccountBalanceWalletIcon />
-            <p>Wallet</p>
-          </li>
-          <li>
-            <NotificationsIcon/>
-            <Dialogue/>
-            {/* <p>Notifications</p> */}
-          </li>
-          <li>
-            <Toggle />
-            <p>switch</p>
-          </li>
-          <Link to="/settings">
-            <li>
-              <SettingsIcon />
-              <p>settings</p>
-            </li>
-          </Link>
-        </ul>
-        <ul className="bottom">
-          <Link to="/">
-            <li>
-              <LogoutIcon />
-              <p>Logout</p>
-            </li>
-          </Link>
-        </ul>
-      </div>
-      <div className="mobilenav">
-        <ul className="mobilenavbottom">
-         <Link to='/home' ><img src={home} /></Link> 
-         <Link to='/' ><img src={menu} /></Link> 
-         <Link to='/' ><img src={wallet} /></Link> 
-         <Link to='/settings' ><img src={settings} /></Link> 
-        </ul>
-      </div>
-    </div>
-  );
+	const dispatch = useDispatch();
+	const handleLogout = () => {
+		dispatch(logout());
+	};
+	return (
+		<div className="navbar">
+			<div className="sidenav">
+				<ul className="top">
+					<Link style={{ textDecoration: "none" }} to="/home">
+						<li>
+							<HomeIcon />
+							<p>Home</p>
+						</li>
+					</Link>
+					<li>
+						<PeopleIcon />
+						<p>Friends</p>
+					</li>
+					<li>
+						<AccountBalanceWalletIcon />
+						<p>Wallet</p>
+					</li>
+					<li>
+						<NotificationsIcon />
+						<Dialogue />
+						{/* <p>Notifications</p> */}
+					</li>
+					<li>
+						<Toggle />
+						<p>switch</p>
+					</li>
+					<Link to="/settings">
+						<li>
+							<SettingsIcon />
+							<p>settings</p>
+						</li>
+					</Link>
+				</ul>
+				<ul className="bottom">
+					<li>
+						<LogoutIcon onClick={handleLogout} />
+						<p>Logout</p>
+					</li>
+				</ul>
+			</div>
+			<div className="mobilenav">
+				<ul className="mobilenavbottom">
+					<Link to="/home">
+						<img src={home} />
+					</Link>
+					<Link to="/">
+						<img src={menu} />
+					</Link>
+					<Link to="/">
+						<img src={wallet} />
+					</Link>
+					<Link to="/settings">
+						<img src={settings} />
+					</Link>
+				</ul>
+			</div>
+		</div>
+	);
 };
 
 export default Nav;
