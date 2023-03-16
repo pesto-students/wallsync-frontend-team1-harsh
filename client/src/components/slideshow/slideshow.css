@@ -9,10 +9,13 @@
   height: 60vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    justify-content: center;
+
     transition-duration: 2s;
     animation-name: wipe-in-right;
     margin-top: 8vh;
+    gap:7%;
   }
   .bodyContainer p{
   font-family: 'Abril Fatface', cursive;
@@ -23,6 +26,7 @@
   font-style: normal;
   font-family: 'Monoton', cursive;
   font-size: 2em;
+  
 }
 .slideImage {
     height: 30em;
@@ -52,8 +56,8 @@
   height:100%;
 }
 .slideimg.slide4{
-  width:70%;
-  height:70%;
+  width:80%;
+  height:80%;
 }
 .slideText {
     width:40vw;
@@ -96,9 +100,7 @@
     transition: none;
     transform: translateX(0);
 }
-.slideImage img{
 
-}
 .slideText {
     width:50vw;
     /* height: 30vh; */

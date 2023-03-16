@@ -31,6 +31,7 @@ const App = () => {
 			path: "/",
 			element: !user ? <Landing /> : <Navigate to="/home" />,
 		},
+
 		{
 			path: "/signup",
 			element: !user ? <Signup /> : <Navigate to="/home" />,
@@ -43,10 +44,7 @@ const App = () => {
 			path: "/home",
 			element: user ? <Home /> : <Navigate to="/" />,
 		},
-		{
-			path: "/termsAndConditions",
-			element: <TermsConditions />,
-		},
+
 		{
 			path: "/adminUsers",
 			element: user ? <AdminUsers /> : <Navigate to="/" />,
@@ -55,14 +53,6 @@ const App = () => {
 			path: "/adminGroups",
 			element: user ? <AdminGroups /> : <Navigate to="/" />,
 		},
-		// {
-		// 	path: "/adminUsers",
-		// 	element: user.isAdmin ? <AdminUsers /> : <Navigate to="/" />,
-		// },{
-		// 	path: "/adminGroups",
-		// 	element: user.isAdmin ? <AdminGroups /> : <Navigate to="/" />,
-		// },
-
 
 		{
 			path: "/settings",
@@ -70,7 +60,11 @@ const App = () => {
 		},
 		{
 			path: "/profile",
-			element: <Profile />,
+			element: user ? <Profile /> : <Navigate to="/" />,
+		},
+		{
+			path: "/termsAndConditions",
+			element: user ? <TermsConditions /> : <Navigate to="/" />,
 		},
 		{
 			path: "/repayments",
