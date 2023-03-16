@@ -1,4 +1,7 @@
 import {
+	REGISTER_REQUEST,
+	REGISTER_FAILURE,
+	REGISTER_SUCCESS,
 	LOGIN_REQUEST,
 	LOGIN_SUCCESS,
 	LOGIN_FAILURE,
@@ -10,6 +13,23 @@ import {
 	UPDATE_PP_SUCCESS,
 	UPDATE_PP_FAILURE,
 } from "./types";
+export const registerRequest = () => {
+	return {
+		type: REGISTER_REQUEST,
+	};
+};
+export const registerSuccess = (user) => {
+	return {
+		type: REGISTER_SUCCESS,
+		payload: user,
+	};
+};
+export const registerFailure = (error) => {
+	return {
+		type: REGISTER_FAILURE,
+		payload: error,
+	};
+};
 export const loginRequest = () => {
 	return {
 		type: LOGIN_REQUEST,

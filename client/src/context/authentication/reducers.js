@@ -9,6 +9,9 @@ import {
 	UPDATE_PP_REQUEST,
 	UPDATE_PP_SUCCESS,
 	UPDATE_PP_FAILURE,
+	REGISTER_REQUEST,
+	REGISTER_SUCCESS,
+	REGISTER_FAILURE,
 } from "./types";
 const INITIAL_STATE = {
 	user: JSON.parse(localStorage.getItem("user")) || null,
@@ -18,6 +21,28 @@ const INITIAL_STATE = {
 };
 const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
+		case REGISTER_REQUEST:
+			return {
+				user: null,
+				isFetching: true,
+				error: false,
+				isSignedIn: false,
+			};
+		case REGISTER_SUCCESS:
+			return {
+				...state,
+				user: action.payload,
+				isFetching: false,
+				isSignedIn: true,
+				error: false,
+			};
+		case REGISTER_FAILURE:
+			return {
+				user: null,
+				isFetching: false,
+				isSignedIn: false,
+				error: action.payload,
+			};
 		case LOGIN_REQUEST:
 			return {
 				user: null,

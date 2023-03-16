@@ -9,17 +9,38 @@ import {
 	updatePPRequest,
 	updatePPFailure,
 	updatePPSuccess,
+	registerRequest,
+	registerSuccess,
+	registerFailure,
 } from "./actions";
 import axios from "axios";
 import config from "../../config/config";
+export const register = (user) => {
+	return (dispatch) => {
+		dispatch(registerRequest());
+		axios
+			.post(`${config.apiUrl}/register`, user, {
+				headers: {
+					"Content-Type": "application/json",
+				},
+			})
+			.then((res) => {
+				console.log("trying to register", res);
+				dispatch(registerSuccess());
+			})
+			.catch((err) => {
+				console.log(err);
+				dispatch(registerFailure());
+			});
+	};
+};
 export const login = (user) => {
 	return (dispatch) => {
 		dispatch(loginRequest());
 
 		return axios
-			.post("http://localhost:8000/api/login", user)
+			.post(`${config.apiUrl}/login`, user)
 			.then((data) => {
-				console.log("userrrrr", data);
 				const user = data.data;
 				data.data.access_token && dispatch(loginSuccess(user));
 				localStorage.setItem("user", JSON.stringify(user));
@@ -71,7 +92,6 @@ export const updatePP = (user) => {
 				}
 			)
 			.then((data) => {
-				console.log("updating", data.data.updatedUser.profilePicture.public_id);
 				dispatch(
 					updatePPSuccess(data.data.updatedUser.profilePicture.public_id)
 				);
