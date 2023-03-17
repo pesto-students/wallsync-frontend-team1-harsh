@@ -10,6 +10,7 @@ import Repayments from "./containers/Repayments/Repayments";
 import LiveMarket from "./containers/LiveMarket/LiveMarket";
 import AdminGroups from "./containers/Admin/AdminGroups";
 import AdminUsers from "./containers/Admin/AdminUsers";
+import WhatsNew from "./containers/WhatsNew/WhatsNew";
 import { useSelector } from "react-redux";
 import * as Sentry from "@sentry/react";
 
@@ -61,6 +62,10 @@ const App = () => {
 		{
 			path: "/settings",
 			element: <Settings />,
+		},
+		{
+			path: "/whatsNew",
+			element: <WhatsNew/>,
 		},
 		{
 			path: "/profile",

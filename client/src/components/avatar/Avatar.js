@@ -35,6 +35,7 @@ const Avatar = () => {
     <div className="dropicon">
       {profilePic && profilePic.public_id ? (
         <AdvancedImage
+          className="RenderedPP"
           cldImg={cld
             .image(profilePic.public_id)
             .resize(scale().width(50).height(50))}

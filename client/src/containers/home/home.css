@@ -73,6 +73,7 @@
     background-color: #1e1e1e;
     width: 90vw;
     padding: 5%;
+    margin-top: -4vh;
     border-radius: 25px 25px 25px 25px;
     display: flex;
     flex-direction: column;

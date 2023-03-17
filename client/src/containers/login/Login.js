@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../../components/button/Button";
 import "./login.css";
 import Footer from "../../components/footer/Footer";
-import pic1 from "../../assets/login.png";
+import pic1 from "../../assets/1st.png";
 import Google from "../../components/GB/Google";
 import { login } from "../../context/authentication/api";
 import { Link, useNavigate } from "react-router-dom";
@@ -54,7 +54,7 @@ const Login = () => {
 
       <div className="loginbody">
         <div className="loginimages">
-          <img src={pic1} alt="" />
+          <img src={pic1} alt="Login Image" />
         </div>
         <div className="loginform">
           <form onSubmit={(e) => handleSubmit(e)}>

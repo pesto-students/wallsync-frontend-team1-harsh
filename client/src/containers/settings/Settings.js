@@ -50,10 +50,12 @@ const Settings = () => {
 							panelName="Help"
 							panelData={
 								<>
-									<span>Contact Us</span>
-									<a href="">Guide</a>
+									<span>Contact Us : &nbsp;</span>
+									<a href = "mailto: wallsyncapp@gmail.com">wallsyncapp@gmail.com</a>
+									<p>We will respond to all the queries as soon as possible</p>
 								</>
 							}
+
 						/>
 						<Panel
 							className="settingsPanel"

@@ -50,7 +50,7 @@ const Panel = ({ panelName, panelClass, panelLogo, panelData, linkTo }) => {
             }}
           ></AccordionSummary>
           <Typography sx={{ width: "33%", flexShrink: 0 }}>
-            <img src={panelLogo} className="panelLogo"></img>
+            <img src={panelLogo} alt="Home Dashboard Images" className="panelLogo"></img>
           </Typography>
           <Typography sx={{ color: "text.secondary" }}>{panelName}</Typography>
         </AccordionSummary>

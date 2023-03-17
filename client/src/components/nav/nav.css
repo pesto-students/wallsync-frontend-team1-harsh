@@ -85,7 +85,10 @@ ul li p:hover{
         top:90vh;
         left: 0;
     }
-    .mobilenavbottom img{
+    .mobilenav li{
+        list-style: none;
+    }
+    .mobilenav img{
         margin: 5vw;
         width: 10vw;
         height:5vh;
@@ -139,6 +142,7 @@ ul li p:hover{
     }
     .sidenav:hover{
         width: 30vw;
+
     }
     .sidenav:hover ul li p{
         display: block;

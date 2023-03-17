@@ -172,7 +172,7 @@ const Signup = () => {
 					</form>
 				</div>
 				<div className="signupImages">
-					<img src={pic1} alt="" />
+					<img src={pic1} alt="SignUp Image" />
 				</div>
 			</div>
 			<Footer />
