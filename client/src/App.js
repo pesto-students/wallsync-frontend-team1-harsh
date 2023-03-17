@@ -11,6 +11,8 @@ import LiveMarket from "./containers/LiveMarket/LiveMarket";
 import AdminGroups from "./containers/Admin/AdminGroups";
 import AdminUsers from "./containers/Admin/AdminUsers";
 import { useSelector } from "react-redux";
+import * as Sentry from "@sentry/react";
+
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
@@ -87,4 +89,4 @@ const App = () => {
 	]);
 	return <RouterProvider router={router} />;
 };
-export default App;
+export default Sentry.withProfiler(App);
