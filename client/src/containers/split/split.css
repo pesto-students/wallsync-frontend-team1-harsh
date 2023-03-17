@@ -11,14 +11,24 @@
     background-color: #1e1e1e;
     width: 84%;
     height: 80vh;
-    /* height: auto; */
+    
     padding: 2%;
     border-radius: 25px 0 0 25px;
     display: flex;
     flex-direction: column;
     gap: 4vh;
-    /* justify-content: space-between; */
+ 
     overflow-y: scroll;
+  }
+  .inviteForm{
+    background-color: #c79165;
+    padding: 5%;
+    margin: -15%;
+  }
+  .inviteForm input{
+    width: 11em;
+    border-radius: 10px;
+    margin-bottom: 10%;
   }
   .cont{
     display:flex;
@@ -39,9 +49,8 @@
     font-size: 2em;
     color:white;
     text-align: center;
-    overflow-y: scroll;
-    /* font-family: 'Gloock', serif; */
-    /* font-family: 'Gloock', serif; */
+    overflow-y: scroll hidden;
+   
   } 
   .first ul form{
     display: flex;
@@ -50,23 +59,16 @@
    margin-top: 20%;
   }
   .activityTable .addControForm{
-    /* background-color: aqua; */
+   
     display: flex;
     gap: 2vw;
     justify-content: space-evenly;
   }
+  
   .addControForm input{
     border-radius: 10px;
   }
-  /* .second{
-    display:flex;
-    margin:2%
-  }
-  .second form{
-    display: flex;
-flex-direction: row;
-justify-content: flex-start;
-  } */
+ 
   .cont{
     background-color: #1e1e1e;
     padding: 2%;

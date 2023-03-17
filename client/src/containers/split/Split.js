@@ -246,11 +246,12 @@ const Split = () => {
 											<AddMemberPopover
 												addMemberPopData={
 													<form
+														className="inviteForm"
 														onSubmit={(e) => handleAddMember(e, i.groupName)}
 													>
 														<input
 															value={newMember}
-															placeholder="add email or phone number"
+															placeholder="add email"
 															name="email"
 															onChange={(e) => setNewMember(e.target.value)}
 														></input>
