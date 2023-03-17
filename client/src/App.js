@@ -35,7 +35,7 @@ const App = () => {
 
 		{
 			path: "/signup",
-			element: !user ? <Signup /> : <Navigate to="/login" />,
+			element: <Signup />,
 		},
 		{
 			path: "/login",
