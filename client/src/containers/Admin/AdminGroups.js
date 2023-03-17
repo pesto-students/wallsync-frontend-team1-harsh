@@ -107,7 +107,7 @@ const AdminGroups = () => {
 
 	return (
 		<div className="adminGroups">
-			<h1>WALLSYNC GROUPS</h1>
+			<h1>ADMIN PANEL : WALLSYNC GROUPS</h1>
 			<AdminNav />
 			<div className="groupsTable">
 				<DataGrid

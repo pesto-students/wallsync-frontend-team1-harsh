@@ -1,33 +1,91 @@
 .carouselDiv{
-height:600px
-}
-.cryptoFrame{
-    padding: 2%;
-    margin-right: 15em;
-    border: 0.2em solid #E26E2D;
-    border-radius: 25px;
-    height: 60vh;
-    width: 60vw;;
-    overflow: hidden;
-}
-.economicCalendarFrame{
-    margin-right: 15em;
-
-    padding: 2%;
-    border: 0.2em solid #E26E2D;
-    border-radius: 25px;
-    height: 60vh;
-    width: 50vw;;
-    overflow: hidden;
-}
-
-.currencyCrossFrame{
-    margin-right: 30em;
-
-    padding: 2%;
-    border: 0.2em solid #E26E2D;
-    border-radius: 25px;
-    height: 55vh;
-    width: 60vw;;
-    overflow: hidden;
-}
+  height:60vh;
+  background-color: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  .cryptoFrame{
+      padding: 2%;
+      border: 0.2em solid #E26E2D;
+      border-radius: 25px;
+      height: 60vh;
+      width: 75vw;
+      overflow: hidden;
+      margin-left: -15vw;
+  }
+  .economicCalendarFrame{
+      padding: 2%;
+      border: 0.2em solid #E26E2D;
+      border-radius: 25px;
+      height: 60vh;
+      width: 40vw;
+      overflow: hidden;
+      margin-left: -23vw;
+  }
+  .currencyCrossFrame{
+      padding: 2%;
+      border: 0.2em solid #E26E2D;
+      border-radius: 25px;
+      height: 55vh;
+      /* width: 75vw; */
+      width: 50vh;
+      overflow: hidden;
+  }
+  /* Styles for screens smaller than 320px (e.g. iPhone SE) */
+  @media (max-width: 320px) {
+      /* Add your styles here */
+    }
+    
+    /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+    @media (min-width: 320px) and (max-width: 480px) {
+      .carouselDiv{
+          height:50vh;
+          background-color: #1e1e1e;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          }
+      .cryptoFrame{
+          padding: 2%;
+          border: 0.2em solid #E26E2D;
+          border-radius: 25px;
+          height: 60vh;
+          width: 55vw;
+          overflow: hidden;
+          /* margin-left: -15vw; */
+      }
+      .economicCalendarFrame{
+          padding: 2%;
+          border: 0.2em solid #E26E2D;
+          border-radius: 25px;
+          height: 60vh;
+          width: 50vw;
+          overflow: hidden;
+          /* margin-left: -23vw; */
+      }
+      .currencyCrossFrame{
+          padding: 2%;
+          border: 0.2em solid #E26E2D;
+          border-radius: 25px;
+          height: 55vh;
+          /* width: 75vw; */
+          width: 50vh;
+          overflow: hidden;
+      }
+    }
+    
+    /* Styles for screens between 480px and 768px (e.g. iPad) */
+    @media (min-width: 480px) and (max-width: 768px) {
+      /* Add your styles here */
+    }
+    
+    /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+    @media (min-width: 768px) and (max-width: 992px) {
+      /* Add your styles here */
+    }
+    
+    /* Styles for screens larger than 992px (e.g. iMac) */
+    @media (min-width: 992px) {
+      /* Add your styles here */
+    }

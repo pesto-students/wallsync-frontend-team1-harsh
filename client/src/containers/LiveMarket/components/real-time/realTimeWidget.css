@@ -1,3 +1,8 @@
 .tradingview-widget-container{
-height: 120%;
-}
+    height: 120%;
+    width: 70vw;
+    }
+    .tradingview-widget-copyright{
+        width: 70vw;
+    }
+    

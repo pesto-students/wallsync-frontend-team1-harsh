@@ -39,7 +39,7 @@ const AdminUsers = () => {
 	};
 
 	const columns = [
-		{ field: "id", headerName: "ID", width: 90 },
+		{ field: "id", headerName: "ID", width: 250 },
 		{
 			field: "firstName",
 			headerName: "First name",
@@ -63,14 +63,14 @@ const AdminUsers = () => {
 			field: "zip",
 			headerName: "Zip",
 			type: "text",
-			width: 210,
+			width: 100,
 			editable: true,
 		},
 		{
 			field: "phone",
 			headerName: "Phone",
-			type: "number",
-			width: 110,
+			type: "text",
+			width: 210,
 			editable: true,
 		},
 
@@ -123,7 +123,7 @@ const AdminUsers = () => {
 
 	return (
 		<div className="adminUsers">
-			<h1>WALLSYNC USERS</h1>
+			<h1>ADMIN PANEL : WALLSYNC GROUPS</h1>
 			<AdminNav />
 			<div className="usersTable">
 				<DataGrid

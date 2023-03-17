@@ -35,8 +35,8 @@ export default function TradingViewWidget() {
 				"TradingView" in window
 			) {
 				new window.TradingView.widget({
-					width: 1500,
-					height: 400,
+					width: 1445,
+					height: 450,
 					symbol: "NSE:NIFTY",
 					interval: "D",
 					timezone: "Asia/Kolkata",
