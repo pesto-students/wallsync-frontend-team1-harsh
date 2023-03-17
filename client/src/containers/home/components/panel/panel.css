@@ -1,0 +1,17 @@
+.panelLogo {
+  width: 100px;
+  height: 100px;
+}
+
+
+/* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .panelLogo {
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+  }
+  .MuiAccordion-root .panelitems{
+    background-color: aqua;
+  }
+}

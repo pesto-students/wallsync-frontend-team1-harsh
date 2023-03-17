@@ -1,0 +1,61 @@
+.LiveBody{
+  display: flex;
+  justify-content: space-between;
+}
+.LiveDashboard{
+  background-color: #1e1e1e;
+  width: 84%;
+  height: 120vh;
+  padding: 2%;
+  border-radius: 25px 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  justify-content: space-between;
+}
+.cryptoFrame{
+  border: 0.2em solid #E26E2D;
+  border-radius: 25px;
+  height: 55%;
+  overflow: hidden;
+}
+.widget{
+  width: 100%;
+}
+
+
+/* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .LiveDashboard{
+      background-color: #1e1e1e;
+      width: 95vw;
+      height: 120vh;
+      padding: 2%;
+      border-radius: 25px 25px 25px 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 4vh;
+      justify-content: space-between;
+  }
+  .cryptoFrame{
+      border: 0.2em solid #E26E2D;
+      border-radius: 25px;
+      height: 55%;
+      overflow: hidden;
+  }
+}
+
+/* Styles for screens between 480px and 768px (e.g. iPad) */
+@media (min-width: 480px) and (max-width: 768px) {
+  /* Add your styles here */
+}
+
+/* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+@media (min-width: 768px) and (max-width: 992px) {
+  /* Add your styles here */
+}
+
+/* Styles for screens larger than 992px (e.g. iMac) */
+@media (min-width: 992px) {
+  /* Add your styles here */
+}

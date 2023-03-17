@@ -1,0 +1,308 @@
+.signupBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15vh;
+}
+.signupForm{
+    background-color: #1f1f1f;
+    box-shadow: 3px 3px 3px white;
+    display: inline-block;
+    padding: 2%;
+    border-radius: 5%;
+    color:white;
+}
+.mainform{
+    display:flex;
+    margin-right: 1vw;
+    /* background-color: aqua; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+    margin: 3%;
+}
+.info input{
+    width: 10vw;
+    height: 5vh;
+    border-radius: 10px;
+    /* text-align: start; */
+}
+.infoLabel{
+    /* background-color: bisque; */
+    display:flex;
+    flex-direction: column;
+    margin: 4%;
+    width: auto;
+}
+.infoLabelTick{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.signupBody{
+    display:flex;
+    justify-content: space-around;
+}
+.signupHeader{
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+}
+/* .signupImages{;
+} */
+.signupImages img {
+    /* background-color: #1f1f1f; */
+    width:15vw;
+    height:60vh;
+}
+.formSignupButton{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+/* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+    /* Add your styles here */
+  }
+  
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .signupBody {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 15vh;
+    }
+    .signupImages{
+        display: none;
+    }
+    .sign .loginB{
+        display: none;
+    }
+    .signupForm{
+        background-color: #1f1f1f;
+        width: 80%;
+        box-shadow: 3px 3px 3px white;
+        display: inline-block;
+        padding: 2%;
+        border-radius: 5%;
+        color:white;
+        margin-top: 5vh;
+        height: 65vh;
+        margin-bottom: 5vh;
+    }
+    .mainform{
+        display:flex;
+        margin-right: 5vw;
+        /* background-color: aqua; */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .info{
+        display: flex;
+        width: 90%;
+        /* background-color: aqua; */
+        justify-content: space-between;
+        margin: 3%;
+    }
+    .info input{
+        width: 48%;
+        height: 5vh;
+        border-radius: 10px;
+        /* text-align: start; */
+    }
+    .infoLabel{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 3vh;
+        width: auto;
+    }
+    .infoLabelTick{
+        display: flex;
+        align-items:flex-start;
+        gap: 2vw;
+        justify-content: flex-start;
+    }
+    .infoLabel input{
+        width: 5vw;
+        gap: 2vw;
+        margin-right: 5vw;
+    }
+    .formSignupButton{
+        width: 80%;
+        margin-top: 3vh;
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+    }
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    .signupBody {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 15vh;
+    }
+    .signupImages{
+        display: none;
+    }
+    .signupForm{
+        background-color: #1f1f1f;
+        width: 80%;
+        box-shadow: 3px 3px 3px white;
+        display: inline-block;
+        padding: 2%;
+        border-radius: 5%;
+        color:white;
+        margin-top: 5vh;
+        height: 65vh;
+        margin-bottom: 5vh;
+    }
+    .mainform{
+        display:flex;
+        margin-right: 5vw;
+        margin-bottom: 5vh;
+        /* background-color: aqua; */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .info{
+        display: flex;
+        width: 90%;
+        /* background-color: aqua; */
+        justify-content: space-between;
+        margin: 3%;
+    }
+    .info input{
+        width: 48%;
+        height: 5vh;
+        border-radius: 10px;
+        /* text-align: start; */
+    }
+    .infoLabel{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 3vh;
+        width: auto;
+    }
+    .infoLabelTick{
+        display: flex;
+        align-items:flex-start;
+        gap: 2vw;
+        justify-content: flex-start;
+    }
+    .infoLabel input{
+        width: 5vw;
+        gap: 2vw;
+        margin-right: 5vw;
+    }
+    .formSignupButton{
+        width: 80%;
+        margin-top: 3vh;
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+        /* background-color: aqua; */
+    }
+    .formSignupButton .signupB{
+        width: 80%;
+  }
+  }
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .signupBody {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 15vh;
+    }
+    .signupImages{
+        display: none;
+    }
+    .signupForm{
+        background-color: #1f1f1f;
+        width: 80%;
+        box-shadow: 3px 3px 3px white;
+        display: inline-block;
+        padding: 2%;
+        border-radius: 5%;
+        color:white;
+        margin-top: 5vh;
+        height: 65vh;
+        margin-bottom: 5vh;
+    }
+    .mainform{
+        display:flex;
+        margin-right: 5vw;
+        /* background-color: aqua; */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .info{
+        display: flex;
+        width: 90%;
+        /* background-color: aqua; */
+        justify-content: space-between;
+        margin: 3%;
+    }
+    .info input{
+        width: 48%;
+        height: 5vh;
+        border-radius: 10px;
+        /* text-align: start; */
+    }
+    .infoLabel{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 3vh;
+        width: auto;
+    }
+    .infoLabelTick{
+        display: flex;
+        align-items:flex-start;
+        gap: 2vw;
+        justify-content: flex-start;
+    }
+    .infoLabel input{
+        width: 5vw;
+        gap: 2vw;
+        margin-right: 5vw;
+    }
+    .formSignupButton{
+        width: 80%;
+        margin-top: 3vh;
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+        /* background-color: aqua; */
+    }
+    .formSignupButton .signupB{
+        width: 80%;
+  }
+  }
+  
+  /* Styles for screens larger than 992px (e.g. iMac) */
+  @media (min-width: 992px) {
+    /* Add your styles here */
+  }
+  

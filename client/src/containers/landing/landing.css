@@ -1,0 +1,15 @@
+button{
+    border:1px solid black;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landing{
+    height: 100vh;
+}
+.landingButtons{
+    display: flex;
+    gap: 5vw;
+    align-items: center;
+}

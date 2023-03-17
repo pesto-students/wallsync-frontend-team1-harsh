@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding:0;
+}
+.sidenav{
+    z-index: 2;
+    background-color: #1E1E1E;
+    width: 10vw;
+    height: 85vh;
+    color: white;
+    left: 0;
+    padding: 35px 15px 0 -10px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+    border-radius: 0 25px 25px 0;
+}
+
+ul .top{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul li{
+    margin: 3vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    cursor: pointer;
+}
+
+ul li p{
+    white-space: nowrap;
+    display: none;
+}
+ul li .MuiSvgIcon-root{
+    width: 2em;
+    height:2em;
+}
+.sidenav:hover{
+    width: 20vw;
+}
+.sidenav:hover ul li p{
+    display: block;
+}
+ul li p:hover{
+    font-size: larger;
+    transition: font-size 0.3s;
+    transition-timing-function: ease-in-out;
+}
+/*  */
+.sidenav:hover ul li{
+    display: flex;
+    gap: 3vw;
+    justify-content: space-between;
+    transition: 0.4s;
+}
+.mobilenav{
+    display: none;
+}
+
+
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .sidenav {
+        display: none;
+    }
+    .mobilenav{
+        display:flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100vw;
+        background-color: #1f1f1f;
+        color:#8d8989; 
+        position: fixed;
+        z-index: 2;
+        top:90vh;
+        left: 0;
+    }
+    .mobilenav li{
+        list-style: none;
+    }
+    .mobilenav img{
+        margin: 5vw;
+        width: 10vw;
+        height:5vh;
+    }
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    .sidenav{
+        z-index: 2;
+        background-color: #1E1E1E;
+        width: 10vw;
+        height: 85vh;
+        color: white;
+        left: 0;
+        padding: 35px 15px 0 -10px;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        transition: width 0.5s;
+        transition-timing-function: ease-in-out;
+        border-radius: 0 25px 25px 0;
+    }
+    
+    ul .top{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    ul li{
+        margin: 3vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        cursor: pointer;
+    }
+    
+    ul li p{
+        white-space: nowrap;
+        display: none;
+    }
+    ul li .MuiSvgIcon-root{
+        width: 2em;
+        height:2em;
+    }
+    .sidenav:hover{
+        width: 30vw;
+
+    }
+    .sidenav:hover ul li p{
+        display: block;
+    }
+    ul li p:hover{
+        font-size: larger;
+        transition: font-size 0.3s;
+        transition-timing-function: ease-in-out;
+    }
+    /*  */
+    .sidenav:hover ul li{
+        display: flex;
+        gap: 3vw;
+        justify-content: space-between;
+        transition: 0.4s;
+    }
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .sidenav{
+        z-index: 2;
+        background-color: #1E1E1E;
+        width: 10vw;
+        height: 85vh;
+        color: white;
+        left: 0;
+        padding: 35px 15px 0 -10px;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        transition: width 0.5s;
+        transition-timing-function: ease-in-out;
+        border-radius: 0 25px 25px 0;
+    }
+    
+    ul .top{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    ul li{
+        margin: 3vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        cursor: pointer;
+    }
+    
+    ul li p{
+        white-space: nowrap;
+        display: none;
+    }
+    ul li .MuiSvgIcon-root{
+        width: 2em;
+        height:2em;
+    }
+    .sidenav:hover{
+        width: 30vw;
+
+    }
+    .sidenav:hover ul li p{
+        display: block;
+    }
+    ul li p:hover{
+        font-size: larger;
+        transition: font-size 0.3s;
+        transition-timing-function: ease-in-out;
+    }
+    /*  */
+    .sidenav:hover ul li{
+        display: flex;
+        gap: 3vw;
+        justify-content: space-between;
+        transition: 0.4s;
+    }
+  }
+  
