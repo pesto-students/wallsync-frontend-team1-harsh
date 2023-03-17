@@ -57,7 +57,7 @@ const BudgetReducer = (state = INITIAL_STATE, action) => {
 				loading: false,
 				budget: {
 					...state.budget,
-					savings: [...state.budget.expensesArray, action.payload.savings],
+					savings: action.payload.savings,
 					expensesArray: [
 						...state.budget.expensesArray,
 						action.payload.expense,

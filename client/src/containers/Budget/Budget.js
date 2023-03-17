@@ -36,7 +36,7 @@ const Budget = () => {
 	const [limit, setLimit] = useState(0);
 	const dispatch = useDispatch();
 	const budgetData = useSelector((state) => state.budget.budget);
-	const id = budgetData._id;
+	const id = budgetData && budgetData._id;
 	console.log("budgetintial", id);
 
 	const expenseData = useSelector(
