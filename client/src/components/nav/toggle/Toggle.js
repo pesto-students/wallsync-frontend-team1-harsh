@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./toggle.css";
-// import "./lightmode.css";
 import "../../../darkMode.scss";
 import MaterialUISwitch from "./MuiSwitch";
 const Toggle = () => {
@@ -17,11 +16,6 @@ const Toggle = () => {
 		document.body.className = theme;
 	}, [theme]);
 	return (
-		// <img
-		// 	className={`toggleSwitch ${theme}`}
-		// 	onClick={toggleTheme}
-		// 	src={toggle}
-		// ></img>
 		<MaterialUISwitch onChange={toggleTheme} sx={{ m: 1 }} defaultChecked />
 	);
 };

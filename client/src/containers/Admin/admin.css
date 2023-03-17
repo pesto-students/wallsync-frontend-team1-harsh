@@ -6,11 +6,7 @@
     justify-content: flex-start;
     align-items: center;
     background-color: antiquewhite;
-    /* color: white; */
 }
-/* .adminGroups h1{
-    color: white;
-} */
 .adminGroups .groupsTable{
     width: 90vw;
     height: 75vh;
@@ -20,16 +16,11 @@
     display: flex;
     width: 100vw;
     height: 100vh;
-    
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     background-color: antiquewhite;
-    /* color: white; */
 }
-/* .adminUsers h1{
-    color: white;
-} */
 .adminUsers .usersTable{
     width: 90vw;
     height: 75vh;

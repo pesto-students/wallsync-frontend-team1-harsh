@@ -33,7 +33,7 @@ const AuthenticationReducer = (state = INITIAL_STATE, action) => {
 				...state,
 				user: action.payload,
 				isFetching: false,
-				isSignedIn: true,
+				isSignedIn: false,
 				error: false,
 			};
 		case REGISTER_FAILURE:

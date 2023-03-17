@@ -1,88 +1,74 @@
-.lHeader{
+.lHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 3vw;
+}
+.MobileLine {
+  display: none;
+}
+.lHeader .lDefault {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.lLogo {
+  width: 12vw;
+}
+.lHeader h1 {
+  color: white;
+  font-size: 3em;
+}
+.topLine {
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-bottom: 1vh;
+}
+
+/* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .lHeader {
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  .MobileLine {
+    display: block;
+    margin-bottom: 1vh;
+    width: 95vw;
+  }
+  .topLine {
+    display: none;
+  }
+  .lLogo {
+    width: 35vw;
+  }
+  .lDefault {
+    margin-right: 13vw;
+    align-items: center;
+  }
+  .landingButtons {
     display: flex;
-    /* height: 15vh; */
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 3vw;
-}
-.MobileLine{
-    display:none;
-}
-.lHeader .lDefault{
-    display: flex; 
-    align-items: center;
-    justify-content: flex-start;
-}
-.lLogo{
-    width: 12vw;
-}
-.lHeader h1{
-    color: white;
-    font-size: 3em;
-}
-.topLine{
-    margin-left:2vw;
-    margin-right:2vw;
-    margin-bottom:1vh;
+    margin-top: 1.5vh;
+  }
 }
 
+/* Styles for screens between 480px and 768px (e.g. iPad) */
+@media (min-width: 480px) and (max-width: 768px) {
+  .lHeader {
+    height: 10vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+}
 
-  /* Styles for screens smaller than 320px (e.g. iPhone SE) */
-@media (max-width: 320px) {
-    /* Add your styles here */
+/* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+@media (min-width: 768px) and (max-width: 992px) {
+  .lHeader {
+    height: 10vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
-  
-  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
-  @media (min-width: 320px) and (max-width: 480px) {
-    .lHeader{
-        flex-direction: column;
-        align-items: center;
-        margin-right: 0;
-        overflow-y: hidden;
-        overflow-x: hidden;
-    }
-    .MobileLine{
-        display: block;
-        margin-bottom:1vh;
-        width: 95vw;
-    }
-    .topLine{
-        display: none;
-    }
-    .lLogo{
-        width: 35vw;
-    }
-    .lDefault{
-        margin-right: 13vw;
-        align-items: center;
-    }
-    .landingButtons{
-        display: flex;
-        margin-top: 1.5vh;
-    }
-  }
-  
-  /* Styles for screens between 480px and 768px (e.g. iPad) */
-  @media (min-width: 480px) and (max-width: 768px) {
-    .lHeader{
-        height: 10vh;
-        overflow-y: hidden;
-        overflow-x: hidden;
-    }
-    
-  }
-  
-  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
-  @media (min-width: 768px) and (max-width: 992px) {
-    .lHeader{
-        height: 10vh;
-        overflow-y: hidden;
-        overflow-x: hidden;
-    }
-  }
-  
-  /* Styles for screens larger than 992px (e.g. iMac) */
-  @media (min-width: 992px) {
-    /* Add your styles here */
-  }
-
+}

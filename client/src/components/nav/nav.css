@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding:0;
-  
 }
 .sidenav{
     z-index: 2;
@@ -30,7 +29,6 @@ ul .top{
 
 ul li{
     margin: 3vh;
-    /* background-color: rgb(52, 49, 44); */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -40,17 +38,14 @@ ul li{
 }
 
 ul li p{
-    /* background-color: aqua; */
     white-space: nowrap;
     display: none;
 }
 ul li .MuiSvgIcon-root{
     width: 2em;
     height:2em;
-    /* margin-bottom:40%; */
 }
 .sidenav:hover{
-    /* opacity: 0.6; */
     width: 20vw;
 }
 .sidenav:hover ul li p{
@@ -65,22 +60,14 @@ ul li p:hover{
 .sidenav:hover ul li{
     display: flex;
     gap: 3vw;
-    /* align-items: flex-start; */
     justify-content: space-between;
     transition: 0.4s;
 }
 .mobilenav{
     display: none;
 }
-/* @media only screen and (max-width:700px) {
-    
-} */
 
-/* Styles for screens smaller than 320px (e.g. iPhone SE) */
-@media (max-width: 320px) {
-    /* Add your styles here */
-  }
-  
+
   /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
   @media (min-width: 320px) and (max-width: 480px) {
     .sidenav {
@@ -134,7 +121,6 @@ ul li p:hover{
     
     ul li{
         margin: 3vh;
-        /* background-color: rgb(52, 49, 44); */
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -144,17 +130,14 @@ ul li p:hover{
     }
     
     ul li p{
-        /* background-color: aqua; */
         white-space: nowrap;
         display: none;
     }
     ul li .MuiSvgIcon-root{
         width: 2em;
         height:2em;
-        /* margin-bottom:40%; */
     }
     .sidenav:hover{
-        /* opacity: 0.6; */
         width: 30vw;
     }
     .sidenav:hover ul li p{
@@ -169,7 +152,6 @@ ul li p:hover{
     .sidenav:hover ul li{
         display: flex;
         gap: 3vw;
-        /* align-items: flex-start; */
         justify-content: space-between;
         transition: 0.4s;
     }
@@ -204,7 +186,6 @@ ul li p:hover{
     
     ul li{
         margin: 3vh;
-        /* background-color: rgb(52, 49, 44); */
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -214,17 +195,14 @@ ul li p:hover{
     }
     
     ul li p{
-        /* background-color: aqua; */
         white-space: nowrap;
         display: none;
     }
     ul li .MuiSvgIcon-root{
         width: 2em;
         height:2em;
-        /* margin-bottom:40%; */
     }
     .sidenav:hover{
-        /* opacity: 0.6; */
         width: 30vw;
 
     }
@@ -240,13 +218,8 @@ ul li p:hover{
     .sidenav:hover ul li{
         display: flex;
         gap: 3vw;
-        /* align-items: flex-start; */
         justify-content: space-between;
         transition: 0.4s;
     }
   }
   
-  /* Styles for screens larger than 992px (e.g. iMac) */
-  @media (min-width: 992px) {
-    /* Add your styles here */
-  }

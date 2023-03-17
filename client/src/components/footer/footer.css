@@ -1,8 +1,5 @@
 .footer {
   width: 100%;
-  /* height: 6vh; */
-  /* background-color: aqua; */
-  /* position: fixed; */
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -28,11 +25,6 @@
 }
 .footerLine {
   margin-top: 3vh;
-}
-
-/* Styles for screens smaller than 320px (e.g. iPhone SE) */
-@media (max-width: 320px) {
-  /* Add your styles here */
 }
 
 /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
@@ -68,7 +60,6 @@
     width: 95%;
     margin-left: 2.5vw;
     margin-top: 15vh;
-    /* height: 1vh; */
   }
 }
 
@@ -79,14 +70,8 @@
     width: 95%;
     margin-left: 2.5vw;
     margin-top: 15vh;
-    /* height: 1vh; */
   }
   hr.footerLine {
     height: 0;
   }
-}
-
-/* Styles for screens larger than 992px (e.g. iMac) */
-@media (min-width: 992px) {
-  /* Add your styles here */
 }

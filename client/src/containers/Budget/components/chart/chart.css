@@ -8,11 +8,6 @@
     box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
 }
 
-/* Styles for screens smaller than 320px (e.g. iPhone SE) */
-@media (max-width: 320px) {
-    /* Add your styles here */
-  }
-  
   /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
   @media (min-width: 320px) and (max-width: 480px) {
     .DoughnutChart{
@@ -31,7 +26,6 @@
   @media (min-width: 480px) and (max-width: 768px) {
     .DoughnutChart{
       margin: auto;
-      /* background-color: aquamarine; */
       padding:2em;
       padding-top:8vh;
       width: 30vw;
@@ -46,7 +40,6 @@
   @media (min-width: 768px) and (max-width: 992px) {
     .DoughnutChart{
         margin: auto;
-        /* background-color: aquamarine; */
         padding:2em;
         padding-top:8vh;
         width: 30vw;
@@ -56,9 +49,3 @@
         box-shadow: 0.1em 0.1em 0.1em rgb(249, 248, 248);
     }    
   }
-  
-  /* Styles for screens larger than 992px (e.g. iMac) */
-  @media (min-width: 992px) {
-    /* Add your styles here */
-  }
-  

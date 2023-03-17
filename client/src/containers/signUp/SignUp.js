@@ -54,9 +54,7 @@ const Signup = () => {
 					zip,
 					password,
 				})
-			).then(() => {
-				navigate("/home");
-			});
+			)
 		}
 		setUserInfo({
 			firstName: "",

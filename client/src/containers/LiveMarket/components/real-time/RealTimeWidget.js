@@ -1,5 +1,3 @@
-// TradingViewWidget.jsx
-
 import React, { useEffect, useRef } from "react";
 import "./realTimeWidget.css";
 
@@ -63,7 +61,6 @@ export default function TradingViewWidget() {
 				>
 					<span className="blue-text">NIFTY chart</span>
 				</a>{" "}
-				by TradingView
 			</div>
 		</div>
 	);

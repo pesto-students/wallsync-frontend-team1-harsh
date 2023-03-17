@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
 .homeBody {
   display: flex;
-  /* margin-bottom: 6%; */
   justify-content: space-between;
 }
 .mainPanel {
@@ -15,7 +14,6 @@
   flex-direction: column;
   gap: 4vh;
   justify-content: space-between;
-  /* margin: auto 2%; */
 }
 .MuiSvgIcon-root {
   color: white;
@@ -33,15 +31,10 @@
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  /* padding :5%; */
   font-size: 2em;
   color: white;
   text-transform: capitalize;
 }
-.homePanelData p {
-  /* font-family: 'Nova Slim', cursive; */
-}
-
 .panelDataInner {
   display: flex;
 }
@@ -53,7 +46,6 @@
   margin: auto;
   text-align: center;
   margin-top: 1vh;
-  /* width: max-content; */
   width: 6em;
   color: white;
   text-align: center;
@@ -61,14 +53,8 @@
   border-radius: 20px;
   text-transform: uppercase;
   font-size: 2.5em;
-  /* font-family: 'Gloock', serif; */
-  /* font-weight: 500; */
 }
 
-/* Styles for screens smaller than 320px (e.g. iPhone SE) */
-@media (max-width: 320px) {
-  /* Add your styles here */
-}
 
 /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
 @media (min-width: 320px) and (max-width: 480px) {
@@ -77,7 +63,6 @@
   }
   .home {
     overflow-y: hidden;
-    /* overflow-x: hidden; */
   }
   .homeBody {
     display: flex;
@@ -110,7 +95,6 @@
     gap: 2vw;
     justify-content: center;
     align-items: center;
-    /* padding :5%; */
     font-size: 1em;
     color: white;
     text-transform: capitalize;
@@ -127,9 +111,7 @@
   }
   .homeHeadingText {
     background-color: black;
-    /* margin:auto; */
     text-align: center;
-    /* margin-top: 4vh; */
     position: absolute;
     right: 5vw;
     top: 4vh;
@@ -146,19 +128,4 @@
   .footerLine {
     display: none;
   }
-}
-
-/* Styles for screens between 480px and 768px (e.g. iPad) */
-@media (min-width: 480px) and (max-width: 768px) {
-  /* Add your styles here */
-}
-
-/* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
-@media (min-width: 768px) and (max-width: 992px) {
-  /* Add your styles here */
-}
-
-/* Styles for screens larger than 992px (e.g. iMac) */
-@media (min-width: 992px) {
-  /* Add your styles here */
 }

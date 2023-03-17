@@ -5,7 +5,6 @@
     gap: 15vw;
     margin-top: 6vh;
     margin-bottom: 6vh;
-    /* overflow-y: hidden; */
 }
 .loginform{
     background-color: #1f1f1f;
@@ -17,7 +16,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* display: inline-block; */
     border-radius: 5%;
 }
 .loginform input{
@@ -68,11 +66,6 @@
     color: orange;
 }
 
-/* Styles for screens smaller than 320px (e.g. iPhone SE) */
-@media (max-width: 320px) {
-    /* Add your styles here */
-  }
-  
   /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
   @media (min-width: 320px) and (max-width: 480px) {
     .loginbody{
@@ -232,10 +225,5 @@
     .check h5{
         width:25vw;
     }
-  }
-  
-  /* Styles for screens larger than 992px (e.g. iMac) */
-  @media (min-width: 992px) {
-    /* Add your styles here */
   }
   

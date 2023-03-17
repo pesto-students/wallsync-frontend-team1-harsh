@@ -13,8 +13,8 @@ const LandingHeader = ({ children, className }) => {
             <h1>WALLSYNC</h1>
           </Link>
         </div>
-          <hr className="MobileLine" />
-        <div  className={className}>{children}</div>
+        <hr className="MobileLine" />
+        <div className={className}>{children}</div>
       </div>
       <hr className="topLine" />
     </>

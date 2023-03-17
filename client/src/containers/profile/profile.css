@@ -15,7 +15,6 @@
     align-items: center;
     justify-content: center;
     gap:5%;
-    /* padding-top: 5%; */
 }
 .profileDashBoard .editDp{
     width: 12em;
@@ -70,10 +69,6 @@
     align-items:center;
 }
 
-@media (max-width: 320px) {
-    /* Add your styles here */
-  }
-  
   /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
   @media (min-width: 320px) and (max-width: 480px) {
     .profileBody{
@@ -90,12 +85,10 @@
         justify-content: center;
         flex-direction: column;
         gap:1vh;
-        /* padding-top: 5%; */
     }
     .profileDashBoard .MuiSvgIcon-root{
         width: 30vw;
         height:15vh;
-        /* background-color: aqua; */
     }
     
     .profileForm{
@@ -139,7 +132,6 @@
         width: 25vw;
         height:20vh;
         margin-left: 5vw;
-        /* background-color: aqua; */
     }
     
   }
@@ -153,7 +145,6 @@
         height: 4vh;
         width: 35vw;
         border-radius: 10px;
-        /* padding-left: 1vw; */
     }
     .profileDashBoard{
         display: flex;
@@ -166,11 +157,6 @@
         width: 25vw;
         height:20vh;
         margin-left: 5vw;
-        /* background-color: aqua; */
     }
   }
   
-  /* Styles for screens larger than 992px (e.g. iMac) */
-  @media (min-width: 992px) {
-    /* Add your styles here */
-  }
