@@ -14,6 +14,9 @@ import {
 	editExpenseRequest,
 	editExpenseSuccess,
 	editExpenseFailure,
+	editBudgetRequest,
+	editBudgetSuccess,
+	editBudgetFailure,
 } from "./actions";
 import axios from "axios";
 import config from "../../config/config";
@@ -139,6 +142,25 @@ export const editExpense = (expenseId, expense) => {
 			})
 			.catch((err) => {
 				dispatch(editExpenseFailure());
+			});
+	};
+};
+export const editBudget = (id, data) => {
+	return (dispatch) => {
+		dispatch(editBudgetRequest());
+		axios
+			.put(`${config.apiUrl}/budget/${id}/editBudget`, data, {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: JSON.parse(localStorage.getItem("user")).access_token,
+				},
+			})
+			.then((data) => {
+				console.log("edited budget", data);
+				dispatch(editBudgetSuccess(id, data.data.updatedBudgetData));
+			})
+			.catch((err) => {
+				dispatch(editBudgetFailure());
 			});
 	};
 };

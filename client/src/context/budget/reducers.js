@@ -14,6 +14,9 @@ import {
 	EDIT_EXPENSE_REQUEST,
 	EDIT_EXPENSE_SUCCESS,
 	EDIT_EXPENSE_FAILURE,
+	EDIT_BUDGET_REQUEST,
+	EDIT_BUDGET_SUCCESS,
+	EDIT_BUDGET_FAILURE,
 } from "./types";
 
 const INITIAL_STATE = {
@@ -137,6 +140,31 @@ const BudgetReducer = (state = INITIAL_STATE, action) => {
 				error: false,
 			};
 		case EDIT_EXPENSE_FAILURE:
+			return {
+				loading: false,
+				budget: { ...state.budget },
+				error: action.payload,
+			};
+		case EDIT_BUDGET_REQUEST:
+			return {
+				...state,
+				loading: true,
+				budget: { ...state.budget },
+				error: false,
+			};
+		case EDIT_BUDGET_SUCCESS:
+			return {
+				loading: false,
+				budget: {
+					...state.budget,
+					income: action.payload.data.income,
+					limit: action.payload.data.limit,
+					savings: action.payload.data.savings,
+					total: action.payload.data.total,
+				},
+				error: false,
+			};
+		case EDIT_BUDGET_FAILURE:
 			return {
 				loading: false,
 				budget: { ...state.budget },

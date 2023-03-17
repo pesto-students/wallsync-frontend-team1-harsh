@@ -1,4 +1,5 @@
 import React from "react";
+import "./errorBoundary.css";
 
 class ErrorBoundary extends React.Component {
 	constructor(props) {
@@ -13,7 +14,7 @@ class ErrorBoundary extends React.Component {
 
 	render() {
 		if (this.state.hasError) {
-			return <h1>Data input wrong</h1>;
+			return <span className="errorSpan">Error: Limit cannot be greater.</span>;
 		}
 
 		return this.props.children;

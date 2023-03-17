@@ -73,6 +73,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 10%;
+  color: white;
   align-items: center;
 }
 .incomeDiv input {
@@ -117,7 +118,31 @@
 .expenseLine {
   margin-top: -2%;
 }
-
+.updateBudgetForm{
+  display: flex;
+  gap: 10%;
+  background-color: burlywood;
+  margin:-7%;
+  padding: 2%;
+}
+.updateBudgetForm input{
+  border-radius: 10px;
+  width:7em;
+  height: 2em;
+}
+.updateBudgetB{
+ margin-top: -2%;
+  width: 100px;
+  height: 40px;
+  color: white;
+  background: rgb(226, 110, 45);
+  background: linear-gradient(
+    0deg,
+    rgba(226, 110, 45, 1) 0%,
+    rgba(214, 86, 58, 1) 100%
+  );
+  border: none;
+}
 /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
 @media (min-width: 320px) and (max-width: 480px) {
   .budgetBody {
