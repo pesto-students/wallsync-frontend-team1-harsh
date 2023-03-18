@@ -40,10 +40,10 @@ const Budget = () => {
 	console.log("budgetintial", budgetData);
 	console.log("budgetintial ID", id);
 
-	// const expenseData = useSelector(
-	// 	(state) => state.budget.budget && state.budget.budget.expensesArray
-	// );
-	const expenseData = budgetData.expensesArray;
+	const expenseData = useSelector(
+		(state) => state.budget.budget.expensesArray
+	);
+	// const expenseData = budgetData.expensesArray;
 	useEffect(() => {
 		dispatch(getBudget());
 	}, []);
