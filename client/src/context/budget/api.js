@@ -34,12 +34,12 @@ export const getBudget = () => {
 			});
 	};
 };
-export const addExpense = (expense) => {
+export const addExpense = (id,expense) => {
 	return (dispatch) => {
 		dispatch(addExpenseRequest());
 		axios
 			.post(
-				`${config.apiUrl}/budget/${config.getUserId()}/addExpense`,
+				`${config.apiUrl}/budget/${id}/addExpense`,
 				expense,
 				{
 					headers: {
@@ -50,6 +50,7 @@ export const addExpense = (expense) => {
 			.then((data) => {
 				dispatch(
 					addExpenseSuccess(
+						id,
 						data.data.newTransaction,
 						data.data.savings,
 						data.data.total

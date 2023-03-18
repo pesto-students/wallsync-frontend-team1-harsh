@@ -41,10 +41,10 @@ export const addExpenseRequest = () => {
 		type: ADD_EXPENSE_REQUEST,
 	};
 };
-export const addExpenseSuccess = (expense, savings, total) => {
+export const addExpenseSuccess = (id,expense, savings, total) => {
 	return {
 		type: ADD_EXPENSE_SUCCESS,
-		payload: { expense, savings, total },
+		payload: { id,expense, savings, total },
 	};
 };
 export const addExpenseFailure = (error) => {
