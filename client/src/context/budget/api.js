@@ -34,23 +34,19 @@ export const getBudget = () => {
 			});
 	};
 };
-export const addExpense = (id,expense) => {
+export const addExpense = (id, expense) => {
+	console.log("finding budget id", id);
 	return (dispatch) => {
 		dispatch(addExpenseRequest());
 		axios
-			.post(
-				`${config.apiUrl}/budget/${id}/addExpense`,
-				expense,
-				{
-					headers: {
-						"Content-Type": "application/json",
-					},
-				}
-			)
+			.post(`${config.apiUrl}/budget/${id}/addExpense`, expense, {
+				headers: {
+					"Content-Type": "application/json",
+				},
+			})
 			.then((data) => {
 				dispatch(
 					addExpenseSuccess(
-						id,
 						data.data.newTransaction,
 						data.data.savings,
 						data.data.total

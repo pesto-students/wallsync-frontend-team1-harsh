@@ -48,9 +48,9 @@ const Budget = () => {
 		dispatch(getBudget());
 	}, []);
 
-	const submit = async (e,id) => {
+	const submit = async (e, id) => {
 		e.preventDefault();
-		dispatch(addExpense(id,{ description, amount }));
+		dispatch(addExpense(id, { description, amount }));
 		notifySubmit();
 		setDescription("");
 		setAmount("");
