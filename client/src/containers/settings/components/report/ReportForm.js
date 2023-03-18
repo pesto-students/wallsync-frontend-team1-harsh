@@ -14,10 +14,10 @@ const ReportForm = () => {
 		console.log("env public key", process.env.emailPublicKey);
 		emailjs
 			.sendForm(
-				process.env.emailServiceId,
-				process.env.emailTemplateId,
+				process.env.REACT_APP_emailServiceId,
+				process.env.REACT_APP_emailTemplateId,
 				form.current,
-				process.env.emailPublicKey
+				process.env.REACT_APP_emailPublicKey
 			)
 			.then(
 				(result) => {
