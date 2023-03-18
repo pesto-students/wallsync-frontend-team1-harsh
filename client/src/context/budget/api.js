@@ -58,7 +58,7 @@ export const addExpense = (id, expense) => {
 			});
 	};
 };
-export const deleteExpense = (expenseId) => {
+export const deleteExpense = (id, expenseId) => {
 	return (dispatch) => {
 		dispatch(deleteExpenseRequest());
 		axios
@@ -103,7 +103,7 @@ export const addBudget = (budget) => {
 			});
 	};
 };
-export const editExpense = (expenseId, expense) => {
+export const editExpense = (id, expenseId, expense) => {
 	return (dispatch) => {
 		dispatch(editExpenseRequest());
 		axios
