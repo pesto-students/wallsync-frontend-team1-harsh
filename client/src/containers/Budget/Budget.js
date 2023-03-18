@@ -35,9 +35,10 @@ const Budget = () => {
 	const [income, setIncome] = useState(0);
 	const [limit, setLimit] = useState(0);
 	const dispatch = useDispatch();
-	const budgetData = useSelector((state) => state.budget.budget);
-	const id = budgetData && budgetData._id;
-	console.log("budgetintial", id);
+	const budgetData = useSelector((state) => state.budget.budget &&  state.budget.budget);
+	const id = budgetData ? budgetData._id : null;
+	console.log("budgetintial", budgetData);
+	console.log("budgetintial ID", id);
 
 	const expenseData = useSelector(
 		(state) => state.budget.budget && state.budget.budget.expensesArray
