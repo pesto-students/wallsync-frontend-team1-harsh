@@ -62,17 +62,11 @@ export const deleteExpense = (expenseId) => {
 	return (dispatch) => {
 		dispatch(deleteExpenseRequest());
 		axios
-			.delete(
-				`${
-					config.apiUrl
-				}/budget/${config.getUserId()}/${expenseId}/deleteExpense`,
-				{
-					headers: {
-						Authorization: JSON.parse(localStorage.getItem("user"))
-							.access_token,
-					},
-				}
-			)
+			.delete(`${config.apiUrl}/budget/${id}/${expenseId}/deleteExpense`, {
+				headers: {
+					Authorization: JSON.parse(localStorage.getItem("user")).access_token,
+				},
+			})
 			.then((data) => {
 				console.log("deleteexp data", data);
 
@@ -113,19 +107,12 @@ export const editExpense = (expenseId, expense) => {
 	return (dispatch) => {
 		dispatch(editExpenseRequest());
 		axios
-			.put(
-				`${
-					config.apiUrl
-				}/budget/${config.getUserId()}/${expenseId}/editExpense`,
-				expense,
-				{
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: JSON.parse(localStorage.getItem("user"))
-							.access_token,
-					},
-				}
-			)
+			.put(`${config.apiUrl}/budget/${id}/${expenseId}/editExpense`, expense, {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: JSON.parse(localStorage.getItem("user")).access_token,
+				},
+			})
 			.then((data) => {
 				console.log("edited expenseeee", data);
 				dispatch(

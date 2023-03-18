@@ -57,13 +57,13 @@ const Budget = () => {
 	};
 
 	const handleDelete = (expenseId) => {
-		dispatch(deleteExpense(expenseId));
+		dispatch(deleteExpense(id, expenseId));
 		notifyDelete();
 	};
 	const handleCellEditCommit = (params) => {
 		const { field, value } = params;
 		const updatedRowData = { ...params.row, [field]: value };
-		dispatch(editExpense(params.row.id, updatedRowData));
+		dispatch(editExpense(id, params.row.id, updatedRowData));
 	};
 	const handleEdit = (rowData) => {
 		setEditedRowData(rowData);
