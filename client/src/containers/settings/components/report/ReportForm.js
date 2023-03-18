@@ -16,7 +16,7 @@ const ReportForm = () => {
 			.sendForm(
 				process.env.emailServiceId,
 				process.env.emailTemplateId,
-				process.env.current,
+				form.current,
 				process.env.emailPublicKey
 			)
 			.then(
