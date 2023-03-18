@@ -14,10 +14,10 @@ const ReportForm = () => {
 
 		emailjs
 			.sendForm(
-				config.emailServiceId,
-				config.emailTemplateId,
-				form.current,
-				config.emailPublicKey
+				process.env.emailServiceId,
+				process.env.emailTemplateId,
+				process.env.current,
+				process.env.emailPublicKey
 			)
 			.then(
 				(result) => {

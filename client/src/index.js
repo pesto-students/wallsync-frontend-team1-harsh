@@ -11,12 +11,12 @@ import "react-toastify/dist/ReactToastify.css";
 import config from "./config/config";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 Sentry.init({
-	dsn: "https://979144ea958948bab7b355413c2df48f@o4504844286492672.ingest.sentry.io/4504854989242368",
+	dsn: process.env.sentry,
 	integrations: [new BrowserTracing()],
 	tracesSampleRate: 1.0,
 });
 root.render(
-	<GoogleOAuthProvider clientId={config.googleAuthProviderClientId}>
+	<GoogleOAuthProvider clientId={process.env.googleAuthProviderClientId}>
 		<React.StrictMode>
 			<Provider store={store}>
 				<App />
