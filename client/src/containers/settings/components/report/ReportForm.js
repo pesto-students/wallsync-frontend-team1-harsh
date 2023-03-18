@@ -11,7 +11,7 @@ const ReportForm = () => {
 
 	const sendEmail = (e) => {
 		e.preventDefault();
-		console.log("env public key", process.env.emailPublicKey);
+
 		emailjs
 			.sendForm(
 				process.env.REACT_APP_emailServiceId,
