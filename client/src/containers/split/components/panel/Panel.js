@@ -37,6 +37,10 @@ const Panel = ({
 					aria-controls="panel1bh-content"
 					id="panel1bh-header"
 				>
+					<Typography sx={{ width: "33%", flexShrink: 0 }}>
+						{/* <img src={panelLogo} className="panelLogo"></img> */}
+						<AddAPhotoIcon />
+					</Typography>
 					<Typography sx={{ color: "text.secondary" }}>{panelName}</Typography>
 				</AccordionSummary>
 				<AccordionSummary expandIcon={AddMemberPop}>
