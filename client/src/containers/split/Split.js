@@ -48,7 +48,6 @@ const Split = () => {
 	const [newGroupDescription, setNewGroupDescription] = useState("");
 	const [newMember, setNewMember] = useState("");
 	const [simplified, setSimplified] = useState(false);
-	// const loading = useSelector((state) => state.group.loading);
 	const groupData = useSelector((state) => state.group.group);
 	const simplifiedData = useSelector((state) => state.group.simplified);
 
@@ -117,11 +116,10 @@ const Split = () => {
 			return;
 		}
 		dispatch(addPercentageArray(groupName, percentageArray));
+		notifyAddPercent();
 	};
 	const handleCellEditCommit = (params) => {
 		const { field, value } = params;
-		// const { id, name, share, desc, ...rest } = params.row;
-		// const updatedRowData = { id, name, share, desc, [field]: value };
 		const updatedRowData = { ...params.row, [field]: value };
 		dispatch(editShare(params.row.groupName, params.row.id, updatedRowData));
 	};
@@ -196,6 +194,9 @@ const Split = () => {
 	const notifyAddMember = () => {
 		toast("New group member added");
 	};
+	const notifyAddPercent = () => {
+		toast("% added for unequal split");
+	};
 	return (
 		<div>
 			<Header />
@@ -221,7 +222,7 @@ const Split = () => {
 										placeholder="Description"
 										onChange={(e) => setNewGroupDescription(e.target.value)}
 									/>
-									{/* <input type="text" placeholder="Some shit" /> */}
+
 									<Button
 										type="submit"
 										className="createB"
@@ -232,7 +233,6 @@ const Split = () => {
 						}
 					/>
 
-					{/* {loading && <SkeletonComp />} */}
 					{groupData &&
 						groupData.map((i) => {
 							return (
