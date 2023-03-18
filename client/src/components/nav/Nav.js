@@ -1,8 +1,7 @@
 import React from "react";
 import "./nav.css";
 import home from "../../assets/icons8-home-48 (1).png";
-import menu from "../../assets/icons8-menu-rounded-50.png";
-import wallet from "../../assets/icons8-wallet-64.png";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import settings from "../../assets/icons8-settings-64.png";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -16,6 +15,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 const Nav = () => {
+  const admin = JSON.parse(localStorage.getItem("user")).user.isAdmin;
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
@@ -50,6 +50,14 @@ const Nav = () => {
               <p>settings</p>
             </li>
           </Link>
+          {admin ? (
+            <Link to="/adminUsers">
+              <li>
+                <AdminPanelSettingsIcon />
+                <p>Admin</p>
+              </li>
+            </Link>
+          ) : null}
         </ul>
         <ul className="bottom">
           <li>

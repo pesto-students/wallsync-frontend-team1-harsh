@@ -29,13 +29,8 @@ const Login = () => {
     e.preventDefault();
 
     dispatch(login(userInfo))
-      .then(() => {
         notify();
         navigate("/home");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
   const notify = () => {
     toast("Successful login!");
