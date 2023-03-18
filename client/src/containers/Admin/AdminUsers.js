@@ -123,7 +123,7 @@ const AdminUsers = () => {
 
   return (
     <div className="adminUsers">
-      <h1>ADMIN PANEL : WALLSYNC GROUPS</h1>
+      <h1>ADMIN PANEL : WALLSYNC USERS</h1>
       <AdminNav />
       <div className="usersTable">
         <DataGrid

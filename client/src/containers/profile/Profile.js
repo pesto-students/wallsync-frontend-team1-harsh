@@ -35,7 +35,6 @@ const Profile = () => {
   });
   const handleEditUser = (e) => {
     e.preventDefault();
-    console.log(profileData, "printtt 23");
 
     dispatch(
       updateUser({
@@ -46,6 +45,7 @@ const Profile = () => {
         zip: editedZip,
       })
     );
+    alert('LOGIN AGAIN TO SEE CHANGES')
     console.log(profileData, "printtt");
     setEditedFirstName("");
     setEditedLastName("");
@@ -70,11 +70,11 @@ const Profile = () => {
 
     try {
       dispatch(updatePP(formData));
-
       setEditedProfilePicture(null);
     } catch (error) {
       console.log(error);
     }
+    alert('LOGIN AGAIN TO SEE CHANGES')
   };
   return (
     <div>
