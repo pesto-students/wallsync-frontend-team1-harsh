@@ -15,7 +15,8 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 const Nav = () => {
-  const admin = JSON.parse(localStorage.getItem("user")).user.isAdmin;
+  const user = JSON.parse(localStorage.getItem("user"))
+  const admin = user && user.user && user.user.isAdmin;
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
