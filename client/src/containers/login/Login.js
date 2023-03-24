@@ -29,12 +29,12 @@ const Login = () => {
 		e.preventDefault();
 
 		dispatch(login(userInfo));
-		// notify();
+		notify();
 		navigate("/home");
 	};
-	// const notify = () => {
-	//   toast("Successful login!");
-	// };
+	const notify = () => {
+		toast("Successful login!");
+	};
 
 	return (
 		<div className="login">
