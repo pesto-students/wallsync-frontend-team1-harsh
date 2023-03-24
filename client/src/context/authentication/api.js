@@ -17,6 +17,7 @@ import axios from "axios";
 import config from "../../config/config";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const notify = () => {
 	toast("Successful login!");
 };
@@ -32,7 +33,6 @@ export const register = (user) => {
 			.then((res) => {
 				console.log("trying to register", res.data);
 				dispatch(registerSuccess(res.data.userdata));
-				notify();
 			})
 			.catch((err) => {
 				console.log(err);
@@ -50,6 +50,7 @@ export const login = (user) => {
 				const user = data.data;
 				data.data.access_token && dispatch(loginSuccess(user));
 				localStorage.setItem("user", JSON.stringify(user));
+				notify();
 			})
 			.catch((err) => {
 				dispatch(loginFailure(err));
