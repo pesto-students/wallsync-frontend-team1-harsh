@@ -15,6 +15,11 @@ import {
 } from "./actions";
 import axios from "axios";
 import config from "../../config/config";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const notify = () => {
+	toast("Successful login!");
+};
 export const register = (user) => {
 	return (dispatch) => {
 		dispatch(registerRequest());
@@ -27,6 +32,7 @@ export const register = (user) => {
 			.then((res) => {
 				console.log("trying to register", res.data);
 				dispatch(registerSuccess(res.data.userdata));
+				notify();
 			})
 			.catch((err) => {
 				console.log(err);
