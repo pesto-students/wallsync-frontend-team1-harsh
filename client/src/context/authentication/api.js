@@ -45,7 +45,6 @@ export const login = (user) => {
 				const user = data.data;
 				data.data.access_token && dispatch(loginSuccess(user));
 				localStorage.setItem("user", JSON.stringify(user));
-				localStorage.setItem("loggedIn", "Yes");
 			})
 			.catch((err) => {
 				dispatch(loginFailure(err));
@@ -57,7 +56,6 @@ export const logout = (user) => {
 	return (dispatch) => {
 		dispatch(logoutStart());
 		localStorage.setItem("user", null);
-		localStorage.setItem("loggedIn", "");
 	};
 };
 export const updateUser = (user) => {

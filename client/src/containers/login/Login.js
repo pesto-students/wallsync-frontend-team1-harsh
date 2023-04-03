@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import "./login.css";
 import Footer from "../../components/footer/Footer";
@@ -18,7 +18,12 @@ const Login = () => {
 		email: "",
 		password: "",
 	});
-	const loggedIn = localStorage.getItem("loggedIn") || "";
+	const loggedIn = userData.isSignedIn;
+	useEffect(() => {
+		if (loggedIn) {
+			notify();
+		}
+	}, []);
 	const handleChange = (e) => {
 		setUserInfo({
 			...userInfo,
@@ -30,33 +35,10 @@ const Login = () => {
 
 		dispatch(login(userInfo));
 		navigate("/home");
-		if (loggedIn === "Yes") {
-			notify();
-		}
-		toast.error("Invalid credentials");
 	};
 	const notify = () => {
 		toast("Successful login!");
 	};
-	// const handleSubmit = async (e) => {
-	// 	e.preventDefault();
-
-	// 	try {
-	// 		dispatch(login(userInfo));
-	// 		toast.success("Successful Login");
-	// 		navigate("/home");
-	// 	} catch (error) {
-	// 		toast.error("Invalid credentials");
-	// 	}
-	// };
-
-	// const notify = (success) => {
-	// 	if (success) {
-	// 		toast("Successful login!");
-	// 	} else {
-	// 		toast.error("Login failed");
-	// 	}
-	// };
 
 	return (
 		<div className="login">
