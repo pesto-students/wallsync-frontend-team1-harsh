@@ -39,11 +39,11 @@ const Login = () => {
 		e.preventDefault();
 
 		try {
-			await dispatch(login(userInfo));
-			notify(true);
+			dispatch(login(userInfo));
+			toast.success("Successful Login");
 			navigate("/home");
 		} catch (error) {
-			notify(false);
+			toast.error("Invalid credentials");
 		}
 	};
 
@@ -51,7 +51,6 @@ const Login = () => {
 		if (success) {
 			toast("Successful login!");
 		} else {
-			// You can customize the error message here
 			toast.error("Login failed");
 		}
 	};
