@@ -18,7 +18,11 @@ const Login = () => {
 		email: "",
 		password: "",
 	});
-	const loggedIn = userData.isSignedIn;
+	const guestInfo = {
+		email: "pesto@project.com",
+		password: process.env.REACT_APP_guestPassword,
+	};
+	let loggedIn = userData.isSignedIn;
 	useEffect(() => {
 		if (loggedIn) {
 			notify();
@@ -39,7 +43,12 @@ const Login = () => {
 	const notify = () => {
 		toast("Successful login!");
 	};
+	const handleGuestLogin = (e) => {
+		e.preventDefault();
 
+		dispatch(login(guestInfo));
+		navigate("/home");
+	};
 	return (
 		<div className="login">
 			<LandingHeader
@@ -89,7 +98,8 @@ const Login = () => {
 								type={"Submit"}
 							/>
 							<span>Or</span>
-							<Google className="googleButton" />
+							{/* <Google className="googleButton" /> */}
+							<Button buttonName="Guest Login" onClick={handleGuestLogin} />
 							<span>
 								Need an account?
 								<Link to="/signup">
