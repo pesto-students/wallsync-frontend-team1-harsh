@@ -36,15 +36,10 @@ const Login = () => {
 		setLoading(true);
 		try {
 			dispatch(login(userInfo));
-			const home = "/home";
-
-			navigate(home ? home : <SimpleBackdrop open={loading} />);
-			notify();
 		} catch (err) {
 			toast.error("Login failed");
 		} finally {
 			setLoading(false);
-			notify();
 		}
 	};
 	const notify = () => {
@@ -56,6 +51,13 @@ const Login = () => {
 		dispatch(login(guestInfo));
 		navigate("/home");
 	};
+	useEffect(() => {
+		if (userData.isSignedIn) {
+			navigate("/home");
+			setLoading(false);
+			notify();
+		}
+	}, [userData.isSignedIn, navigate]);
 	return (
 		<div className="login">
 			<LandingHeader
@@ -123,6 +125,7 @@ const Login = () => {
 			</div>
 
 			<Footer />
+			<SimpleBackdrop open={loading} />
 		</div>
 	);
 };
