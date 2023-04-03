@@ -18,42 +18,45 @@ const Login = () => {
 		email: "",
 		password: "",
 	});
-
+	const loggedIn = localStorage.getItem("loggedIn") || "";
 	const handleChange = (e) => {
 		setUserInfo({
 			...userInfo,
 			[e.target.name]: e.target.value,
 		});
 	};
-	// const handleSubmit = (e) => {
-	// 	e.preventDefault();
-
-	// 	dispatch(login(userInfo));
-	// 	notify();
-	// 	navigate("/home");
-	// };
-	// const notify = () => {
-	// 	toast("Successful login!");
-	// };
-	const handleSubmit = async (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		try {
-			dispatch(login(userInfo));
-			toast.success("Successful Login");
-			navigate("/home");
-		} catch (error) {
-			toast.error("Invalid credentials");
+		dispatch(login(userInfo));
+		navigate("/home");
+		if (loggedIn === "Yes") {
+			notify();
 		}
+		toast.error("Invalid credentials");
 	};
+	const notify = () => {
+		toast("Successful login!");
+	};
+	// const handleSubmit = async (e) => {
+	// 	e.preventDefault();
 
-	const notify = (success) => {
-		if (success) {
-			toast("Successful login!");
-		} else {
-			toast.error("Login failed");
-		}
-	};
+	// 	try {
+	// 		dispatch(login(userInfo));
+	// 		toast.success("Successful Login");
+	// 		navigate("/home");
+	// 	} catch (error) {
+	// 		toast.error("Invalid credentials");
+	// 	}
+	// };
+
+	// const notify = (success) => {
+	// 	if (success) {
+	// 		toast("Successful login!");
+	// 	} else {
+	// 		toast.error("Login failed");
+	// 	}
+	// };
 
 	return (
 		<div className="login">
