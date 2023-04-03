@@ -10,7 +10,6 @@ import LandingHeader from "../../components/header/LangingHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SimpleBackdrop from "./components/SimpleBackdrop";
 const Login = () => {
 	const userData = useSelector((state) => state.authentication);
 	const navigate = useNavigate();
@@ -36,6 +35,8 @@ const Login = () => {
 		setLoading(true);
 		try {
 			dispatch(login(userInfo));
+			navigate("/home");
+			notify();
 		} catch (err) {
 			toast.error("Login failed");
 		} finally {
@@ -50,14 +51,9 @@ const Login = () => {
 
 		dispatch(login(guestInfo));
 		navigate("/home");
+		notify();
 	};
-	useEffect(() => {
-		if (userData.isSignedIn) {
-			navigate("/home");
-			setLoading(false);
-			notify();
-		}
-	}, [userData.isSignedIn, navigate]);
+
 	return (
 		<div className="login">
 			<LandingHeader
@@ -125,7 +121,6 @@ const Login = () => {
 			</div>
 
 			<Footer />
-			<SimpleBackdrop open={loading} />
 		</div>
 	);
 };
