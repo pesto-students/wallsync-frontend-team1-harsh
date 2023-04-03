@@ -36,7 +36,7 @@ const Login = () => {
 		try {
 			dispatch(login(userInfo));
 			navigate("/home");
-			notify();
+			// notify();
 		} catch (err) {
 			toast.error("Login failed");
 		} finally {
