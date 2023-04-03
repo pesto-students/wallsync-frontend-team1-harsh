@@ -15,6 +15,7 @@ const Login = () => {
 	const userData = useSelector((state) => state.authentication);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const [loading, setLoading] = useState(false);
 	const [userInfo, setUserInfo] = useState({
 		email: "",
 		password: "",
@@ -30,18 +31,17 @@ const Login = () => {
 			[e.target.name]: e.target.value,
 		});
 	};
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-
-		dispatch(login(userInfo));
-		const home = "/home";
-		navigate(home ? home : <SimpleBackdrop />)
-			.then(() => {
-				notify();
-			})
-			.catch((err) => {
-				toast.error("Login failed");
-			});
+		setLoading(true);
+		try {
+			dispatch(login(userInfo));
+			navigate("/home");
+			notify();
+		} catch (err) {
+			toast.error("Login failed");
+		}
+		setLoading(false);
 	};
 	const notify = () => {
 		toast("Successful login!");
@@ -119,6 +119,7 @@ const Login = () => {
 			</div>
 
 			<Footer />
+			<SimpleBackdrop open={loading} />
 		</div>
 	);
 };

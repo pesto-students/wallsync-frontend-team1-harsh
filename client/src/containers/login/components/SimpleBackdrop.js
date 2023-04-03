@@ -3,15 +3,7 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 
-export default function SimpleBackdrop() {
-	const [open, setOpen] = React.useState(false);
-	const handleClose = () => {
-		setOpen(false);
-	};
-	const handleToggle = () => {
-		setOpen(!open);
-	};
-
+export default function SimpleBackdrop({ open }) {
 	return (
 		<div>
 			<Backdrop
