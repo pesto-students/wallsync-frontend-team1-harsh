@@ -1,0 +1,124 @@
+.settingsBody {
+  display: flex;
+  justify-content: space-between;
+}
+
+.settingsDashBoard {
+  background-color: #1e1e1e;
+  width: 84%;
+  height: auto;
+  padding: 2%;
+  border-radius: 25px 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  align-items: center;
+  justify-content: space-between;
+}
+.settingsSignOutButton{
+  width: 150px;
+  height: 50px;
+  color:white;
+  margin-left: -15%;
+  background: rgb(226,110,45);
+  background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
+}
+.board{
+  background-color: rgb(82, 80, 78);
+  padding: 3%;
+  width: 70vw;
+  /* height: 80vh; */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6vh;
+  border-radius: 25px;
+}
+/* .settingsPanel{
+  width: 40em;
+} */
+
+/* Styles for screens smaller than 320px (e.g. iPhone SE) */
+@media (max-width: 320px) {
+/* Add your styles here */
+}
+
+/* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+@media (min-width: 320px) and (max-width: 480px) {
+.settingsBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainDashBoard {
+  background-color: #1e1e1e;
+  width: 95vw;
+  height: 70vh;
+  /* padding: 2%; */
+  border-radius: 25px 25px 25px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 2vh; */
+  justify-content: center;
+}
+.board{
+  background-color: rgb(82, 80, 78);
+  padding: 3%;
+  width: 78vw;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+  gap: 6vh;
+  border-radius: 25px;
+  /* margin-top: 10vh; */
+}
+}
+
+/* Styles for screens between 480px and 768px (e.g. iPad) */
+@media (min-width: 480px) and (max-width: 768px) {
+
+}
+
+/* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+@media (min-width: 768px) and (max-width: 992px) {
+.mainDashBoard {
+  background-color: #1e1e1e;
+  /* width: 78vw; */
+  height: 70vh;
+  /* padding: 2%; */
+  border-radius: 25px 25px 25px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 2vh; */
+  justify-content: center;
+}
+.board{
+  background-color: rgb(82, 80, 78);
+  padding: 3%;
+  width: 78vw;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+  gap: 6vh;
+  border-radius: 25px;
+  /* margin-top: 10vh; */
+}
+}
+
+/* Styles for screens larger than 992px (e.g. iMac) */
+@media (min-width: 992px) {
+/* Add your styles here */
+}
+

@@ -1,0 +1,50 @@
+.adminGroups{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: antiquewhite;
+}
+.adminGroups .groupsTable{
+    width: 90vw;
+    height: 75vh;
+    background-color: #1e1e1e;
+}
+.adminUsers{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: antiquewhite;
+}
+.adminUsers .usersTable{
+    width: 90vw;
+    height: 75vh;
+    background-color: #1e1e1e;
+}
+.adminNavbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #1e1e1e;
+    height: 10vh;
+    margin-bottom: 5vh;
+}
+.adminNavbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10vw;
+}
+.adminNavbar h1:active{
+    color: aquamarine;
+}
+.adminNavbar ul li p{
+    color: #1e1e1e;
+    z-index: 2;
+}

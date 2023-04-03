@@ -1,0 +1,245 @@
+.loginbody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15vw;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+}
+.loginimages{
+    width: 20vw;
+    height: 55vh;
+}
+.loginimages img{
+    width: 100%;
+    height: 100%;
+}
+.loginform{
+    background-color: #1f1f1f;
+    box-shadow: 3px 3px 3px white;
+    color: white;
+    width: 20%;
+    height: auto;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5%;
+}
+.loginform input{
+    width: 100%;
+    height: 6vh;
+    margin-bottom: 1vh;
+    border-radius: 5px;
+}
+.loginform .login{
+    width: 100%;
+}
+.check{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    margin: 6%;
+}
+.check input{
+    width: 20px;
+    height: 20px;
+}
+.loginform span{
+    display: flex;
+    justify-content: center;
+    margin: 4%;
+}
+.loginHeader{
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+}
+.thirdLevel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+}
+.loginform .loginB{
+    width: 20vw;
+    border-radius: 15px;
+}
+.guestB{
+    width: 20vw;
+    border-radius: 15px;
+    height: 50px;
+    color:white;
+   background: rgb(226,110,45);
+   background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
+}
+.googleButton{
+    width: 20vw;
+}
+.loginform span p{
+    color: orange;
+}
+
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .loginbody{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15vw;
+        margin-top: 6vh;
+        margin-bottom: 8vh;
+    }
+    .loginimages{
+        display: none;
+    }
+    .login .signUpB{
+        display: none;
+    }
+    .login .loginB{
+        width: 65vw;
+    }
+    .loginform{
+        background-color: #1f1f1f;
+        box-shadow: 3px 3px 3px white;
+        color: white;
+        width: 80%;
+        height: 62vh;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5%;
+    }
+    .loginform span p{
+        color: orange;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .input input{
+        width: 100%;
+        margin-right:2vw ;
+    }
+    .check{
+        width: 100%;
+        margin-right:2vw;
+    }
+    .check h5{
+        width:25vw;
+    }
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    .loginbody{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15vw;
+        margin-top: 8vh;
+        margin-bottom: 8vh;
+    }
+    .loginimages{
+        display: none;
+    }
+    
+    .login .loginB{
+        width: 65vw;
+    }
+    .loginform{
+        background-color: #1f1f1f;
+        box-shadow: 3px 3px 3px white;
+        color: white;
+        width: 80%;
+        height: 62vh;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5%;
+    }
+    .loginform span p{
+        color: orange;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .input input{
+        width: 100%;
+        margin-right:2vw ;
+    }
+    .check{
+        width: 100%;
+        margin-right:2vw;
+    }
+    .check h5{
+        width:25vw;
+    }
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .loginbody{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15vw;
+        margin-top: 8vh;
+        margin-bottom: 8vh;
+    }
+    .loginimages{
+        display: none;
+    }
+    
+    .login .loginB{
+        width: 65vw;
+    }
+    .loginform{
+        background-color: #1f1f1f;
+        box-shadow: 3px 3px 3px white;
+        color: white;
+        width: 80%;
+        height: 62vh;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5%;
+    }
+    .loginform span p{
+        color: orange;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .input input{
+        width: 100%;
+        margin-right:2vw ;
+    }
+    .check{
+        width: 100%;
+        margin-right:2vw;
+    }
+    .check h5{
+        width:25vw;
+    }
+  }
+  

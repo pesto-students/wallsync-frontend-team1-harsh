@@ -1,0 +1,26 @@
+.reportform{
+    display:flex;
+    flex-direction: column;
+    padding: 2%;
+    background-color: #1e1e1e;
+    color: white;
+}
+.reportform input{
+    padding:1%;
+    border-radius: 10px;
+    width: 15em;
+    height: 2em;
+}
+.reportform textarea{
+    padding:1%;
+    border-radius: 10px;
+    margin-bottom: 2%;
+    height: 7em;
+}
+.sendB{
+    width: 150px;
+    height: 50px;
+    color:white;
+    background: rgb(224, 154, 113);
+    background: linear-gradient(0deg, rgb(107, 48, 13) 0%, rgba(214,86,58,1) 100%);
+}

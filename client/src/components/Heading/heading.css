@@ -1,0 +1,8 @@
+.headingText{
+    background-color: black;
+    width: max-content;
+    color: white;
+    text-align: center;
+    padding: 2%;
+    font-weight: 500;
+}

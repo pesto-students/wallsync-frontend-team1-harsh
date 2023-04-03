@@ -1,0 +1,36 @@
+.expLineChart {
+  background-color: #000000;
+  width: 70%;
+  height: 50vh;
+  border: 0.2em solid white;
+  padding: 2%;
+}
+.lineChart {
+  width: 100%;
+}
+
+/* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .expLineChart {
+    width: 80vw;
+    height: 20vh;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+  }
+}
+
+/* Styles for screens between 480px and 768px (e.g. iPad) */
+@media (min-width: 480px) and (max-width: 768px) {
+  .expLineChart {
+    width: 70vw;
+    height: 20vh;
+  }
+}
+
+/* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+@media (min-width: 768px) and (max-width: 992px) {
+  .expLineChart {
+    width: 70vw;
+    height: 20vh;
+  }
+}

@@ -1,0 +1,77 @@
+.footer {
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.footer_links {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12vw;
+}
+.footer_links span{
+  margin-left: 2vw;
+}
+
+.footer_icons {
+  margin: 1%;
+}
+.MuiSvgIcon-root {
+  margin-right: 5px;
+}
+.footerLine {
+  margin-top: 3vh;
+}
+
+/* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .footer_links {
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.8rem;
+    gap: 2vw;
+  }
+  .footer {
+    height: 6vh;
+    width: 100%;
+    display: none;
+  }
+}
+
+/* Styles for screens between 480px and 768px (e.g. iPad) */
+@media (min-width: 480px) and (max-width: 768px) {
+  .footer_links {
+    display: flex;
+    font-size: 0.8rem;
+    gap: 5vw;
+  }
+  .footer {
+    height: 6vh;
+  }
+  hr.footerLine {
+    height: 0;
+  }
+  .footerLine {
+    position: fixed;
+    width: 95%;
+    margin-left: 2.5vw;
+    margin-top: 15vh;
+  }
+}
+
+/* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+@media (min-width: 768px) and (max-width: 992px) {
+  .footerLine {
+    position: fixed;
+    width: 95%;
+    margin-left: 2.5vw;
+    margin-top: 15vh;
+  }
+  hr.footerLine {
+    height: 0;
+  }
+}

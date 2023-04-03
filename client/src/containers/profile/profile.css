@@ -1,0 +1,165 @@
+.profileBody{
+    display:flex;
+    justify-content: space-between;
+}
+.profilePreviewImg{
+    width: 12em;
+    height:10em;
+}
+.profileDashBoard{
+    width:87%;
+    background-color: #1e1e1e;
+    border-radius: 25px 0 0 25px;
+    height:80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5%;
+}
+.profileDashBoard .editDp{
+    width: 12em;
+    height:10em;
+    margin-top: 2%;
+    margin-left: 10%;
+    border-radius: 50%;
+    margin-bottom: 5vh;
+}
+.profileDashBoard .MuiSvgIcon-root{
+    width: 10em;
+    height:8em;
+}
+
+.profileForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:3vh;
+}
+.profileForm input{
+    height: 5vh;
+    width: 20vw;
+    border-radius: 10px;
+    padding-left: 1vw;
+}
+.profileForm ::placeholder {
+    color: #1f1f1f;
+    font-size: larger;
+  }
+.profileEditImg{
+    padding-left: 5%;
+    width:25em;
+    height: 20em;
+}
+.handleImageUpload{
+    width: 150px;
+    height: 50px;
+    color:white;
+    margin-top:2vh;
+    background: rgb(226,110,45);
+    background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
+}
+.updateB{
+    width: 150px;
+    height: 50px;
+    color:white;
+    background: rgb(226,110,45);
+    background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%);
+}
+.changeDp{
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+    align-items:center;
+}
+
+  /* Styles for screens between 320px and 480px (e.g. Google Pixel 4) */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .profileBody{
+        display:flex;
+        justify-content: space-evenly;
+    }
+    .profileDashBoard{
+        width:90vw;
+        background-color: #1e1e1e;
+        border-radius: 25px;
+        height:70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap:1vh;
+    }
+    .profileDashBoard .MuiSvgIcon-root{
+        width: 30vw;
+        height:15vh;
+    }
+    
+    .profileForm{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:2vh;
+    }
+    .profileForm input{
+        height: 4vh;
+        width: 50vw;
+        border-radius: 10px;
+        padding-left: 1vw;
+    }
+    .profileEditImg{
+        display: none;
+    }
+    .profileFooter{
+        display: none;
+    }
+  }
+  
+  /* Styles for screens between 480px and 768px (e.g. iPad) */
+  @media (min-width: 480px) and (max-width: 768px) {
+    .profileEditImg{
+        display: none;
+    }
+    .profileForm input{
+        height: 4vh;
+        width: 35vw;
+        border-radius: 10px;
+        padding-left: 1vw;
+    }
+    .profileDashBoard{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap:1vw;
+    }
+    .profileDashBoard .MuiSvgIcon-root{
+        width: 25vw;
+        height:20vh;
+        margin-left: 5vw;
+    }
+    
+  }
+  
+  /* Styles for screens between 768px and 992px (e.g. MacBook Pro) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .profileEditImg{
+        display: none;
+    }
+    .profileForm input{
+        height: 4vh;
+        width: 35vw;
+        border-radius: 10px;
+    }
+    .profileDashBoard{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap:1vw;
+
+    }
+    .profileDashBoard .MuiSvgIcon-root{
+        width: 25vw;
+        height:20vh;
+        margin-left: 5vw;
+    }
+  }
+  

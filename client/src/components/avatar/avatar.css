@@ -1,0 +1,51 @@
+.profileInfo input{
+    margin: 5%;
+}
+.RenderedPP{
+  border-radius: 50%;
+}
+.dropicon {
+    position: relative;
+    width: max-content;
+    color: white;
+    margin-left: 45%;
+    font-size: small;
+  }
+  
+  .dropicon .MuiSvgIcon-root{
+    width:8vw ;
+    height:8vh ;
+  }
+  .dropicon .options {
+    padding: 15%; 
+    display: none;
+    background-color: gray;
+    border-radius: 5px;
+  }
+  
+  .dropicon span {
+    cursor: pointer;
+    color: rgb(20, 20, 20);
+    font-size: 1.5em;
+    
+  }
+  
+  .dropicon:hover .options {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .dropicon .options span:hover{
+    font-size: 1.75em;
+    color: white;
+    transition: font-size 0.3s;
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+      .RenderedPP{
+        margin-left: -10vw;
+      }
+  }
