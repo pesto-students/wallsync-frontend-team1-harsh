@@ -25,15 +25,35 @@ const Login = () => {
 			[e.target.name]: e.target.value,
 		});
 	};
-	const handleSubmit = (e) => {
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
+
+	// 	dispatch(login(userInfo));
+	// 	notify();
+	// 	navigate("/home");
+	// };
+	// const notify = () => {
+	// 	toast("Successful login!");
+	// };
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		dispatch(login(userInfo));
-		notify();
-		navigate("/home");
+		try {
+			await dispatch(login(userInfo));
+			notify(true);
+			navigate("/home");
+		} catch (error) {
+			notify(false);
+		}
 	};
-	const notify = () => {
-		toast("Successful login!");
+
+	const notify = (success) => {
+		if (success) {
+			toast("Successful login!");
+		} else {
+			// You can customize the error message here
+			toast.error("Login failed");
+		}
 	};
 
 	return (
