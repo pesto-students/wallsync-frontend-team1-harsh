@@ -23,11 +23,11 @@ const Login = () => {
 		password: process.env.REACT_APP_guestPassword,
 	};
 	let loggedIn = userData.isSignedIn;
-	useEffect(() => {
-		if (loggedIn) {
-			notify();
-		}
-	}, [loggedIn]);
+	// useEffect(() => {
+	// 	if (loggedIn) {
+	// 		notify();
+	// 	}
+	// }, [loggedIn]);
 	const handleChange = (e) => {
 		setUserInfo({
 			...userInfo,
@@ -38,7 +38,13 @@ const Login = () => {
 		e.preventDefault();
 
 		dispatch(login(userInfo));
-		navigate("/home");
+		navigate("/home")
+			.then(() => {
+				notify();
+			})
+			.catch((err) => {
+				toast.error("Login failed");
+			});
 	};
 	const notify = () => {
 		toast("Successful login!");
