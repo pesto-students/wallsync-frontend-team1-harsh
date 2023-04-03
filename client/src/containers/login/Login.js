@@ -23,7 +23,7 @@ const Login = () => {
 		if (loggedIn) {
 			notify();
 		}
-	}, []);
+	}, [loggedIn]);
 	const handleChange = (e) => {
 		setUserInfo({
 			...userInfo,
