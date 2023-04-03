@@ -36,7 +36,9 @@ const Login = () => {
 		setLoading(true);
 		try {
 			dispatch(login(userInfo));
-			navigate("/home");
+			const home = "/home";
+
+			navigate(home ? home : <SimpleBackdrop open={loading} />);
 			notify();
 		} catch (err) {
 			toast.error("Login failed");
@@ -121,7 +123,6 @@ const Login = () => {
 			</div>
 
 			<Footer />
-			<SimpleBackdrop open={loading} />
 		</div>
 	);
 };
