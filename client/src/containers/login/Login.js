@@ -99,7 +99,11 @@ const Login = () => {
 							/>
 							<span>Or</span>
 							{/* <Google className="googleButton" /> */}
-							<Button buttonName="Guest Login" onClick={handleGuestLogin} />
+							<Button
+								className="guestB"
+								buttonName="Guest Login"
+								onClick={handleGuestLogin}
+							/>
 							<span>
 								Need an account?
 								<Link to="/signup">

@@ -67,6 +67,13 @@
     width: 20vw;
     border-radius: 15px;
 }
+.guestB{
+    width: 20vw;
+    border-radius: 15px;
+    color:white;
+   background: rgb(226,110,45);
+   background: linear-gradient(0deg, rgba(226,110,45,1) 0%, rgba(214,86,58,1) 100%); 
+}
 .googleButton{
     width: 20vw;
 }
