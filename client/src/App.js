@@ -46,7 +46,12 @@ const App = () => {
 		},
 		{
 			path: "/home",
-			element: user ? <Home /> : <Navigate to="/" />,
+			element:
+				user !== null || user !== "User does not exist" ? (
+					<Home />
+				) : (
+					<Navigate to="/" />
+				),
 		},
 
 		{
@@ -65,7 +70,7 @@ const App = () => {
 		},
 		{
 			path: "/whatsNew",
-			element: <WhatsNew/>,
+			element: <WhatsNew />,
 		},
 		{
 			path: "/profile",
