@@ -42,21 +42,11 @@ const App = () => {
 		},
 		{
 			path: "/login",
-			element:
-				!user || user !== "User does not exist" ? (
-					<Login />
-				) : (
-					<Navigate to="/home" />
-				),
+			element: !user ? <Login /> : <Navigate to="/home" />,
 		},
 		{
 			path: "/home",
-			element:
-				user !== null || user !== "User does not exist" ? (
-					<Home />
-				) : (
-					<Navigate to="/" />
-				),
+			element: user ? <Home /> : <Navigate to="/" />,
 		},
 
 		{
