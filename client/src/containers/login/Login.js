@@ -40,8 +40,10 @@ const Login = () => {
 			notify();
 		} catch (err) {
 			toast.error("Login failed");
+		} finally {
+			setLoading(false);
+			notify();
 		}
-		setLoading(false);
 	};
 	const notify = () => {
 		toast("Successful login!");
