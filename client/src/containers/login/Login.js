@@ -10,6 +10,7 @@ import LandingHeader from "../../components/header/LangingHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SimpleBackdrop from "./components/SimpleBackdrop";
 const Login = () => {
 	const userData = useSelector((state) => state.authentication);
 	const navigate = useNavigate();
@@ -22,12 +23,7 @@ const Login = () => {
 		email: "pesto@project.com",
 		password: process.env.REACT_APP_guestPassword,
 	};
-	let loggedIn = userData.isSignedIn;
-	// useEffect(() => {
-	// 	if (loggedIn) {
-	// 		notify();
-	// 	}
-	// }, [loggedIn]);
+
 	const handleChange = (e) => {
 		setUserInfo({
 			...userInfo,
@@ -38,7 +34,8 @@ const Login = () => {
 		e.preventDefault();
 
 		dispatch(login(userInfo));
-		navigate("/home")
+		const home = "/home";
+		navigate(home ? home : <SimpleBackdrop />)
 			.then(() => {
 				notify();
 			})
